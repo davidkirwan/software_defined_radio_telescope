@@ -79,31 +79,71 @@ contain at least 70 and at most 150 words. It should be written using the
 %\addcontentsline{toc}{section}{Introduction}
 \subsection{Background}
 %\addcontentsline{toc}{subsection}{Background}
-I use the AsyncTask in order to make a REST call \cite[p.~215]{Xarticle} to the Pacemaker HTTP API, on a separate thread than the main UI thread. When the network operation is complete the synchronous side of the AsyncTask incorporates the Mediator pattern as it informs the main PacemakerActivity.set\_json(json) with the response from the asynchronous part of the operation. \citep*{goossens93}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.  \citep*{goossens93}
 %
 \newpage
 %
 \subsection{Research Problem Statement}
 %\addcontentsline{toc}{subsection}{Research Problem Statement}
-Json txt returned from the API rest call, is parsed into a Ruby Hash data structure. The iterator and composite patterns are used within the application, in order to traverse through the Pacemaker Users data structure, and perform an operation. Such as the calculation of distance for all activities for a particular user.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit. 
 %
 \newpage
 %
 \subsection{Motivations}
 %\addcontentsline{toc}{subsection}{Motivations}
-The application contains a background service which registers the application to receive network change events. When the Android device connects to a network, or mobile broadband, the operating system kicks off a broadcast event which is received then by the WifiReceiver BroadcastReceiver. The receiver class initiates a simple message being displayed on the main UI thread by way of a Toast message indicating whether it is a WIFI or Mobile broadband connection. The chain of responsibility pattern is used here, the OS gives the opportunity for more than one subsystem to handle a particular event in the system. While removing the costs associated with this notification.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
 %
 \newpage
 %
 \subsection{Research Objectives}
 %\addcontentsline{toc}{subsection}{Research Objectives}
-I have implemented a simple OnClickListener class which calls a function when activated. This class is an adapter between the Ruboto framework and the underlying Android OS. It allows a Ruby method within the Pacemaker Activity class to conform to the Android View.OnClickListener interface and then be executed when an end user touches a button in the UI.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
 %
 \newpage
 %
 \subsection{Conclusions}
 %\addcontentsline{toc}{subsection}{Facade}
-The facade pattern is used to provide an interface between the UI and the rest of the application. In the Ruboto framework, they recommend an antipattern approach of developing the UI inside the Activity controller, it is optional however as it does provide the means to use the existing Android XML UI files.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
 %
 \newpage
 %
@@ -115,21 +155,71 @@ Something\hfill 00346128\\
 dkirwan@tssg.org
 \end{flushright}
 %
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
+%
 \newpage
 %
 \section{Section Three}
+%
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
 %
 \newpage
 %
 \section{Section Four}
 %
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
+%
 \newpage
 %
 \section{Section Five}
 %
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
+%
 \newpage
 %
 \section{Section Six}
+%
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
 %
 \newpage
 %
@@ -144,7 +234,16 @@ Here is some content in the appendix
 
 \begin{subappendices}
 \subsection{How I became inspired}
-...
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam id augue eget tortor cursus rutrum. Nulla at pretium nisi. Integer vitae arcu quam. Sed vestibulum, nunc ac sollicitudin venenatis, orci justo aliquam libero, eget tincidunt felis turpis eu ligula. Phasellus diam orci, accumsan non elementum eu, volutpat non enim. Phasellus pulvinar lacus ut nunc pulvinar suscipit.
+
+Maecenas vulputate felis eget neque pulvinar efficitur. Etiam eleifend felis quis ullamcorper fringilla. Nunc pharetra turpis nisl, feugiat mollis dolor fringilla eget. Aliquam sed augue turpis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc ac eros dapibus, vestibulum odio in, semper tellus. Morbi non mi quam. Vivamus mauris orci, laoreet eu feugiat et, vehicula efficitur metus. Mauris id suscipit ex. In ac leo tristique, venenatis tortor at, tristique metus. Proin posuere dolor nec dignissim interdum. Cras facilisis erat nulla, non auctor dolor porta ut. Phasellus a congue tellus, a elementum sem. Morbi maximus vitae arcu nec dictum.
+
+Ut maximus velit nec nibh aliquet, eu aliquet leo tincidunt. Fusce egestas sit amet dui nec vestibulum. Vivamus tempus purus ex, a elementum orci blandit nec. Sed placerat leo ac sapien gravida, in malesuada dolor elementum. Vivamus faucibus gravida tellus ut dignissim. Sed non turpis ac lorem faucibus congue eu sit amet libero. Ut sit amet massa in libero facilisis tristique ac sit amet purus.
+
+Nam et nulla ut turpis euismod volutpat vel nec nisl. Cras in tortor in tellus venenatis vehicula ut non magna. Nulla vitae convallis libero. Sed vulputate odio vitae rutrum tempus. Donec quis ligula nunc. Cras eget orci sed enim sagittis fringilla. Donec sit amet molestie dolor, ac finibus velit.
+%
 \end{subappendices}
 
 \end{document}
