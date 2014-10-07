@@ -1,0 +1,152 @@
+\documentclass[runningheads,a4paper]{llncs}
+%
+\usepackage{natbib} % bibliography stuff
+%
+\usepackage{graphicx} % allows for working with images
+\DeclareGraphicsExtensions{.pdf,.png,.jpeg} % configures latex to look for the following image extensions
+%
+\usepackage{setspace} % allows for configuring the linespacing in the document
+%\singlespacing
+\onehalfspacing
+%\doublespacing
+%
+\usepackage{appendix}
+%
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+
+\usepackage{url}
+\urldef{\mailsa}\path|dkirwan@tssg.org|
+\newcommand{\keywords}[1]{\par\addvspace\baselineskip
+\noindent\keywordname\enspace\ignorespaces#1}
+
+\begin{document}
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{Amateur Radio Astronomy:\\
+with Software Defined Radio}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Amateur Radio Astronomy with Software Defined Radio}
+
+% the name(s) of the author(s) follow(s) next
+%
+% NB: Chinese authors should write their first names(s) in front of
+% their surnames. This ensures that the names appear correctly in
+% the running heads and the author index.
+%
+\author{David Kirwan%
+%\thanks{Please note that the LNCS Editorial assumes that all authors have used
+%the western naming convention, with given names preceding surnames. This determines
+%the structure of the names in the running heads and the author index.}%
+\and Alan Davy\and John Ronan}
+%
+\authorrunning{Amateur Radio Astronomy with Software Defined Radio}
+% (feature abused for this document to repeat the title also on left hand pages)
+
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+\institute{Waterford Institute of Technology,\\Dept of Maths and Physics,\\
+Cork Rd, Waterford City, Ireland\\
+\mailsa\\
+\url{http://www.wit.ie}}
+
+%
+% NB: a more complex sample for affiliations and the mapping to the
+% corresponding authors can be found in the file "llncs.dem"
+% (search for the string "\mainmatter" where a contribution starts).
+% "llncs.dem" accompanies the document class "llncs.cls".
+%
+
+\toctitle{Amateur Radio Astronomy with Software Defined Radio}
+\tocauthor{Amateur Radio Astronomy with Software Defined Radio}
+\maketitle
+
+
+\begin{abstract}
+The abstract should summarize the contents of the paper and should
+contain at least 70 and at most 150 words. It should be written using the
+\emph{abstract} environment.
+\keywords{radio astronomy, software defined networking, signal processing}
+\end{abstract}
+
+%
+%\chapter{Introduction}
+%\addcontentsline{toc}{chapter}{Introduction}
+%
+\section{Introduction}
+%\addcontentsline{toc}{section}{Introduction}
+\subsection{Background}
+%\addcontentsline{toc}{subsection}{Background}
+I use the AsyncTask in order to make a REST call \cite[p.~215]{Xarticle} to the Pacemaker HTTP API, on a separate thread than the main UI thread. When the network operation is complete the synchronous side of the AsyncTask incorporates the Mediator pattern as it informs the main PacemakerActivity.set\_json(json) with the response from the asynchronous part of the operation. \citep*{goossens93}
+%
+\newpage
+%
+\subsection{Research Problem Statement}
+%\addcontentsline{toc}{subsection}{Research Problem Statement}
+Json txt returned from the API rest call, is parsed into a Ruby Hash data structure. The iterator and composite patterns are used within the application, in order to traverse through the Pacemaker Users data structure, and perform an operation. Such as the calculation of distance for all activities for a particular user.
+%
+\newpage
+%
+\subsection{Motivations}
+%\addcontentsline{toc}{subsection}{Motivations}
+The application contains a background service which registers the application to receive network change events. When the Android device connects to a network, or mobile broadband, the operating system kicks off a broadcast event which is received then by the WifiReceiver BroadcastReceiver. The receiver class initiates a simple message being displayed on the main UI thread by way of a Toast message indicating whether it is a WIFI or Mobile broadband connection. The chain of responsibility pattern is used here, the OS gives the opportunity for more than one subsystem to handle a particular event in the system. While removing the costs associated with this notification.
+%
+\newpage
+%
+\subsection{Research Objectives}
+%\addcontentsline{toc}{subsection}{Research Objectives}
+I have implemented a simple OnClickListener class which calls a function when activated. This class is an adapter between the Ruboto framework and the underlying Android OS. It allows a Ruby method within the Pacemaker Activity class to conform to the Android View.OnClickListener interface and then be executed when an end user touches a button in the UI.
+%
+\newpage
+%
+\subsection{Conclusions}
+%\addcontentsline{toc}{subsection}{Facade}
+The facade pattern is used to provide an interface between the UI and the rest of the application. In the Ruboto framework, they recommend an antipattern approach of developing the UI inside the Activity controller, it is optional however as it does provide the means to use the existing Android XML UI files.
+%
+\newpage
+%
+\section{Section Two}
+\vspace{1cm}
+\begin{flushright}\noindent
+September 2014\hfill David Kirwan\\
+Something\hfill 00346128\\
+dkirwan@tssg.org
+\end{flushright}
+%
+\newpage
+%
+\section{Section Three}
+%
+\newpage
+%
+\section{Section Four}
+%
+\newpage
+%
+\section{Section Five}
+%
+\newpage
+%
+\section{Section Six}
+%
+\newpage
+%
+\bibliographystyle{plainnat}
+\bibliography{bibliography/bibtex}
+%
+\newpage
+%
+\appendix
+\section{Testing McTest}
+Here is some content in the appendix
+
+\begin{subappendices}
+\subsection{How I became inspired}
+...
+\end{subappendices}
+
+\end{document}
+
+
