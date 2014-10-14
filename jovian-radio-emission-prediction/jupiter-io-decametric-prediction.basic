@@ -1,0 +1,79 @@
+'http://www.spaceacademy.net.au/spacelab/projects/jovrad/jovrad.htm
+'Program to flag Jovian Decametric windows
+
+ m$ = "JANFEBMARAPRMAYJUNJULAUGSEPOCTNOVDEC"
+ wi = 42.46 / 360
+ pi = 3.141593
+ kr = pi / 180
+ f$ = "###  \ \ ##   ##.#     ###      ###    ##.##     \  \"
+ OPEN "jovrad.txt" FOR OUTPUT AS #1
+ INPUT "Year for which predictions are required"; yy
+ e = INT((yy - 1) / 100)
+ f = 2 - e + INT(e / 4)
+ jd = INT(365.25 * (yy - 1)) + 1721423 + f + .5
+ d0 = jd - 2435108
+ incr = 0
+ IF yy / 400 - INT(yy / 400) = 0 THEN incr = 1
+ yyly = yy / 4 - INT(yy / 4)
+ yylc = yy / 100 - INT(yy / 100)
+ IF yyly = 0 AND yylc <> 0 THEN incr = 1
+ ty = 59 + incr
+ dmax = 365 + incr
+ tx = ty + .5
+ PRINT #1, "******************************************************"
+ PRINT #1, "  JOVIAN IO-DECAMETRIC EMISSION PREDICTIONS FOR"; yy
+ PRINT #1, "******************************************************"
+ PRINT #1,
+ PRINT #1, "Day   Date   Hr(UT)  Io_Phase   CML   Dist(AU)  Source"
+ PRINT #1,
+ th = 0
+ DO
+   GOSUB Compute
+   s$ = ""
+   IF L3 < 255 AND L3 > 200 AND U1 < 250 AND U1 > 220 THEN s$ = "Io-A"
+   IF L3 < 180 AND L3 > 105 AND U1 < 100 AND U1 > 80 THEN s$ = "Io-B"
+   IF L3 < 350 AND L3 > 300 AND U1 < 250 AND U1 > 230 THEN s$ = "Io-C"
+   IF s$ <> "" THEN GOSUB Outdat
+   th = th + .5
+ LOOP UNTIL INT(th / 24) + 1 > dmax
+ PRINT "Program completed - results in file JOVRAD.TXT"
+ END
+
+Compute:
+ d = d0 + th / 24
+ v = (157.0456 + .0011159# * d) MOD 360
+ m = (357.2148 + .9856003# * d) MOD 360
+ n = (94.3455 + .0830853# * d + .33 * SIN(kr * v)) MOD 360
+ j = (351.4266 + .9025179# * d - .33 * SIN(kr * v)) MOD 360
+ a = 1.916 * SIN(kr * m) + .02 * SIN(kr * 2 * m)
+ b = 5.552 * SIN(kr * n) + .167 * SIN(kr * 2 * n)
+ k = j + a - b
+ r = 1.00014 - .01672 * COS(kr * m) - .00014 * COS(kr * 2 * m)
+ re = 5.20867 - .25192 * COS(kr * n) - .0061 * COS(kr * 2 * n)
+ dt = SQR(re * re + r * r - 2 * re * r * COS(kr * k))
+ sp = r * SIN(kr * k) / dt
+ ps = sp / .017452
+ dl = d - dt / 173
+ pb = ps - b
+ xi = 150.4529 * INT(dl) + 870.4529 * (dl - INT(dl))
+ L3 = (274.319 + pb + xi + .01016 * 51) MOD 360
+ U1 = 101.5265 + 203.405863# * dl + pb
+ U2 = 67.81114 + 101.291632# * dl + pb
+ z = (2 * (U1 - U2)) MOD 360
+ U1 = U1 + .472 * SIN(kr * z)
+ U1 = (U1 + 180) MOD 360
+RETURN
+
+Outdat:
+ dy = INT(th / 24) + 1
+ h = th - (dy - 1) * 24
+ IF dy > ty THEN
+   m = INT((dy - tx) / 30.6) + 3
+   da = dy - ty - INT((m - 3) * 30.6 + .5)
+ ELSE
+   m = INT((dy - 1) / 31) + 1
+   da = dy - (m - 1) * 31
+ END IF
+ mn$ = MID$(m$, (m - 1) * 3 + 1, 3)
+ PRINT #1, USING f$; dy; mn$; da; h; U1; L3; dt; s$
+RETURN
