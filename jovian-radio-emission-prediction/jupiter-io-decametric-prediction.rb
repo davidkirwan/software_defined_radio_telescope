@@ -54,14 +54,20 @@ def outdat(th, ty, tx, u1, l3, dt, s, months)
   mn = months[m-1]
   
   #PRINT #1, USING f$; dy; mn$; da; h; U1; L3; dt; s$
-  puts "#{dy}\t#{mn}\t#{da}\t#{h}\t#{u1}\t#{l3}\t#{dt}\t#{s}"
+  return "#{dy}\t#{mn} #{da}\t#{h}\t#{u1.round(2)}\t  #{l3.round(2)}  \t#{dt.round(2)}\t\t#{s}"
 end
 
 
+###################################################################################################
+
 target_year = 2014
 
-
-#f = File.open("output.txt", "w")
+puts <<-WELCOME
+###################################################################
+    JOVIAN IO-DECAMETRIC EMISSION PREDICTIONS FOR #{target_year}
+###################################################################
+Day\tDate\tHr(UT)\tIo_Phase  CML\t\tDist(AU)\tSource
+WELCOME
 
 months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
@@ -69,17 +75,9 @@ pi = Math::PI
 kr = pi / 180
 
 e = ((target_year - 1) / 100)
-puts e
-
 f = 2 - e + (e / 4)
-puts f
-
 jd = (365.25 * (target_year - 1)).to_i + 1721423 + f + 0.5
-puts jd
-
 d0 = jd - 2435108
-puts d0
-
 incr = 0
 
 if Date.leap?(target_year)
@@ -87,14 +85,8 @@ if Date.leap?(target_year)
 end
 
 ty = 59 + incr
-puts ty
-
 dmax = 365 + incr
-puts dmax
-
 tx = ty + 0.5
-puts tx
-
 th = 0
 
 while (th / 24).to_i + 1 <= dmax
@@ -103,11 +95,10 @@ while (th / 24).to_i + 1 <= dmax
   if l3 < 255 and l3 > 200 and u1 < 250 and u1 > 220 then s = "Io-A"; end
   if l3 < 180 and l3 > 105 and u1 < 100 and u1 > 80 then s = "Io-B"; end
   if l3 < 350 and l3 > 300 and u1 < 250 and u1 > 230 then s = "Io-C"; end
-
+  
   result = outdat(th, ty, tx, u1, l3, dt, s, months)
+  unless s == "" then puts result; end
   
   th += 0.5
 end
 
-
-#f.close
