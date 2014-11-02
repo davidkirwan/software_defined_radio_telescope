@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex david_kirwan_00346128_dissertation"] 1412328642 "david_kirwan_00346128_dissertation.aux" "david_kirwan_00346128_dissertation.bbl" "david_kirwan_00346128_dissertation" 1412328695
+["bibtex david_kirwan_00346128_dissertation"] 1413799043 "david_kirwan_00346128_dissertation.aux" "david_kirwan_00346128_dissertation.bbl" "david_kirwan_00346128_dissertation" 1413799044
   "/usr/share/texlive/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "bibtex.bib" 1412024937 2252 2daae1ca5374d2bc6ddb2b2827c6a375 ""
-  "david_kirwan_00346128_dissertation.aux" 1412328695 1469 33f180128ebbbdf5e0d441839d5cf97c ""
+  "bibliography/bibtex.bib" 1412698642 2252 2daae1ca5374d2bc6ddb2b2827c6a375 ""
+  "david_kirwan_00346128_dissertation.aux" 1413799044 1339 ee45b4d51503899d504355fad20a6e83 ""
   "david_kirwan_00346128_dissertation.bcf" 0 -1 0 ""
   (generated)
   "david_kirwan_00346128_dissertation.blg"
   "david_kirwan_00346128_dissertation.bbl"
-["pdflatex"] 1412328695 "david_kirwan_00346128_dissertation.tex" "david_kirwan_00346128_dissertation.pdf" "david_kirwan_00346128_dissertation" 1412328695
+["pdflatex"] 1413799043 "david_kirwan_00346128_dissertation.tex" "david_kirwan_00346128_dissertation.pdf" "david_kirwan_00346128_dissertation" 1413799044
   "/etc/texmf/web2c/texmf.cnf" 1398958069 1101 af7716885e081ab43982cab7b4672c1a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
@@ -75,12 +75,12 @@
   "/usr/share/texmf/web2c/texmf.cnf" 1392645748 31083 1dfd8bf685ce0009c40532fedf8a7c53 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1409841048 83151 33d10a36107f260e985ad55d55b34171 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1409841053 2450404 548f6ddc031579b6a1b3b5c7003f468b ""
-  "david_kirwan_00346128_dissertation.aux" 1412328695 1469 33f180128ebbbdf5e0d441839d5cf97c ""
-  "david_kirwan_00346128_dissertation.bbl" 1412328642 694 a3cd52a5dd063ed9b7c9d2c2fd2ba997 "bibtex david_kirwan_00346128_dissertation"
-  "david_kirwan_00346128_dissertation.tex" 1412328695 5749 c8663f9bef8eed75a3ea3031b8d758cf ""
+  "david_kirwan_00346128_dissertation.aux" 1413799044 1339 ee45b4d51503899d504355fad20a6e83 ""
+  "david_kirwan_00346128_dissertation.bbl" 1413799043 505 a91108db3e79b05727eace5036c4a40c "bibtex david_kirwan_00346128_dissertation"
+  "david_kirwan_00346128_dissertation.tex" 1413799043 28773 f6c16846b45ffe9c3b9d222e534de87e ""
   "llncs.cls" 1411980226 42849 e98f9316a296920ae82de0017d2b1604 ""
   (generated)
   "david_kirwan_00346128_dissertation.toc"
+  "david_kirwan_00346128_dissertation.aux"
   "david_kirwan_00346128_dissertation.pdf"
   "david_kirwan_00346128_dissertation.log"
-  "david_kirwan_00346128_dissertation.aux"
