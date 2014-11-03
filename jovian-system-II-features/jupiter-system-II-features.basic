@@ -1,0 +1,112 @@
+    REM *******************
+    REM *** FEATURE.BAS ***
+    REM *******************
+    REM
+    REM  Modified from July 1993 Issue of Astronomy page 65
+    REM  Dan Bruton, Texas A&M University (email : astro@tamu.edu)
+    REM  This program computes the transit times of system II features
+    REM  on Jupiter for any month.  Universal Times of transit are given.
+    REM
+    DEFDBL A-Z
+    ZONE = 0
+    CLS : PRINT : PRINT
+    PRINT "This program computes the transit times of system II features"
+    PRINT "on Jupiter for any month.  Universal Times of transit are given."
+    PRINT : INPUT " System II Longitude of Feature (0-360) : ", LON
+    PRINT : INPUT "                           Month (1-12) : ", MONTH
+    PRINT : INPUT "                                   Year : ", YEAR
+    PRINT : INPUT "Output Filename (Default -> FEATURE.DAT): ", N$
+    IF N$ = "" THEN N$ = "FEATURE.DAT"
+    '
+    IF MONTH = 1 THEN MON$ = "Jan": LDAY = 31
+    IF MONTH = 2 THEN MON$ = "Feb": LDAY = 28
+    IF MONTH = 3 THEN MON$ = "Mar": LDAY = 31
+    IF MONTH = 4 THEN MON$ = "Apr": LDAY = 30
+    IF MONTH = 5 THEN MON$ = "May": LDAY = 31
+    IF MONTH = 6 THEN MON$ = "Jun": LDAY = 30
+    IF MONTH = 7 THEN MON$ = "Jul": LDAY = 31
+    IF MONTH = 8 THEN MON$ = "Aug": LDAY = 31
+    IF MONTH = 9 THEN MON$ = "Sep": LDAY = 30
+    IF MONTH = 10 THEN MON$ = "Oct": LDAY = 31
+    IF MONTH = 11 THEN MON$ = "Nov": LDAY = 30
+    IF MONTH = 12 THEN MON$ = "Dec": LDAY = 31
+    '      
+    OPEN N$ FOR OUTPUT AS #1
+    PRINT USING "System II Longitude ###.#!"; LON; CHR$(248)
+    PRINT "Transit Times": PRINT
+    PRINT " Month  Day  UT"
+    PRINT #1, USING "System II Longitude ###.#!"; LON; CHR$(248)
+    PRINT #1, "Transit Times": PRINT #1,
+    PRINT #1, " Month  Day  UT"
+    FOR NDAY = 1 TO LDAY
+    DAY = NDAY
+    DAY = DAY + ZONE / 24 + 1 / 1440
+    IF MONTH < 3 THEN YEAR = YEAR - 1: MONTH = MONTH + 12
+    A = INT(YEAR / 100): B = 2 - A + INT(A / 4)
+    JD = INT(365.25 * YEAR) + INT(30.6001 * (MONTH + 1))
+    JD = JD + DAY + 1720994.5# + B
+    DAYS = JD - 2451545!: CEN = DAYS / 36525!
+    RTD = 57.29578
+    REM  Calculate orbit of Jupiter
+    PP = 11.8567785#: PI = 1.3053 - 4.15 / 3600 * CEN
+    PE = 4.839266E-02 - .0001288 * CEN: PA = 5.20336301# + 6.0737E-04 * CEN
+    PO = 100.55615# + 1217.17 / 3600 * CEN
+    PW = 14.75385 + 839.93 / 3600 * CEN
+    PL = 34.40438 + 8.308676199999999D-02 * DAYS
+    MEAN = PL - PW: Z = MEAN / 360: MEAN = MEAN - 360 * INT(Z)
+    TRUE = MEAN + 360 / 3.14159265359# * PE * SIN(MEAN / RTD)
+    Z = TRUE / 360: TRUE = TRUE - 360 * INT(Z)
+    L = TRUE + PW: R = PA * (1 - PE * PE) / (1 + PE * COS(TRUE / RTD))
+    SINPSI = SIN((L - PO) / RTD) * SIN(PI / RTD)
+    PSI = ATN(SINPSI / SQR(1 - SINPSI * SINPSI))
+    NUM = SIN((L - PO) / RTD) * COS(PI / RTD): DEN = COS((L - PO) / RTD)
+    LP = ATN(NUM / DEN) * RTD + PO: IF DEN < 0 THEN LP = LP + 180
+    RP = R * COS(PSI)
+    REM  Calculate Earth's orbit
+    EE = 1.671022E-02 - 3.804E-05 * CEN: EA = 1.00000011# - 5E-08 * CEN
+    EW = 102.94719# + 1198.28 / 3600 * CEN: EL = 100.46435# + .9856091 * DAYS
+    OBL = 23.43928
+    MEANE = EL - EW: Z = MEANE / 360: MEANE = MEANE - 360 * INT(Z)
+    TRUEE = MEANE + 360 / 3.14159265359# * EE * SIN(MEANE / RTD)
+    Z = TRUEE / 360: TRUEE = TRUEE - 360 * INT(Z)
+    LE = TRUEE + EW: RE = EA * (1 - EE * EE) / (1 + EE * COS(TRUEE / RTD))
+    LAMB = RE * SIN((LP - LE) / RTD)
+    LAMB = ATN(LAMB / (RP - RE * COS((LP - LE) / RTD))) * RTD + LP
+    BETA = RP * TAN(PSI) * SIN((LAMB - LP) / RTD)
+    BETA = ATN(BETA / (RE * SIN((LP - LE) / RTD))) * RTD
+    REM  Determine Jupiter's position
+    NUM = SIN(LAMB / RTD) * COS(OBL / RTD) - TAN(BETA / RTD) * SIN(OBL / RTD)
+    DEN = COS(LAMB / RTD)
+    RA = ATN(NUM / DEN) * RTD: IF NUM * DEN < 0 THEN RA = RA + 180
+    IF NUM < 0 THEN RA = RA + 180
+    SINDEC = SIN(BETA / RTD) * COS(OBL / RTD)
+    SINDEC = SINDEC + COS(BETA / RTD) * SIN(OBL / RTD) * SIN(LAMB / RTD)
+    DEC = ATN(SINDEC / SQR(1 - SINDEC * SINDEC)) * RTD
+    DSQRD = RE * RE + R * R - 2 * RE * R * COS((L - LE) / RTD)
+    DIST = SQR(DSQRD)
+    REM  Compute central meridian on Jupiter at midnight
+    A0 = 268.05 - 8.999999E-03 * CEN: D0 = 64.49 + .003 * CEN
+    W0 = 43.3 + 870.27 * DAYS: Z = W0 / 360: W0 = W0 - 360 * INT(Z)
+    W1 = W0 - 870.27 * .0057755 * DIST
+    SINB = -SIN(D0 / RTD) * SIN(DEC / RTD)
+    SINB = SINB - COS(D0 / RTD) * COS(DEC / RTD) * COS((A0 - RA) / RTD)
+    COSB = SQR(1 - SINB * SINB)
+    SINK = SIN(D0 / RTD) * COS(DEC / RTD) * COS((A0 - RA) / RTD)
+    SINK = (SINK - COS(D0 / RTD) * SIN(DEC / RTD)) / COSB
+    COSK = COS(DEC / RTD) * SIN((A0 - RA) / RTD) / COSB
+    K = ATN(SINK / COSK) * RTD
+    MER = W1 - K: IF COSK < 0 THEN MER = MER + 180
+    IF MER > 360 THEN MER = MER - 360
+    DIFF = LON - MER: IF DIFF < 0 THEN DIFF = DIFF + 360
+    PRINT #1, USING "|  & ##        "; MON$; NDAY
+        PRINT USING "|  & ##        "; MON$; NDAY
+    WHILE DIFF < 870.27
+    TRAN = DIFF / 870.27 * 24: H = FIX(TRAN): M = FIX(60 * (TRAN - H))
+    PRINT #1, USING "|         ###_:"; H; : PRINT #1, USING "##  "; M
+        PRINT USING "|         ###_:"; H; :     PRINT USING "##  "; M
+    DIFF = DIFF + 360
+    WEND
+    NEXT NDAY
+    CLOSE
+    END
+
