@@ -12,9 +12,12 @@
 %
 \usepackage{appendix}
 %
+\usepackage[toc]{glossaries}
+\makeglossaries
+%
 \usepackage{amssymb}
 \setcounter{tocdepth}{4}
-
+%
 \usepackage{url}
 \urldef{\mailsa}\path|dkirwan@tssg.org, adavy@tssg.org|
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
@@ -58,21 +61,18 @@ Cork Rd, Waterford City, Ireland\\
 % (search for the string "\mainmatter" where a contribution starts).
 % "llncs.dem" accompanies the document class "llncs.cls".
 %
-
 \toctitle{Thesis Proposal}
 \tocauthor{D. Kirwan}
 \maketitle
-
-
+%
 %\begin{abstract}
 %The abstract should summarize the contents of the paper and should
 %contain at least 70 and at most 150 words. It should be written using %the
 %\emph{abstract} environment.
 %\keywords{radio astronomy, software defined radio, signal processing}
 %\end{abstract}
-
+%
 \tableofcontents
-
 %
 \newpage
 %
@@ -80,22 +80,62 @@ Cork Rd, Waterford City, Ireland\\
 \addcontentsline{toc}{section}{Introduction}
 %This is typically an outline description detailing the background	 to the problem.
 
-It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio transmissions in the decameter range \textit{10-100MHz}, and that the inner Jovian satellite Io appeared to have an effect on these emissions occurring \citep{belcher87}.
-
-
-The Jovian satellite Io has a thin atmosphere made up of a number of neutral sodium, potassium, sulfur, and oxygen gasses which have been emitted through volcanic activity on the surface of the moon. 
-
-Talk about the Io Flux Tube, which is a "bundle Jovian of magnetic field lines" \citep{belcher87}.
-Link Belchers diagram fig 1 in \citep{belcher87}. A large portion of the decametric emissions come from the area where the IFT (get a glossary page going haha), meets the Jovian ionosphere.
-
-
-Io itself orbits within a gas torus of ionized sulphur around Jupiter. 
-Talk about where this gas torus comes from..
-The local corotation speed of the flux torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math}
-
-
-
-As Io orbits within this flux torus it acts as a conductor, and Alfv\'en waves are regularly produced and carry the charge along the magnetic field lines between Jupiter and Io \cite{bose05}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles while following Io through its orbit, thereby acting as a standing wave. It appears the source of the DAM emissions are largely due to these reflections of these Alfv\'en waves.
+\newglossaryentry{DAM}
+{
+  name={DAM},
+  description={decameter radio emissions},
+  sort=DAM
+}
+%
+It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio transmissions in the decameter (\gls{DAM}) range \textit{10-100 m wavelengths}, and the inner Jovian satellite Io appeared to have an effect on these emissions occurring \citep{belcher87}. Jupiter's radio emissions range between 4 MHz to 39.5 MHZ while emitting most strongly at 8 MHz or so \citep{wilkinson94}. However due to interference from human short wave radio sources between 4-15 MHz coupled with the attenuation of these signals or refraction off Earths ionosphere, the majority of emissions have been observed up in the 15-25 MHz range where this interference is less. The emission signal strength quickly diminishes above this range \citep{wilkinson94}.
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/01}
+\caption{Decametric Radio Emissions \citep{ashcraft13}}
+\label{fig:dam_Emissions}
+\end{figure}
+%
+Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the later Galileo in 1995 \citep{kivelson96} added hugely to the understanding of the plasma interactions between Jupiter and Io and the source of the \gls{DAM} emissions. It was discovered that the Io has a thin atmosphere made up of a number of neutral gasses namely sodium, potassium, sulfur, and oxygen as shown in fig: \ref{fig:io_neutral_gasses}. It is generally thought these gasses have been emitted through volcanic activity on the surface of the moon \citep{belcher87}.
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/02}
+\caption{Neutral Gasses in Orbit of Io \citep{belcher87}}
+\label{fig:io_neutral_gasses}
+\end{figure}
+%
+\newglossaryentry{IPT}
+{
+  name={IPT},
+  description={Io Plasma Torus},
+  sort=IPT
+}
+%
+The gasses in orbit of Io have a very short life time, due to collisions with magnetospheric electrons. This gives rise to a plasma torus (\gls{IPT}) which corotates with Jupiter itself \citep{belcher87}. This can also be seen in fig: \ref{fig:io_neutral_gasses} which shows the \gls{IPT}. The local corotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}.
+%
+\newglossaryentry{IFT}
+{
+  name={IFT},
+  description={Io Flux Tube},
+  sort=IFT
+}
+%
+Fig \ref{fig:io_flux_tube} details a diagram of the Io Flux Tube (\gls{IFT}) which is a tube made up from Jovian of magnetic field lines \citep{belcher87} which thread the satellite. A large portion of the decametric emissions come from the area where the \gls{IFT} meets the Jovian ionosphere. 
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/03}
+\caption{Magnetic Flux Tube linking Jupiter and its satellite Io \citep{belcher87}}
+\label{fig:io_flux_tube}
+\end{figure}
+%
+As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Jupiter and Io \citep{bose08}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave. It appears the source of the \gls{DAM} emissions are largely due to these reflections of these Alfv\'en waves off Jupiter's ionosphere.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section*{Scope}
+\addcontentsline{toc}{section}{Scope}
+Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 
 Talk about the types of DAM emissions I'm interested in observing.
 
@@ -104,17 +144,9 @@ Talk about the types of DAM emissions I'm interested in observing.
   \item L-Bursts, long second wideband bursts
   \item N-Bursts, narrowband bursts
 \end{itemize}
-
-
-
+%
 \citep{queinnec98}
-
 %
-\newpage
-%
-\section*{Scope}
-\addcontentsline{toc}{section}{Scope}
-Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 
 Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
 
@@ -122,7 +154,7 @@ SDR Radio Telescope study Jupiter / Sun in the Decametric Band
 
 \begin{itemize}
   \item Study Jupiter in the decametric band 3MHz - 40MHz
-  \item Jupiter emits strongly near 20Mhz
+  \item Jupiter emissions near 20Mhz, are least likely to be interfered with from short wave transmissions
   \item Earths atmosphere is transparent at these frequencies during the night time
   \item Study Solar emissions during the day
   \item Solar emissions are strong enough to penetrate Earths atmosphere during the day
@@ -249,12 +281,16 @@ Students should agree a number of milestones and their likely delivery dates wit
   \item Perform a site survey with the spectrum analyser
   \item Replicate the testbed at a second site
 \end{itemize}
-
 %
 \newpage
 %
 \bibliographystyle{plainnat}
 \bibliography{bibliography/bibtex}
+\addcontentsline{toc}{chapter}{Bibliography}
+%
+\newpage
+%
+\printglossaries
 %
 \newpage
 %

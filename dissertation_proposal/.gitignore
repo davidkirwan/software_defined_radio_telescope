@@ -6,5 +6,10 @@
 *.log
 *.synctex.gz
 *.toc
-*.fls
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
 *.fdb_latexmk
+*.fls
