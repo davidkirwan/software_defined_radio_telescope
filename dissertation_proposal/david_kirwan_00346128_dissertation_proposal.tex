@@ -13,7 +13,7 @@
 \usepackage{appendix}
 %
 \usepackage{amssymb}
-\setcounter{tocdepth}{3}
+\setcounter{tocdepth}{4}
 
 \usepackage{url}
 \urldef{\mailsa}\path|dkirwan@tssg.org, adavy@tssg.org|
@@ -40,9 +40,9 @@ with a Software Defined Radio Telescope}
 %\thanks{Please note that the LNCS Editorial assumes that all authors have used
 %the western naming convention, with given names preceding surnames. This determines
 %the structure of the names in the running heads and the author index.}%
-\and Alan Davy\and John Ronan}
+\and Alan Davy\thanks{Supervisors} \and John Ronan\footnotemark[1]}
 %
-\authorrunning{D. Kirwan, A. Davy, J. Ronan}
+\authorrunning{D. Kirwan}
 % (feature abused for this document to repeat the title also on left hand pages)
 
 % the affiliations are given next; don't give your e-mail address
@@ -59,8 +59,8 @@ Cork Rd, Waterford City, Ireland\\
 % "llncs.dem" accompanies the document class "llncs.cls".
 %
 
-\toctitle{Observing Jovian Decametric Radio Emissions with a Software Defined Radio Telescope}
-\tocauthor{D. Kirwan, A. Davy, J. Ronan}
+\toctitle{Thesis Proposal}
+\tocauthor{D. Kirwan}
 \maketitle
 
 
@@ -71,35 +71,93 @@ Cork Rd, Waterford City, Ireland\\
 %\keywords{radio astronomy, software defined radio, signal processing}
 %\end{abstract}
 
-%
-%\chapter{Introduction}
-%\addcontentsline{toc}{chapter}{Introduction}
-%
-\section{Introduction}
-%\addcontentsline{toc}{section}{Introduction}
+\tableofcontents
 
-\cite{belcher87}
-
-This is typically an outline description detailing the background	 to the problem.
-  
 %
 \newpage
 %
-\section{Scope}
-%\addcontentsline{toc}{section}{Scope}
+\section*{Introduction}
+\addcontentsline{toc}{section}{Introduction}
+%This is typically an outline description detailing the background	 to the problem.
+
+It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio transmissions in the decameter range \textit{10-100MHz}, and that the inner Jovian satellite Io appeared to have an effect on these emissions occurring \citep{belcher87}.
+
+
+The Jovian satellite Io has a thin atmosphere made up of a number of neutral sodium, potassium, sulfur, and oxygen gasses which have been emitted through volcanic activity on the surface of the moon. 
+
+Talk about the Io Flux Tube, which is a "bundle Jovian of magnetic field lines" \citep{belcher87}.
+Link Belchers diagram fig 1 in \citep{belcher87}. A large portion of the decametric emissions come from the area where the IFT (get a glossary page going haha), meets the Jovian ionosphere.
+
+
+Io itself orbits within a gas torus of ionized sulphur around Jupiter. 
+Talk about where this gas torus comes from..
+The local corotation speed of the flux torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math}
+
+
+
+As Io orbits within this flux torus it acts as a conductor, and Alfv\'en waves are regularly produced and carry the charge along the magnetic field lines between Jupiter and Io \cite{bose05}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles while following Io through its orbit, thereby acting as a standing wave. It appears the source of the DAM emissions are largely due to these reflections of these Alfv\'en waves.
+
+Talk about the types of DAM emissions I'm interested in observing.
+
+\begin{itemize}
+  \item S-Bursts, short millisecond wideband bursts
+  \item L-Bursts, long second wideband bursts
+  \item N-Bursts, narrowband bursts
+\end{itemize}
+
+
+
+\citep{queinnec98}
+
+%
+\newpage
+%
+\section*{Scope}
+\addcontentsline{toc}{section}{Scope}
 Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 
-Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude.
+Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
 
+SDR Radio Telescope study Jupiter / Sun in the Decametric Band
+
+\begin{itemize}
+  \item Study Jupiter in the decametric band 3MHz - 40MHz
+  \item Jupiter emits strongly near 20Mhz
+  \item Earths atmosphere is transparent at these frequencies during the night time
+  \item Study Solar emissions during the day
+  \item Solar emissions are strong enough to penetrate Earths atmosphere during the day
+\end{itemize}
+
+
+\begin{itemize}
+  \item Low cost to deploy
+  \item Can be run by an Amateur observer
+  \item Mechanism for sending data from listening site back to a network connection (Ardtweeno)
+  \item Backhaul system for capturing, processing and storage of listening site data
+  \item API for accessing data, and or integrating into another system
+  \item Amateur listening sites can compliment larger telescope arrays around the world
+\end{itemize}
 
 
 %
 \newpage
 %
-\section{Research Questions}
-%\addcontentsline{toc}{section}{Research Questions}
+\section*{Research Questions}
+\addcontentsline{toc}{section}{Research Questions}
 A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
 
+\begin{itemize}
+  \item can I use this antenna to pick up signals from planetary bodies
+  \item Signal Processing issues
+  \item Can I address these natural signal noises
+  \item Can I address these human signal noises
+\end{itemize}
+
+\subsection*{Potential Pitfalls}
+\addcontentsline{toc}{subsection}{Potential Pitfalls}
+Predecisions on how I want to collect data, creating the research questions itself I might need to carefully look at this, because I've made some initial ideas on how I want to collect this data.
+
+Its going to be lower cost than other methods, or its using something new compared to other devices
  
 
 \begin{itemize}
@@ -111,43 +169,64 @@ A clear, precise definition of the problem is very important to focus on the res
 %
 \newpage
 %
-\section{Methodology}
-%\addcontentsline{toc}{section}{Methodology}
+\section*{Methodology}
+\addcontentsline{toc}{section}{Methodology}
 This should outline the approach and methodology being proposed by the student to address the research question.
+
 
 %
 \newpage
 %
-\section{Preliminary Literature Review}
-%\addcontentsline{toc}{section}{Preliminary Literature Review}
+\section*{Preliminary Literature Review}
+\addcontentsline{toc}{section}{Preliminary Literature Review}
 This should contain a review of a number of books, journal articles and web references of relevance to the research area proposed. The literature should contain seminal and recent referenced research material that is categorised under a number of relevant sub-themes.
 
-WIP:
+%WIP:
 
 I've read about 15 papers already related to the background of the interactions between Jupiter and Io, and papers detailing results from similar telescopes to the design I intend to build. I've hit a paywall on some of the earliest seminal papers which were the first to detail the phenomenon of decametric emissions being emitted by the Jupiter-Io system. I will attempt to get a copy through the inter library loan system at WIT.
 
 
+My literature review can be broken down into the following areas:
+
+\begin{itemize}
+  \item What are the decametric radio emissions and what are they caused by
+  \item Research journals detailing potential radio telescope designs which could be replicated in order to collect DAM emissions
+  \item I need to look into journals involving signal processing and maybe some rudimentary filtering or AI for identifying spurious signals
+  \item Something else
+  
+\end{itemize}
+
+
 %
 \newpage
 %
-\section{Contribution to Research Knowledge Anticipated}
-%\addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
+\section*{Contribution to Research Knowledge Anticipated}
+\addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
 %
 A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at hte start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
 
 %
 \newpage
 %
-\section{Description of the Experimental Design / Validation Methodology}
-%\addcontentsline{toc}{section}{Description of the Experimental Design / Validation Methodology}
+\section*{Description of the Experimental Design / Validation Methodology}
+\addcontentsline{toc}{section}{Description of the Experimental Design / Validation Methodology}
 %
 A dissertation must employ rigorous scientific argument. The experimental design and the validation methodology must be specified in great detail in the proposal. At this proposal stage you should define clear evaluation criteria.
+
+
+\begin{itemize}
+  \item Identify data caused by lightning
+  \item Identify data caused by human emissions
+  \item Perform a site survey with the spectrum analyser
+  \item Replicate the testbed at a second site
+\end{itemize}
+
 
 %
 \newpage
 %
-\section{Special Resources Required}
-%\addcontentsline{toc}{section}{Special Resources Required}
+\section*{Special Resources Required}
+\addcontentsline{toc}{section}{Special Resources Required}
 %
 The research work may require access to specialised equipment, software, journals and so on.
 
@@ -158,8 +237,8 @@ Access to the RadioJove Prediction software
 %
 \newpage
 %
-\section{Main Milestones Anticipated}
-%\addcontentsline{toc}{section}{Main Milestones Anticipated}
+\section*{Main Milestones Anticipated}
+\addcontentsline{toc}{section}{Main Milestones Anticipated}
 %
 Students should agree a number of milestones and their likely delivery dates with their supervisor at the start of the progress.
 
@@ -180,11 +259,11 @@ Students should agree a number of milestones and their likely delivery dates wit
 \newpage
 %
 \appendix
-\section{Appendix}
+\section*{Appendix}
 Here is some content in the appendix
 
 \begin{subappendices}
-\subsection{How I became inspired}
+\subsection*{How I became inspired}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
 
 %
