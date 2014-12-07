@@ -131,12 +131,17 @@ Fig \ref{fig:io_flux_tube} details a diagram of the Io Flux Tube (\gls{IFT}) whi
 \end{figure}
 %
 As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Jupiter and Io \citep{bose08}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave. It appears the source of the \gls{DAM} emissions are largely due to these reflections of these Alfv\'en waves off Jupiter's ionosphere.
+%
+The \gls{DAM} emissions are carried along the surface of the emission cones as show in fig: \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions along the cone point in Earths direction, at which point it can be picked up at the surface by listening stations.
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
 \newpage
-\section*{Scope}
-\addcontentsline{toc}{section}{Scope}
+\section*{Research Topic}
+\addcontentsline{toc}{section}{Research Topic}
 Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 
+A ground based listening station is capable of picking up several types of emissions from Jupiter  
 Talk about the types of DAM emissions I'm interested in observing.
 
 \begin{itemize}
@@ -145,7 +150,13 @@ Talk about the types of DAM emissions I'm interested in observing.
   \item N-Bursts, narrowband bursts
 \end{itemize}
 %
-\citep{queinnec98}
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/04}
+\caption{DAM Emissions from Jupiter \citep{bose08}}
+\label{fig:io_flux_tube}
+\end{figure}
 %
 
 Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
@@ -170,10 +181,10 @@ SDR Radio Telescope study Jupiter / Sun in the Decametric Band
   \item Amateur listening sites can compliment larger telescope arrays around the world
 \end{itemize}
 
-
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-%
 \section*{Research Questions}
 \addcontentsline{toc}{section}{Research Questions}
 A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
@@ -185,13 +196,6 @@ A clear, precise definition of the problem is very important to focus on the res
   \item Can I address these human signal noises
 \end{itemize}
 
-\subsection*{Potential Pitfalls}
-\addcontentsline{toc}{subsection}{Potential Pitfalls}
-Predecisions on how I want to collect data, creating the research questions itself I might need to carefully look at this, because I've made some initial ideas on how I want to collect this data.
-
-Its going to be lower cost than other methods, or its using something new compared to other devices
- 
-
 \begin{itemize}
   \item Do amateur radio emissions adversely affect radio astronomy in the 15m band?
   \item What can be done using software defined radio to filter local radio interference from radio astronomy observations?
@@ -199,16 +203,37 @@ Its going to be lower cost than other methods, or its using something new compar
 \end{itemize}
 
 %
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+\subsection*{Potential Pitfalls}
+\addcontentsline{toc}{subsection}{Potential Pitfalls}
+Predecisions on how I want to collect data, creating the research questions itself I might need to carefully look at this, because I've made some initial ideas on how I want to collect this data.
+
+Its going to be lower cost than other methods, or its using something new compared to other devices
+
+Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
 \section*{Methodology}
 \addcontentsline{toc}{section}{Methodology}
 This should outline the approach and methodology being proposed by the student to address the research question.
 
+\begin{itemize}
+  \item build and validate the telescope
+  \item monitor the frequencies im interested in
+  \item based on the ability to collect data, can we use it to answer our research questions
+  \item show the errors from lightning
+  \item show the errors from human signals
+  \item 
+\end{itemize}
 
 %
-\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+\newpage
 \section*{Preliminary Literature Review}
 \addcontentsline{toc}{section}{Preliminary Literature Review}
 This should contain a review of a number of books, journal articles and web references of relevance to the research area proposed. The literature should contain seminal and recent referenced research material that is categorised under a number of relevant sub-themes.
@@ -227,19 +252,18 @@ My literature review can be broken down into the following areas:
   \item Something else
   
 \end{itemize}
-
-
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-%
 \section*{Contribution to Research Knowledge Anticipated}
 \addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
 %
 A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at hte start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
-
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-%
 \section*{Description of the Experimental Design / Validation Methodology}
 \addcontentsline{toc}{section}{Description of the Experimental Design / Validation Methodology}
 %
@@ -252,11 +276,10 @@ A dissertation must employ rigorous scientific argument. The experimental design
   \item Perform a site survey with the spectrum analyser
   \item Replicate the testbed at a second site
 \end{itemize}
-
-
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-%
 \section*{Special Resources Required}
 \addcontentsline{toc}{section}{Special Resources Required}
 %
@@ -264,11 +287,10 @@ The research work may require access to specialised equipment, software, journal
 
 Access to the HackRF or another similar SDR is required.
 Access to the RadioJove Prediction software
-
-
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-%
 \section*{Main Milestones Anticipated}
 \addcontentsline{toc}{section}{Main Milestones Anticipated}
 %
@@ -282,15 +304,13 @@ Students should agree a number of milestones and their likely delivery dates wit
   \item Replicate the testbed at a second site
 \end{itemize}
 %
+\printglossaries
+%
 \newpage
 %
 \bibliographystyle{plainnat}
 \bibliography{bibliography/bibtex}
 \addcontentsline{toc}{chapter}{Bibliography}
-%
-\newpage
-%
-\printglossaries
 %
 \newpage
 %
