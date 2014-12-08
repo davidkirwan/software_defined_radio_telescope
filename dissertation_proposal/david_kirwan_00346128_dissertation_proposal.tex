@@ -10,6 +10,8 @@
 \onehalfspacing
 %\doublespacing
 %
+\usepackage{amsmath}
+%
 \usepackage{appendix}
 %
 \usepackage{caption}
@@ -135,7 +137,7 @@ Fig \ref{fig:io_flux_tube} details a diagram of the Io Flux Tube (\gls{IFT}) whi
 %
 As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Jupiter and Io \citep{bose08}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave. It appears the source of the \gls{DAM} emissions are largely due to these reflections of these Alfv\'en waves off Jupiter's ionosphere.
 %
-The \gls{DAM} emissions are carried along the surface of the emission cones as show in fig: \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions along the cone point in Earths direction, at which point it can be picked up at the surface by ground based radio listening stations.
+The \gls{DAM} emissions are carried along the surface of the emission cones as show in fig: \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions are released at the surface of this cone. When pointing in Earths direction, it can be picked up at ground based radio telescope listening stations.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -151,41 +153,14 @@ The \gls{DAM} emissions are carried along the surface of the emission cones as s
   description={World Radiocommunication Conference},
   sort=WRC
 }
+\newglossaryentry{HF}
+{
+  name={HF},
+  description={High Frequency},
+  sort=HF
+}
 %
-A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radio communication Conference (\gls{WRC}). ComReg, is the Irish Commission for Communications Regulation. Within Ireland the short wave frequencies which are designated for transmission can be seen in fig: \citep{comreg14}.
-
-The radio emissions come in several different forms each with slightly different characteristics.
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/04}
-\caption{DAM Emissions from Jupiter \citep{bose08}}
-\label{fig:io_flux_tube}
-\end{figure}
-%
-\begin{table}
-  \centering
-  \begin{tabular}[pos]{| c | c | c |}
-    \hline
-    Type & Emission Length & Emission Description\\ \hline
-    S-Bursts & short generally millisecond & wideband bursts, potentially several MHz wide\\ \hline
-    L-Bursts & long upto several seconds & wideband bursts, potentially several MHz wide\\ \hline
-    N-Bursts & milliseconds upto seconds & narrowband bursts, a few kHz wide\\
-    \hline
-  \end{tabular}
-  \caption{Most common types of DAM Emissions from Jupiter}
-  \label{tab:dam_emissions}
-\end{table}
-%
-Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations.
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/05}
-\caption{Ideal DAM Emissions types from Jupiter \citep{wilkinson94}}
-\label{fig:dam_emissions_spectrum}
-\end{figure}
-%
+A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radio communication Conference (\gls{WRC}). ComReg, is the Irish Commission for Communications Regulation within Ireland, and maintains a list of the short wave frequencies which are designated for transmission in Ireland and can be seen in fig: \ref{fig:irish_electromagnetic_transmission_ranges} \citep{comreg14}. As many commercial shortwave radio stations transmit in the lower end of the high frequency (\gls{HF}) 3-7 MHz range, it can be extremely busy and potentially difficult to monitor \gls{DAM} emissions. Amateur radio operators also operate frequently in mid-late \gls{HF} ranges while the higher frequency \gls{DAM} emissions taper off in strength very quickly.
 %
 \begin{figure}[here]
 \centering
@@ -194,6 +169,51 @@ Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration
 \label{fig:irish_electromagnetic_transmission_ranges}
 \end{figure}
 %
+Despite the obstacles affecting a monitoring station attempting to collect \gls{DAM} signals, there are still large sections of the \gls{HF} spectrum which are suitable to capture Jovian emissions. The radio receiver frequency to monitor Jovian \gls{DAM} emissions which is recommended by the Radio Jove project is \textit{20.1 MHz} \citep{nasa12}. The radio emissions come in several different forms each with slightly different characteristics. Table: \ref{tab:dam_emissions} shows a list of the more widely known types which can be picked up using ground based listening equipment, and also has some information about their different characteristics \citep{wilkinson94}.
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/04}
+\caption{DAM Emissions from Jupiter \citep{bose08}}
+\label{fig:io_flux_tube}
+\end{figure}
+%
+%
+\begin{table}
+  \centering
+  \begin{tabular}[pos]{| c | c | c |}
+    \hline
+    Type & Emission Length & Emission Description\\ \hline
+    S-Bursts & short generally millisecond & wideband bursts, potentially several MHz wide\\ \hline
+    L-Bursts & long upto several seconds & wideband bursts, potentially several MHz wide\\ \hline
+    N-Bursts & milliseconds upto seconds & narrowband bursts, several kHz wide\\
+    \hline
+  \end{tabular}
+  \caption{Most common types of DAM Emissions from Jupiter \citep{wilkinson94}}
+  \label{tab:dam_emissions}
+\end{table}
+%
+
+\begin{figure}[here]
+  \centering
+  \begin{equation}  	
+    \lambda = \frac{v}{f}
+  \end{equation}
+  \caption{Wavelength Equation}
+\end{figure}
+
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/05}
+\caption{Ideal DAM Emissions types from Jupiter \citep{wilkinson94}}
+\label{fig:dam_emissions_spectrum}
+\end{figure}
+%
+
+Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations.
+
 
 SDR Radio Telescope study Jupiter / Sun in the Decametric Band
 
