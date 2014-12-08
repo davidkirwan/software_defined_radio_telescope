@@ -12,6 +12,9 @@
 %
 \usepackage{appendix}
 %
+\usepackage{caption}
+\captionsetup[table]{skip=10pt}
+%
 \usepackage[toc]{glossaries}
 \makeglossaries
 %
@@ -19,7 +22,7 @@
 \setcounter{tocdepth}{4}
 %
 \usepackage{url}
-\urldef{\mailsa}\path|dkirwan@tssg.org, adavy@tssg.org|
+\urldef{\mailsa}\path|dkirwan@tssg.org|
 \newcommand{\keywords}[1]{\par\addvspace\baselineskip
 \noindent\keywordname\enspace\ignorespaces#1}
 
@@ -132,24 +135,24 @@ Fig \ref{fig:io_flux_tube} details a diagram of the Io Flux Tube (\gls{IFT}) whi
 %
 As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Jupiter and Io \citep{bose08}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave. It appears the source of the \gls{DAM} emissions are largely due to these reflections of these Alfv\'en waves off Jupiter's ionosphere.
 %
-The \gls{DAM} emissions are carried along the surface of the emission cones as show in fig: \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions along the cone point in Earths direction, at which point it can be picked up at the surface by listening stations.
+The \gls{DAM} emissions are carried along the surface of the emission cones as show in fig: \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions along the cone point in Earths direction, at which point it can be picked up at the surface by ground based radio listening stations.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
 \section*{Research Topic}
 \addcontentsline{toc}{section}{Research Topic}
-Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
-
-A ground based listening station is capable of picking up several types of emissions from Jupiter  
-Talk about the types of DAM emissions I'm interested in observing.
-
-\begin{itemize}
-  \item S-Bursts, short millisecond wideband bursts
-  \item L-Bursts, long second wideband bursts
-  \item N-Bursts, narrowband bursts
-\end{itemize}
+%Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 %
+%
+\newglossaryentry{WRC}
+{
+  name={WRC},
+  description={World Radiocommunication Conference},
+  sort=WRC
+}
+%
+A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radiocommunication Conference (\gls{WRC}) \citep{nasb13}. The radio emissions come in several different forms each with slightly different characteristics.
 %
 \begin{figure}[here]
 \centering
@@ -158,8 +161,30 @@ Talk about the types of DAM emissions I'm interested in observing.
 \label{fig:io_flux_tube}
 \end{figure}
 %
+\begin{table}
+  \centering
+  \begin{tabular}[pos]{| c | c | c |}
+    \hline
+    Name & Length & Description\\ \hline
+    S-Bursts & short millisecond & wideband bursts\\ \hline
+    L-Bursts & long upto several seconds & wideband bursts\\ \hline
+    N-Bursts & milliseconds upto seconds & narrowband bursts\\
+    \hline
+  \end{tabular}
+  \caption{Most common types of DAM Emissions from Jupiter}
+  \label{tab:dam_emissions}
+\end{table}
+%
+Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations.
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/05}
+\caption{Ideal DAM Emissions types from Jupiter \citep{wilkinson94}}
+\label{fig:dam_emissions_spectrum}
+\end{figure}
+%
 
-Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
 
 SDR Radio Telescope study Jupiter / Sun in the Decametric Band
 
@@ -304,10 +329,14 @@ Students should agree a number of milestones and their likely delivery dates wit
   \item Replicate the testbed at a second site
 \end{itemize}
 %
+\newpage
+\listoftables
+%
 \printglossaries
 %
-\newpage
+\addcontentsline{toc}{chapter}{List of Tables}
 %
+\newpage
 \bibliographystyle{plainnat}
 \bibliography{bibliography/bibtex}
 \addcontentsline{toc}{chapter}{Bibliography}
@@ -316,6 +345,7 @@ Students should agree a number of milestones and their likely delivery dates wit
 %
 \appendix
 \section*{Appendix}
+\addcontentsline{toc}{chapter}{Appendices}
 Here is some content in the appendix
 
 \begin{subappendices}
