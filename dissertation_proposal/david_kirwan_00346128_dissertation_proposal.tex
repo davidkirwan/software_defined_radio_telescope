@@ -14,6 +14,8 @@
 %
 \usepackage{appendix}
 %
+\usepackage{multirow}
+%
 \usepackage{caption}
 \captionsetup[table]{skip=10pt}
 %
@@ -80,7 +82,6 @@ Cork Rd, Waterford City, Ireland\\
 \tableofcontents
 %
 \newpage
-%
 \section*{Introduction}
 \addcontentsline{toc}{section}{Introduction}
 %This is typically an outline description detailing the background	 to the problem.
@@ -101,7 +102,8 @@ It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio 
 \label{fig:dam_Emissions}
 \end{figure}
 %
-Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the later Galileo in 1995 \citep{kivelson96} added hugely to the understanding of the plasma interactions between Jupiter and Io and the source of the \gls{DAM} emissions. It was discovered that the Io has a thin atmosphere made up of a number of neutral gasses namely sodium, potassium, sulfur, and oxygen as shown in fig: \ref{fig:io_neutral_gasses}. It is generally thought these gasses have been emitted through volcanic activity on the surface of the moon \citep{belcher87}.
+
+Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the later Galileo in 1995 \citep{kivelson96} added hugely to the understanding of the plasma interactions between Jupiter and Io and the source of the \gls{DAM} emissions. It was discovered that the Io has a thin atmosphere made up of a number of neutral gasses namely sodium, potassium, sulfur, and oxygen as shown in fig: \ref{fig:io_neutral_gasses}. It is generally thought these gasses have been emitted through volcanic activity on the surface of the moon \citep{belcher87}. The gasses in orbit of Io have a very short life time, due to collisions with magnetospheric electrons. This gives rise to a plasma torus (\gls{IPT}) which corotates with Jupiter itself \citep{belcher87}. This can also be seen in fig: \ref{fig:io_neutral_gasses} which shows the \gls{IPT}.
 %
 \begin{figure}[here]
 \centering
@@ -117,7 +119,8 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
   sort=IPT
 }
 %
-The gasses in orbit of Io have a very short life time, due to collisions with magnetospheric electrons. This gives rise to a plasma torus (\gls{IPT}) which corotates with Jupiter itself \citep{belcher87}. This can also be seen in fig: \ref{fig:io_neutral_gasses} which shows the \gls{IPT}. The local corotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}.
+
+The local corotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}.
 %
 \newglossaryentry{IFT}
 {
@@ -136,8 +139,18 @@ Fig \ref{fig:io_flux_tube} details a diagram of the Io Flux Tube (\gls{IFT}) whi
 \end{figure}
 %
 As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Jupiter and Io \citep{bose08}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave. It appears the source of the \gls{DAM} emissions are largely due to these reflections of these Alfv\'en waves off Jupiter's ionosphere.
-%
+
 The \gls{DAM} emissions are carried along the surface of the emission cones as show in fig: \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions are released at the surface of this cone. When pointing in Earths direction, it can be picked up at ground based radio telescope listening stations.
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/04}
+\caption{DAM Emissions from Jupiter \citep{bose08}}
+\label{fig:io_flux_tube}
+\end{figure}
+%
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -160,7 +173,8 @@ The \gls{DAM} emissions are carried along the surface of the emission cones as s
   sort=HF
 }
 %
-A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radio communication Conference (\gls{WRC}). ComReg, is the Irish Commission for Communications Regulation within Ireland, and maintains a list of the short wave frequencies which are designated for transmission in Ireland and can be seen in fig: \ref{fig:irish_electromagnetic_transmission_ranges} \citep{comreg14}. As many commercial shortwave radio stations transmit in the lower end of the high frequency (\gls{HF}) 3-7 MHz range, it can be extremely busy and potentially difficult to monitor \gls{DAM} emissions. Amateur radio operators also operate frequently in mid-late \gls{HF} ranges while the higher frequency \gls{DAM} emissions taper off in strength very quickly.
+A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radio communication Conference (\gls{WRC}). ComReg, is the Irish Commission for Communications Regulation within Ireland, and maintains a list of the short wave frequencies which are designated for transmission in Ireland and can be seen in fig: \ref{fig:irish_electromagnetic_transmission_ranges} \citep{comreg14}. 
+
 %
 \begin{figure}[here]
 \centering
@@ -169,41 +183,52 @@ A ground based listening station aiming to record \gls{DAM} emissions from Jupit
 \label{fig:irish_electromagnetic_transmission_ranges}
 \end{figure}
 %
-Despite the obstacles affecting a monitoring station attempting to collect \gls{DAM} signals, there are still large sections of the \gls{HF} spectrum which are suitable to capture Jovian emissions. The radio receiver frequency to monitor Jovian \gls{DAM} emissions which is recommended by the Radio Jove project is \textit{20.1 MHz} \citep{nasa12}. The radio emissions come in several different forms each with slightly different characteristics. Table: \ref{tab:dam_emissions} shows a list of the more widely known types which can be picked up using ground based listening equipment, and also has some information about their different characteristics \citep{wilkinson94}.
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/04}
-\caption{DAM Emissions from Jupiter \citep{bose08}}
-\label{fig:io_flux_tube}
-\end{figure}
-%
-The wavelength which corresponds with the frequency \textit{20.1 MHz} can be obtained using the wavelength equation as shown in fig \ref{fig:wavelength_equation}, which in this case corresponds with \textit{14.925 m}.
+
+As many commercial shortwave radio stations transmit in the lower end of the high frequency (\gls{HF}) 3-7 MHz range, it can be extremely busy and potentially difficult to monitor \gls{DAM} emissions where they are strongest. Amateur radio operators also operate frequently in mid-late \gls{HF} ranges while the higher frequency \gls{DAM} emissions taper off in strength very quickly. This limits the potential listening range significantly. Despite these obstacles, there are sections of the \gls{HF} spectrum which are suitable to capture Jovian emissions. The a suitable frequency to monitor Jovian \gls{DAM} emissions which is recommended by the Radio Jove project is \textit{20.1 MHz} \citep{nasa12}. 
+
+In order to capture \gls{DAM} emissions there are a few things to consider such as the sourcing of a suitable antenna. Antennas generally are best suited to collect electromagnetic radiation at single specific frequencies, but may reasonably resonate and therefore operate over a range of frequencies depending on the design \citep{nasa12}. The wavelength ($\lambda$) which corresponds with the frequency (\textit{f}) \textit{20.1 MHz} can be obtained using the wavelength equation as shown in fig \ref{fig:wavelength_equation}. The corresponding wavelength for the frequency \textit{20.1 MHz} works out to be \textit{14.925 m} using this equation.
+
 %
 \begin{figure}[here]
   \centering
   \begin{equation}  	
-    \lambda = \frac{v}{f}
+    \lambda = \frac{c}{f}
   \end{equation}
   \begin{equation}
-    \lambda = \frac{300,000}{20.1}
-  \end{equation}
-  \begin{equation}
-    \lambda = 14.925373134328359 m
+    \lambda = \frac{3x10^8 m/s}{20.1x10^6 Hz} = 14.925373134328359 m
   \end{equation}
   \caption{Wavelength Equation}
   \label{fig:wavelength_equation}
 \end{figure}
+\addcontentsline{toc}{subsection}{Wavelength Equation}
 %
-Some text about something
+
+One simple antenna design for collecting \gls{DAM} emissions is the \textit{dipole}. A dipole antenna can be constructed simply and cheaply from two pieces of wire and three insulators \citep{nasa12}, while ensuring to cut the wires to a length matching half the desired wavelength being captured \citep{nasa12}. However as the formula referenced in fig: \ref{fig:wavelength_equation} describes the use of an \textit{infinitely thin} wire which is not possible in reality, \textit{capacitive end effects} must be taken into account when working out the resonating wavelength for a dipole antenna \citep{nasa12}.
+
+The formula for calculating the resonating frequency for a half wavelength dipole is described in fig \ref{fig:wavelength_equation_dipole} and produces the value which should measure from tip to tip on the wires used to construct the dipole antenna \citep{nasa12}.
+
+%
+\begin{figure}[here]
+  \centering
+  \begin{equation}  	
+    \bigg(\frac{\lambda}{2}\bigg)m = \frac{142.65}{20.1 MHz} = 7.097014925373134 m
+  \end{equation}
+  \caption{Wavelength Equation for Real World Half Wavelength Dipole Antenna}
+  \label{fig:wavelength_equation_dipole}
+\end{figure}
+\addcontentsline{toc}{subsection}{Wavelength Equation for Real World Half Wavelength Dipole Antenna}
+%
+
+The radio emissions come in several different forms each with slightly different characteristics. Table: \ref{tab:dam_emissions} shows a list of the more widely known types which can be picked up using ground based listening equipment, and also has some information about their different characteristics \citep{wilkinson94}. Any particular observation session might be made up of some or all of these different types of \gls{DAM} emission and can last from a few minutes to several hours for larger noise storms \citep{wilkinson94}.
+
 %
 \begin{table}
   \centering
   \begin{tabular}[pos]{| c | c | c |}
     \hline
     Type & Emission Length & Emission Description\\ \hline
-    S-Bursts & short generally millisecond & wideband bursts, potentially several MHz wide\\ \hline
-    L-Bursts & long upto several seconds & wideband bursts, potentially several MHz wide\\ \hline
+    S-Bursts & short generally 1-10 milliseconds & wideband bursts, several MHz wide\\ \hline
+    L-Bursts & long 0.5 - 5 seconds & wideband bursts, several MHz wide\\ \hline
     N-Bursts & milliseconds upto seconds & narrowband bursts, several kHz wide\\
     \hline
   \end{tabular}
@@ -212,8 +237,7 @@ Some text about something
 \end{table}
 %
 
-
-
+Fig: \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Burst} and \textit{L-Burst} \gls{DAM} emissions and what they might look like on a frequency spectrum graph. S-Burst emissions are short, generally $1-10x10^{-3}s$ long while L-Bursts can be \textit{0.5-5s} in length.
 
 %
 \begin{figure}[here]
@@ -223,11 +247,15 @@ Some text about something
 \label{fig:dam_emissions_spectrum}
 \end{figure}
 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\section*{Research Problem}
+\addcontentsline{toc}{section}{Research Problem}
+%
+Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. 
 
-Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations.
-
-
-SDR Radio Telescope study Jupiter / Sun in the Decametric Band
+\textit{Radio Telescope study Jupiter / Sun in the Decametric Band}
 
 \begin{itemize}
   \item Study Jupiter in the decametric band 3MHz - 40MHz
@@ -246,6 +274,7 @@ SDR Radio Telescope study Jupiter / Sun in the Decametric Band
   \item API for accessing data, and or integrating into another system
   \item Amateur listening sites can compliment larger telescope arrays around the world
 \end{itemize}
+
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -369,15 +398,15 @@ Students should agree a number of milestones and their likely delivery dates wit
   \item Perform a site survey with the spectrum analyser
   \item Replicate the testbed at a second site
 \end{itemize}
-%
-\newpage
-\listoftables
+
+
 %
 \printglossaries
 %
+\newpage
+\listoftables
 \addcontentsline{toc}{chapter}{List of Tables}
 %
-\newpage
 \bibliographystyle{plainnat}
 \bibliography{bibliography/bibtex}
 \addcontentsline{toc}{chapter}{Bibliography}
