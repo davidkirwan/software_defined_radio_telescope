@@ -173,7 +173,7 @@ The \gls{DAM} emissions are carried along the surface of the emission cones as s
   sort=HF
 }
 %
-A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radio communication Conference (\gls{WRC}). ComReg, is the Irish Commission for Communications Regulation within Ireland, and maintains a list of the short wave frequencies which are designated for transmission in Ireland and can be seen in fig: \ref{fig:irish_electromagnetic_transmission_ranges} \citep{comreg14}. 
+A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radio communication Conference (\gls{WRC}). ComReg, is the Irish Commission for Communications Regulation within Ireland, and maintains a list of the short wave frequencies which are designated for transmission in Ireland and can be seen in fig: \ref{fig:irish_electromagnetic_transmission_ranges} \citep{comreg14}.
 
 %
 \begin{figure}[here]
@@ -251,18 +251,33 @@ Fig: \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Burst
 \section*{Research Problem}
 \addcontentsline{toc}{section}{Research Problem}
 %
-Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. 
+\newglossaryentry{SDR}
+{
+  name={SDR},
+  description={Software Defined Radio},
+  sort=SDR
+}
 
-\textit{Radio Telescope study Jupiter / Sun in the Decametric Band}
+The aim of this project is to design and construct a low cost, self sufficient software defined radio (\gls{SDR}) telescope listening station, which can capture signals for transmission to a central data aggregation point for signal processing and analysis. This telescope should be suitable to study Jupiter and the Sun in the \gls{DAM} (10-100 m) band at or near the \textit{20.1 MHz} frequency.
+
+Jupiter is visible for a number of months each year and generally in the evening, night, or morning hours. As the Earth's ionosphere begins to heats up during the day, it becomes opaque to signals in the \gls{DAM} band which can prevent weaker signals being captured by a ground based listening site (get citation for this). 
+
+Interference from human sources such as short wave radio stations or amateur radio transmissions is likely to affect the collection of \gls{DAM} emissions from Jupiter. Want to develop a system for the automatic flagging of human transmissions using either signal processing or making use of manually identified transmissions using a dx cluster
+
+Solar storm activity can be captured during daylight hours, providing the antenna deployment configuration covers the part of the sky that the Sun traverses during the daylight hours. 
+
+\subsection*{Problem Characteristics}
+\addcontentsline{toc}{subsection}{Problem Characteristics}
 
 \begin{itemize}
-  \item Study Jupiter in the decametric band 3MHz - 40MHz
-  \item Jupiter emissions near 20Mhz, are least likely to be interfered with from short wave transmissions
+  \item Study Jupiter in the decametric band 3MHz - 40MHz (10-100 ms)
+  \item Jupiter emissions near 20Mhz, are least likely to be interfered with from human short wave sources
   \item Earths atmosphere is transparent at these frequencies during the night time
   \item Study Solar emissions during the day
   \item Solar emissions are strong enough to penetrate Earths atmosphere during the day
 \end{itemize}
 
+The goal is to produce
 
 \begin{itemize}
   \item Low cost to deploy
@@ -304,7 +319,6 @@ Predecisions on how I want to collect data, creating the research questions itse
 
 Its going to be lower cost than other methods, or its using something new compared to other devices
 
-Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -312,7 +326,11 @@ Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration
 \newpage
 \section*{Methodology}
 \addcontentsline{toc}{section}{Methodology}
-This should outline the approach and methodology being proposed by the student to address the research question.
+%This should outline the approach and methodology being proposed by the student to address the research question.
+
+The radio telescope design incorporates a hardware \textit{dual dipole antenna} array which resonates strongly at \textit{20.1 MHz}, with a \textit{HackRF} software defined radio transceiver. 
+
+Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
 
 \begin{itemize}
   \item build and validate the telescope
@@ -322,6 +340,16 @@ This should outline the approach and methodology being proposed by the student t
   \item show the errors from human signals
   \item 
 \end{itemize}
+
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/08}
+\caption{Dual Dipole Antenna Array \citep{nasa12}}
+\label{fig:dual_dipole_antenna_array}
+\end{figure}
+%
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
