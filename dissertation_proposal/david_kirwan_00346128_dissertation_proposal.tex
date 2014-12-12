@@ -273,7 +273,7 @@ There are a number of challenges which need to be overcome to achieve this, such
 
 During daylight hours, the ionosphere becomes opaque to signals in the \gls{DAM} band due to becoming ionised by solar radiation \citep{nasa-ionosphere-12}. The proposed system will have a short window in the order of 1-6 hours every second night and early morning or so during which it may be possible to capture \gls{DAM} emissions from Jupiter. The Sun is a source of \gls{DAM} emissions also, and the telescope can capture solar storm emissions without modification, providing the Sun passes through the antenna beam. The telescope may require manual reconfiguration in order to pick up solar storm emissions during the day.
 
-Interference from human sources such as shortwave radio stations or amateur radio operators are also likely to affect the collection of \gls{DAM} emissions from Jupiter. The ability for automated flagging or removal of interference would be a desirable feature of the system.
+Interference from human sources such as shortwave radio stations or amateur radio operators are also likely to affect the collection of \gls{DAM} emissions from Jupiter. The ability for automated flagging or removal of interference would be a desirable feature of the system. Lightning storms can also produce interference which will affect observations, it might be desirable for the system to handle natural interference sources also.
 
 
 \subsection*{Problem Summary}
@@ -299,29 +299,13 @@ To summarise the problem briefly:
 \newpage
 \section*{Research Questions}
 \addcontentsline{toc}{section}{Research Questions}
-A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
+%A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
 
 \begin{itemize}
-  \item can I use this antenna to pick up signals from planetary bodies
-  \item Signal Processing issues
-  \item Can I address these natural signal noises
-  \item Can I address these human signal noises
+  \item Can a software defined radio solution be developed to flag or filter human radio interference from radio signal observations?
+  \item Can this same solution be used to flag or filter natural radio interference?
+  \item How cheaply can a fully automated software defined radio signal listening station be built using current IOT technologies?
 \end{itemize}
-
-\begin{itemize}
-  \item Do amateur radio emissions adversely affect radio astronomy in the 15m band?
-  \item What can be done using software defined radio to filter local radio interference from radio astronomy observations?
-  \item How cheaply can a fully automated radio telescope listening station be built using current IOT technologies?
-\end{itemize}
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\subsection*{Potential Pitfalls}
-\addcontentsline{toc}{subsection}{Potential Pitfalls}
-Predecisions on how I want to collect data, creating the research questions itself I might need to carefully look at this, because I've made some initial ideas on how I want to collect this data.
-
-Its going to be lower cost than other methods, or its using something new compared to other devices
 
 
 %
@@ -331,6 +315,12 @@ Its going to be lower cost than other methods, or its using something new compar
 \section*{Methodology}
 \addcontentsline{toc}{section}{Methodology}
 %This should outline the approach and methodology being proposed by the student to address the research question.
+
+\subsection*{Potential Pitfalls}
+\addcontentsline{toc}{subsection}{Potential Pitfalls}
+Predecisions on how I want to collect data, creating the research questions itself I might need to carefully look at this, because I've made some initial ideas on how I want to collect this data.
+
+Its going to be lower cost than other methods, or its using something new compared to other devices
 
 The radio telescope design incorporates a hardware \textit{dual dipole antenna} array which resonates strongly at \textit{20.1 MHz}, with a \textit{HackRF} software defined radio transceiver. 
 
