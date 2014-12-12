@@ -260,11 +260,21 @@ Fig: \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Burst
 
 The aim of this project is to design and construct a low cost, self sufficient software defined radio (\gls{SDR}) telescope listening station, which can capture signals for transmission to a central data aggregation point for signal processing and analysis. This telescope should be suitable to study Jupiter and the Sun in the \gls{DAM} (10-100 m) band at or near the \textit{20.1 MHz} frequency.
 
-Jupiter is visible for a number of months each year and generally in the evening, night, or morning hours. As the Earth's ionosphere begins to heats up during the day, it becomes opaque to signals in the \gls{DAM} band which can prevent weaker signals being captured by a ground based listening site (get citation for this). 
+There are a number of challenges which need to be overcome to achieve this, such as Jupiter only being visible for a number of months each year and then generally in the evening, night, or morning hours. Often at highly unsociable times. For this reason a radio telescope listening site should be as automated as possible.
 
-Interference from human sources such as short wave radio stations or amateur radio transmissions is likely to affect the collection of \gls{DAM} emissions from Jupiter. Want to develop a system for the automatic flagging of human transmissions using either signal processing or making use of manually identified transmissions using a dx cluster
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/07}
+\caption{Dual Dipole Antenna Beam at 20FT and 135deg phasing S \citep{nasa12}}
+\label{fig:dual_dipole_20ft_135phasing_s}
+\end{figure}
+%
 
-Solar storm activity can be captured during daylight hours, providing the antenna deployment configuration covers the part of the sky that the Sun traverses during the daylight hours. 
+During daylight hours, the ionosphere becomes opaque to signals in the \gls{DAM} band due to becoming ionised by solar radiation \citep{nasa-ionosphere-12}. The proposed system will have a short window in the order of 1-6 hours every second night and early morning or so during which it may be possible to capture \gls{DAM} emissions from Jupiter. The Sun is a source of \gls{DAM} emissions also, and the telescope can capture solar storm emissions without modification, providing the Sun passes through the antenna beam. The telescope may require manual reconfiguration in order to pick up solar storm emissions during the day.
+
+Interference from human sources such as shortwave radio stations or amateur radio operators are also likely to affect the collection of \gls{DAM} emissions from Jupiter. The ability for automated flagging or removal of interference would be a desirable feature of the system.
+
 
 \subsection*{Problem Characteristics}
 \addcontentsline{toc}{subsection}{Problem Characteristics}
