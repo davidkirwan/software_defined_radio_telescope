@@ -273,68 +273,18 @@ There are a number of challenges which need to be overcome to achieve this, such
 
 During daylight hours, the ionosphere becomes opaque to signals in the \gls{DAM} band due to becoming ionised by solar radiation \citep{nasa-ionosphere-12}. The proposed system will have a short window in the order of 1-6 hours every second night and early morning or so during which it may be possible to capture \gls{DAM} emissions from Jupiter. The Sun is a source of \gls{DAM} emissions also, and the telescope can capture solar storm emissions without modification, providing the Sun passes through the antenna beam. The telescope may require manual reconfiguration in order to pick up solar storm emissions during the day.
 
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/09}
+\caption{Dual Dipole Antenna Array Beam\citep{nasa12}}
+\label{fig:dual_dipole_antenna_array_beam}
+\end{figure}
+%
+
+
 Interference from human sources such as shortwave radio stations or amateur radio operators are also likely to affect the collection of \gls{DAM} emissions from Jupiter. The ability for automated flagging or removal of interference would be a desirable feature of the system. Lightning storms can also produce interference which will affect observations, it might be desirable for the system to handle natural interference sources also.
-
-
-\subsection*{Problem Summary}
-\addcontentsline{toc}{subsection}{Problem Summary}
-
-To summarise the problem briefly:
-
-\begin{itemize}
-  \item Low cost self sufficient SDR telescope platform suitable for amateur observers
-  \item Study Jupiter in the decametric band 3MHz - 40MHz (10-100 m)
-  \item Jupiter emissions near 20Mhz, are least likely to be interfered with from human short wave sources
-  \item Earths atmosphere is transparent at these frequencies during the night time
-  \item Study Solar emissions during the day as solar emissions are strong enough to penetrate the ionosphere during the day
-  \item Backhaul system for capturing, processing and storage of listening site data
-  \item API for accessing data, and or integrating into another system
-  \item Amateur listening sites can compliment larger telescope arrays around the world
-\end{itemize}
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Research Questions}
-\addcontentsline{toc}{section}{Research Questions}
-%A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
-
-\begin{itemize}
-  \item Can a software defined radio solution be developed to flag or filter human radio interference from radio signal observations?
-  \item Can this same solution be used to flag or filter natural radio interference?
-  \item How cheaply can a fully automated software defined radio signal listening station be built using current IOT technologies?
-\end{itemize}
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Methodology}
-\addcontentsline{toc}{section}{Methodology}
-%This should outline the approach and methodology being proposed by the student to address the research question.
-
-\subsection*{Potential Pitfalls}
-\addcontentsline{toc}{subsection}{Potential Pitfalls}
-Predecisions on how I want to collect data, creating the research questions itself I might need to carefully look at this, because I've made some initial ideas on how I want to collect this data.
-
-Its going to be lower cost than other methods, or its using something new compared to other devices
-
-The radio telescope design incorporates a hardware \textit{dual dipole antenna} array which resonates strongly at \textit{20.1 MHz}, with a \textit{HackRF} software defined radio transceiver. 
-
-Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration will apply only to locations at this or a similar latitude, but will be universally applicable at this latitude without modification, and with relatively minor modifications can ensure the end solution can be used at all locations. \cite{kivelson96}
-
-\begin{itemize}
-  \item build and validate the telescope
-  \item monitor the frequencies im interested in
-  \item based on the ability to collect data, can we use it to answer our research questions
-  \item show the errors from lightning
-  \item show the errors from human signals
-  \item 
-\end{itemize}
-
 
 %
 \begin{figure}[here]
@@ -344,6 +294,128 @@ Due to the latitude of Ireland being 53.3 degrees N, the telescope configuration
 \label{fig:dual_dipole_antenna_array}
 \end{figure}
 %
+
+\subsection*{Problem Summary}
+\addcontentsline{toc}{subsection}{Problem Summary}
+
+To summarise the problem briefly:
+
+\begin{itemize}
+  \item Design of a low cost self sufficient SDR telescope platform suitable for amateur observers
+  \item Capable of studying Jupiter in the decametric band 3MHz - 40MHz (10-100 m)
+  \item This band is chosen because Earths atmosphere is transparent at these frequencies during the night time
+  \item Another reason is emissions near 20Mhz, are least likely to be interfered with from human short wave sources
+  \item Such a platform has a second capability in that it is also be capable of studying Solar emissions during the day as solar emissions are strong enough to penetrate the ionosphere during the day
+  \item Development of a backhaul system for processing and storage of listening site captured data, thereby making it capable of aggregating data from multiple listening sites
+  \item Develop an API for accessing this data, and allow integrating into 3rd party applications
+  \item Amateur listening sites can compliment larger telescope arrays around the world
+\end{itemize}
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section*{Research Questions}
+\addcontentsline{toc}{section}{Research Questions}
+%A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
+The initial research questions which arise are as follows:
+
+\newglossaryentry{IOT}
+{
+  name={IOT},
+  description={Internet of Things},
+  sort=IOT
+}
+
+\begin{itemize}
+  \item What current Internet of Things (\gls{IOT}) technologies would best suit the development of a fully automated software defined radio signal listening station and how cheaply can it be created?
+  \item Can a software defined radio solution be developed to filter or flag known instances of human radio interference from radio signal observations?
+  \item If so can this same solution be used to filter or flag known instances of natural radio interference such as lightning?
+\end{itemize}
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\section*{Research Hypothesis}
+\addcontentsline{toc}{section}{Research Hypothesis}
+%This should outline the approach and methodology being proposed by the student to address the research question.
+
+The section aims to document the different methodologies which will be followed on this project and is broke up into the following subsections:
+
+
+\begin{description}
+  \item[Antenna Build] \hfill \\
+    Building the antenna is further broken down into the following steps:
+    \begin{itemize}
+      \item source materials to build a dual dipole antenna
+      \item build the telescope antenna
+      \item validate the antenna is capable of collecting signals at or near the 20.1 MHz frequency \\
+    \end{itemize}
+  \item [Analysis of Listening Site Suitability] \hfill \\
+    Finding a site suitable to deploy the antenna will require a site survey with the antenna connected to a spectrum analyser.
+    \begin{itemize}
+      \item source a spectrum analyser suitable for performing a site survey
+      \item perform the survey at this site
+      \item repeat until suitable site is found 
+      \item deploy the antenna at a site \\
+    \end{itemize}
+  \item [Data Collection] \hfill \\
+    Jupiter is visible above the horizon at night only during certain periods see fig: \ref{fig:dual_dipole_antenna_array_beam}. In order to perform the required data collection it is highly desirable to automate the process.
+    \begin{itemize}
+      \item create listening schedule during which \gls{DAM} emissions are likely to occur
+      \item develop \gls{SDR} prototype mechanism for gathering raw data from the antenna
+      \item develop software scheduling system which to activate the collection of data from the antenna remotely\\
+    \end{itemize}
+  \item [Data Analysis] \hfill \\
+    Collected data can be analysed manually at first in order to validate the testbed, but later using software such as the development of basic algorithms to spot events such as \textit{S-Bursts} occurring in the data.
+    \begin{itemize}
+      \item analyse data collected for evidence of Jovian or Solar \gls{DAM} emissions
+      \item analyse data for evidence of interference from human sources
+      \item analyse data for evidence of interference from natural sources
+      \item develop a system which connects to the dxspider server and creates flag events for human identified emissions at or near the target frequency being monitored by the telescope
+      \item develop a system which interacts with the Blitzortung servers and creates flag events for emissions generated by lightning \\
+    \end{itemize}
+  \item [Data Processing] \hfill \\
+    \gls{SDR} data processing techniques can be developed in order to better filter the signals as they are being collected thereby minimising the level of processing at a later stage.
+    \begin{itemize}
+      \item using \gls{SDR} techniques, to reduce interference in data as it is being collected
+      \item attempt to remove instances of human and natural interference using signal processing techniques after collection \\
+    \end{itemize}
+  \item [Data Aggregation] \hfill \\
+    An API layer allows 3rd parties the ability to access data collected from multiple listening sites and potentially develop new features or systems using the data.
+    \begin{itemize}
+      \item develop API layer to allow external parties access aggregated data collected by the system \\
+    \end{itemize}
+  \item [Design Platform] \hfill \\
+    An analysis of the current available \gls{IOT} technologies and some of the available options which could be used in order to produce an open low cost platform which amateur astronomers could use in order to study emissions in the \gls{DAM} band.
+    \begin{itemize}
+      \item design a self sufficient automated platform suitable for collection of signals such as those by the \gls{SDR} telescope \\
+    \end{itemize}
+\end{description}
+
+The \gls{SDR} hardware transceiver used is likely to be the \textit{HackRF} system while the \gls{SDR} software components will be developed in either \textit{C++} or \textit{Python} as both languages have bindings for the \textit{GNURadio} development toolkit \citep{gnuradio-14}. The backend aggregation system with API will most likely be developed in the \textit{Ruby} language as this language is highly expressive and suitable for rapid prototype development. Execution of the Ruby application on the Java VM is capable using the \textit{JRuby} system, which will also allow the incorporation of any required Java libraries.
+
+
+\subsection*{Potential Pitfalls}
+\addcontentsline{toc}{subsection}{Potential Pitfalls}
+%Predecisions on how I want to collect data, creating the research questions
+
+It is difficult to determine at this early stage what will ultimately prove to be the most troublesome element to implement, however there are a number of potential pitfalls which have already been identified.
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/11}
+\caption{Radio Jove Graph Showing Jupiters Max Altitude 2014}
+\label{fig:jupiter_max_altitude_2014}
+\end{figure}
+%
+
+The latitude of Ireland is 53.3$^{\circ}$ degrees N. In Ireland Jupiter reaches a maximum altitude of 52$^{\circ}$ degrees in 2014 see fig: \ref{fig:jupiter_max_altitude_2014}. The telescope configuration which will be documented will apply only to locations at this or a similar latitude. It will be universally applicable at this latitude without modification throughout the world, and with relatively minor modifications to the configuration of the antenna it can be used at all locations. \cite{nasa12}
+
+The \gls{SDR} complexity of the solution required in order to correctly filter interference might ultimately prove too resource intensive to work with a low power system such as the \textit{Raspberry Pi} or \textit{Beaglebone Black}. It might become apparent that the minimum system requirements may need to be increased to an \textit{Intel Atom} powered Netbook for example, or potentially something a lot more powerful such as an \textit{i3} or \textit{i5} system. If this was the case, it will drastically increase the power and cost requirements of the system should it be self sufficient, requiring bigger batteries, more capable/expensive photovoltaic and or wind turbines to keep the system topped up.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
