@@ -429,6 +429,26 @@ The latitude of Ireland is 53.3$^{\circ}$ degrees N. In Ireland Jupiter reaches 
 
 The \gls{SDR} complexity of the solution required in order to correctly filter interference might ultimately prove too resource intensive to work with a low power system such as the \textit{Raspberry Pi} or \textit{Beaglebone Black}. It might become apparent that the minimum system requirements may need to be increased to an \textit{Intel Atom} powered Netbook for example, or potentially something a lot more powerful such as an \textit{i3} or \textit{i5} system. If this was the case, it will drastically increase the power and cost requirements of the system should it be self sufficient, requiring bigger batteries, more capable/expensive photovoltaic and or wind turbines to keep the system topped up.
 
+\subsection*{Special Resources Required}
+\addcontentsline{toc}{subsection}{Special Resources Required}
+% The research work may require access to specialised equipment, software, journals and so on.
+
+The initial resources which have been identified to be required are listed as follows:
+
+\begin{description}
+  \item[RG59 Coax] \hfill \\
+  RG59 coax cable is required to link the dipole antennas back to the \gls{SDR} transceiver.
+  \item[PL259 / SO239] \hfill \\
+  Cable adapters which connect coax cables together with the dipole centers.
+  \item[HacRF] \hfill \\
+  The HackRF \gls{SDR} transceiver system is the software defined radio transceiver chosen for the prototype system.
+  \item[Radio Jove] \hfill \\
+  The Radio Jove software is extremely useful for observers wishing to capture \gls{DAM} emissions from Jupiter. It contains a large number of features such as emission prediction observation charts, and information regarding Jupiters location in the sky from any specified point on the Earths surface.
+  \item[Spectrum Analyser] \hfill \\
+  A spectrum analyser will be required in order to perform a site survey to determine if a location is suitable for collecting \gls{DAM} emissions.
+\end{description}
+
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -437,6 +457,7 @@ The \gls{SDR} complexity of the solution required in order to correctly filter i
 \addcontentsline{toc}{section}{Preliminary Literature Review}
 %This should contain a review of a number of books, journal articles and web references of relevance to the research area proposed. The literature should contain seminal and recent referenced research material that is categorised under a number of relevant sub-themes.
 
+The preliminary literature review
 I've read about 15 papers already related to the background of the interactions between Jupiter and Io, and papers detailing results from similar telescopes to the design I intend to build. I've hit a paywall on some of the earliest seminal papers which were the first to detail the phenomenon of decametric emissions being emitted by the Jupiter-Io system. I will attempt to get a copy through the inter library loan system at WIT.
 
 
@@ -469,37 +490,18 @@ The contributions to research knowledge which are anticipated are listed as foll
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\newpage
-\section*{Description of the Experimental Design / Validation Methodology}
-\addcontentsline{toc}{section}{Description of the Experimental Design / Validation Methodology}
+%\newpage
+%\section*{Description of the Experimental Design / Validation Methodology}
+%\addcontentsline{toc}{section}{Description of the Experimental Design / Validation Methodology}
 % A dissertation must employ rigorous scientific argument. The experimental design and the validation methodology must be specified in great detail in the proposal. At this proposal stage you should define clear evaluation criteria.
 
 
-\begin{itemize}
-  \item Identify data caused by lightning
-  \item Identify data caused by human emissions
-  \item Perform a site survey with the spectrum analyser
-  \item Replicate the testbed at a second site
-\end{itemize}
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Special Resources Required}
-\addcontentsline{toc}{section}{Special Resources Required}
-% The research work may require access to specialised equipment, software, journals and so on.
-
-The initial resources which have been identified to be required are listed as follows:
-
-\begin{description}
-  \item[HacRF] \hfill \\
-  The HackRF \gls{SDR} transceiver system is the software defined radio transceiver chosen for the prototype system.
-  \item[Radio Jove] \hfill \\
-  The Radio Jove software is extremely useful for observers wishing to capture \gls{DAM} emissions from Jupiter. It contains a large number of features such as emission prediction observation charts, and information regarding Jupiters location in the sky from any specified point on the Earths surface.
-  \item[Spectrum Analyser] \hfill \\
-  A spectrum analyser will be required in order to perform a site survey to determine if a location is suitable for collecting \gls{DAM} emissions.
-\end{description}
+%\begin{itemize}
+%  \item Identify data caused by lightning
+%  \item Identify data caused by human emissions
+%  \item Perform a site survey with the spectrum analyser
+%  \item Replicate the testbed at a second site
+%\end{itemize}
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
