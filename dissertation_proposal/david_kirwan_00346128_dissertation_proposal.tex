@@ -185,7 +185,7 @@ The \gls{DAM} emissions are carried along the surface of the emission cones as s
 }
 %
 
-A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. The \textit{shortwave radio} bands extend from 2.3 MHz (120 m) all the way to 26.1 MHz (11 m) and were approved for broadcast at the 1997 World Radio communication Conference (\gls{WRC}). ComReg, is the Irish Commission for Communications Regulation within Ireland, and maintains a list of the short wave frequencies which are designated for transmission in Ireland and can be seen in Figure. \ref{fig:irish_electromagnetic_transmission_ranges} \citep{comreg14}.
+A ground based listening station aiming to record \gls{DAM} emissions from Jupiter is most likely to succeed between 15-25 MHz \citep{wilkinson94}. According to \cite{arrl-00} there is no clear definition of the \textit{shortwave} radio bands however it is most often considered to extend from 3 MHz to 30 MHz. ComReg is the Irish Commission for Communications Regulation within Ireland, and maintains a list of the short wave frequencies which are designated for transmission purposes in Ireland and can be seen in Figure. \ref{fig:irish_electromagnetic_transmission_ranges} \citep{comreg14}.
 
 %
 \begin{figure}[here]
@@ -216,7 +216,7 @@ Sourcing a suitable antenna is one of the first requirements to satisfy in order
 
 One simple antenna design for collecting \gls{DAM} emissions is the \textit{dipole}. A dipole antenna can be constructed simply and cheaply from two pieces of wire and three insulators \citep{nasa12}, while ensuring to cut the wires to a length matching half the desired wavelength being captured \citep{nasa12}. However as the formula referenced in Figure. \ref{fig:wavelength_equation} describes the use of an \textit{infinitely thin} wire which is not possible in reality, \textit{capacitive end effects} must be taken into account when working out the resonating wavelength for a dipole antenna \citep{nasa12}.
 
-The formula for calculating the resonating frequency for a half wavelength dipole is described in fig \ref{fig:wavelength_equation_dipole} and produces the value which should measure from tip to tip on the wires used to construct the dipole antenna \citep{nasa12}.
+The formula for calculating the resonating frequency for a half wavelength dipole is described in fig \ref{fig:wavelength_equation_dipole} and produces the value which should measure from tip to tip on the wires used to construct the dipole antenna \citep{nasa12}. \cite{RSGB-14} states in practice that the true resonance is not exactly multiples of the half-wavelength due to factors such as the coatings on the wire and loss due to radiation. A second formula is detailed in Figure. \ref{fig:wavelength_equation_wire_antenna} which takes these factors into account and produces an antenna length which is slightly larger than the formula proposed by \citep{nasa12}.
 
 %
 \begin{figure}[here]
@@ -226,6 +226,20 @@ The formula for calculating the resonating frequency for a half wavelength dipol
   \end{equation}
   \caption{Wavelength Equation for Real World Half Wavelength Dipole Antenna}
   \label{fig:wavelength_equation_dipole}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+  \centering
+  \begin{equation}  	
+    \lambda m = 155 \bigg(\frac{n - 0.05}{f}\bigg)
+  \end{equation}
+  \begin{equation}  	
+    \lambda m = 155 \bigg(\frac{1 - 0.05}{20.1 MHz}\bigg)  = 7.325870646766169 m
+  \end{equation}
+  \caption{Wavelength Equation for Real World Half Wavelength Wire Antenna}
+  \label{fig:wavelength_equation_wire_antenna}
 \end{figure}
 %
 
@@ -327,6 +341,7 @@ To summarise the problem briefly:
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+\newpage
 \section*{Research Questions}
 \addcontentsline{toc}{chapter}{Research Questions}
 %A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
@@ -478,7 +493,7 @@ The NASA project \textit{Radio Jove} recommended the dual dipole array design fo
 
 \subsection*{Digital Signal Processing}
 \addcontentsline{toc}{section}{Digital Signal Processing}
-Digital signal processing within Gnuradio is handled in blocks WIP
+\cite{freidt-13} holds that digital signal processing is the preferred means to process signals, for reasons such as stability and for its resistance to long term ageing effects that analogue systems suffer from. Due to the cheap availability of computational resources, digital signal processing is capable of being carried out now within software entirely, this has led to the development of software defined radio solutions \citep{freidt-13}. The GNURadio software allows creation of software defined radio solutions by replacing hardware functions with modular software functions. These software functions are capable of being connected together, an output from one function providing input for another. It is in this fashion it is possible to transform digital signals using digital signal processing methods \citep{gnuradio-14}.
 
 %
 \begin{table}
@@ -492,9 +507,9 @@ Digital signal processing within Gnuradio is handled in blocks WIP
 
     Radio telescope designs suitable to capture DAM emissions from Jupiter & Wilkinson et al suggest a folded dipole antenna design & Radio Jove project suggest a dual dipole antenna & Greef demonstrates a low cost Loop Antenna design with reflection plate & \\ \hline \hline
     
-    \textbf{Topic} & \textbf{GNU Radio 2014} &  & & \\ \hline \hline    
+    \textbf{Topic} & \textbf{Freidt 2013} & \textbf{GNU Radio 2014} & & \\ \hline \hline    
     
-    Digital signal processing & & & &  \\ 
+    Digital signal processing & Freidt states digital signal processing now ubiquitous, and cheap availability of computational power lends self to software defined radio solutions. & GNURadio allows digital signal processing using transformation functions developed in software. & &  \\ 
     
 
     
@@ -570,8 +585,6 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
   \label{tab:milestones_anticipated}
 \end{table}
 %
-
-%
 \printglossaries
 %
 \bibliographystyle{plainnat}
@@ -579,14 +592,11 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
 \addcontentsline{toc}{chapter}{Bibliography}
 %
 \newpage
-%
 \appendix
 \section*{Appendix}
 \addcontentsline{toc}{chapter}{Appendices}
 
 \begin{subappendices}
-\subsection*{How I became inspired}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
 
 \subsection*{Images}
 
