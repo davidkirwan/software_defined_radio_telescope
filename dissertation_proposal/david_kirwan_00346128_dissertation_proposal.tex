@@ -86,7 +86,7 @@ Cork Rd, Waterford City, Ireland\\
 %
 \newpage
 \section*{Introduction}
-\addcontentsline{toc}{section}{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
 %This is typically an outline description detailing the background	 to the problem.
 
 \newglossaryentry{DAM}
@@ -96,7 +96,7 @@ Cork Rd, Waterford City, Ireland\\
   sort=DAM
 }
 %
-It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio transmissions in the decameter (\gls{DAM}) range \textit{10-100 m wavelengths}, and the inner Jovian satellite Io appeared to have an effect on these emissions occurring \citep{belcher87}. Jupiter's radio emissions range between 4 MHz to 39.5 MHZ while emitting most strongly at 8 MHz or so \citep{wilkinson94}. However due to interference from human short wave radio sources between 4-15 MHz coupled with the attenuation of these signals or refraction off Earths ionosphere, the majority of emissions have been observed up in the 15-25 MHz range where this interference is less. The emission signal strength quickly diminishes above this range \citep{wilkinson94}.
+It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio transmissions in the decameter (\gls{DAM}) range \textit{10-100 m wavelengths}, and the inner Jovian satellite Io appeared to have an effect on these emissions occurring \citep{belcher87}. Jupiter's radio emissions range between 4 MHz to 40 MHZ while emitting most strongly at 8 MHz  \citep{wilkinson94}. Due to interference from human short wave radio sources between 4-15 MHz coupled with the attenuation of these signals below 8 MHz or the refraction off Earths ionosphere, the majority of emissions have been observed up in the 15-25 MHz range where this interference is less \citep{wilkinson94}. The emission signal strength quickly diminishes above this range for ground based listening sites \citep{wilkinson94}.
 %
 \begin{figure}[here]
 \centering
@@ -144,7 +144,7 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
 The local corotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}. Fig \ref{fig:io_flux_tube} details a diagram of the Io Flux Tube (\gls{IFT}) which is a tube made up from Jovian of magnetic field lines \citep{belcher87} which thread the satellite. A large portion of the decametric emissions come from the area where the \gls{IFT} meets the Jovian ionosphere. 
 
 
-As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Jupiter and Io \citep{bose08}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave. It appears the source of the \gls{DAM} emissions are largely due to these reflections of these Alfv\'en waves off Jupiter's ionosphere.
+As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Jupiter and Io \citep{bose08}. These Alfv\'en waves reflect off Jupiters ionosphere at both north and south poles upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave. It appears the source of the \gls{DAM} emissions are largely due to these reflections of the Alfv\'en waves off Jupiter's ionosphere in both the northern and southern regions.
 
 The \gls{DAM} emissions are carried along the surface of the emission cones as show in fig: \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions are released at the surface of this cone. When pointing in Earths direction, it can be picked up at ground based radio telescope listening stations.
 
@@ -162,7 +162,7 @@ The \gls{DAM} emissions are carried along the surface of the emission cones as s
 %
 \newpage
 \section*{Research Topic}
-\addcontentsline{toc}{section}{Research Topic}
+\addcontentsline{toc}{chapter}{Research Topic}
 %Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 %
 
@@ -261,7 +261,7 @@ Fig: \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Burst
 %
 \newpage
 \section*{Research Problem}
-\addcontentsline{toc}{section}{Research Problem}
+\addcontentsline{toc}{chapter}{Research Problem}
 %
 \newglossaryentry{SDR}
 {
@@ -307,7 +307,7 @@ Interference from human sources such as shortwave radio stations or amateur radi
 %
 
 \subsection*{Problem Summary}
-\addcontentsline{toc}{subsection}{Problem Summary}
+\addcontentsline{toc}{section}{Problem Summary}
 
 To summarise the problem briefly:
 
@@ -327,7 +327,7 @@ To summarise the problem briefly:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \section*{Research Questions}
-\addcontentsline{toc}{section}{Research Questions}
+\addcontentsline{toc}{chapter}{Research Questions}
 %A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
 The initial research questions which arise are as follows:
 
@@ -352,7 +352,7 @@ The initial research questions which arise are as follows:
 %
 \newpage
 \section*{Research Hypothesis}
-\addcontentsline{toc}{section}{Research Hypothesis}
+\addcontentsline{toc}{chapter}{Research Hypothesis}
 %This should outline the approach and methodology being proposed by the student to address the research question.
 
 The section aims to document the different methodologies which will be followed on this project and is broke up into the following:
@@ -411,7 +411,7 @@ The \gls{SDR} hardware transceiver used is likely to be the \textit{HackRF} syst
 
 
 \subsection*{Potential Pitfalls}
-\addcontentsline{toc}{subsection}{Potential Pitfalls}
+\addcontentsline{toc}{section}{Potential Pitfalls}
 %Predecisions on how I want to collect data, creating the research questions
 
 It is difficult to determine at this early stage what will ultimately prove to be the most troublesome element to implement, however there are a number of potential pitfalls which have already been identified.
@@ -430,7 +430,7 @@ The latitude of Ireland is 53.3$^{\circ}$ degrees N. In Ireland Jupiter reaches 
 The \gls{SDR} complexity of the solution required in order to correctly filter interference might ultimately prove too resource intensive to work with a low power system such as the \textit{Raspberry Pi} or \textit{Beaglebone Black}. It might become apparent that the minimum system requirements may need to be increased to an \textit{Intel Atom} powered Netbook for example, or potentially something a lot more powerful such as an \textit{i3} or \textit{i5} system. If this was the case, it will drastically increase the power and cost requirements of the system should it be self sufficient, requiring bigger batteries, more capable/expensive photovoltaic and or wind turbines to keep the system topped up.
 
 \subsection*{Special Resources Required}
-\addcontentsline{toc}{subsection}{Special Resources Required}
+\addcontentsline{toc}{section}{Special Resources Required}
 % The research work may require access to specialised equipment, software, journals and so on.
 
 The initial resources which have been identified to be required are listed as follows:
@@ -454,28 +454,58 @@ The initial resources which have been identified to be required are listed as fo
 %
 \newpage
 \section*{Preliminary Literature Review}
-\addcontentsline{toc}{section}{Preliminary Literature Review}
+\addcontentsline{toc}{chapter}{Preliminary Literature Review}
 %This should contain a review of a number of books, journal articles and web references of relevance to the research area proposed. The literature should contain seminal and recent referenced research material that is categorised under a number of relevant sub-themes.
 
-The preliminary literature review
-I've read about 15 papers already related to the background of the interactions between Jupiter and Io, and papers detailing results from similar telescopes to the design I intend to build. I've hit a paywall on some of the earliest seminal papers which were the first to detail the phenomenon of decametric emissions being emitted by the Jupiter-Io system. I will attempt to get a copy through the inter library loan system at WIT.
+The preliminary literature review can be broken down into the following areas:
 
-
-My literature review can be broken down into the following areas:
 
 \begin{itemize}
-  \item What are the decametric radio emissions and what are they caused by
-  \item Research journals detailing potential radio telescope designs which could be replicated in order to collect DAM emissions
-  \item I need to look into journals involving signal processing and maybe some rudimentary filtering or AI for identifying spurious signals
-  \item Something else
-  
+  \item[\textbullet] What are the decametric radio emissions and what are they caused by
+  \item[\textbullet] Potential radio telescope designs which could be replicated in order to collect DAM emissions
+  \item[\textbullet] Digital signal processing and filtering to remove interference
 \end{itemize}
+
+\subsection*{Decametric Radio Emission what are they and where do they come from?}
+\addcontentsline{toc}{section}{Decametric Radio Emission what are they and where do they come from?}
+
+\cite{belcher87} states that the data collected by the \textit{Voyager} spacecraft fits with the Alfv\'en wing theory as an explanation for the source of the \gls{DAM} emissions \citep{belcher87}. \cite{kivelson96} discusses the refinements made to this theory to take into account the flowing plasma between Jupiters ionosphere and the electrically conducting Io. The \textit{Galileo} spacecraft collected data which appears to corroborate the updates to the Alfv\'en wing model \citep{kivelson96}. \cite{bose08} states that the Alfv\'en waves reflect off Jupiters ionosphere which cause the \gls{DAM} emissions to radiate out from the point in Jupiters ionosphere where it meets the \gls{IFT}, in a cone shape. \cite{imai-08} proposes an update to this model to take into account the decade long shifts in \gls{DAM} emission patterns, and proposes an extension to the emission cone model to include a \textit{searchlight} shaped emission zone \citep{imai-08} see fig: \ref{fig:decametric_emissions_searchlight}.
+
+\subsection*{Radio Telescope Designs, Which to Choose?}
+\addcontentsline{toc}{section}{Radio Telescope Designs, Which to Choose?}
+The NASA project \textit{Radio Jove} recommended the dual dipole array design for a cheap low cost listening site as shown in fig: \ref{fig:dual_dipole_antenna_array} \citep{nasa12}. But it is by no means the only antenna design which would be capable of picking up the \gls{DAM} emissions. \cite{wilkinson94} recommends a slightly more advanced design, the \textit{folded dipole} which maximises the bandwidth available to the antenna \citep{wilkinson94}.
+
+%
+\begin{table}
+  \centering
+  \begin{tabular}{ | p{2.5cm} || p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} |}
+    \hline
+    \textbf{Topic} & \textbf{Belcher 1987} & \textbf{Kivelson et al 1996} & \textbf{Bose et al 2008} & \textbf{Imai et al 2008} \\ \hline \hline
+    What are the Jovian DAM emissions and what causes them? & Large fraction of DAM emissions come from point where IFT meets Jupiters ionosphere (p3). Large moving conductor within a magnetised plasma (p1) produces Alfv\'en wing. & Alfv\'enic disturbances, generated by flowing plasma from Jovian magnetosphere and conducting Io (p337). & Alfv\'en waves reflecting off Jupiters Ionosphere (p79). & Not fully understood, but believed to be produced by cyclotron maser instability \citep{imai-08}. \\ \hline \hline
+
+    \textbf{Topic} & \textbf{Wilkinson et al} & \textbf{NASA Radio Jove} &  &  \\ \hline \hline
+
+    Radio telescope designs suitable to capture DAM emissions from Jupiter & Wilkinson et al suggest a folded dipole antenna design & Radio Jove project suggest a dual dipole antenna & & \\ \hline \hline
+    
+    \textbf{Topic} & \textbf{Bruce 1970} & \textbf{GNU Radio 2014} & & \\ \hline \hline    
+    
+    Digital signal processing & & & &  \\ 
+    
+
+    
+    \hline
+  \end{tabular}
+  \caption{Literature Review Synthesis Matrix}
+  \label{tab:literature_review_synthesis_matrix}
+\end{table}
+%
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
 \section*{Contribution to Research Knowledge Anticipated}
-\addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
+\addcontentsline{toc}{chapter}{Contribution to Research Knowledge Anticipated}
 %A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
 
 The contributions to research knowledge which are anticipated are listed as follows:
@@ -508,7 +538,7 @@ The contributions to research knowledge which are anticipated are listed as foll
 %
 \newpage
 \section*{Main Milestones Anticipated}
-\addcontentsline{toc}{section}{Main Milestones Anticipated}
+\addcontentsline{toc}{chapter}{Main Milestones Anticipated}
 % Students should agree a number of milestones and their likely delivery dates with their supervisor at the start of the progress.
 
 The following table: \ref{tab:milestones_anticipated} details the milestones which have been identified and agreed to date:
@@ -534,7 +564,7 @@ The following table: \ref{tab:milestones_anticipated} details the milestones whi
   \caption{Milestones Anticipated}
   \label{tab:milestones_anticipated}
 \end{table}
-
+%
 
 %
 \printglossaries
@@ -548,11 +578,21 @@ The following table: \ref{tab:milestones_anticipated} details the milestones whi
 \appendix
 \section*{Appendix}
 \addcontentsline{toc}{chapter}{Appendices}
-Here is some content in the appendix
 
 \begin{subappendices}
 \subsection*{How I became inspired}
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut egestas sapien. Sed vehicula, libero vitae ornare interdum, nunc felis rhoncus risus, ut lobortis quam ligula sed nunc. Suspendisse potenti. Proin lacinia ex dui, eu maximus justo consequat porttitor. Pellentesque sollicitudin rutrum ex hendrerit vestibulum. Etiam luctus leo vitae magna sagittis feugiat a vitae ligula. Maecenas suscipit interdum tincidunt. Etiam a sapien elit. Nam dictum sed felis non commodo.
+
+\subsection*{Images}
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/12}
+\caption{A searchlight beam model of Jupiters decametric radio emissions \citep{imai-08}}
+\label{fig:decametric_emissions_searchlight}
+\end{figure}
+%
 
 %
 \end{subappendices}
