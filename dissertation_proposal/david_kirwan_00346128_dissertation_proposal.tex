@@ -57,7 +57,7 @@ with a Software Defined Radio Telescope}
 
 % the affiliations are given next; don't give your e-mail address
 % unless you accept that it will be published
-\institute{Waterford Institute of Technology,\\Dept of Maths and Physics,\\
+\institute{Waterford Institute of Technology,\\Dept of Computing and Mathematics,\\
 Cork Rd, Waterford City, Ireland\\
 \mailsa\\
 \url{http://www.wit.ie}}
@@ -196,9 +196,9 @@ A ground based listening station aiming to record \gls{DAM} emissions from Jupit
 \end{figure}
 %
 
-As many commercial shortwave radio stations transmit in the lower end of the high frequency (\gls{HF}) 3-7 MHz range, it can be extremely busy and potentially difficult to monitor \gls{DAM} emissions where they are strongest. Amateur Radio operators also operate frequently in mid-late \gls{HF} ranges (\textit{160m, 80m, 60m, 40m, 30m, 20m, 17m, 15m, 12m and 10m bands}) while the higher frequency \gls{DAM} emissions taper off in strength very quickly. This limits the potential listening range significantly. Despite these obstacles, there are sections of the \gls{HF} spectrum which are suitable to capture Jovian emissions. The a suitable frequency to monitor Jovian \gls{DAM} emissions which is recommended by the Radio Jove project is \textit{20.1 MHz} \citep{nasa12}. 
+As many commercial shortwave radio stations transmit in the lower end of the high frequency (\gls{HF}) 3-7 MHz range, it can be extremely busy and potentially difficult to monitor \gls{DAM} emissions where they are strongest. Amateur Radio operators also operate frequently in mid-late \gls{HF} ranges (\textit{160m, 80m, 60m, 40m, 30m, 20m, 17m, 15m, 12m and 10m bands}) while the higher frequency \gls{DAM} emissions taper off in strength very quickly. This limits the potential listening range significantly. Despite these obstacles, there are sections of the \gls{HF} spectrum which are suitable to capture Jovian emissions. A suitable frequency to monitor Jovian \gls{DAM} emissions which is recommended by the Radio Jove project is \textit{20.1 MHz} \citep{nasa12}. 
 
-Sourcing a suitable antenna is one of the first requirements to satisfy in order to capture \gls{DAM} emissions. Antennas generally are best suited to collect electromagnetic radiation at single specific frequencies, but may resonate and therefore operate over a range of frequencies depending on the design \citep{nasa12}. The wavelength ($\lambda$) which corresponds with the frequency (\textit{f}) \textit{20.1 MHz} can be obtained using the wavelength equation as shown in fig \ref{fig:wavelength_equation}. The corresponding wavelength for the frequency \textit{20.1 MHz} works out to be \textit{14.925 m} using this equation.
+Sourcing a suitable antenna is one of the first requirements to satisfy in order to capture \gls{DAM} emissions. Antennas are generally best suited to collect electromagnetic radiation at single specific frequencies, but may resonate and therefore operate over a range of frequencies depending on the design \citep{nasa12}. The wavelength ($\lambda$) which corresponds with the frequency (\textit{f}) \textit{20.1 MHz} can be obtained using the wavelength equation as shown in fig \ref{fig:wavelength_equation}. The corresponding wavelength for the frequency \textit{20.1 MHz} works out to be \textit{14.925 m} using this equation.
 
 %
 \begin{figure}[here]
@@ -207,7 +207,7 @@ Sourcing a suitable antenna is one of the first requirements to satisfy in order
     \lambda = \frac{c}{f}
   \end{equation}
   \begin{equation}
-    \lambda = \frac{3x10^8 m/s}{20.1x10^6 Hz} = 14.925373134328359 m
+    \lambda = \frac{3\times10^8 m/s}{20.1\times10^6 Hz} = 14.925373134328359 m
   \end{equation}
   \caption{Wavelength Equation}
   \label{fig:wavelength_equation}
@@ -436,7 +436,7 @@ It is difficult to determine at this early stage what will ultimately prove to b
 \begin{figure}[here]
 \centering
 \includegraphics[width=8cm]{images/11}
-\caption{Radio Jove Graph Showing Jupiters Max Altitude 2014}
+\caption{Radio Jove Graph Showing Jupiters Max Altitude 2014 \citep{rjp-14}}
 \label{fig:jupiter_max_altitude_2014}
 \end{figure}
 %
@@ -532,7 +532,7 @@ The contributions to research knowledge which are anticipated are listed as foll
 
 \begin{enumerate}
   \item A low cost and scalable radio telescope listening platform design which Amateur astronomers can use to collaborate on radio astronomical research.
-  \item A rudimentary \gls{SDR} solution to filter or flag human and nautral radio interference from observations.
+  \item A rudimentary \gls{SDR} solution to filter or flag human and natural radio interference from observations.
   \item An \gls{SDR} solution to flag possible Jovian or Solar radio emissions such as those listed in Table. \ref{tab:dam_emissions}.
 \end{enumerate} 
 
@@ -577,7 +577,7 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
     29th April \\ \hline
     Data Collection & January 15 & June 15 & Once the antenna is deployed begin collecting data for analysis. \\ \hline
     Data Analysis & January 15 & June 15 & Develop analytical SDR tools to filter or flag interference. Develop algorithms to detect the various DAM emission. \\ \hline
-    Evaluate IOT Technologies & January 15 & June 15 & Experimen with the various IOT technologies which could potentially be used to create a self sufficient listening array. \\ \hline
+    Evaluate IOT Technologies & January 15 & June 15 & Experiment with the various IOT technologies which could potentially be used to create a self sufficient listening array. \\ \hline
     Final Report Submission & June 15 & September 15 & First draft to supervisor due in early June 15. Complete draft due 24th August. Final submission 4th September \\
     \hline
   \end{tabular}
