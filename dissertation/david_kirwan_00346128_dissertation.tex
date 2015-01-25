@@ -85,7 +85,7 @@ Cork Rd, Waterford City, Ireland\\
 \addcontentsline{toc}{section}{List of Tables}
 %
 \newpage
-\section*{Introduction}
+\chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
 %This is typically an outline description detailing the background	 to the problem.
 
@@ -163,7 +163,7 @@ The \gls{DAM} emissions are carried along the surface of the emission cones as s
 %
 \newpage
 \section*{Research Topic}
-\addcontentsline{toc}{chapter}{Research Topic}
+\addcontentsline{toc}{section}{Research Topic}
 %Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 %
 
@@ -276,7 +276,7 @@ Figure. \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Bu
 %
 \newpage
 \section*{Research Problem}
-\addcontentsline{toc}{chapter}{Research Problem}
+\addcontentsline{toc}{section}{Research Problem}
 %
 \newglossaryentry{SDR}
 {
@@ -322,7 +322,7 @@ Interference from human sources such as shortwave radio stations or amateur radi
 %
 
 \subsection*{Problem Summary}
-\addcontentsline{toc}{section}{Problem Summary}
+\addcontentsline{toc}{subsection}{Problem Summary}
 
 To summarise the problem briefly:
 
@@ -343,7 +343,7 @@ To summarise the problem briefly:
 %
 \newpage
 \section*{Research Questions}
-\addcontentsline{toc}{chapter}{Research Questions}
+\addcontentsline{toc}{section}{Research Questions}
 %A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
 The initial research questions which arise are as follows:
 
@@ -368,7 +368,7 @@ The initial research questions which arise are as follows:
 %
 \newpage
 \section*{Research Hypothesis}
-\addcontentsline{toc}{chapter}{Research Hypothesis}
+\addcontentsline{toc}{section}{Research Hypothesis}
 %This should outline the approach and methodology being proposed by the student to address the research question.
 
 The section aims to document the different methodologies which will be followed on this project and is broke up into the following:
@@ -427,7 +427,7 @@ The \gls{SDR} hardware transceiver used is likely to be the \textit{HackRF} syst
 
 
 \subsection*{Potential Pitfalls}
-\addcontentsline{toc}{section}{Potential Pitfalls}
+\addcontentsline{toc}{subsection}{Potential Pitfalls}
 %Predecisions on how I want to collect data, creating the research questions
 
 It is difficult to determine at this early stage what will ultimately prove to be the most troublesome element to implement, however there are a number of potential pitfalls which have already been identified.
@@ -446,7 +446,7 @@ The latitude of Ireland is 53.3$^{\circ}$ degrees N. In Ireland Jupiter reaches 
 The \gls{SDR} complexity of the solution required in order to correctly filter interference might ultimately prove too resource intensive to work with a low power system such as the \textit{Raspberry Pi} or \textit{Beaglebone Black}. It might become apparent that the minimum system requirements may need to be increased to an \textit{Intel Atom} powered Netbook for example, or potentially something a lot more powerful such as an \textit{i3} or \textit{i5} system. If this was the case, it will drastically increase the power and cost requirements of the system should it be self sufficient, requiring bigger batteries, more capable/expensive photovoltaic and or wind turbines to keep the system topped up.
 
 \subsection*{Special Resources Required}
-\addcontentsline{toc}{section}{Special Resources Required}
+\addcontentsline{toc}{subsection}{Special Resources Required}
 % The research work may require access to specialised equipment, software, journals and so on.
 
 The initial resources which have been identified to be required are listed as follows:
@@ -470,7 +470,7 @@ The initial resources which have been identified to be required are listed as fo
 %
 \newpage
 \section*{Preliminary Literature Review}
-\addcontentsline{toc}{chapter}{Preliminary Literature Review}
+\addcontentsline{toc}{section}{Preliminary Literature Review}
 %This should contain a review of a number of books, journal articles and web references of relevance to the research area proposed. The literature should contain seminal and recent referenced research material that is categorised under a number of relevant sub-themes.
 
 The preliminary literature review can be broken down into the following areas:
@@ -483,16 +483,16 @@ The preliminary literature review can be broken down into the following areas:
 \end{itemize}
 
 \subsection*{Decametric Radio Emission what are they and where do they come from?}
-\addcontentsline{toc}{section}{Decametric Radio Emission what are they and where do they come from?}
+\addcontentsline{toc}{subsection}{Decametric Radio Emission what are they and where do they come from?}
 
 \cite{belcher87} states that the data collected by both \textit{Voyager} spacecraft fit with the Alfv\'en wing theory as an explanation for the source of the \gls{DAM} emissions \citep{belcher87}. \cite{kivelson96} discusses the refinements made to this theory to take into account the flowing plasma between Jupiters ionosphere and the electrically conducting Io. The \textit{Galileo} spacecraft collected data which appears to corroborate the updates to the Alfv\'en wing model \citep{kivelson96}. \cite{bose08} states that the Alfv\'en waves reflect off Jupiters ionosphere which cause the \gls{DAM} emissions to radiate out from the point in Jupiters ionosphere where it meets the \gls{IFT}, in a cone shape. \cite{imai-08} proposes an update to this model to take into account the decade long shifts in \gls{DAM} emission patterns, and proposes an extension to the emission cone model to include a \textit{searchlight} shaped emission zone \citep{imai-08} see Figure. \ref{fig:decametric_emissions_searchlight}.
 
 \subsection*{Radio Telescope Designs, Which to Choose?}
-\addcontentsline{toc}{section}{Radio Telescope Designs, Which to Choose?}
+\addcontentsline{toc}{subsection}{Radio Telescope Designs, Which to Choose?}
 The NASA project \textit{Radio Jove} recommended the dual dipole array design for a cheap low cost listening site as shown in Figure. \ref{fig:dual_dipole_antenna_array} \citep{nasa12}. But it is by no means the only antenna design which would be capable of picking up the \gls{DAM} emissions. \cite{wilkinson94} recommends a slightly more advanced design, the \textit{folded dipole} which maximises the bandwidth available to the antenna \citep{wilkinson94}. \cite{greef-12} details a third alternative for collecting \gls{DAM} emissions, a shortwave loop antenna as can be seen in Figures. \ref{fig:loop_antenna_design_a}, \ref{fig:loop_antenna_design_b} and \ref{fig:loop_antenna_design_c}.
 
 \subsection*{Digital Signal Processing}
-\addcontentsline{toc}{section}{Digital Signal Processing}
+\addcontentsline{toc}{subsection}{Digital Signal Processing}
 \cite{freidt-13} holds that digital signal processing is the preferred means to process signals, for reasons such as stability and for its resistance to long term ageing effects that analogue systems suffer from. Due to the cheap availability of computational resources, digital signal processing is capable of being carried out now within software entirely, this has led to the development of software defined radio solutions \citep{freidt-13}. The GNURadio software allows creation of software defined radio solutions by replacing hardware functions with modular software functions. These software functions are capable of being connected together, an output from one function providing input for another. It is in this fashion it is possible to transform digital signals using digital signal processing methods \citep{gnuradio-14}.
 
 %
@@ -525,7 +525,7 @@ The NASA project \textit{Radio Jove} recommended the dual dipole array design fo
 %
 \newpage
 \section*{Contribution to Research Knowledge Anticipated}
-\addcontentsline{toc}{chapter}{Contribution to Research Knowledge Anticipated}
+\addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
 %A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
 
 The contributions to research knowledge which are anticipated are listed as follows:
@@ -558,7 +558,7 @@ The contributions to research knowledge which are anticipated are listed as foll
 %
 \newpage
 \section*{Main Milestones Anticipated}
-\addcontentsline{toc}{chapter}{Main Milestones Anticipated}
+\addcontentsline{toc}{section}{Main Milestones Anticipated}
 % Students should agree a number of milestones and their likely delivery dates with their supervisor at the start of the progress.
 
 The following Table. \ref{tab:milestones_anticipated} details the milestones which have been identified and agreed to date:
@@ -584,6 +584,46 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
   \caption{Milestones Anticipated}
   \label{tab:milestones_anticipated}
 \end{table}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\chapter*{Equipment and Materials}
+\addcontentsline{toc}{chapter}{Equipment and Materials}
+TODO Write me.
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Chapter for each research question
+% how we validated it and proved it worked
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Chapter for each software we produced
+% how we validated it and proved it worked
+% tools and methodologies we used
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\chapter*{Conclusions}
+\addcontentsline{toc}{chapter}{Conclusions}
+TODO Write me.
+
+\begin{itemize}
+  \item sum up the answers to all the questions
+  \item state contributions again
+  \item where my work fits in the grander scheme
+  \item further work
+\end{itemize}
+
+
+
 %
 \printglossaries
 %
