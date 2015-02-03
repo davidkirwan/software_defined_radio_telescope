@@ -1,3 +1,8 @@
 == software_defined_radio_telescope ==
 
 A software defined radio telescope
+
+image::http://davidkirwan.github.io/software_defined_radio_telescope/images/07.png[]
+image::http://davidkirwan.github.io/software_defined_radio_telescope/images/08.png[]
+image::http://davidkirwan.github.io/software_defined_radio_telescope/images/09.png[]
+image::http://davidkirwan.github.io/software_defined_radio_telescope/images/10.png[]
