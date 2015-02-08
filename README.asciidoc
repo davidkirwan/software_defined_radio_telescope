@@ -1,6 +1,5 @@
-== software_defined_radio_telescope ==
-
-A software defined radio telescope
+== Software Defined Radio Telescope ==
+A software defined radio telescope developed during a MSc in Computing degree at the link:http://www.wit.ie[Waterford Institute of Technology], Ireland.
 
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/10.png[]
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/08.png[]
