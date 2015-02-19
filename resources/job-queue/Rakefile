@@ -1,0 +1,72 @@
+####################################################################################################
+# @author David Kirwan https://github.com/davidkirwan
+# @description Ruby Rake script to generate a simulated CPU load on a system.
+#
+# @usage rake simulate:cpuload
+#
+# @date 2013-07-14
+####################################################################################################
+### => Import libs
+require 'fileutils'
+require 'logger'
+require 'redis'
+require File.dirname(__FILE__) + "/lib/common.rb"
+# Include lib/common/tasks
+include Common::Tasks
+# Setup variables
+begin
+  @log = Logger.new(STDOUT)
+  @log.level = Logger::DEBUG
+  @date = DateString.now # Common::Tasks::DateString#now
+
+rescue Exception => e
+  raise e
+end
+#################################################################################
+task :default => 'menu'
+task :menu do
+  @log.debug "Printing Welcome"
+  puts welcome = <<-WELCOME
+rake worker:start # Start the job worker
+WELCOME
+end
+#################################################################################
+
+namespace :worker do
+
+  desc "Start the job worker"
+  task :start do
+    @log.debug "Task worker:start starting: #{DateString.now}"
+    tasktimer = Time.now
+
+    # Configure the queue to subscribe to
+    queue = ENV['queue'] ||= 'one'
+
+    redis = Redis.new
+    trap(:INT) { puts; exit }
+
+    begin
+      redis.subscribe(queue) do |on|
+        on.subscribe do |channel, subscriptions|
+          puts "Subscribed to ##{channel} (#{subscriptions} subscriptions)"
+        end
+
+        on.message do |channel, message|
+          puts "##{channel}: #{message}"
+          redis.unsubscribe if message == "exit"
+        end
+
+        on.unsubscribe do |channel, subscriptions|
+          puts "Unsubscribed from ##{channel} (#{subscriptions} subscriptions)"
+        end
+      end
+    rescue Redis::BaseConnectionError => error
+      puts "#{error}, retrying in 1s"
+      sleep 1
+      retry
+    end
+
+    @log.debug "Task worker:start complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
+  end
+end
+  
