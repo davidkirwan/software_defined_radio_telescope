@@ -10,9 +10,12 @@
 require 'fileutils'
 require 'logger'
 require 'redis'
+require 'rspec'
+require 'rspec/core/rake_task'
 require File.dirname(__FILE__) + "/lib/common.rb"
 # Include lib/common/tasks
 include Common::Tasks
+RSpec::Core::RakeTask.new(:spec)
 # Setup variables
 begin
   @log = Logger.new(STDOUT)
@@ -32,7 +35,7 @@ task :spec do
   @log.debug "Task spec starting: #{DateString.now}"
   tasktimer = Time.now
 
-  # TODO
+  require File.dirname(__FILE__) + "/spec/spec_helper.rb"
 
   @log.debug "Task spec complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
 end
