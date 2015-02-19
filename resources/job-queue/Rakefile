@@ -1,8 +1,8 @@
 ####################################################################################################
 # @author David Kirwan https://github.com/davidkirwan
-# @description Ruby Rake script to generate a simulated CPU load on a system.
+# @description Ruby Rake script to handle launching of job workers.
 #
-# @usage rake simulate:cpuload
+# @usage 'rake -T' or 'rake --tasks' to get a list of tasks
 #
 # @date 2013-07-14
 ####################################################################################################
@@ -22,16 +22,21 @@ begin
 rescue Exception => e
   raise e
 end
+
 #################################################################################
-task :default => 'menu'
-task :menu do
-  @log.debug "Printing Welcome"
-  puts welcome = <<-WELCOME
-rake worker:start # Start the job worker
-WELCOME
+# Default Task
+task :default => 'spec'
+#################################################################################
+desc 'Run the RSpec tests'
+task :spec do
+  @log.debug "Task spec starting: #{DateString.now}"
+  tasktimer = Time.now
+
+  # TODO
+
+  @log.debug "Task spec complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
 end
 #################################################################################
-
 namespace :worker do
 
   desc "Start the job worker"
