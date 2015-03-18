@@ -4,7 +4,7 @@
 #
 # @usage 'rake -T' or 'rake --tasks' to get a list of tasks
 #
-# @date 2013-07-14
+# @date 2015-03-02
 ####################################################################################################
 ### => Import libs
 require 'fileutils'
@@ -13,9 +13,11 @@ require 'redis'
 require 'rspec'
 require 'rspec/core/rake_task'
 require File.dirname(__FILE__) + "/lib/common.rb"
+
 # Include lib/common/tasks
 include Common::Tasks
 RSpec::Core::RakeTask.new(:spec)
+
 # Setup variables
 begin
   @log = Logger.new(STDOUT)
@@ -26,10 +28,9 @@ rescue Exception => e
   raise e
 end
 
-#################################################################################
 # Default Task
 task :default => 'spec'
-#################################################################################
+
 desc 'Run the RSpec tests'
 task :spec do
   @log.debug "Task spec starting: #{DateString.now}"
@@ -39,7 +40,7 @@ task :spec do
 
   @log.debug "Task spec complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
 end
-#################################################################################
+
 namespace :worker do
 
   desc "Start the job worker"
@@ -77,4 +78,3 @@ namespace :worker do
     @log.debug "Task worker:start complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
   end
 end
-  
