@@ -81,6 +81,33 @@ Cork Rd, Waterford City, Ireland\\
 %
 
 \newpage
+\chapter*{Acknowledgements}
+
+This dissertation would not have been possible without the support of the following people.
+
+To my supervisors Alan and John for their patience, guidance and sharing of knowledge during this process.
+Thank you, it has been a real pleasure working together.
+
+To my lecturers at the Waterford Institute of Technology, you have all been so open and free with your
+sharing of knowledge, it has been an absolute pleasure learning from you.
+
+To my partner Michael, I'm keenly aware standing in the freezing cold helping me put up radio antennas 
+might not have been the most exciting thing you've partaken in, but I couldn't have done it without your
+help. Thanks for your constant encouragement and for putting up with me during this. 
+
+To my sister Jean, you inspired me to work as hard as I have these last 6 years. I wanted to make you as
+proud of me as I am of you. If you beat me to Ph.D, I'll buy you a bag of chips in Roccos.
+
+To my father, I can only imagine the conversations we might have had, I suspect you would have loved
+playing with this equipment as much as I have.
+
+To my mother, thank you for your friendship. You have always been a positive influence in my life.
+Some day you must sit down and explain how you can walk past, and in the time it takes to cross a room
+and without any prior involvement, solve a problem I have been struggling with for days.
+
+To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could ask for.
+
+\newpage
 \tableofcontents
 \newpage
 \listoftables
@@ -447,25 +474,6 @@ The latitude of Ireland is 53.3$^{\circ}$ degrees N. In Ireland Jupiter reaches 
 
 The \gls{SDR} complexity of the solution required in order to correctly filter interference might ultimately prove too resource intensive to work with a low power system such as the \textit{Raspberry Pi} or \textit{Beaglebone Black}. It might become apparent that the minimum system requirements may need to be increased to an \textit{Intel Atom} powered Netbook for example, or potentially something a lot more powerful such as an \textit{i3} or \textit{i5} system. If this was the case, it will drastically increase the power and cost requirements of the system should it be self sufficient, requiring bigger batteries, more capable/expensive photovoltaic and or wind turbines to keep the system topped up.
 
-\subsection*{Special Resources Required}
-\addcontentsline{toc}{subsection}{Special Resources Required}
-% The research work may require access to specialised equipment, software, journals and so on.
-
-The initial resources which have been identified to be required are listed as follows:
-
-\begin{description}
-  \item[RG59 Coax] \hfill \\
-  RG59 coax cable is required to link the dipole antennas back to the \gls{SDR} transceiver.
-  \item[PL259 / SO239] \hfill \\
-  Cable adapters which connect coax cables together with the dipole centers.
-  \item[HacRF] \hfill \\
-  The HackRF \gls{SDR} transceiver system is the software defined radio transceiver chosen for the prototype system.
-  \item[Radio Jove] \hfill \\
-  The Radio Jove software is extremely useful for observers wishing to capture \gls{DAM} emissions from Jupiter. It contains a large number of features such as emission prediction observation charts, and information regarding Jupiters location in the sky from any specified point on the Earths surface.
-  \item[Spectrum Analyser] \hfill \\
-  A spectrum analyser will be required in order to perform a site survey to determine if a location is suitable for collecting \gls{DAM} emissions.
-\end{description}
-
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -522,21 +530,6 @@ The NASA project \textit{Radio Jove} recommended the dual dipole array design fo
 \end{table}
 %
 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Contribution to Research Knowledge Anticipated}
-\addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
-%A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
-
-The contributions to research knowledge which are anticipated are listed as follows:
-
-\begin{enumerate}
-  \item A low cost and scalable radio telescope listening platform design which Amateur astronomers can use to collaborate on radio astronomical research.
-  \item A rudimentary \gls{SDR} solution to filter or flag human and natural radio interference from observations.
-  \item An \gls{SDR} solution to flag possible Jovian or Solar radio emissions such as those listed in Table. \ref{tab:dam_emissions}.
-\end{enumerate} 
 
 
 %
@@ -591,9 +584,76 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-\chapter*{Equipment and Materials}
-\addcontentsline{toc}{chapter}{Equipment and Materials}
-TODO Write me.
+\chapter*{Testbed Build and Verification}
+\addcontentsline{toc}{chapter}{Testbed Build and Verification}
+In order to begin collecting data for analysis, a dual dipole antenna (Figure: \ref{fig:dual_dipole_antenna_array}) was constructed and deployed at a test site for verification. 
+
+\newglossaryentry{RF}
+{
+  name={RF},
+  description={Radio Frequency},
+  sort=RF
+}
+
+A Tektronics SA2600 spectrum analyser was connected to the antenna and left for a number of hours to determine the
+suitability of the site. As can be seen in Figure: \ref{fig:site_survey_spec_analyser}, the ambient \gls{RF} noise at the site was quite high, ranging between -80dB and -70dB on average. Similar readings were taken using the HackRF while attached to the antenna as show in Figure: \ref{fig:site_survey_hackrf}.
+
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/32}
+\caption{Dual Dipole Antenna Deployment}
+\label{fig:dual_dipole_deployed}
+\end{figure}
+%
+
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/26}
+\caption{Site Survey performed using a Spectrum Analyser}
+\label{fig:site_survey_spec_analyser}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/31}
+\caption{Site Survey performed using HackRF One}
+\label{fig:site_survey_hackrf}
+\end{figure}
+%
+
+\subsection*{Special Resources Required}
+\addcontentsline{toc}{subsection}{Special Resources Required}
+% The research work may require access to specialised equipment, software, journals and so on.
+
+The initial resources which have been identified to be required are listed as follows:
+
+\begin{description}
+  \item[RG59 Coax] \hfill \\
+  RG59 coax cable is required to link the dipole antennas back to the \gls{SDR} transceiver.
+  \item[PL259 / SO239] \hfill \\
+  Cable adapters which connect coax cables together with the dipole centers.
+  \item[HacRF] \hfill \\
+  The HackRF \gls{SDR} transceiver system is the software defined radio transceiver chosen for the prototype system.
+  \item[Radio Jove] \hfill \\
+  The Radio Jove software is extremely useful for observers wishing to capture \gls{DAM} emissions from Jupiter. It contains a large number of features such as emission prediction observation charts, and information regarding Jupiters location in the sky from any specified point on the Earths surface.
+  \item[Spectrum Analyser] \hfill \\
+  A spectrum analyser will be required in order to perform a site survey to determine if a location is suitable for collecting \gls{DAM} emissions.
+\end{description}
+
+
+
+% Background materials
+% state of the art
+% what I read up and needed to put it together
+% research questions restated
+
+
 
 
 %
@@ -604,6 +664,31 @@ TODO Write me.
 \addcontentsline{toc}{chapter}{Research Question 1}
 % Chapter for each research question
 % how we validated it and proved it worked
+
+\textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a fully automated software defined radio signal listening station and how cheaply can it be created?}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\chapter*{Research Question 2}
+\addcontentsline{toc}{chapter}{Research Question 2}
+% Chapter for each research question
+% how we validated it and proved it worked
+
+\textit{Can a software defined radio solution be developed to filter or flag known instances of human radio interference from radio signal observations?}
+\textit{If so can this same solution be used to filter or flag known instances of natural radio interference such as lightning?}
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\chapter*{Research Question 3}
+\addcontentsline{toc}{chapter}{Research Question 3}
+% Chapter for each research question
+% how we validated it and proved it worked
+
+\textit{Can a software defined radio solution be developed to flag possible instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions} ?}
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -635,20 +720,29 @@ $\mathcal{O}(n\log{}n)$
 \citep{octave-09} \citep{RSGB-14}
 
 %
-\printglossaries
-%
-\bibliographystyle{plainnat}
-\bibliography{bibliography/bibtex}
-\addcontentsline{toc}{chapter}{Bibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
+\section*{Contribution to Research Knowledge Anticipated}
+\addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
+%A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
+
+The contributions to research knowledge which are anticipated are listed as follows:
+
+\begin{enumerate}
+  \item A low cost and scalable radio telescope listening platform design which Amateur astronomers can use to collaborate on radio astronomical research.
+  \item A rudimentary \gls{SDR} solution to filter or flag human and natural radio interference from observations.
+  \item An \gls{SDR} solution to flag possible Jovian or Solar radio emissions such as those listed in Table. \ref{tab:dam_emissions}.
+\end{enumerate} 
+
+
+%
+\renewcommand*{\glsclearpage}{}
+\printglossaries
+%
 \appendix
-\section*{Appendix}
+\chapter*{Appendix}
 \addcontentsline{toc}{chapter}{Appendices}
-
-\begin{subappendices}
-
-\subsection*{Images}
 
 %
 \begin{figure}[here]
@@ -695,8 +789,12 @@ $\mathcal{O}(n\log{}n)$
 \end{figure}
 %
 
+
 %
-\end{subappendices}
+\bibliographystyle{plainnat}
+\bibliography{bibliography/bibtex}
+\addcontentsline{toc}{chapter}{Bibliography}
+%
 
 \end{document}
 
