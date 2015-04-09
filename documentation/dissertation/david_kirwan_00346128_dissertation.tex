@@ -16,6 +16,10 @@
 %
 \usepackage{multirow}
 %
+\usepackage{booktabs,array,dcolumn}
+%
+\usepackage{eurosym}
+%
 \usepackage{caption}
 \captionsetup[table]{skip=10pt}
 %
@@ -107,6 +111,10 @@ and without any prior involvement, solve a problem I have been struggling with f
 
 To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could ask for.
 
+%
+\renewcommand*{\glsclearpage}{}
+\printglossaries
+%
 \newpage
 \tableofcontents
 \newpage
@@ -121,7 +129,7 @@ To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could 
 \newglossaryentry{DAM}
 {
   name={DAM},
-  description={decameter radio emissions},
+  description={decameter radio emissions in the 10-100M wavelengths},
   sort=DAM
 }
 %
@@ -147,7 +155,7 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
 \newglossaryentry{IPT}
 {
   name={IPT},
-  description={Io Plasma Torus},
+  description={Io Plasma Torus is created by ionizing neutral atmospheric gas such as sulphur},
   sort=IPT
 }
 %
@@ -156,7 +164,7 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
 \newglossaryentry{IFT}
 {
   name={IFT},
-  description={Io Flux Tube},
+  description={Io Flux Tube is a cylindrical area of space containing magnetic field lines},
   sort=IFT
 }
 %
@@ -310,7 +318,7 @@ Figure. \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Bu
 \newglossaryentry{SDR}
 {
   name={SDR},
-  description={Software Defined Radio},
+  description={Software Defined Radio is the creation of radio functions within software rather than as previously using hardware},
   sort=SDR
 }
 
@@ -380,7 +388,7 @@ The initial research questions which arise are as follows:
 \newglossaryentry{IOT}
 {
   name={IOT},
-  description={Internet of Things},
+  description={Internet of Things a buzzword for everything connecting to everything},
   sort=IOT
 }
 %
@@ -495,7 +503,7 @@ The preliminary literature review can be broken down into the following areas:
 \subsection*{Decametric Radio Emission what are they and where do they come from?}
 \addcontentsline{toc}{subsection}{Decametric Radio Emission what are they and where do they come from?}
 
-\cite{belcher87} states that the data collected by both \textit{Voyager} spacecraft fit with the Alfv\'en wing theory as an explanation for the source of the \gls{DAM} emissions \citep{belcher87}. \cite{kivelson96} discusses the refinements made to this theory to take into account the flowing plasma between Jupiters ionosphere and the electrically conducting Io. The \textit{Galileo} spacecraft collected data which appears to corroborate the updates to the Alfv\'en wing model \citep{kivelson96}. \cite{bose08} states that the Alfv\'en waves reflect off Jupiters ionosphere which cause the \gls{DAM} emissions to radiate out from the point in Jupiters ionosphere where it meets the \gls{IFT}, in a cone shape. \cite{imai-08} proposes an update to this model to take into account the decade long shifts in \gls{DAM} emission patterns, and proposes an extension to the emission cone model to include a \textit{searchlight} shaped emission zone \citep{imai-08} see Figure. \ref{fig:decametric_emissions_searchlight}.
+\cite{belcher87} states that the data collected by both \textit{Voyager} spacecraft fit with the Alfv\'en wing theory as an explanation for the source of the \gls{DAM} emissions \citep{belcher87}. \cite{kivelson96} discusses the refinements made to this theory to take into account the flowing plasma between Jupiters ionosphere and the electrically conducting Io. The \textit{Galileo} spacecraft collected data which appears to corroborate the updates to the Alfv\'en wing model \citep{kivelson96}. \cite{bose08} states that the Alfv\'en waves reflect off Jupiters ionosphere which cause the \gls{DAM} emissions to radiate out from the point in Jupiters ionosphere where it meets the \gls{IFT} in a cone shape. \cite{imai-08} proposes an update to this model to take into account the decade long shifts in \gls{DAM} emission patterns, and proposes an extension to the emission cone model to include a \textit{searchlight} shaped emission zone \citep{imai-08} see Figure. \ref{fig:decametric_emissions_searchlight}.
 
 \subsection*{Radio Telescope Designs, Which to Choose?}
 \addcontentsline{toc}{subsection}{Radio Telescope Designs, Which to Choose?}
@@ -579,6 +587,7 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
   \caption{Milestones Anticipated}
   \label{tab:milestones_anticipated}
 \end{table}
+%
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -586,18 +595,123 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
 \newpage
 \chapter*{Testbed Build and Verification}
 \addcontentsline{toc}{chapter}{Testbed Build and Verification}
-In order to begin collecting data for analysis, a dual dipole antenna (Figure: \ref{fig:dual_dipole_antenna_array}) was constructed and deployed at a test site for verification. 
+The NASA Radio Jove Dual Dipole antenna design (Figure: \ref{fig:dual_dipole_antenna_array}) was chosen over the other designs for a number of reasons, namely:
 
-\newglossaryentry{RF}
+\begin{itemize}
+	\item Simplicity of the architecture and consequently also construction
+	\item Low cost of building materials
+	\item Reasonably effective performance (5-9 dB gain depending on configuration)
+	\item Easy to operate and maintain
+	\item Suitable for a permanent installation
+\end{itemize}
+
+\section*{Antenna Build}
+\addcontentsline{toc}{section}{Antenna Build}
+
+\newglossaryentry{SWR}
 {
-  name={RF},
-  description={Radio Frequency},
-  sort=RF
+  name={SWR},
+  description={Standing Wave Ratio is the ratio of impedance between receiver and antenna},
+  sort=SWR
 }
 
-A Tektronics SA2600 spectrum analyser was connected to the antenna and left for a number of hours to determine the
-suitability of the site. As can be seen in Figure: \ref{fig:site_survey_spec_analyser}, the ambient \gls{RF} noise at the site was quite high, ranging between -80dB and -70dB on average. Similar readings were taken using the HackRF while attached to the antenna as show in Figure: \ref{fig:site_survey_hackrf}.
+In order to satisfy the main requirement of capturing \gls{DAM} signals at 20.1MHz construction of an antenna was needed. The equation shown in Figure: \ref{fig:wavelength_equation_wire_antenna} was used to calculate a starting estimate of the length of antenna wire required to construct this antenna. Many factors can affect the ability of an antenna to receive data at a particular frequency \citep{arrl-00}, such as the following:
 
+\begin{itemize}
+	\item quality of the wire conductor or thickness of the wire
+	\item height that the antenna is mounted above the ground
+	\item capacitive end effects
+	\item closeness to radio conductors
+\end{itemize}
+
+One simple method of partly improving antenna performance is by controlling the length of the antenna wire while measuring the Standing Wave Ratio (\gls{SWR}) value, which is the ratio of impedance between the receiver and the antenna wire. The use of a \gls{SWR} analyser becomes invaluable in this process.
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/34}
+\caption{Measuring the SWR of the antenna with an SWR Analyser}
+\label{fig:swr_analyser_measuring_antenna}
+\end{figure}
+%
+
+The initial length of antenna wire was cut to match the length produced by the equation in Figure: \ref{fig:wavelength_equation_wire_antenna} and was then cut in half before each end was connected to a dipole center. The antenna was placed on the ground before being connected to the \gls{SWR} analyser. The \gls{SWR} value for the antenna was measured, and it was discovered the antenna was suitable for capturing of signals at 18MHz. The antenna was then shortened by a small identical amount on each side and the \gls{SWR} values were again measured until the antenna registered as being most suitable for operation at 20.1MHz as seen in Figure:  \ref{fig:swr_analyser_measuring_antenna}. 
+
+The equations shown in Figure: \ref{fig:swr_equation} is the \gls{SWR} equations where $|\rho|$ is the reflection coefficient, P$_{f}$ is the power in the forward wave entering the antenna while P$_{r}$ is the power of the reflected wave in the antenna \citep{arrl-00}.
+
+%
+\begin{figure}[here]
+  \centering
+  \begin{equation}
+  	SWR = \frac{1 + |\rho|}{1 - |\rho|} 
+  \end{equation}
+  \begin{equation}
+  	|\rho| = \frac{SWR - 1}{SWR + 1} 
+  \end{equation}
+  \begin{equation}
+  	|\rho| = \sqrt{\frac{P_r}{P_f}}
+  \end{equation}
+  \caption{Standing Wave Ratio Equations}
+  \label{fig:swr_equation}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+  \centering
+  \begin{equation}
+  	|\rho| = \frac{1.2 - 1}{1.2 + 1} 
+  \end{equation}
+  \begin{equation}
+  	|\rho| = 0.09090909090909088
+  \end{equation}
+  \begin{equation}
+  	0.09090909090909088 = \sqrt{\frac{P_r}{100}}
+  \end{equation}
+  \begin{equation}
+  	0.09090909090909088^2 = \frac{P_r}{100}
+  \end{equation}
+  \begin{equation}
+  	P_r = 0.826446280991735
+  \end{equation}
+  \caption{Calculating P$_{r}$ for the antenna}
+  \label{fig:swr_equation_pr}
+\end{figure}
+%
+
+The value of \gls{SWR} for the antenna should be ideally as close as possible to 1, this ensures all the signal energy collected by the antenna is transferred to the load successfully. However in practice this is never the case as all antennas have varying amounts of loss. The antenna once mounted had a measured \gls{SWR} value of 1.2 which equates to a P$_{r}$ value as shown in Figure: \ref{fig:swr_equation_pr} of 0.826446280991735 which is a loss of 17.35\% or about 1dB which is considered reasonable \citep{arrl-00}.
+
+\newpage
+Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated with the antenna build.
+
+%
+\begin{table}
+  \centering
+  \begin{tabular}{p{8cm} l}
+    \toprule
+    Item Name & Cost (\euro) \\ \midrule
+    100m Copper Wire & 20.00  \\
+    100m Coax RG59 & 25.00  \\
+    2 $\times$ Dipole Centers & 20.00 \\
+    6 $\times$ PL259 & 12.00 \\
+    2 $\times$ SO239 & 4.00 \\
+    SMA-SO239 Adapter & 4.50 \\
+    T Adapter & 3.00 \\
+    Patch Lead & 5.00 \\
+    2 $\times$ 4m 5cm Pipe & 15.00 \\
+    2 $\times$ 4m 4cm Pipe & 15.00 \\
+    \bottomrule
+    Total & 123.50
+  \end{tabular}
+  \caption{Antenna Build Cost}
+  \label{tab:antenna_build_cost}
+\end{table}
+%
+
+
+\section*{Listening Site Suitability}
+\addcontentsline{toc}{section}{Listening Site Suitability}
+Once the antenna was deployed, it became necessary to determine if this site was in fact a suitable location to host a radio telescope antenna. In order measure the ambient noise at the site, a Tektronics SA2600 spectrum analyser was connected to the antenna and left for a number of hours to gather data. The results can be seen in Figure: \ref{fig:site_survey_spec_analyser}. The ambient \gls{RF} noise at the site was quite high, ranging between -80dB and -70dB on average. Similar readings were taken using the HackRF while attached to the antenna as show in Figure: \ref{fig:site_survey_hackrf}.
 
 %
 \begin{figure}[here]
@@ -608,6 +722,12 @@ suitability of the site. As can be seen in Figure: \ref{fig:site_survey_spec_ana
 \end{figure}
 %
 
+\newglossaryentry{RF}
+{
+  name={RF},
+  description={Radio Frequency},
+  sort=RF
+}
 
 %
 \begin{figure}[here]
@@ -630,6 +750,8 @@ suitability of the site. As can be seen in Figure: \ref{fig:site_survey_spec_ana
 \subsection*{Special Resources Required}
 \addcontentsline{toc}{subsection}{Special Resources Required}
 % The research work may require access to specialised equipment, software, journals and so on.
+
+Work in progress etc!
 
 The initial resources which have been identified to be required are listed as follows:
 
@@ -736,9 +858,6 @@ The contributions to research knowledge which are anticipated are listed as foll
 \end{enumerate} 
 
 
-%
-\renewcommand*{\glsclearpage}{}
-\printglossaries
 %
 \appendix
 \chapter*{Appendix}
