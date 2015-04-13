@@ -595,7 +595,7 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
 \newpage
 \chapter*{Testbed Build and Verification}
 \addcontentsline{toc}{chapter}{Testbed Build and Verification}
-The NASA Radio Jove Dual Dipole antenna design (Figure: \ref{fig:dual_dipole_antenna_array}) was chosen over the other designs for a number of reasons, namely:
+The NASA Radio Jove dual dipole antenna design (Figure: \ref{fig:dual_dipole_antenna_array}) was chosen over the other designs for a number of reasons, namely:
 
 \begin{itemize}
 	\item Simplicity of the architecture and consequently also construction
@@ -603,7 +603,31 @@ The NASA Radio Jove Dual Dipole antenna design (Figure: \ref{fig:dual_dipole_ant
 	\item Reasonably effective performance (5-9 dB gain depending on configuration)
 	\item Easy to operate and maintain
 	\item Suitable for a permanent installation
+	\item Large body of technical documentation supporting the operation
 \end{itemize}
+
+
+\subsection*{Special Resources Required}
+\addcontentsline{toc}{subsection}{Special Resources Required}
+% The research work may require access to specialised equipment, software, journals and so on.
+
+The following resources have been identified as being required in order to perform the research and are listed as follows:
+
+\begin{description}
+  \item[GnuRadio] \hfill \\
+  The GnuRadio software is an open-source software development tool kit that allows access to signal processing techniques in order to implement software radio solutions.
+  \item[HackRF] \hfill \\
+  The HackRF \gls{SDR} transceiver system is the software defined radio transceiver chosen for the prototype system.
+  \item[PL259 / SO239] \hfill \\
+  Cable adapters which connect coax cables together with the dipole centers.
+  \item[Radio Jove Software] \hfill \\
+  The Radio Jove software is extremely useful for observers wishing to capture \gls{DAM} emissions from Jupiter. It contains a large number of features such as emission prediction observation charts, and information regarding Jupiter's location in the sky from any specified point on the Earth's surface.
+  \item[RG59 Coax] \hfill \\
+  RG59 coax cable is required to link the dipole antennas back to the \gls{SDR} transceiver.
+  \item[Spectrum Analyser] \hfill \\
+  A spectrum analyser will be required in order to perform a site survey to determine if a location is suitable for collecting \gls{DAM} emissions.
+\end{description}
+
 
 \section*{Antenna Build}
 \addcontentsline{toc}{section}{Antenna Build}
@@ -624,7 +648,7 @@ In order to satisfy the main requirement of capturing \gls{DAM} signals at 20.1M
 	\item closeness to radio conductors
 \end{itemize}
 
-One simple method of partly improving antenna performance is by controlling the length of the antenna wire while measuring the Standing Wave Ratio (\gls{SWR}) value, which is the ratio of impedance between the receiver and the antenna wire. The use of a \gls{SWR} analyser becomes invaluable in this process.
+One simple method of partly improving antenna performance is by controlling the length of the antenna wire while measuring the Standing Wave Ratio (\gls{SWR}) value, which is the ratio of impedance between the receiver and the antenna. The use of a \gls{SWR} analyser becomes invaluable in this process.
 
 %
 \begin{figure}[here]
@@ -637,7 +661,7 @@ One simple method of partly improving antenna performance is by controlling the 
 
 The initial length of antenna wire was cut to match the length produced by the equation in Figure: \ref{fig:wavelength_equation_wire_antenna} and was then cut in half before each end was connected to a dipole center. The antenna was placed on the ground before being connected to the \gls{SWR} analyser. The \gls{SWR} value for the antenna was measured, and it was discovered the antenna was suitable for capturing of signals at 18MHz. The antenna was then shortened by a small identical amount on each side and the \gls{SWR} values were again measured until the antenna registered as being most suitable for operation at 20.1MHz as seen in Figure:  \ref{fig:swr_analyser_measuring_antenna}. 
 
-The equations shown in Figure: \ref{fig:swr_equation} is the \gls{SWR} equations where $|\rho|$ is the reflection coefficient, P$_{f}$ is the power in the forward wave entering the antenna while P$_{r}$ is the power of the reflected wave in the antenna \citep{arrl-00}.
+The \gls{SWR} equations shown in Figure: \ref{fig:swr_equation} is the  equations where $|\rho|$ is the reflection coefficient, P$_{f}$ is the power in the forward wave entering the antenna while P$_{r}$ is the power of the reflected wave in the antenna \citep{arrl-00}.
 
 %
 \begin{figure}[here]
@@ -682,7 +706,7 @@ The equations shown in Figure: \ref{fig:swr_equation} is the \gls{SWR} equations
 The value of \gls{SWR} for the antenna should be ideally as close as possible to 1, this ensures all the signal energy collected by the antenna is transferred to the load successfully. However in practice this is never the case as all antennas have varying amounts of loss. The antenna once mounted had a measured \gls{SWR} value of 1.2 which equates to a P$_{r}$ value as shown in Figure: \ref{fig:swr_equation_pr} of 0.826446280991735 which is a loss of 17.35\% or about 1dB which is considered reasonable \citep{arrl-00}.
 
 \newpage
-Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated with the antenna build.
+Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated with the antenna build to date.
 
 %
 \begin{table}
@@ -711,16 +735,16 @@ Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated wi
 
 \section*{Listening Site Suitability}
 \addcontentsline{toc}{section}{Listening Site Suitability}
-Once the antenna was deployed, it became necessary to determine if this site was in fact a suitable location to host a radio telescope antenna. In order measure the ambient noise at the site, a Tektronics SA2600 spectrum analyser was connected to the antenna and left for a number of hours to gather data. The results can be seen in Figure: \ref{fig:site_survey_spec_analyser}. The ambient \gls{RF} noise at the site was quite high, ranging between -80dB and -70dB on average. Similar readings were taken using the HackRF while attached to the antenna as show in Figure: \ref{fig:site_survey_hackrf}.
+A convenient location for the antenna deployment was selected and the antenna was deployed. It was necessary to determine if this site was in fact a suitable location to host a radio telescope antenna. In order measure the ambient noise at the site, a Tektronics SA2600 spectrum analyser was connected to the antenna and left for 2 hours at midday to gather data. The spectrum is likely to be full of radio interference from human and natural sources at this time. The results can be seen in Figure: \ref{fig:site_survey_spec_analyser}. The ambient \gls{RF} noise at the site was quite high, ranging between -80dB and -70dB on average. 
 
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/32}
-\caption{Dual Dipole Antenna Deployment}
-\label{fig:dual_dipole_deployed}
-\end{figure}
-%
+\newglossaryentry{preamp}
+{
+  name={preamp},
+  description={preamplifier - is an electronic amplifier that prepares a small electrical signal for further amplification or processing},
+  sort=preamp
+}
+
+Similar readings were taken using the HackRF while attached to the antenna as show in Figure: \ref{fig:site_survey_hackrf}. The measurements recorded with the HackRF were performed using the \textit{gqrx} \gls{SDR} software while all amplification settings inside \textit{gqrx} were set at 0, in order to get an accurate reading on the raw signal being collected by the antenna. The values were on average -20dB quieter than those recorded by the SA2600 spectrum analyser, this points towards an inherent deafness flaw in the HackRF design itself, and possibly the requirement of a preamplifier (\gls{preamp}) in order to boost the gain on the input signal. 
 
 \newglossaryentry{RF}
 {
@@ -733,7 +757,7 @@ Once the antenna was deployed, it became necessary to determine if this site was
 \begin{figure}[here]
 \centering
 \includegraphics[width=8cm]{images/26}
-\caption{Site Survey performed using a Spectrum Analyser}
+\caption{Site Survey performed using a Tektronics SA2600 Spectrum Analyser}
 \label{fig:site_survey_spec_analyser}
 \end{figure}
 %
@@ -747,26 +771,58 @@ Once the antenna was deployed, it became necessary to determine if this site was
 \end{figure}
 %
 
-\subsection*{Special Resources Required}
-\addcontentsline{toc}{subsection}{Special Resources Required}
-% The research work may require access to specialised equipment, software, journals and so on.
+\newglossaryentry{LOFAR}
+{
+  name={LOFAR},
+  description={Low Frequency Array - https://www.astron.nl/lofar-telescope/lofar-telescope},
+  sort=LOFAR
+}
 
-Work in progress etc!
+In May 2013, the Solar Physics Group from Trinity College Dublin, performed a site survey at Birr Castle to assertain the suitability of the site for an installation of the Low Frequency Array (\gls{LOFAR}) telescope \citep{craf-13}. The study was focused on a wide range of frequencies between 10 and 400MHz, a portion of which can be seen in Figure: \ref{fig:site_survey_lofar}. The report concluded that the location at Birr Castle was a relatively quiet location as compared against a site at Bornim, Germany and another at Bleien, Switzerland. 
 
-The initial resources which have been identified to be required are listed as follows:
+From the results of this survey, it can be seen that the average background noise levels were about -55dB near 20MHz which is similar to those recorded 80km away at the Kilkenny site. Table: \ref{tab:site_survey} details the results collected at the Kilkenny site and also includes those performed by the Solar Physics Group at Birr Castle for comparison. Results indicate the Kilkenny site appears to be a reasonable location at which to host the radio telescope.
 
-\begin{description}
-  \item[RG59 Coax] \hfill \\
-  RG59 coax cable is required to link the dipole antennas back to the \gls{SDR} transceiver.
-  \item[PL259 / SO239] \hfill \\
-  Cable adapters which connect coax cables together with the dipole centers.
-  \item[HacRF] \hfill \\
-  The HackRF \gls{SDR} transceiver system is the software defined radio transceiver chosen for the prototype system.
-  \item[Radio Jove] \hfill \\
-  The Radio Jove software is extremely useful for observers wishing to capture \gls{DAM} emissions from Jupiter. It contains a large number of features such as emission prediction observation charts, and information regarding Jupiters location in the sky from any specified point on the Earths surface.
-  \item[Spectrum Analyser] \hfill \\
-  A spectrum analyser will be required in order to perform a site survey to determine if a location is suitable for collecting \gls{DAM} emissions.
-\end{description}
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/35}
+\caption{LOFAR Site Suitability Survey performed at Birr Castle \citep{craf-13}}
+\label{fig:site_survey_lofar}
+\end{figure}
+%
+
+%
+\begin{table}
+  \centering
+  \begin{tabular}{p{2cm} l r}
+    \toprule
+    Site & Equipment & Average Noise at 20.1MHz \\ \midrule
+    Kilkenny & Tektronix SA2600 20.1MHz Dipole & -65dB  \\
+    Kilkenny & HackRF One 20.1MHz Dipole & -85dB \\
+    Birr & LOFAR Array 10-100MHz Schwarzbeck Bicone & -55dB \\
+    \bottomrule
+  \end{tabular}
+  \caption{Average Noise Measurements at Kilkenny Listening Site compared to Birr Listening Site \citep{craf-13}}
+  \label{tab:site_survey}
+\end{table}
+%
+
+
+\section*{Verification of the Radio Receiver}
+\addcontentsline{toc}{section}{Verification of the Radio Receiver}
+An opportunity to validate the HackRF transceiver arose with the announcement of an experiment ....
+
+Work in progress
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/41}
+\caption{Partial Solar Eclipse 20th March 2015}
+\label{fig:solar_eclipse_scale}
+\end{figure}
+%
+
 
 
 
@@ -905,6 +961,24 @@ The contributions to research knowledge which are anticipated are listed as foll
 \includegraphics[width=8cm]{images/15}
 \caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}
 \label{fig:loop_antenna_design_c}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/32}
+\caption{Dual Dipole Antenna Deployment}
+\label{fig:dual_dipole_deployed}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/36}
+\caption{Distance between the Birr and Kilkenny site survey}
+\label{fig:site_survey_birr_kilkenny_distance}
 \end{figure}
 %
 
