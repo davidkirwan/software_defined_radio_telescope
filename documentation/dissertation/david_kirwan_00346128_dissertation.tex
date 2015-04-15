@@ -39,7 +39,8 @@
 
 % first the title is needed
 \title{Observing Jovian Decametric Radio Emissions\\
-with a Software Defined Radio Telescope}
+with a Software Defined Radio Telescope\\
+Interim Report}
 
 % a short form should be given in case it is too long for the running head
 \titlerunning{Observing Jovian Decametric Radio Emissions}
@@ -153,7 +154,7 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
 \newglossaryentry{IPT}
 {
   name={IPT},
-  description={Io Plasma Torus is created by ionizing neutral atmospheric gas such as sulphur},
+  description={Io Plasma Torus is created by Jovian atmospheric electrons ionizing neutral atmospheric gas such as sulphur in orbit around Io},
   sort=IPT
 }
 %
@@ -310,8 +311,8 @@ Figure. \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Bu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-\section*{Research Problem}
-\addcontentsline{toc}{section}{Research Problem}
+\section*{Research Hypothesis}
+\addcontentsline{toc}{section}{Research Hypothesis}
 %
 \newglossaryentry{SDR}
 {
@@ -356,56 +357,11 @@ Interference from human sources such as shortwave radio stations or amateur radi
 \end{figure}
 %
 
-\section*{Problem Summary}
-
-To summarise the problem briefly:
-
-\begin{itemize}
-  \item Design of a low cost self sufficient SDR telescope platform suitable for amateur observers
-  \item Capable of studying Jupiter in the decametric band 3MHz - 40MHz (10-100 m)
-  \item This band is chosen because Earths atmosphere is transparent at these frequencies during the night time
-  \item Another reason is emissions near 20Mhz, are least likely to be interfered with from human short wave sources
-  \item Such a platform has a second capability in that it is also be capable of studying Solar emissions during the day as solar emissions are strong enough to penetrate the ionosphere during the day
-  \item Development of a backhaul system for processing and storage of listening site captured data, thereby making it capable of aggregating data from multiple listening sites
-  \item Develop an API for accessing this data, and allow integrating into 3rd party applications
-  \item Amateur listening sites can compliment larger telescope arrays around the world
-\end{itemize}
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Research Questions}
-\addcontentsline{toc}{section}{Research Questions}
-%A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
-The initial research questions which arise are as follows:
-
-%
-\newglossaryentry{IOT}
-{
-  name={IOT},
-  description={Internet of Things a buzzword for everything connecting to everything},
-  sort=IOT
-}
-%
-
-\begin{itemize}
-  \item What current Internet of Things (\gls{IOT}) technologies would best suit the development of a fully automated software defined radio signal listening station and how cheaply can it be created?
-  \item Can a software defined radio solution be developed to filter or flag known instances of human radio interference from radio signal observations?
-  \item If so can this same solution be used to filter or flag known instances of natural radio interference such as lightning?
-  \item Can a software defined radio solution be developed to flag possible instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions} ?
-\end{itemize}
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Research Hypothesis}
-\addcontentsline{toc}{section}{Research Hypothesis}
 %This should outline the approach and methodology being proposed by the student to address the research question.
-
-The section aims to document the different methodologies which will be followed on this project and is broke up into the following:
+\newpage
+\section*{Methodology}
+\addcontentsline{toc}{section}{Methodology}
+The section aims to provide a summary of the methodologies which will be followed on this project in order to answer the research questions put forward in the next section. It is broke up into the following subsections:
 
 \begin{description}
   \item[Antenna Build] \hfill \\
@@ -478,6 +434,54 @@ The latitude of Ireland is 53.3$^{\circ}$ degrees N. In Ireland Jupiter reaches 
 
 The \gls{SDR} complexity of the solution required in order to correctly filter interference might ultimately prove too resource intensive to work with a low power system such as the \textit{Raspberry Pi} or \textit{Beaglebone Black}. It might become apparent that the minimum system requirements may need to be increased to an \textit{Intel Atom} powered Netbook for example, or potentially something a lot more powerful such as an \textit{i3} or \textit{i5} system. If this was the case, it will drastically increase the power and cost requirements of the system should it be self sufficient, requiring bigger batteries, more capable/expensive photovoltaic and or wind turbines to keep the system topped up.
 
+
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\newpage
+\section*{Research Questions}
+\addcontentsline{toc}{section}{Research Questions}
+%A clear, precise definition of the problem is very important to focus on the research activity. great care should be used in devising the research questions. They define the structure of the investigation/innovation that will be used and an essential metric of the quality of the dissertation is the degree to which the research question has/have been answered.
+The initial research questions which arise are as follows:
+
+%
+\newglossaryentry{IOT}
+{
+  name={IOT},
+  description={Internet of Things a buzzword for everything connecting to everything},
+  sort=IOT
+}
+
+\newglossaryentry{IQ}
+{
+  name={IQ},
+  description={Imaginary Quadrature signal - Complex signal data and quadrature phase values in a digital signal sample},
+  sort=IQ
+}
+%
+
+\begin{enumerate}
+  \item \textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a software defined radio signal listening station and how cheaply can it be created?}
+  \begin{itemize}
+  	\item How feasible to use wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
+  	\item If wireless technologies prove too slow, is 10/100/1000 MBit Ethernet suitable instead? Or link aggregation technologies such as EtherChannel or LACP.
+  	\item Can a low powered computing platform such as the Raspberry Pi 2B or Beaglebone Black be used to host the system, or will a more powerful system be required?
+  \end{itemize}
+  
+  \item \textit{What processes or algorithms need to be developed to filter or flag known instances of human radio interference from radio signal observations?}
+  \begin{itemize}
+  	\item Flag transmission signals identified by amateur radio enthusiasts from a local DXSpider server in recorded data.
+  	\item Flag instances of natural radio interference such as lightning from the Blitzortung server in recorded data.
+  \end{itemize}
+  
+  \item \textit{What \gls{SDR} processes and algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
+  \begin{itemize}
+  	\item Can existing signal demodulation techniques be employed to find \gls{DAM} emissions?
+  	\item What is required from an algorithm which might identify \gls{DAM} emissions within an \gls{IQ} signal?
+  \end{itemize}
+  
+\end{enumerate}
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
