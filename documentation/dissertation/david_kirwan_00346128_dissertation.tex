@@ -56,7 +56,7 @@ with a Software Defined Radio Telescope}
 %the structure of the names in the running heads and the author index.}%
 \and Dr. Alan Davy\thanks{Supervisors} \and John Ronan\footnotemark[1]}
 %
-\authorrunning{D. Kirwan}
+\authorrunning{Observing Jovian Decametric Radio Emissions}
 % (feature abused for this document to repeat the title also on left hand pages)
 
 % the affiliations are given next; don't give your e-mail address
@@ -76,40 +76,32 @@ Cork Rd, Waterford City, Ireland\\
 \tocauthor{D. Kirwan}
 \maketitle
 %
-%\begin{abstract}
-%The abstract should summarize the contents of the paper and should
-%contain at least 70 and at most 150 words. It should be written using %the
-%\emph{abstract} environment.
-%\keywords{radio astronomy, software defined radio, signal processing}
-%\end{abstract}
+\begin{abstract}
+The abstract should summarize the contents of the paper and should
+contain at least 70 and at most 150 words. It should be written using the
+\emph{abstract} environment.
+\keywords{radio astronomy, software defined radio, digital signal processing}
+\end{abstract}
 %
 
-\newpage
-\chapter*{Acknowledgements}
+%\newpage
+%\chapter*{Acknowledgements}
 
-This dissertation would not have been possible without the support of the following people.
+%This dissertation would not have been possible without the support of the following people.
 
-To my supervisors Alan and John for their patience, guidance and sharing of knowledge during this process.
-Thank you, it has been a real pleasure working together.
+%To my supervisors Alan and John for their patience, guidance and sharing of knowledge during this process. Thank you, it has been a real pleasure working together.
 
-To my lecturers at the Waterford Institute of Technology, you have all been so open and free with your
-sharing of knowledge, it has been an absolute pleasure learning from you.
+%To my lecturers at the Waterford Institute of Technology, you have all been so open and free with your sharing of knowledge, it has been an absolute pleasure learning from you.
 
-To my partner Michael, I'm keenly aware standing in the freezing cold helping me put up radio antennas 
-might not have been the most exciting thing you've partaken in, but I couldn't have done it without your
-help. Thanks for your constant encouragement and for putting up with me during this. 
+%To my partner Michael, I'm keenly aware standing in the freezing cold at 2am helping me put up radio antennas might not have been the most exciting thing you've partaken in, but I couldn't have done it without your help. Thanks for your constant encouragement and for putting up with me during this. 
 
-To my sister Jean, you inspired me to work as hard as I have these last 6 years. I wanted to make you as
-proud of me as I am of you. If you beat me to Ph.D, I'll buy you a bag of chips in Roccos.
+%To my sister Jean, you inspired me to work as hard as I have these last 6 years. I wanted to make you as proud of me as I am of you. If you beat me to Ph.D, I'll buy you a bag of chips in Roccos.
 
-To my father, I can only imagine the conversations we might have had, I suspect you would have loved
-playing with this equipment as much as I have.
+%To my father, I can only imagine the conversations we might have had, I suspect you would have loved playing with this equipment as much as I have.
 
-To my mother, thank you for your friendship. You have always been a positive influence in my life.
-Some day you must sit down and explain how you can walk past, and in the time it takes to cross a room
-and without any prior involvement, solve a problem I have been struggling with for days.
+%To my mother, thank you for your friendship. You have always been a positive influence in my life. Some day you must sit down and explain how you can walk past, and in the time it takes to cross a room and without any prior involvement, solve a problem I have been struggling with for days.
 
-To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could ask for.
+%To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could ask for.
 
 %
 \renewcommand*{\glsclearpage}{}
@@ -119,13 +111,14 @@ To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could 
 \tableofcontents
 \newpage
 \listoftables
-\addcontentsline{toc}{section}{List of Tables}
+\addcontentsline{toc}{chapter}{List of Tables}
 %
 \newpage
 \chapter*{Introduction}
 \addcontentsline{toc}{chapter}{Introduction}
-%This is typically an outline description detailing the background	 to the problem.
+%This is typically an outline description detailing the background to the problem.
 
+%
 \newglossaryentry{DAM}
 {
   name={DAM},
@@ -133,7 +126,9 @@ To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could 
   sort=DAM
 }
 %
+
 It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio transmissions in the decameter (\gls{DAM}) range \textit{(10-100 m wavelengths)}, and the inner Jovian satellite Io appeared to have a strong control effect on these emissions \citep{belcher87}. Jupiter's radio emissions range between 4 MHz to 40 MHZ while emitting most strongly at 8 MHz  \citep{wilkinson94}. Due to interference from human short wave radio sources between 4-15 MHz coupled with the attenuation of these signals below 8 MHz or the refraction off Earths ionosphere, the majority of emissions have been observed up in the 15-25 MHz range where this interference is less \citep{wilkinson94}. The emission signal strength quickly diminishes above this range for ground based listening sites \citep{wilkinson94}.
+
 %
 \begin{figure}[here]
 \centering
@@ -144,6 +139,7 @@ It was discovered in 1954 by \cite{burke55} that the planet Jupiter emits radio 
 %
 
 Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the later Galileo mission in 1995 \citep{kivelson96} added hugely to the understanding of the plasma interactions between Jupiter and Io and the source of the \gls{DAM} emissions. It was discovered that the Io has a thin atmosphere made up of a number of neutral gasses namely sodium, potassium, sulfur, and oxygen as shown in Figure. \ref{fig:io_neutral_gasses}. It is generally thought these gasses have been emitted through volcanic activity on the surface of the moon \citep{belcher87}. The gasses in orbit of Io have a very short life time, due to collisions with magnetospheric electrons. This gives rise to a plasma torus (\gls{IPT}) which corotates with Jupiter itself \citep{belcher87}. This can also be seen in Figure. \ref{fig:io_neutral_gasses} which shows the \gls{IPT}.
+
 %
 \begin{figure}[here]
 \centering
@@ -151,6 +147,8 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
 \caption{Neutral Gasses in Orbit of Io \citep{belcher87}}
 \label{fig:io_neutral_gasses}
 \end{figure}
+%
+
 %
 \newglossaryentry{IPT}
 {
@@ -178,13 +176,13 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
 \end{figure}
 %
 
-The local corotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}. Figures \ref{fig:io_flux_tube} and \ref{fig:io_flux_tube_plasma_torus} detail diagrams of the Io Flux Tube (\gls{IFT}) which is a cylinder shaped tube of space containing Jovian magnetic field lines \citep{belcher87} which link Io to Jupiters ionosphere at both poles. A large portion of the decametric emissions come from the area where this \gls{IFT} meets the Jovian ionosphere \citep{belcher87}. 
+The local corotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}. Figures \ref{fig:io_flux_tube} and \ref{fig:io_flux_tube_plasma_torus} detail diagrams of the Io Flux Tube (\gls{IFT}) which is a cylinder shaped tube of space containing Jovian magnetic field lines \citep{belcher87} which link Io to Jupiter's ionosphere at both poles. A large portion of the decametric emissions come from the area where this \gls{IFT} meets the Jovian ionosphere \citep{belcher87}. 
 
 As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Io and Jupiter \citep{bose08}.
 
- These Alfv\'en waves reflect between Jupiters ionosphere at both north and south poles and Io upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave \citep{bose08}. It appears the source of the \gls{DAM} emissions are largely due to these reflections of the Alfv\'en waves off Jupiter's ionosphere in both the northern and southern regions \citep{bose08}. See Figure. \ref{fig:io_plasma_torus} which shows the Alfv\'en wings reflecting from Jupiters Ionosphere creating emission cones. 
+These Alfv\'en waves reflect between Jupiter's ionosphere at both north and south poles and Io upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave \citep{bose08}. It appears the source of the \gls{DAM} emissions are largely due to these reflections of the Alfv\'en waves off Jupiter's ionosphere in both the northern and southern regions \citep{bose08}. See Figure. \ref{fig:io_plasma_torus} which shows the Alfv\'en wings reflecting from Jupiter's Ionosphere creating emission cones.
 
-The \gls{DAM} emissions are carried along the surface of the emission cones as show in Figure. \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, emissions travelling along the surface of these emission cones are pointing in the direction of Earth, at which point they can be picked up at ground based radio telescope listening stations.
+The \gls{DAM} emissions radiate outwards in the shape of a cone as show in Figure. \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, these emission cones are pointing in the direction of Earth, at which point emissions can be picked up at ground based radio telescope listening stations.
 
 %
 \begin{figure}[here]
@@ -198,9 +196,9 @@ The \gls{DAM} emissions are carried along the surface of the emission cones as s
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\newpage
-\section*{Research Topic}
-\addcontentsline{toc}{section}{Research Topic}
+%\newpage
+%\section*{Research Topic}
+%\addcontentsline{toc}{section}{Research Topic}
 %Students should identify whether the research outcomes are likely to have universal application or have a defined scope. This is important in gauging the extent to which the work is capable of independent replication.
 %
 
@@ -233,7 +231,7 @@ A ground based listening station aiming to record \gls{DAM} emissions from Jupit
 \end{figure}
 %
 
-As many commercial shortwave radio stations transmit in the lower end of the high frequency (\gls{HF}) 3-7 MHz range, it can be extremely busy and potentially difficult to monitor \gls{DAM} emissions where they are strongest. Amateur Radio operators also operate frequently in mid-late \gls{HF} ranges (\textit{160m, 80m, 60m, 40m, 30m, 20m, 17m, 15m, 12m and 10m bands}) while the higher frequency \gls{DAM} emissions taper off in strength very quickly. This limits the potential listening range significantly. Despite these obstacles, there are sections of the \gls{HF} spectrum which are suitable to capture Jovian emissions. A suitable frequency to monitor Jovian \gls{DAM} emissions which is recommended by the Radio Jove project is \textit{20.1 MHz} \citep{nasa12}. 
+As many commercial shortwave radio stations transmit in the lower end of the high frequency (\gls{HF}) 3-7 MHz range, it can be extremely busy and potentially difficult to monitor \gls{DAM} emissions where they are strongest. Amateur Radio operators also operate frequently in mid-late \gls{HF} ranges (\textit{160m, 80m, 60m, 40m, 30m, 20m, 17m, 15m, 12m and 10m bands}) while the higher frequency \gls{DAM} emissions taper off in strength very quickly. This limits the potential listening range significantly. Despite these obstacles, there are sections of the \gls{HF} spectrum which are suitable to capture Jovian emissions. One frequency to monitor Jovian \gls{DAM} emissions which is recommended by the Radio Jove project is \textit{20.1 MHz} \citep{nasa12}. 
 
 Sourcing a suitable antenna is one of the first requirements to satisfy in order to capture \gls{DAM} emissions. Antennas are generally best suited to collect electromagnetic radiation at single specific frequencies, but may resonate and therefore operate over a range of frequencies depending on the design \citep{nasa12}. The wavelength ($\lambda$) which corresponds with the frequency (\textit{f}) \textit{20.1 MHz} can be obtained using the wavelength equation as shown in fig \ref{fig:wavelength_equation}. The corresponding wavelength for the frequency \textit{20.1 MHz} works out to be \textit{14.925 m} using this equation.
 
@@ -318,7 +316,7 @@ Figure. \ref{fig:dam_emissions_spectrum} shows an ideal case of the \textit{S-Bu
 \newglossaryentry{SDR}
 {
   name={SDR},
-  description={Software Defined Radio is the creation of radio functions within software rather than as previously using hardware},
+  description={Software Defined Radio is the creation of radio functions within software rather than hardware},
   sort=SDR
 }
 
@@ -330,7 +328,7 @@ There are a number of challenges which need to be overcome to achieve this, such
 \begin{figure}[here]
 \centering
 \includegraphics[width=8cm]{images/07}
-\caption{Dual Dipole Antenna Beam at 20FT and 135deg phasing S \citep{nasa12}}
+\caption{Dual Dipole Antenna Beam at 20FT and 135deg phasing South \citep{nasa12}}
 \label{fig:dual_dipole_20ft_135phasing_s}
 \end{figure}
 %
@@ -358,8 +356,7 @@ Interference from human sources such as shortwave radio stations or amateur radi
 \end{figure}
 %
 
-\subsection*{Problem Summary}
-\addcontentsline{toc}{subsection}{Problem Summary}
+\section*{Problem Summary}
 
 To summarise the problem briefly:
 
@@ -464,7 +461,6 @@ The \gls{SDR} hardware transceiver used is likely to be the \textit{HackRF} syst
 
 
 \subsection*{Potential Pitfalls}
-\addcontentsline{toc}{subsection}{Potential Pitfalls}
 %Predecisions on how I want to collect data, creating the research questions
 
 It is difficult to determine at this early stage what will ultimately prove to be the most troublesome element to implement, however there are a number of potential pitfalls which have already been identified.
@@ -473,7 +469,7 @@ It is difficult to determine at this early stage what will ultimately prove to b
 \begin{figure}[here]
 \centering
 \includegraphics[width=8cm]{images/11}
-\caption{Radio Jove Graph Showing Jupiters Max Altitude 2014 \citep{rjp-14}}
+\caption{Radio Jove Graph Showing Jupiter's Max Altitude 2014 \citep{rjp-14}}
 \label{fig:jupiter_max_altitude_2014}
 \end{figure}
 %
@@ -501,16 +497,12 @@ The preliminary literature review can be broken down into the following areas:
 \end{itemize}
 
 \subsection*{Decametric Radio Emission what are they and where do they come from?}
-\addcontentsline{toc}{subsection}{Decametric Radio Emission what are they and where do they come from?}
-
-\cite{belcher87} states that the data collected by both \textit{Voyager} spacecraft fit with the Alfv\'en wing theory as an explanation for the source of the \gls{DAM} emissions \citep{belcher87}. \cite{kivelson96} discusses the refinements made to this theory to take into account the flowing plasma between Jupiters ionosphere and the electrically conducting Io. The \textit{Galileo} spacecraft collected data which appears to corroborate the updates to the Alfv\'en wing model \citep{kivelson96}. \cite{bose08} states that the Alfv\'en waves reflect off Jupiters ionosphere which cause the \gls{DAM} emissions to radiate out from the point in Jupiters ionosphere where it meets the \gls{IFT} in a cone shape. \cite{imai-08} proposes an update to this model to take into account the decade long shifts in \gls{DAM} emission patterns, and proposes an extension to the emission cone model to include a \textit{searchlight} shaped emission zone \citep{imai-08} see Figure. \ref{fig:decametric_emissions_searchlight}.
+\cite{belcher87} states that the data collected by both \textit{Voyager} spacecraft fit with the Alfv\'en wing theory as an explanation for the source of the \gls{DAM} emissions \citep{belcher87}. \cite{kivelson96} discusses the refinements made to this theory to take into account the flowing plasma between Jupiter's ionosphere and the electrically conducting Io. The \textit{Galileo} spacecraft collected data which appears to corroborate the updates to the Alfv\'en wing model \citep{kivelson96}. \cite{bose08} states that the Alfv\'en waves reflect off Jupiter's ionosphere which cause the \gls{DAM} emissions to radiate out from the point in Jupiter's ionosphere where it meets the \gls{IFT} in a cone shape. \cite{imai-08} proposes an update to this model to take into account the decade long shifts in \gls{DAM} emission patterns, and proposes an extension to the emission cone model to include a \textit{searchlight} shaped emission zone \citep{imai-08} see Figure. \ref{fig:decametric_emissions_searchlight}.
 
 \subsection*{Radio Telescope Designs, Which to Choose?}
-\addcontentsline{toc}{subsection}{Radio Telescope Designs, Which to Choose?}
 The NASA project \textit{Radio Jove} recommended the dual dipole array design for a cheap low cost listening site as shown in Figure. \ref{fig:dual_dipole_antenna_array} \citep{nasa12}. But it is by no means the only antenna design which would be capable of picking up the \gls{DAM} emissions. \cite{wilkinson94} recommends a slightly more advanced design, the \textit{folded dipole} which maximises the bandwidth available to the antenna \citep{wilkinson94}. \cite{greef-12} details a third alternative for collecting \gls{DAM} emissions, a shortwave loop antenna as can be seen in Figures. \ref{fig:loop_antenna_design_a}, \ref{fig:loop_antenna_design_b} and \ref{fig:loop_antenna_design_c}.
 
 \subsection*{Digital Signal Processing}
-\addcontentsline{toc}{subsection}{Digital Signal Processing}
 \cite{freidt-13} holds that digital signal processing is the preferred means to process signals, for reasons such as stability and for its resistance to long term ageing effects that analogue systems suffer from. Due to the cheap availability of computational resources, digital signal processing is capable of being carried out now within software entirely, this has led to the development of software defined radio solutions \citep{freidt-13}. The GNURadio software allows creation of software defined radio solutions by replacing hardware functions with modular software functions. These software functions are capable of being connected together, an output from one function providing input for another. It is in this fashion it is possible to transform digital signals using digital signal processing methods \citep{gnuradio-14}.
 
 %
@@ -519,7 +511,7 @@ The NASA project \textit{Radio Jove} recommended the dual dipole array design fo
   \begin{tabular}{ | p{2.5cm} || p{2.5cm} | p{2.5cm} | p{2.5cm} | p{2.5cm} |}
     \hline
     \textbf{Topic} & \textbf{Belcher 1987} & \textbf{Kivelson et al 1996} & \textbf{Bose et al 2008} & \textbf{Imai et al 2008} \\ \hline \hline
-    What are the Jovian DAM emissions and what causes them? & Large fraction of DAM emissions come from point where IFT meets Jupiters ionosphere (p3). Large moving conductor within a magnetised plasma (p1) produces Alfv\'en wing. & Alfv\'enic disturbances, generated by flowing plasma from Jovian magnetosphere and conducting Io (p337). & Alfv\'en waves reflecting off Jupiters Ionosphere (p79). & Not fully understood, but believed to be produced by cyclotron maser instability \citep{imai-08}. \\ \hline \hline
+    What are the Jovian DAM emissions and what causes them? & Large fraction of DAM emissions come from point where IFT meets Jupiter's ionosphere (p3). Large moving conductor within a magnetised plasma (p1) produces Alfv\'en wing. & Alfv\'enic disturbances, generated by flowing plasma from Jovian magnetosphere and conducting Io (p337). & Alfv\'en waves reflecting off Jupiter's Ionosphere (p79). & Not fully understood, but believed to be produced by cyclotron maser instability \citep{imai-08}. \\ \hline \hline
 
     \textbf{Topic} & \textbf{Wilkinson et al} & \textbf{NASA Radio Jove} & \textbf{Greef 2012} &  \\ \hline \hline
 
@@ -607,8 +599,8 @@ The NASA Radio Jove dual dipole antenna design (Figure: \ref{fig:dual_dipole_ant
 \end{itemize}
 
 
-\subsection*{Special Resources Required}
-\addcontentsline{toc}{subsection}{Special Resources Required}
+\section*{Special Resources Required}
+\addcontentsline{toc}{section}{Special Resources Required}
 % The research work may require access to specialised equipment, software, journals and so on.
 
 The following resources have been identified as being required in order to perform the research and are listed as follows:
@@ -923,7 +915,7 @@ The contributions to research knowledge which are anticipated are listed as foll
 \begin{figure}[here]
 \centering
 \includegraphics[width=8cm]{images/12}
-\caption{A searchlight beam model of Jupiters decametric radio emissions \citep{imai-08}}
+\caption{A searchlight beam model of Jupiter's decametric radio emissions \citep{imai-08}}
 \label{fig:decametric_emissions_searchlight}
 \end{figure}
 %
