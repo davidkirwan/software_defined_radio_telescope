@@ -487,17 +487,17 @@ The initial research questions which arise are as follows:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-\section*{Preliminary Literature Review}
-\addcontentsline{toc}{section}{Preliminary Literature Review}
+\section*{Literature Review}
+\addcontentsline{toc}{section}{Literature Review}
 %This should contain a review of a number of books, journal articles and web references of relevance to the research area proposed. The literature should contain seminal and recent referenced research material that is categorised under a number of relevant sub-themes.
 
-The preliminary literature review can be broken down into the following areas:
+The literature review can be broken down into the following areas:
 
 
 \begin{itemize}
   \item[\textbullet] What are the decametric radio emissions and what are they caused by
   \item[\textbullet] Potential radio telescope designs which could be replicated in order to collect DAM emissions
-  \item[\textbullet] Digital signal processing and filtering to remove interference
+  \item[\textbullet] Digital signal processing
 \end{itemize}
 
 \subsection*{Decametric Radio Emission what are they and where do they come from?}
@@ -507,7 +507,44 @@ The preliminary literature review can be broken down into the following areas:
 The NASA project \textit{Radio Jove} recommended the dual dipole array design for a cheap low cost listening site as shown in Figure. \ref{fig:dual_dipole_antenna_array} \citep{nasa12}. But it is by no means the only antenna design which would be capable of picking up the \gls{DAM} emissions. \cite{wilkinson94} recommends a slightly more advanced design, the \textit{folded dipole} which maximises the bandwidth available to the antenna \citep{wilkinson94}. \cite{greef-12} details a third alternative for collecting \gls{DAM} emissions, a shortwave loop antenna as can be seen in Figures. \ref{fig:loop_antenna_design_a}, \ref{fig:loop_antenna_design_b} and \ref{fig:loop_antenna_design_c}.
 
 \subsection*{Digital Signal Processing}
-\cite{freidt-13} holds that digital signal processing is the preferred means to process signals, for reasons such as stability and for its resistance to long term ageing effects that analogue systems suffer from. Due to the cheap availability of computational resources, digital signal processing is capable of being carried out now within software entirely, this has led to the development of software defined radio solutions \citep{freidt-13}. The GNURadio software allows creation of software defined radio solutions by replacing hardware functions with modular software functions. These software functions are capable of being connected together, an output from one function providing input for another. It is in this fashion it is possible to transform digital signals using digital signal processing methods \citep{gnuradio-14}.
+\cite{smith-03-a} explains that digital signal processing is a term used to describe the mathematics, algorithms and techniques used to manipulate signals after they have been converted from analogue to digital. \cite{freidt-13} holds that digital signal processing is the preferred means to process signals, for reasons such as stability and for its resistance to long term ageing effects that analogue systems suffer from. However as \cite{smith-03-b} points out, due to the nature of the conversion from analogue to digital, information is lost in this process. \cite{smith-03-b} maintains that the proper sampling of an analogue signal occurred if you can reconstruct the signal from the digital samples collected, and incorrect sampling will lead to loss of the original signal due to aliasing.
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/44}
+\caption{Sampling an Analogue Signal \citep{smith-03-b}}
+\label{fig:smith_sample_theorem_2003}
+\end{figure}
+%
+
+\cite{smith-03-b} demonstrates in Figure: \ref{fig:smith_sample_theorem_2003} how signal data loss occurs due to aliasing. When sampling an analogue signal which has a frequency more than half of the sample rate (Nyquist frequency), \cite{smith-03-b} observes that the original signal cannot be reconstructed. This is referred to as the sampling theorem \citep{smith-03-b} where $f_s$ is the sample rate and $f$ is the frequency being sampled.
+
+%
+\begin{figure}[here]
+  \centering
+  \begin{equation}  	
+    f_s > 2f
+  \end{equation}
+  \caption{Sampling Theorem aka Nyquist-Shannon sampling theorem \citep{smith-03-b}}
+  \label{fig:nyquist-shannon-sample-theorem}
+\end{figure}
+%
+
+\cite{ossmann-15-b} contends that the application of Nyquist-Shannon sampling theorem only applies to real analogue signals where the bandwidth is equal to half the sample rate. However for a complex digital signal  the bandwidth is equal to the sample rate \citep{ossmann-15-b}.
+
+Due to the cheap availability of computational resources, digital signal processing is capable of being carried out now within software entirely, this has led to the development of software defined radio solutions \citep{freidt-13}. The GNURadio software allows creation of software defined radio solutions by replacing hardware functions with modular software functions. These software functions are capable of being connected together, an output from one function providing input for another. It is in this fashion it is possible to transform digital signals using digital signal processing methods within the GNURadio platform\citep{gnuradio-14}.
+
+\cite{ossmann-15-a} illustrates how the HackRF One \gls{SDR} transceiver can be accessed within GNURadio by way of the osmocomm source which is an abstraction layer between GNURadio and the HackRF driver. Figure: \ref{fig:ossmann_am_demodulation} shows an amplitude modulation signal which has been digitally sampled. In order to demodulate such a signal, an understanding how the signal data is stored is a must. Digital periodic signal samples tend to be stored in a complex format which amounts to X/Y polar coordinates \citep{ossmann-15-c}. $I$ is the point on the real axis, and $Q$ is the point on the imaginary axis Figure: \ref{fig:kuisma-iq-helix} shows how these I/Q values are plotted periodically \citep{kuisma-14}.
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=7cm]{images/48}
+\caption{I/Q Samples Helix \citep{kuisma-14}}
+\label{fig:kuisma-iq-helix}
+\end{figure}
+%
 
 %
 \begin{table}
@@ -517,16 +554,13 @@ The NASA project \textit{Radio Jove} recommended the dual dipole array design fo
     \textbf{Topic} & \textbf{Belcher 1987} & \textbf{Kivelson et al 1996} & \textbf{Bose et al 2008} & \textbf{Imai et al 2008} \\ \hline \hline
     What are the Jovian DAM emissions and what causes them? & Large fraction of DAM emissions come from point where IFT meets Jupiter's ionosphere (p3). Large moving conductor within a magnetised plasma (p1) produces Alfv\'en wing. & Alfv\'enic disturbances, generated by flowing plasma from Jovian magnetosphere and conducting Io (p337). & Alfv\'en waves reflecting off Jupiter's Ionosphere (p79). & Not fully understood, but believed to be produced by cyclotron maser instability \citep{imai-08}. \\ \hline \hline
 
-    \textbf{Topic} & \textbf{Wilkinson et al} & \textbf{NASA Radio Jove} & \textbf{Greef 2012} &  \\ \hline \hline
+    \textbf{Topic} & \textbf{Wilkinson et al 1994} & \textbf{NASA Radio Jove 2012} & \textbf{Greef 2012} &  \\ \hline \hline
 
     Radio telescope designs suitable to capture DAM emissions from Jupiter & Wilkinson et al suggest a folded dipole antenna design & Radio Jove project suggest a dual dipole antenna & Greef demonstrates a low cost Loop Antenna design with reflection plate & \\ \hline \hline
     
-    \textbf{Topic} & \textbf{Freidt 2013} & \textbf{GNU Radio 2014} & & \\ \hline \hline    
+    \textbf{Topic} & \textbf{Smith 2003} & \textbf{Freidt 2013} & \textbf{GNU Radio 2014} & \textbf{Ossmann 2015} \\ \hline \hline    
     
-    Digital signal processing & Freidt states digital signal processing now ubiquitous, and cheap availability of computational power lends self to software defined radio solutions. & GNURadio allows digital signal processing using transformation functions developed in software. & &  \\ 
-    
-
-    
+    Digital signal processing & Smith argues digital signal processing is one of the most powerful technologies that will shape the 21st century. & Freidt states digital signal processing now ubiquitous, and cheap availability of computational power lends self to software defined radio solutions. & GNURadio allows digital signal processing using transformation functions developed in software. & Ossmann argues that the HackRF One is perfectly suited as a low cost wide range transceiver for use within software defined radio prototypes. \\
     \hline
   \end{tabular}
   \caption{Literature Review Synthesis Matrix}
@@ -839,7 +873,14 @@ Work in progress
 % Chapter for each research question
 % how we validated it and proved it worked
 
-\textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a fully automated software defined radio signal listening station and how cheaply can it be created?}
+\textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a software defined radio signal listening station and how cheaply can it be created?}
+
+\begin{itemize}
+  	\item How feasible to use wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
+  	\item If wireless technologies prove too slow, is 10/100/1000 MBit Ethernet suitable instead? Or link aggregation technologies such as EtherChannel or LACP.
+  	\item Can a low powered computing platform such as the Raspberry Pi 2B or Beaglebone Black be used to host the system, or will a more powerful system be required?
+\end{itemize}
+
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -850,8 +891,13 @@ Work in progress
 % Chapter for each research question
 % how we validated it and proved it worked
 
-\textit{Can a software defined radio solution be developed to filter or flag known instances of human radio interference from radio signal observations?}
-\textit{If so can this same solution be used to filter or flag known instances of natural radio interference such as lightning?}
+\textit{What processes or algorithms need to be developed to filter or flag known instances of human radio interference from radio signal observations?}
+
+\begin{itemize}
+	\item Flag transmission signals identified by amateur radio enthusiasts from a local DXSpider server in recorded data.
+  	\item Flag instances of natural radio interference such as lightning from the Blitzortung server in recorded data.
+\end{itemize}
+
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -862,7 +908,12 @@ Work in progress
 % Chapter for each research question
 % how we validated it and proved it worked
 
-\textit{Can a software defined radio solution be developed to flag possible instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions} ?}
+\textit{What \gls{SDR} processes and algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
+
+\begin{itemize}
+	\item Can existing signal demodulation techniques be employed to find \gls{DAM} emissions?
+	\item What is required from an algorithm which might identify \gls{DAM} emissions within an \gls{IQ} signal?
+\end{itemize}
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -978,6 +1029,23 @@ The contributions to research knowledge which are anticipated are listed as foll
 \end{figure}
 %
 
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/47}
+\caption{I/Q Samples Polar Plot \citep{kuisma-14}}
+\label{fig:kuisma-iq-polar}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+\centering
+\includegraphics[width=8cm]{images/46}
+\caption{Sampling an Analogue Amplitude Modulation Signal \citep{ossmann-15-c}}
+\label{fig:ossmann_am_demodulation}
+\end{figure}
+%
 
 %
 \bibliographystyle{plainnat}
