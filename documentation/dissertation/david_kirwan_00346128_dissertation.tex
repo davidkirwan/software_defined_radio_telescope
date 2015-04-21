@@ -123,7 +123,7 @@ Cork Rd, Waterford City, Ireland\\
 \newglossaryentry{DAM}
 {
   name={DAM},
-  description={decameter radio emissions in the 10-100M wavelengths},
+  description={decameter radio emissions in the 10-100m wavelengths},
   sort=DAM
 }
 %
@@ -535,7 +535,7 @@ The NASA project \textit{Radio Jove} recommended the dual dipole array design fo
 
 Due to the cheap availability of computational resources, digital signal processing is capable of being carried out now within software entirely, this has led to the development of software defined radio solutions \citep{freidt-13}. The GNURadio software allows creation of software defined radio solutions by replacing hardware functions with modular software functions. These software functions are capable of being connected together, an output from one function providing input for another. It is in this fashion it is possible to transform digital signals using digital signal processing methods within the GNURadio platform\citep{gnuradio-14}.
 
-\cite{ossmann-15-a} illustrates how the HackRF One \gls{SDR} transceiver can be accessed within GNURadio by way of the osmocomm source which is an abstraction layer between GNURadio and the HackRF driver. Figure: \ref{fig:ossmann_am_demodulation} shows an amplitude modulation signal which has been digitally sampled. In order to demodulate such a signal, an understanding how the signal data is stored is a must. Digital periodic signal samples tend to be stored in a complex format which amounts to X/Y polar coordinates \citep{ossmann-15-c}. $I$ is the point on the real axis, and $Q$ is the point on the imaginary axis Figure: \ref{fig:kuisma-iq-helix} shows how these I/Q values are plotted periodically \citep{kuisma-14}.
+\cite{ossmann-15-a} illustrates how the HackRF One \gls{SDR} transceiver can be accessed within GNURadio by way of the osmocomm source which is an abstraction layer between GNURadio and the HackRF driver. Figure: \ref{fig:ossmann_am_demodulation} shows an amplitude modulation signal which has been digitally sampled. In order to demodulate such a signal, an understanding how the signal data is stored is a must. Digital periodic signal samples tend to be stored in a complex format which amounts to polar coordinates \citep{ossmann-15-c}. $I$ is the point on the real axis, and $Q$ is the point on the imaginary axis Figure: \ref{fig:kuisma-iq-helix} shows how these I/Q values are plotted periodically \citep{kuisma-14}.
 
 %
 \begin{figure}[here]
@@ -594,24 +594,23 @@ Due to the cheap availability of computational resources, digital signal process
 \addcontentsline{toc}{section}{Main Milestones Anticipated}
 % Students should agree a number of milestones and their likely delivery dates with their supervisor at the start of the progress.
 
-The following Table. \ref{tab:milestones_anticipated} details the milestones which have been identified and agreed to date:
+The following Table. \ref{tab:milestones_anticipated} details the milestones which have been identified and agreed to date. It has been updated for the Interim Report to include completed milestones and those in progress:
 
 %
 \begin{table}
   \centering
   \begin{tabular}{ | p{2cm} | p{2cm} | p{2cm} | p{5cm} |}
     \hline
-    Deadline & Start & End & Summary \\ \hline
-    Antenna Build & October 14 & December 14 & Settle on a design for the telescope, source the parts for the build
+    Deadline & Start & End & Summary \\ \hline \hline
+    Antenna Build & October 14 & March 15 & Settle on a design for the telescope, source the parts for the build
     and finally construct the prototype antenna which will act as a template for the second dipole. \\ \hline
-    Site Survey & January 15 & January 15 & Perform a site survey using a spectrum analyser connected to the prototype antenna. \\ \hline
-    Deploy Dual Dipole Antenna & January 15 & January 15 & Deploy the antenna array at a suitable location and begin to collect data for analysis. \\ \hline
-    Interim Report & January 15 & 24th April 15 & Interim Report presentation to review panel and supervisor on 
-    29th April \\ \hline
-    Data Collection & January 15 & June 15 & Once the antenna is deployed begin collecting data for analysis. \\ \hline
-    Data Analysis and System Development & January 15 & June 15 & Develop analytical SDR tools to filter or flag interference. Develop algorithms to detect the various DAM emission. \\ \hline
-    Evaluate IOT Technologies & January 15 & June 15 & Experiment with the various IOT technologies which could potentially be used to create a self sufficient listening array. \\ \hline
-    Final Report Submission & June 15 & September 15 & First draft to supervisor due in early June 15. Complete draft due 24th August. Final submission 4th September \\
+    Site Survey & March 15 & March 15 & Perform a site survey using a spectrum analyser connected to the prototype antenna. \\ \hline
+    Deploy Dual Dipole Antenna & March 15 & March 15 & Deploy the antenna array at a suitable location and begin to collect data for analysis. \\ \hline
+    Interim Report & January 15 & (Hard Deadline) 30th April 15 & Poster presentation to review panel and supervisor on 19th May \\ \hline
+    Data Collection & March 15 & July 15 & Once the antenna is deployed begin collecting data for analysis. \\ \hline
+    Data Analysis and System Development & March 15 & July 15 & Develop analytical SDR tools to filter or flag interference. Develop algorithms to detect the various DAM emission. \\ \hline
+    Evaluate IOT Technologies & January 15 & July 15 & Experiment with the various IOT technologies which could potentially be used to create a self sufficient listening array. \\ \hline
+    Final Report Submission & June 15 & (Hard Deadline) September 15 & First draft to supervisor due in early June 15. Complete draft due 24th August. Final submission 4th September \\
     \hline
   \end{tabular}
   \caption{Milestones Anticipated}
