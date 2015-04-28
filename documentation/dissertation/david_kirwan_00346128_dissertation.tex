@@ -746,15 +746,17 @@ Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated wi
     100m Copper Wire & 20.00  \\
     100m Coax RG59 & 25.00  \\
     2 $\times$ Dipole Centers & 20.00 \\
-    6 $\times$ PL259 & 12.00 \\
+    8 $\times$ PL259 & 18.00 \\
     2 $\times$ SO239 & 4.00 \\
     SMA-SO239 Adapter & 4.50 \\
+    2 $\times$ SO239-SO239 Adapter & 4.50 \\
     T Adapter & 3.00 \\
     Patch Lead & 5.00 \\
     2 $\times$ 4m 5cm Pipe & 15.00 \\
     2 $\times$ 4m 4cm Pipe & 15.00 \\
     \bottomrule
-    Total & 123.50
+    \\
+    Total & 134.00
   \end{tabular}
   \caption{Antenna Build Cost}
   \label{tab:antenna_build_cost}
@@ -911,6 +913,7 @@ A number of issues with the HackRF \gls{SDR} transceiver became apparent during 
   	\item Can a low powered computing platform such as the Raspberry Pi 2B or Beaglebone Black be used to host the system, or will a more powerful system be required?
 \end{itemize}
 
+While the work required to answer this research question is ongoing, it is expected it can be answered by performing a state of the art in this area and compare performance and cost analysis of the existing networking and storage technologies. The original proposal contained the desire to create a self sustaining listening site, renewable sources of energy and energy storage will also be considered.
 
 
 %
@@ -922,12 +925,26 @@ A number of issues with the HackRF \gls{SDR} transceiver became apparent during 
 % Chapter for each research question
 % how we validated it and proved it worked
 
-\textit{What processes or algorithms need to be developed to filter or flag known instances of human radio interference from radio signal observations?}
+\textit{What processes or algorithms need to be developed to filter or flag known instances of human interference from radio signal observations?}
 
 \begin{itemize}
 	\item Flag transmission signals identified by amateur radio enthusiasts from a local DXSpider server in recorded data.
   	\item Flag instances of natural radio interference such as lightning from the Blitzortung server in recorded data.
 \end{itemize}
+
+A DX server is a system which Amateur (Ham) Radio operators may use in order to inform one other in real time, about instances of radio signal transmissions from DX stations and other Amateur Radio station. DX Servers are usually connected together in a cluster, which allows many users from all over the world to communicate and share this information. It is a rich source of identified human transmissions which often have the time, location and signal frequencies which were recorded. The data being shared is also often rigidly structured which makes the task of creating a software parsing solution much easier to implement \citep{koopman-07}.
+
+A software client could be developed which would connect to a local DX Server and gather data related to transmissions within the frequency range currently being monitored by the telescope. When signals have been identified as being within the range they will be flagged and all related meta data will be stored for processing at a later stage.
+
+It is envisioned the time and frequency values associated with this flagged data could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
+
+The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can then share the information back to a central server in real time \citep{blitzortung-14}.
+
+A software client could be developed which would connect to the Blitzortung server and retrieve locally occuring lightning strike location information.
+
+Like the overlay information related to human produced interferance, a similar overlay could be generated for lightning strikes on the waterfall spectrograph diagram.
+
+WIP
 
 
 %
