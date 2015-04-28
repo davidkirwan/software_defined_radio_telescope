@@ -1,6 +1,7 @@
 == Software Defined Radio Telescope ==
 A software defined radio telescope developed as part of my dissertation during a MSc in Computing degree at the link:http://www.wit.ie[Waterford Institute of Technology], Ireland.
 
+image::http://davidkirwan.github.io/software_defined_radio_telescope/images/poster.png[SDRT Poster]
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/10.png[HackRF Receiver and components used to build the telescope]
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/08.png[Dual Dipole Telescope Design from the NASA RadioJove project]
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/09.png[Beaming pattern of a dual dipole antenna]
