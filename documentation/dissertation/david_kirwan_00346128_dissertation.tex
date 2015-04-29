@@ -380,11 +380,10 @@ The section aims to provide a summary of the methodologies which will be followe
       \item deploy the antenna at a site \\
     \end{itemize}
   \item [Data Collection] \hfill \\
-    Jupiter is visible above the horizon at night only during certain periods see Figure. \ref{fig:dual_dipole_antenna_array_beam}. In order to perform the required data collection it is highly desirable to automate the process.
+    Jupiter is visible above the horizon at night only during certain periods see Figure. \ref{fig:dual_dipole_antenna_array_beam}. In order to perform the required data collection it is highly desirable to automate the process if possible.
     \begin{itemize}
-      \item create listening schedule during which \gls{DAM} emissions are likely to occur
-      \item develop \gls{SDR} prototype mechanism for gathering raw data from the antenna
-      \item develop software scheduling system which to activate the collection of data from the antenna remotely\\
+      \item create listening schedule during which \gls{DAM} emissions are likely to occur using the Radio Jove software
+      \item develop \gls{SDR} prototype mechanism for gathering raw data from the antenna\\
     \end{itemize}
   \item [Data Analysis] \hfill \\
     Collected data can be analysed manually at first in order to validate the testbed, but later using software such as the development of basic algorithms to spot events such as \textit{S-Bursts} occurring in the data.
@@ -617,6 +616,24 @@ The following Table. \ref{tab:milestones_anticipated} details the milestones whi
   \caption{Milestones Anticipated}
   \label{tab:milestones_anticipated}
 \end{table}
+%
+
+%
+\begin{figure}[here]
+	\centering
+	\includegraphics[width=9cm]{images/56}
+	\caption{SDRT Gantt Chart Details}
+	\label{fig:sdrt-gantt}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+	\centering
+	\includegraphics[width=9cm]{images/57}
+	\caption{SDRT Gantt Chart}
+	\label{fig:sdrt-gantt}
+\end{figure}
 %
 
 %
@@ -970,7 +987,7 @@ While the work required to answer this research question is ongoing, it is expec
   	\item Flag instances of natural radio interference such as lightning from the Blitzortung server in recorded data.
 \end{itemize}
 
-A DX server is a system which Amateur (Ham) Radio operators may use in order to inform one other in real time, about instances of radio signal transmissions from DX stations and other Amateur Radio station. DX Servers are usually connected together in a cluster, which allows many users from all over the world to communicate and share this information. It is a rich source of identified human transmissions which often have the time, location and signal frequencies which were recorded. The data being shared is also often rigidly structured which makes the task of creating a software parsing solution much easier to implement \citep{koopman-07}. 
+A DX server is a system which Amateur (Ham) Radio operators may use in order to inform one another in real time, about instances of radio signal transmissions from DX stations and other amateur radio stations. These DX Servers are often connected together to form a cluster. This allows many users from all over the world to communicate and share this information by connecting to the cluster. It is a rich source of identified human transmissions which often have the time, location and signal frequencies which were recorded. The data being shared is also often rigidly structured which greatly simplifies the task of implementing a software parsing solution \citep{koopman-07}. 
 
 A software client could be developed which might connect to a local DX Server and gather data related to transmissions within the frequency range currently being monitored by the telescope. When signals have been identified as being within the range they will be flagged and all related meta data will be stored for processing at a later stage.
 
@@ -1023,7 +1040,6 @@ As a large amount of work on amplitude modulation has already been completed for
 \newpage
 \chapter*{Conclusions}
 \addcontentsline{toc}{chapter}{Conclusions}
-TODO Write me.
 
 %\begin{itemize}
 %  \item sum up the answers to all the questions
@@ -1032,7 +1048,14 @@ TODO Write me.
 %  \item further work
 %\end{itemize}
 
-It became quickly apparent there would be a large amount of complexity in a solution which automates the identification of Jovian \gls{DAM} emissions. which would be involved if a machine learning  
+In this interim report, the initial proposal has been reviewed, and current progress has been documented. At several points corrective modifications have been made to the scope. This ensures it remains possible to make progress within the time available. 
+
+In the initial proposal I conjectured at the potential pitfalls which would befall the project and hinder progress. I was not prepared for the inane problems which have so far caused the most trouble. Examples include the laptop USB ports being too slow to operate the HackRF at higher bandwidths. This forces me to sample at much narrower bandwidths which makes it very difficult to spot \gls{DAM} emissions as they often are bigger than my window of the radio spectrum. Another issue I have encountered so far is the antenna mounting poles are too large to fit in the car. To address this I had to reduce size by 25\%. This has reduced the potential configurations of the telescope to 10ft, and 15 ft. This results in wasted observation opportunities as Jupiter can be at a point in the sky I cannot aim the telescope at.
+
+Nor was I prepared for the complexity of digital signal processing and machine learning. I have taken mathematics refresher courses in order to understand the fundamentals of working with these signals. Several times, I made presumptions that I understood a concept only to discover it was far more complex which then added almost unbounded risk to the project. Due to issues encountered such as these, the scope has been changed drastically. I no longer expect to produce an automated identification algorithm to spot \gls{DAM} emissions in recorded data. I expect an implementation might instead be completed in future work. 
+
+I am delighted to say I have lost no enthusiasm for the topic, after my experiences I am in fact encouraged to continue working on the topic further. I am considering applying to a doctoral program and pursue a research career in Astronomy.
+
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1045,7 +1068,7 @@ It became quickly apparent there would be a large amount of complexity in a solu
 The contributions to research knowledge which are anticipated are listed as follows:
 
 \begin{enumerate}
-  \item A low cost and scalable radio telescope listening platform design which Amateur astronomers can use to collaborate on radio astronomical research.
+  \item A low cost radio telescope listening platform design which Amateur astronomers can use to collaborate on radio astronomical research.
   \item A rudimentary \gls{SDR} solution to filter or flag human and natural radio interference from observations.
   \item An \gls{SDR} solution to produce waterfall spectrogram diagrams with interference sources flagged in an overlay.
   \item Jovian and or Solar radio emissions such as those listed in Table: \ref{tab:dam_emissions} may become apparent when a large bandwidth and long period spectrogram is created.
