@@ -535,8 +535,6 @@ The NASA project \textit{Radio Jove} recommended the dual dipole array design fo
 
 Due to the cheap availability of computational resources, digital signal processing is capable of being carried out now within software entirely, this has led to the development of software defined radio solutions \citep{freidt-13}. The GNURadio software allows creation of software defined radio solutions by replacing hardware functions with modular software functions. These software functions are capable of being connected together, an output from one function providing input for another. It is in this fashion it is possible to transform digital signals using digital signal processing methods within the GNURadio platform\citep{gnuradio-14}.
 
-\cite{ossmann-15-a} illustrates how the HackRF One \gls{SDR} transceiver can be accessed within GNURadio by way of the osmocomm source which is an abstraction layer between GNURadio and the HackRF driver. Figure: \ref{fig:ossmann_am_demodulation} shows an amplitude modulation signal which has been digitally sampled. In order to demodulate such a signal, an understanding how the signal data is stored is a must. Digital periodic signal samples tend to be stored in a complex format which amounts to polar coordinates \citep{ossmann-15-c}. $I$ is the point on the real axis, and $Q$ is the point on the imaginary axis Figure: \ref{fig:kuisma-iq-helix} shows how these I/Q values are plotted periodically \citep{kuisma-14}.
-
 %
 \begin{figure}[here]
 \centering
@@ -545,6 +543,8 @@ Due to the cheap availability of computational resources, digital signal process
 \label{fig:kuisma-iq-helix}
 \end{figure}
 %
+
+\cite{ossmann-15-a} illustrates how the HackRF One \gls{SDR} transceiver can be accessed within GNURadio by way of the osmocomm source which is an abstraction layer between GNURadio and the HackRF driver. Figure: \ref{fig:ossmann_am_demodulation} shows an amplitude modulation signal which has been digitally sampled. In order to demodulate such a signal, an understanding how the signal data is stored is a must. Digital periodic signal samples tend to be stored in a complex format which amounts to polar coordinates \citep{ossmann-15-c}. $I$ is the point on the real axis, and $Q$ is an angle which contains the imaginary component. See Figure: \ref{fig:kuisma-iq-helix} shows how these I/Q values are plotted periodically and Figure: \ref{fig:kuisma-iq-polar} shows the I/Q polar data \citep{kuisma-14}.
 
 %
 \begin{table}
@@ -589,6 +589,7 @@ Due to the cheap availability of computational resources, digital signal process
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
+p
 \newpage
 \section*{Main Milestones Anticipated}
 \addcontentsline{toc}{section}{Main Milestones Anticipated}
@@ -904,7 +905,7 @@ Using the Radio Jupiter Pro software, a prediction was made that 23rd April 2015
 
 Despite this, a number of emissions were recorded as can be seen in in the raw image Figure: \ref{fig:dam_emissions_io_a_april_23}. The emissions appear as faint horizontal lines in this waterfall diagram. This diagram is limited by the small bandwidth of 2 MHz and short period of 2 minutes. Ideally in order to spot these interesting emissions a large bandwidth of 20 MHz for instance should be used, over a long period of observation such as 1-24 hours. An example of this is section of a spectrogram seen in Figure: \ref{fig:wide_radio_spectrogram}, which shows averaged signal power data for frequencies 17-55 MHz and 70-1000 MHz for a 24 hour period.
 
-There are many open source software tools such as rtl\_power, simple\_ra and heatmap which could capture averaged raw signal strength data from a RTL based receiver. Unfortunately most of this software is not compatible with the HackRF. However the basic functionality from these tools can be replicated using basic processing blocks within GNURadio.
+There are many open source software tools such as rtl\_power, simple\_ra and heatmap which could capture averaged raw signal strength data from a RTL based receiver in order to build spectrogram diagrams. Unfortunately most of this software is not compatible with the HackRF. However the basic functionality from these tools can be replicated using basic processing blocks within GNURadio and the spectrograms can be built using tools like Octave or Mathlab.
 
 %
 \begin{figure}[here]
