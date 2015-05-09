@@ -1,0 +1,59 @@
+####################################################################################################
+# @author David Kirwan https://github.com/davidkirwan
+# @description Ruby Rake script to handle launching of job workers.
+#
+# @usage 'rake -T' or 'rake --tasks' to get a list of tasks
+#
+# @date 2015-03-02
+####################################################################################################
+### => Import libs
+require 'fileutils'
+require 'logger'
+require 'redis'
+require 'net/telnet'
+require File.dirname(__FILE__) + "/lib/common.rb"
+
+# Include lib/common/tasks
+include Common::Tasks
+
+# Setup variables
+begin
+  @log = Logger.new(STDOUT)
+  @log.level = Logger::DEBUG
+  @date = DateString.now # Common::Tasks::DateString#now
+rescue Exception => e
+  raise e
+end
+
+redis = Redis.new(:host => "localhost", :port => 6379)
+
+# Default Task
+task :default => 'telnet:start'
+
+
+namespace :telnet do
+
+  desc "Start the job worker"
+  task :start do
+    @log.debug "Task telnet:start starting: #{DateString.now}"
+    tasktimer = Time.now
+
+    client = Net::Telnet::new("Host" => "ei7mre.ath.cx",
+                       "Port" => 7300,
+                       "Telnetmode" => true,
+                       "Timeout" => false,
+                       "Prompt" => /^\+OK/n)
+
+    client.cmd("e12wrc") do |c|
+      puts c
+      redis.publish('dxspider', c)
+
+      trap "SIGINT" do
+        redis.publish('dxspider', 'exit')
+        client.cmd("exit")
+      end
+    end
+
+    @log.debug "Task telnet:start complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
+  end
+end
