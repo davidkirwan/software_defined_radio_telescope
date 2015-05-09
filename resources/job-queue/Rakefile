@@ -29,17 +29,7 @@ rescue Exception => e
 end
 
 # Default Task
-task :default => 'spec'
-
-desc 'Run the RSpec tests'
-task :spec do
-  @log.debug "Task spec starting: #{DateString.now}"
-  tasktimer = Time.now
-
-  require File.dirname(__FILE__) + "/spec/spec_helper.rb"
-
-  @log.debug "Task spec complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
-end
+task :default => 'worker:start'
 
 namespace :worker do
 
@@ -49,7 +39,7 @@ namespace :worker do
     tasktimer = Time.now
 
     # Configure the queue to subscribe to
-    queue = ENV['queue'] ||= 'one'
+    queue = ENV['queue'] ||= 'dxspider'
 
     redis = Redis.new
     trap(:INT) { puts; exit }
@@ -62,6 +52,11 @@ namespace :worker do
 
         on.message do |channel, message|
           puts "##{channel}: #{message}"
+          #dxspider: DX de W4IMD:     50145.0  W4ILT        EM84AB<ES>EL09SN               0248Z EM84
+          data = parse(message)
+
+          puts data
+
           redis.unsubscribe if message == "exit"
         end
 
@@ -77,4 +72,26 @@ namespace :worker do
 
     @log.debug "Task worker:start complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
   end
+end
+
+
+def parse(message)
+  begin
+    data = message.delete("\a").split(/\s+/)
+    data.delete_at(0)
+    data.delete_at(0)
+    puts data.inspect
+
+    dx_freq = data[1]
+
+    if (data[data.size-1] =~ /\d+Z/) == 0
+      time = data[data.size-1]
+    else
+      time = data[data.size-2]
+    end
+  rescue ArgumentError => e
+    return {:freq=>nil, :time=>nil, :error=>e}
+  end
+
+  {:freq=>dx_freq, :time=>time}
 end
