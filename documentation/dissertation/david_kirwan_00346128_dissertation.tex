@@ -39,8 +39,7 @@
 
 % first the title is needed
 \title{Observing Jovian Decametric Radio Emissions\\
-with a Software Defined Radio Telescope\\
-Interim Report}
+with a Software Defined Radio Telescope}
 
 % a short form should be given in case it is too long for the running head
 \titlerunning{Observing Jovian Decametric Radio Emissions}
@@ -77,32 +76,32 @@ Cork Rd, Waterford City, Ireland\\
 \tocauthor{D. Kirwan}
 \maketitle
 %
-%\begin{abstract}
-%The abstract should summarize the contents of the paper and should
-%contain at least 70 and at most 150 words. It should be written using the
-%\emph{abstract} environment.
-%\keywords{radio astronomy, software defined radio, digital signal processing}
-%\end{abstract}
+\begin{abstract}
+The abstract should summarize the contents of the paper and should
+contain at least 70 and at most 150 words. It should be written using the
+\emph{abstract} environment.
+\keywords{radio astronomy, software defined radio, digital signal processing}
+\end{abstract}
 %
 
-%\newpage
-%\chapter*{Acknowledgements}
+\newpage
+\chapter*{Acknowledgements}
 
-%This dissertation would not have been possible without the support of the following people.
+This dissertation would not have been possible without the support of the following people.
 
-%To my supervisors Alan and John for their patience, guidance and sharing of knowledge during this process. Thank you, it has been a real pleasure working together.
+To my supervisors Alan and John for their patience, guidance and sharing of knowledge during this process. Thank you, it has been a real pleasure working together.
 
-%To my lecturers at the Waterford Institute of Technology, you have all been so open and free with your sharing of knowledge, it has been an absolute pleasure learning from you.
+To my lecturers at the Waterford Institute of Technology, you have all been so open and free with your sharing of knowledge, it has been an absolute pleasure learning from you.
 
-%To my partner Michael, I'm keenly aware standing in the freezing cold at 2am helping me put up radio antennas might not have been the most exciting thing you've partaken in, but I couldn't have done it without your help. Thanks for your constant encouragement and for putting up with me during this. 
+To my partner Michael, I'm keenly aware standing in the freezing cold at 2am helping me put up radio antennas might not have been the most exciting thing you've partaken in all year, but I couldn't have done it without your help. Thanks for your constant encouragement and for putting up with me during this. 
 
-%To my sister Jean, you inspired me to work as hard as I have these last 6 years. I wanted to make you as proud of me as I am of you. If you beat me to Ph.D, I'll buy you a bag of chips in Roccos.
+To my sister Jean, you inspired me to work as hard as I have these last 6 years. I wanted to make you as proud of me as I am of you. If you beat me to Ph.D, I'll buy you a bag of chips in Roccos.
 
-%To my father, I can only imagine the conversations we might have had, I suspect you would have loved playing with this equipment as much as I have.
+To my father, I can only imagine the conversations we might have had, I suspect you would have loved playing with this equipment as much as I have.
 
-%To my mother, thank you for your friendship. You have always been a positive influence in my life. Some day you must sit down and explain how you can walk past, and in the time it takes to cross a room and without any prior involvement, solve a problem I have been struggling with for days.
+To my mother, thank you for your friendship. You have always been a positive influence in my life. Some day you must sit down and explain how you can walk past, and in the time it takes to cross a room and without any prior involvement, solve a problem I have been struggling with for days.
 
-%To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could ask for.
+To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could ask for.
 
 %
 \renewcommand*{\glsclearpage}{}
@@ -177,11 +176,11 @@ Data collected by the two Voyager spacecraft in 1979 \citep{belcher87} and the l
 \end{figure}
 %
 
-The local corotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}. Figures \ref{fig:io_flux_tube} and \ref{fig:io_flux_tube_plasma_torus} detail diagrams of the Io Flux Tube (\gls{IFT}) which is a cylinder shaped tube of space containing Jovian magnetic field lines \citep{belcher87} which link Io to Jupiter's ionosphere at both poles. A large portion of the decametric emissions come from the area where this \gls{IFT} meets the Jovian ionosphere \citep{belcher87}. 
+The local co-rotation speed of the plasma torus is faster than the Keplerian orbit of the moon, and the plasma overtakes Io in its orbit at \begin{math} 57 km\;s^{-1} \end{math} \citep{belcher87}. Figures \ref{fig:io_flux_tube} and \ref{fig:io_flux_tube_plasma_torus} detail diagrams of the Io Flux Tube (\gls{IFT}) which is a cylinder shaped tube of space containing Jovian magnetic field lines \citep{belcher87} which link Io to Jupiter's ionosphere at both poles. A large portion of the decametric emissions come from the area where this \gls{IFT} meets the Jovian ionosphere \citep{belcher87}. 
 
 As Io orbits within this flux torus it acts as a unipolar conductor \citep{bose08}, and Alfv\'en waves are regularly produced which carry an electric charge along the magnetic field lines between Io and Jupiter \citep{bose08}.
 
-These Alfv\'en waves reflect between Jupiter's ionosphere at both north and south poles and Io upto 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave \citep{bose08}. It appears the source of the \gls{DAM} emissions are largely due to these reflections of the Alfv\'en waves off Jupiter's ionosphere in both the northern and southern regions \citep{bose08}. See Figure. \ref{fig:io_plasma_torus} which shows the Alfv\'en wings reflecting from Jupiter's Ionosphere creating emission cones.
+These Alfv\'en waves reflect between Jupiter's ionosphere at both north and south poles and Io up to 9 times \citep{bose08} while following Io through its orbit, thereby acting as a standing wave \citep{bose08}. It appears the source of the \gls{DAM} emissions are largely due to these reflections of the Alfv\'en waves off Jupiter's ionosphere in both the northern and southern regions \citep{bose08}. See Figure. \ref{fig:io_plasma_torus} which shows the Alfv\'en wings reflecting from Jupiter's Ionosphere creating emission cones.
 
 The \gls{DAM} emissions radiate outwards in the shape of a cone as show in Figure. \ref{fig:io_flux_tube} \citep{belcher87}. When Io is at specific points in its orbit of Jupiter, these emission cones are pointing in the direction of Earth, at which point emissions can be picked up at ground based radio telescope listening stations.
 
@@ -207,7 +206,7 @@ The \gls{DAM} emissions radiate outwards in the shape of a cone as show in Figur
 \newglossaryentry{WRC}
 {
   name={WRC},
-  description={World Radiocommunication Conference},
+  description={World Radio Communication Conference},
   sort=WRC
 }
 %
@@ -412,7 +411,7 @@ The section aims to provide a summary of the methodologies which will be followe
     \end{itemize}
 \end{description}
 
-The \gls{SDR} hardware transceiver used is likely to be the \textit{HackRF} system while the \gls{SDR} software components will be developed in either \textit{C++} or \textit{Python} as both languages have bindings for the \textit{GNURadio} development toolkit \citep{gnuradio-14}. The backend aggregation system with API will most likely be developed in the \textit{Ruby} language as this language is highly expressive and suitable for rapid prototype development. Execution of the Ruby application on the Java VM is capable using the \textit{JRuby} system, which will also allow the incorporation of any required Java libraries.
+The \gls{SDR} hardware transceiver used is likely to be the \textit{HackRF} system while the \gls{SDR} software components will be developed in either \textit{C++} or \textit{Python} as both languages have bindings for the \textit{GNURadio} development tool-kit \citep{gnuradio-14}. The backend aggregation system with API will most likely be developed in the \textit{Ruby} language as this language is highly expressive and suitable for rapid prototype development. Execution of the Ruby application on the Java VM is capable using the \textit{JRuby} system, which will also allow the incorporation of any required Java libraries.
 
 
 \subsection*{Potential Pitfalls}
@@ -424,7 +423,7 @@ It is difficult to determine at this early stage what will ultimately prove to b
 \begin{figure}[here]
 \centering
 \includegraphics[width=8cm]{images/11}
-\caption{Radio Jove Graph Showing Jupiter's Max Altitude 2014 \citep{rjp-14}}
+\caption{Radio Jove graph showing Jupiter's max altitude 2014 \citep{rjp-14}}
 \label{fig:jupiter_max_altitude_2014}
 \end{figure}
 %
@@ -971,6 +970,45 @@ There are many open source software tools such as rtl\_power, simple\_ra and hea
 While the work required to answer this research question is ongoing, it is expected it can be answered by performing a state of the art in this area and compare performance and cost analysis of the existing networking and storage technologies. The original proposal contained the desire to create a self sustaining listening site, renewable sources of energy and energy storage will also be considered.
 
 
+\section*{Experiment 1}
+\addcontentsline{toc}{section}{Experiment 1}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
+
+\section*{Experiment 2}
+\addcontentsline{toc}{section}{Experiment 2}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
+
+
+\section*{Experiment 3}
+\addcontentsline{toc}{section}{Experiment 3}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -994,6 +1032,47 @@ A software client could be developed which might connect to a local DX Server an
 The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can then share the information back to a central server in real time \citep{blitzortung-14}. A software client could be developed which might connect to this Blitzortung server and retrieve occurrences of lightning strikes within a certain range such as 500 km centred on the listening site.
 
 It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
+
+
+\section*{Experiment 1}
+\addcontentsline{toc}{section}{Experiment 1}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
+
+\section*{Experiment 2}
+\addcontentsline{toc}{section}{Experiment 2}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
+
+
+\section*{Experiment 3}
+\addcontentsline{toc}{section}{Experiment 3}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
 
 
 %
@@ -1020,19 +1099,55 @@ Many websites dedicated to education and distance learning offer free 3rd level 
 
 As a large amount of work on amplitude modulation has already been completed for instance, it might be possible to use techniques for spotting AM signals in order to identify \gls{DAM} emissions. More work is required to understand how this could be achieved, and might ultimately prove beyond the scope of what is achievable before the end of the dissertation.
 
+\section*{Experiment 1}
+\addcontentsline{toc}{section}{Experiment 1}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
+
+\section*{Experiment 2}
+\addcontentsline{toc}{section}{Experiment 2}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
 
 
 
-%TODO
+\section*{Experiment 3}
+\addcontentsline{toc}{section}{Experiment 3}
+asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+
+\subsection*{Methodology}
+The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+\end{enumerate}
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-%\newpage
-%\chapter*{Software 1}
-%\addcontentsline{toc}{chapter}{Software 1}
-% Chapter for each software we produced
-% how we validated it and proved it worked
-% tools and methodologies we used
-%TODO
+\newpage
+\chapter*{Software 1}
+\addcontentsline{toc}{chapter}{Software 1}
+
+Chapter for each software we produced how we validated it and proved it worked tools and methodologies we used
+
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1050,11 +1165,11 @@ As a large amount of work on amplitude modulation has already been completed for
 
 In this interim report, the initial proposal has been reviewed, and current progress has been documented. At several points corrective modifications have been made to the scope. This ensures it remains possible to make progress within the time available. 
 
-In the initial proposal I conjectured at the potential pitfalls which would befall the project and hinder progress. I was not prepared for the inane problems which have so far caused the most trouble. Examples include the laptop USB ports being too slow to operate the HackRF at higher bandwidths. This forces me to sample at much narrower bandwidths which makes it very difficult to spot \gls{DAM} emissions as they often are bigger than my window of the radio spectrum. Another issue I have encountered so far is the antenna mounting poles are too large to fit in the car. To address this I had to reduce size by 25\%. This has reduced the potential configurations of the telescope to 10ft, and 15 ft. This results in wasted observation opportunities as Jupiter can be at a point in the sky I cannot aim the telescope at.
+In the initial proposal I conjectured at the potential pitfalls which would befall the project and hinder progress. I was not prepared for the inane problems which have so far caused the most trouble. Examples include the laptop USB ports being too slow to operate the HackRF at higher bandwidths. This forces me to sample at much narrower bandwidths which makes it very difficult to spot \gls{DAM} emissions as they often are bigger than my window of the radio spectrum. Another issue I have encountered so far is the antenna mounting poles are too large to fit in the car. To address this I had to reduce size by 25\%. This has reduced the potential configurations of the telescope to 10 ft, and 15 ft. This results in wasted observation opportunities as Jupiter can be at a point in the sky I cannot aim the telescope at.
 
 Nor was I prepared for the complexity of digital signal processing and machine learning. I have taken mathematics refresher courses in order to understand the fundamentals of working with these signals. Several times, I made presumptions that I understood a concept only to discover it was far more complex which then added almost unbounded risk to the project. Due to issues encountered such as these, the scope has been changed drastically. I no longer expect to produce an automated identification algorithm to spot \gls{DAM} emissions in recorded data. I expect an implementation might instead be completed in future work. 
 
-I am delighted to say I have lost no enthusiasm for the topic, after my experiences I am in fact encouraged to continue working on the topic further. I am considering applying to a doctoral program and pursue a research career in Astronomy.
+I am delighted to say I have lost no enthusiasm for the topic, after my experiences I am in fact encouraged to continue working on the topic further. I am considering applying to a doctoral program and hope pursue a research career in Astronomy.
 
 
 %
@@ -1076,16 +1191,15 @@ The contributions to research knowledge which are anticipated are listed as foll
 
 
 
-%TODO
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\newpage
-%\section*{Future Work}
-%\addcontentsline{toc}{section}{Future Work}
-%A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
-%TODO
-%Here is something which can be continued in future work 
+\newpage
+\section*{Future Work}
+\addcontentsline{toc}{section}{Future Work}
+A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
+
+Here is something which can be continued in future work 
 
 %
 \appendix
