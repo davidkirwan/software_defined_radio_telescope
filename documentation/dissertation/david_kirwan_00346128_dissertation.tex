@@ -964,7 +964,7 @@ There are many open source software tools such as rtl\_power, simple\_ra and hea
 \begin{itemize}
   	\item How feasible to use wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
   	\item If wireless technologies prove too slow, is 10/100/1000 MBit Ethernet suitable instead? Or link aggregation technologies such as EtherChannel or LACP.
-  	\item Can a low powered computing platform such as the Raspberry Pi 2B or Beaglebone Black be used to host the system, or will a more powerful system be required?
+  	\item Can a low powered computing platform such as the Raspberry Pi B+ suitably host the system, or will a more powerful platform be required?
 \end{itemize}
 
 While the work required to answer this research question is ongoing, it is expected it can be answered by performing a state of the art in this area and compare performance and cost analysis of the existing networking and storage technologies. The original proposal contained the desire to create a self sustaining listening site, renewable sources of energy and energy storage will also be considered.
@@ -973,30 +973,64 @@ While the work required to answer this research question is ongoing, it is expec
 \section*{Determine SDRT Power Requirements}
 \addcontentsline{toc}{section}{Determine SDRT Power Requirements}
 
-In order to 
+\newglossaryentry{SOC}
+{
+  name={SOC},
+  description={SOC - System on a Chip is an integrated circuit (IC) that integrates all components of a computer or other electronic system into a single chip},
+  sort=SOC
+}
 
-%
-\begin{figure}[here]
-	\centering
-	\includegraphics[width=8cm]{images/55}
-	\caption{SDRT Power Usage}
-	\label{fig:sdrt_power_usage}
-\end{figure}
-%
+A major component of designing a self sufficient system is choosing the power supply. One solution is the use of renewable sources such as wind or solar to create energy and the use of a batteries to act as a buffer and storage of this energy. When a suitably large battery array is deployed, power to the system can be provided during periods when there is no sunshine or wind available.
+
+In order to design a self sufficient listening site it was necessary to firstly determine the power requirements of the hardware essential to the functioning of the system. If there are high computational requirements the system will generally also have high power needs, which can have a drastic effect on the cost of implementing a sustainable power supply using renewables. It is prudent therefore to implement the system as cheaply as possible, and using low powered devices.
+
+Such constraints limit the potential platforms to that of embedded systems and \gls{SOC} with architectures such as the ARM, PIC, and Intel Atom. The SDR RTL and HackRF receivers required a minimum of a USB 2.0 interface and computational requirements for processing data which immediately reduced the potential platforms to devices such as the Raspberry Pi B+, Raspberry Pi B2 and the Intel Atom or better.
+
+The following platforms were chosen for testing purposes as they initially appear to meet or exceed the minimum requirements of operating \textit{rtl\_power} while also building spectrograms from the recorded data using \textit{heatmap.py}:
+
+\begin{enumerate}
+	\item Raspberry Pi B+.
+	\item Raspberry Pi B 2. 
+	\item EEEPC Intel Atom N550 Netbook.
+\end{enumerate}
+
+Each platform would be tested using the following metrics.
 
 
+\begin{description}
+  \item [Idle] \hfil \\
+  The power usage while the system is at rest
+  \item [heatmap.py] \hfill \\ 
+  The power usage while the system is building spectrogram with heatmap.py
+  \item [rtl\_power] \hfill \\
+  The power usage while the system is collecting data with rtl\_power
+  \item [Both heatmap.py and rtl\_power] \hfill \\
+  The power usage while the system is building spectrogram with heatmap.py and collecting data with rtl\_power
+  \item [100\% CPU Load] \hfill \\
+  The power usage while the system is at 100\% load
+\end{description}
 
 
 \subsection*{Methodology}
 The following methodology was followed during this experiment:
 
-\begin{enumerate}
-	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
-\end{enumerate}
 
 
-\section*{Experiment 2}
-\addcontentsline{toc}{section}{Experiment 2}
+
+The power usage of the system was plotted with error were then plotted
+
+%
+\begin{figure}[here]
+	\centering
+	\includegraphics[width=8cm]{images/59}
+	\caption{SDRT Power Usage Intel Atom N550}
+	\label{fig:sdrt_power_usage_atom_n55}
+\end{figure}
+%
+
+
+\section*{Determine Computational Power Requirements}
+\addcontentsline{toc}{section}{Determine Computational Power Requirements}
 asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
 
 
@@ -1004,7 +1038,9 @@ asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf 
 The following methodology was followed during this experiment:
 
 \begin{enumerate}
-	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+	\item Raspberry Pi B+.
+	\item Raspberry Pi B 2. 
+	\item EEEPC Intel Atom N550 Netbook.
 \end{enumerate}
 
 
