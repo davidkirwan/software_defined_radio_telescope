@@ -984,8 +984,10 @@ A major component of designing a self sufficient system is choosing the power su
 
 In order to design a self sufficient listening site it was necessary to firstly determine the power requirements of the hardware essential to the functioning of the system. If there are high computational requirements the system will generally also have high power needs, which can have a drastic effect on the cost of implementing a sustainable power supply using renewables. It is prudent therefore to implement the system as cheaply as possible, and using low powered devices.
 
-Such constraints limit the potential platforms to that of embedded systems and \gls{SOC} with architectures such as the ARM, PIC, and Intel Atom. The SDR RTL and HackRF receivers required a minimum of a USB 2.0 interface and computational requirements for processing data which immediately reduced the potential platforms to devices such as the Raspberry Pi B+, Raspberry Pi B2 and the Intel Atom or better.
+The SDR RTL and HackRF receivers require a minimum of a USB 2.0 interface and computational requirements for processing data which immediately reduced the potential platforms to devices such as the Raspberry Pi B+, Raspberry Pi B2 and the Intel Atom or better.
 
+
+\subsection*{Methodology}
 The following platforms were chosen for testing purposes as they initially appear to meet or exceed the minimum requirements of operating \textit{rtl\_power} while also building spectrograms from the recorded data using \textit{heatmap.py}:
 
 \begin{enumerate}
@@ -994,41 +996,52 @@ The following platforms were chosen for testing purposes as they initially appea
 	\item EEEPC Intel Atom N550 Netbook.
 \end{enumerate}
 
-Each platform would be tested using the following metrics.
-
+Each platform would be tested on the following metrics:
 
 \begin{description}
-  \item [Idle] \hfil \\
-  The power usage while the system is at rest
-  \item [heatmap.py] \hfill \\ 
-  The power usage while the system is building spectrogram with heatmap.py
-  \item [rtl\_power] \hfill \\
-  The power usage while the system is collecting data with rtl\_power
-  \item [Both heatmap.py and rtl\_power] \hfill \\
-  The power usage while the system is building spectrogram with heatmap.py and collecting data with rtl\_power
-  \item [100\% CPU Load] \hfill \\
-  The power usage while the system is at 100\% load
+	\item [Idle] \hfil \\
+	The power usage while the system is at rest
+	\item [heatmap.py] \hfill \\ 
+	The power usage while the system is building spectrogram with heatmap.py
+	\item [rtl\_power] \hfill \\
+	The power usage while the system is collecting data with rtl\_power
+	\item [Both heatmap.py and rtl\_power] \hfill \\
+	The power usage while the system is building spectrogram with heatmap.py and collecting data with rtl\_power
+	\item [100\% CPU Load] \hfill \\
+	The power usage while the system is at 100\% load
 \end{description}
-
-
-\subsection*{Methodology}
-The following methodology was followed during this experiment:
-
-
 
 
 The power usage of the system was plotted with error were then plotted
 
 %
-\begin{figure}[here]
+\begin{figure}[!htb]
 	\centering
 	\includegraphics[width=8cm]{images/59}
+	\caption{SDRT Power Usage Raspberry Pi B+}
+	\label{fig:sdrt_power_usage_pi_b}
+\end{figure}
+%
+
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=8cm]{images/60}
+	\caption{SDRT Power Usage Raspberry Pi B2}
+	\label{fig:sdrt_power_usage_pi_b2}
+\end{figure}
+%
+
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=8cm]{images/61}
 	\caption{SDRT Power Usage Intel Atom N550}
 	\label{fig:sdrt_power_usage_atom_n55}
 \end{figure}
 %
 
-
+\newpage
 \section*{Determine Computational Power Requirements}
 \addcontentsline{toc}{section}{Determine Computational Power Requirements}
 asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
