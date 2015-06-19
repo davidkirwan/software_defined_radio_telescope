@@ -19,6 +19,12 @@ solar_data = read.table("data.csv", header=TRUE, sep=",")
 
 ss_data = c()
 
+for(i in 1:365){
+  ss_data[i] <- data.frame(data = c(), y = c())
+}
+
+
+
 for(i in solar_data$SS){
   if(i > 0){
     ss_data = c(ss_data, i * 6 / 60)
