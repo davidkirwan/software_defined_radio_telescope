@@ -37,3 +37,5 @@ boxplot(ss_data,
         ylab='Hours')
 
 dev.off()
+
+print(summary(ss_data))
