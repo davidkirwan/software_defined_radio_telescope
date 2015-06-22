@@ -16,7 +16,6 @@ solar_data = read.table("data.csv", header=TRUE, sep=",")
 
 ss_data = c()
 
-# Convert the data to hours
 for(i in solar_data$SS){
   if(i > 0){
     ss_data = c(ss_data, i * 6 / 60)
