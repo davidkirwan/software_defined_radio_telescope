@@ -14,11 +14,18 @@
 # Read the data in
 solar_data = read.table("data.csv", header=TRUE, sep=",")
 
-ss_data = c()
+ss_data = c(1:360)
 
+index = 274
 for(i in solar_data$SS){
   if(i > 0){
-    ss_data = c(ss_data, i * 6 / 60)
+    ss_data[index] = c(ss_data[index], i * 6 / 60)
+  }
+  if(index %% 365){
+    index = 1
+  }
+  else{
+    index += 1
   }
 }
 
@@ -35,11 +42,11 @@ print(summary(ss_data))
 
 
 # Generate data frame to plot Watts vs Current for a 12V system
-watts_vector = c(0:1000)
-volts_vector = rep.int(12, 1001)
+watts_vector = c(0:50)
+volts_vector = rep.int(12, 51)
 amps_vector = c()
 
-for(i in 0:1001){
+for(i in 0:51){
   amps_vector = c(amps_vector, watts_vector[i] / 12)
 }
 
@@ -58,30 +65,67 @@ plot(y=watt_data$watts, x=watt_data$amps,
      ylab='Power(W)')
 dev.off()
 
-# Solar Calculator Function
-solar_calculator <- function(data)
-  # Returns size of the battery required to run data$w watts at data$voltsion(data){
-  if(data$type == "battery"){
-    amps <- data$w / data$v
-    result <- amps * 48  
-  }
-  # Returns size of the solar panel required to run 
-  ifelse(data$type == "solarpanel"){
-    amps <- data$w / data$v
-    result <- amps * 48 
-  }
+# battery calculator
+battery_calculator <- function(watts, voltage, time){
+  # Returns capacity of the battery in Ah to power system load watts at 
+  # voltage for time hours
+  amps <- watts / voltage
+  result <- amps * time
   return(result)
 }
 
+# solar panel size calculator
+solar_panel_calculator <- function(voltage, amps, time){
+  # Returns the size of the solar panel in W to charge
+  # battery of voltage(V) and amps(Ah) capacity in time(h)
+  amps_per_1_hour = amps / time
+  watts = voltage * amps_per_1_hour
+  result = watts
+  return(result)
+}
 
-d <- data.frame( w=24.0, v=12.0, a=50, type="battery" ) 
-val = solar_calculator(d)
-print(val)
+##########################
 
+# Generate data frame to plot battery capacity vs solar pannel size for a 12V system
+watts_vector = c()
+amps_vector = c()
+
+for(i in 0:51){
+  amps_vector = c(amps_vector, battery_calculator(i, 12.0, 48.0))
+}
+
+for(i in 0:51){
+  watts_vector = c(watts_vector, solar_panel_calculator(12, 50, i))
+}
+
+solar_battery_data <- data.frame(
+  watts  = watts_vector,
+  amps = amps_vector
+)
+  
 png(filename="64.png")
-par(mar=c(5.1,4.1,4.1,2.1))
+par(cex=.8, mar=c(5.1,4.1,4.1,2.1))
+plot(solar_battery_data$amps,c(0:51), 
+     yaxs="i", 
+     xaxs="i",
+     main='48hr Load vs Battery Capacity at 12V',
+     xlab='Capacity(Ah)',
+     ylab='Load(W)')
 
-watts <- watt_data$watts
-amps <- watt_data$amps
-plot(watts~amps)
+dev.off()
+
+png(filename="65.png")
+par(cex=.8, mar=c(5.1,4.1,4.1,2.1))
+x <- 1:11
+y <- solar_battery_data$watts[1:11]
+plot(x, y,
+     yaxs="i", 
+     xaxs="i",
+     main='Time to charge 50Ah 12V Battery',
+     xlab='Charge Time(h)',
+     ylab='Solar Panel Power(W)')
+
+lines(y~x, col='red', lwd=2)
+abline(v = 4.553, lty = 2, col = 'grey')
+
 dev.off()
