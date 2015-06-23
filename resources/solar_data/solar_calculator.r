@@ -12,33 +12,56 @@
 #STAID, SOUID,    DATE,   SS, Q_SS
 
 # Read the data in
-solar_data = read.table("data.csv", header=TRUE, sep=",")
+solar_data <- read.table("data.csv", header=TRUE, sep=",")
 
-ss_data = c(1:360)
+ss_data <- list()
 
-index = 274
+for(i in 1:365){
+  ss_data[[i]] <- data.frame(total=0, count=0)
+}
+
+index <- 274 # Data starts off on the 1st October 1961
 for(i in solar_data$SS){
   if(i > 0){
-    ss_data[index] = c(ss_data[index], i * 6 / 60)
+    ss_data[[index]]$total <- ss_data[[index]]$total + i
+    ss_data[[index]]$count <- ss_data[[index]]$count + 1
   }
-  if(index %% 365){
-    index = 1
+  if(index %% 365 == 0){
+    index <- 1
   }
   else{
-    index += 1
+    index <- index + 1
   }
 }
+
+ss_data_plot = c()
+for(i in 1:length(ss_data)){
+  avg = ss_data[[i]]$total / ss_data[[i]]$count
+  hours <- (avg * 6) / 60
+  ss_data_plot <- c(ss_data_plot, hours)
+}
+
+# Print a summary of the ss_data
+print(ss_data_plot)
+print(summary(ss_data_plot))
 
 # Generate boxplot image
 png(filename="62.png")
 par(mar=c(8.1,4.1,4.1,2.1))
-boxplot(ss_data,
+boxplot(ss_data_plot,
         main='Sunshine Waterford Ireland',
         ylab='Hours')
 dev.off()
 
-# Print a summary of the ss_data
-print(summary(ss_data))
+
+# Barplot of the hours of sunlight each day
+png(filename="66.png")
+par(mar=c(8.1,4.1,4.1,2.1))
+barplot(ss_data_plot, main="Daily Hours of Sunlight",
+       xlab="Jan - Dec (Day)", ylab="Hours(h)") 
+abline(h = 4.446, lty = 2, col = 'grey')
+text(10, 4.7, "mean", col = "grey") 
+dev.off()
 
 
 # Generate data frame to plot Watts vs Current for a 12V system
@@ -126,6 +149,7 @@ plot(x, y,
      ylab='Solar Panel Power(W)')
 
 lines(y~x, col='red', lwd=2)
-abline(v = 4.553, lty = 2, col = 'grey')
+abline(v = 4.446, lty = 2, col = 'grey')
 
 dev.off()
+
