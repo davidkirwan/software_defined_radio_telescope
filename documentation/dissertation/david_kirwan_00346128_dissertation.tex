@@ -1041,23 +1041,50 @@ The power usage of each system was measured using a power meter and the results 
 \end{figure}
 %
 
-Using solar data collected by the national weather service, MET Eireann \citep{MET-15} and \citep{ECAD-15}, a regression model was produced to calculate how big the battery array, an  
+\newpage
+Using solar data collected by the national weather service, MET Eireann \citep{MET-15} and \citep{ECAD-15}, a series of plots were produced to aid in the calculation of the battery array capacity required to power the system. As can be seen in the Figure: \ref{fig:barplot_hours_sunshine_waterford}, the mean number of hours of sunlight for the year was calculated to be $\mu = 4.446$, with a minimum of 1 hour and a maximum of 9.156 hours.
+
+%
+\begin{figure}[here]
+	\centering
+	\begin{equation}
+	Power(Watts) = Current(Ampere) \times Voltage(V)
+	\end{equation}
+	\begin{equation}
+	A = \frac{W}{V}
+	\end{equation}
+	\begin{equation}
+	A = \frac{25}{12}
+	\end{equation}
+	\begin{equation}
+	Ampere = 2.08333333 A
+	\end{equation}
+	\caption{Calculating Amps using Watts and Voltage}
+	\label{fig:power_equation}
+\end{figure}
+%
+
+Solar Panels generally operate at either 12 or 24V, and when coupled with a battery charge controller, can be used to safely recharge batteries using generated power. The load power value measured previously for the Intel N550 Netbook operating at 100\% was 25W. Taking the load and the assumed voltage value of 12V, the load current was generated using the power equation shown in Equation: \ref{fig:power_equation}. The current required to generate 25W at 12V is 2.08333333A.
+
+In order to provide spare capacity, an initial estimate of 48 hours worth of power should be available to the system, therefore a plot of load vs battery capacity was generated as shown in Figure: \ref{fig:lineplot_load_battery_capacity}. This plot shows, the capacity value required to satisfy a 25W load at 12V for a 48 hour period is about 100Ah.
 
 %
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=8cm]{images/62}
-	\caption{SDRT Power Usage Intel Atom N550}
-	\label{fig:sdrt_power_usage_atom_n55}
+	\caption{Average Daily Sunshine in Waterford}
+	\label{fig:boxplot_hours_sunshine_waterford}
 \end{figure}
 %
+
+Figure: \ref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hours of sunshine over a 15 year period. This plot demonstrates that for half the year the sun shines for between 1 and 4 hours each day. This is a major limiting factor in creating a self sufficient solar powered system, as batteries may only be charged during periods of sunshine. During the times of the year with daily sunshine hours below the mean, a larger battery capacity is required in order to continue to power the system during low sun days. Correspondingly, as the sunshine hours fall, a larger solar panel is required to ensure as much light as possible is converted to energy storage.
 
 %
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=8cm]{images/66}
-	\caption{SDRT Power Usage Intel Atom N550}
-	\label{fig:sdrt_power_usage_atom_n55}
+	\caption{Average Hours of Sunshine per Day in Waterford}
+	\label{fig:barplot_hours_sunshine_waterford}
 \end{figure}
 %
 
@@ -1065,8 +1092,8 @@ Using solar data collected by the national weather service, MET Eireann \citep{M
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=8cm]{images/64}
-	\caption{SDRT Power Usage Intel Atom N550}
-	\label{fig:sdrt_power_usage_atom_n55}
+	\caption{Load vs Battery Capacity Plot}
+	\label{fig:lineplot_load_battery_capacity}
 \end{figure}
 %
 
@@ -1074,8 +1101,8 @@ Using solar data collected by the national weather service, MET Eireann \citep{M
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=8cm]{images/65}
-	\caption{SDRT Power Usage Intel Atom N550}
-	\label{fig:sdrt_power_usage_atom_n55}
+	\caption{Size of Solar Panel Required to Charge 50Ah Battery in Hours}
+	\label{fig:lineplot_solar_panel_battery_capacity_hours}
 \end{figure}
 %
 
