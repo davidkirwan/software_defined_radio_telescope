@@ -1,3 +1,12 @@
+####################################################################################################
+# @author David Kirwan https://github.com/davidkirwan
+# @description R script to generate error bar plots for power usage
+#
+# @usage Rscript error_bars.r
+#
+# @date 2015-03-02
+####################################################################################################
+
 library("Hmisc")
 
 d = data.frame(

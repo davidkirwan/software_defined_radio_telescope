@@ -1,3 +1,13 @@
+####################################################################################################
+# @author David Kirwan https://github.com/davidkirwan
+# @description R script to handle calculation of solar power plots.
+#
+# @usage Rscript solar_calculator.r
+#
+# @date 2015-06-24
+####################################################################################################
+
+
 #FILE FORMAT (MISSING VALUE CODE IS -9999):
 
 #01-06 STAID: Station identifier
@@ -150,6 +160,7 @@ plot(x, y,
 
 lines(y~x, col='red', lwd=2)
 abline(v = 4.446, lty = 2, col = 'grey')
+text(4.7, 400, "mean daily hours of sunlight", col = "grey", srt=90) 
 
 dev.off()
 
