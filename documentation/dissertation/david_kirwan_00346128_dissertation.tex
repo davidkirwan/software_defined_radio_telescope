@@ -962,9 +962,9 @@ There are many open source software tools such as rtl\_power, simple\_ra and hea
 \textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a software defined radio signal listening station and how cheaply can it be created?}
 
 \begin{itemize}
-  	\item How feasible to use wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
-  	\item If wireless technologies prove too slow, is 10/100/1000 MBit Ethernet suitable instead? Or link aggregation technologies such as EtherChannel or LACP.
+	\item How expensive would a renewable power supply solution such as solar be?
   	\item Can a low powered computing platform such as the Raspberry Pi B+ suitably host the system, or will a more powerful platform be required?
+  	\item How feasible are wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
 \end{itemize}
 
 While the work required to answer this research question is ongoing, it is expected it can be answered by performing a state of the art in this area and compare performance and cost analysis of the existing networking and storage technologies. The original proposal contained the desire to create a self sustaining listening site, renewable sources of energy and energy storage will also be considered.
@@ -1128,20 +1128,38 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 
 
 \newpage
-\section*{Determine Computational Power Requirements}
-\addcontentsline{toc}{section}{Determine Computational Power Requirements}
-asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+\section*{Determine SDRT Computational Power Requirements}
+\addcontentsline{toc}{section}{Determine SDRT Computational Power Requirements}
+The aim of this experiment was to determine the minimal hardware which was computationally capable enough to perform the tasks required by the system.
 
 
 \subsection*{Methodology}
-The following methodology was followed during this experiment:
+The following platforms were chosen for testing purposes as they initially appear to meet or exceed the minimum requirements of operating \textit{rtl\_power} while also building spectrograms from the recorded data using \textit{heatmap.py}:
 
 \begin{enumerate}
 	\item Raspberry Pi B+.
 	\item Raspberry Pi B 2. 
 	\item EEEPC Intel Atom N550 Netbook.
+	\item Intel i5-3340M 2.7GHz
 \end{enumerate}
 
+
+%
+\begin{table}
+	\centering
+	\begin{tabular}{l r}
+		\toprule
+		Equipment & Generate Spectrogram(h) \\ \midrule
+		Raspberry Pi B+ 800MHz 1 Core & 24hours + \\
+		Raspberry Pi B2 900MHz 4 Core & 24hours + \\
+		Intel Atom N550 1.55GHz 2 Core & 2.5hours \\
+		Intel i5-3340M 2.7GHz 2 Core & 0.25hours \\
+		\bottomrule
+	\end{tabular}
+	\caption{System CPU Power Requirements}
+	\label{tab:system_cpu_power_requirements}
+\end{table}
+%
 
 
 \section*{Experiment 3}
@@ -1155,6 +1173,24 @@ The following methodology was followed during this experiment:
 \begin{enumerate}
 	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
 \end{enumerate}
+
+
+%
+\begin{table}
+	\centering
+	\begin{tabular}{p{3cm} l r r }
+		\toprule
+		Technology & Bitrate & Est(s) & Result(s)\\ \midrule
+		Zigbee & 250kbit/s &  76,000 & - \\
+		Bluetooth & 24Mbit/s & 795 & - \\
+		WIFI N & 144Mbit/s & 132 & 737\\
+		Gigabit Ethernet & 1Gbit/s & 30 & 45 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Wireless technologies transferring 2GB data}
+	\label{tab:wireless_technologies_transfer_time}
+\end{table}
+%
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
