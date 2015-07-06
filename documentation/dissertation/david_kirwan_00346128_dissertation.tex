@@ -1108,7 +1108,7 @@ Next a plot of solar panel power output vs time taken to charge a 100Ah battery 
 \end{figure}
 %
 
-The measurements were repeated for the Raspberry Pi systems. The power demands were rounded up to 5W which produced a battery capacity of 20Ah to power for 48 hours. The results were then tabulated as shown in Table: \ref{tab:system_power_requirements}. The components required to implement a solar powered system such as the panels, batteries, charge controller and AC/DC inverters were priced and the results were included in this table also.
+The measurements were repeated for the Raspberry Pi systems. The power demands were rounded up to 5W which produced a battery capacity of 20Ah to power for 48 hours. The results were then tabulated as shown in Table: \ref{tab:system_power_requirements}. The components required to implement a solar powered system such as the panels, batteries, charge controller and AC/DC inverters were priced and the results were included in this table also. Price wise, having a Raspberry Pi system in the listening station would make for a cost effective solution. As both the B+ and the B2 versions operate with the very low power usage of 5W, the solar renewable solution would be cheapest also at an estimated \euro 150 for the solar power components.
 
 %
 \begin{table}
@@ -1130,7 +1130,7 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 \newpage
 \section*{Determine SDRT Computational Power Requirements}
 \addcontentsline{toc}{section}{Determine SDRT Computational Power Requirements}
-The aim of this experiment was to determine the minimal hardware which was computationally capable enough to perform the tasks required by the system.
+The aim of this experiment was to determine the minimal hardware which was computationally capable enough to collect data, while also performing any data analytical or processing tasks required by the system.
 
 
 \subsection*{Methodology}
@@ -1143,6 +1143,9 @@ The following platforms were chosen for testing purposes as they initially appea
 	\item Intel i5-3340M 2.7GHz
 \end{enumerate}
 
+Each platform would be measured under a single metric, namely the length of time it takes to produce a spectrogram from 24 hours worth of collected data. Table: \ref{tab:system_cpu_power_requirements} shows the results gathered on each platform. As the time taken to process the spectrogram was longer than 24 hours for both Raspberry Pi models tested, they could not be considered capable of hosting the SDRT system. The test was aborted when the time exceeded 24 hours for both models. 
+
+The Intel Atom powered Netbook performed considerably better with a result of 4.12 hours. This would allow the collection of data, while also the sustainable processing of the previous days data without becoming overloaded.
 
 %
 \begin{table}
@@ -1150,9 +1153,9 @@ The following platforms were chosen for testing purposes as they initially appea
 	\begin{tabular}{l r}
 		\toprule
 		Equipment & Generate Spectrogram(h) \\ \midrule
-		Raspberry Pi B+ 800MHz 1 Core & 24hours + \\
-		Raspberry Pi B2 900MHz 4 Core & 24hours + \\
-		Intel Atom N550 1.55GHz 2 Core & 2.5hours \\
+		Raspberry Pi B+ 800MHz 1 Core & 24Hrs+ \\
+		Raspberry Pi B2 900MHz 4 Core & 24Hrs+ \\
+		Intel Atom N550 1.55GHz 2 Core & 4.12hours \\
 		Intel i5-3340M 2.7GHz 2 Core & 0.25hours \\
 		\bottomrule
 	\end{tabular}
@@ -1162,18 +1165,23 @@ The following platforms were chosen for testing purposes as they initially appea
 %
 
 
+\newpage
 \section*{Experiment 3}
 \addcontentsline{toc}{section}{Experiment 3}
-asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+The aim of this experiment was to determine the optimal networking technology to transfer collected and or processed data from the SDRT to another system.
 
 
 \subsection*{Methodology}
-The following methodology was followed during this experiment:
+The following technologies were investigated during this experiment:
 
 \begin{enumerate}
-	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+	\item Zigbee (XBEE Pro 2B 802.15.4)
+	\item WIFI (802.11N)
+	\item Fast Ethernet (802.3u)
+	\item Gigabit Ethernet (802.3-2008)
 \end{enumerate}
 
+Each technology was measured using a single metric, transfer speed to copy 2GB of collected data between two nodes in the network. Table: \ref{tab:network_technologies_transfer_time} shows the results obtained. 
 
 %
 \begin{table}
@@ -1181,21 +1189,26 @@ The following methodology was followed during this experiment:
 	\begin{tabular}{p{3cm} l r r }
 		\toprule
 		Technology & Bitrate & Est(s) & Result(s)\\ \midrule
-		Zigbee & 250kbit/s &  76,000 & - \\
-		Bluetooth & 24Mbit/s & 795 & - \\
+		Zigbee & 250kbit/s &  76,000 & 24Hrs+ \\
 		WIFI N & 144Mbit/s & 132 & 737\\
+		Fast Ethernet & 100Mbit/s & 181 & 904 \\
 		Gigabit Ethernet & 1Gbit/s & 30 & 45 \\
 		\bottomrule
 	\end{tabular}
-	\caption{Wireless technologies transferring 2GB data}
-	\label{tab:wireless_technologies_transfer_time}
+	\caption{Networking technologies transferring 2GB data}
+	\label{tab:network_technologies_transfer_time}
 \end{table}
 %
+
+There existed a large discrepancy between the estimated values and the actual measurements obtained for several technologies measured. A number of factors could account for this, such as the estimated values being generated using theoretical maximum bandwidth for the technology, which are unrealistic for real world applications.
+
+One example is the underlying hardware which handles both the USB and the Fast Ethernet network interfaces on the Raspberry Pi systems has a limit of 2Mbit/s, and could therefore never reach the theoretical maximum of 11Mbit/s suggested by Fast Ethernet. Using the Zigbee XBEE 802.15.4 modules, the theoretical estimate of 250kbit/s suggested a time of 21 hours to transfer 2GB of data, however after 24 hours the transfer was still ongoing. As the ability to the collected data must be faster than the time taken to collect it, the Zigbee test was cancelled after 24 hours. The results show WIFI, and Ethernet technologies being preferable in this instance.
+
+
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\newpage
 \chapter*{Research Question 2}
 \addcontentsline{toc}{chapter}{Research Question 2}
 % Chapter for each research question
