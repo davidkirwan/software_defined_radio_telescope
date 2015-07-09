@@ -10,20 +10,17 @@
 require 'fileutils'
 require 'logger'
 require 'redis'
-require 'rspec'
-require 'rspec/core/rake_task'
 require File.dirname(__FILE__) + "/lib/common.rb"
 
 # Include lib/common/tasks
 include Common::Tasks
-RSpec::Core::RakeTask.new(:spec)
 
 # Setup variables
 begin
   @log = Logger.new(STDOUT)
   @log.level = Logger::DEBUG
   @date = DateString.now # Common::Tasks::DateString#now
-
+  @data = ConfigReader.load('resource/config.yaml')
 rescue Exception => e
   raise e
 end
@@ -36,12 +33,12 @@ namespace :worker do
   desc "Start the job worker"
   task :start do
     @log.debug "Task worker:start starting: #{DateString.now}"
-    tasktimer = Time.now
+    tasktimer = Time.now.to_i
 
     # Configure the queue to subscribe to
     queue = ENV['queue'] ||= 'dxspider'
 
-    redis = Redis.new
+    redis = Redis.new(:host => "192.168.1.9", :port => 6379) 
     trap(:INT) { puts; exit }
 
     begin
@@ -70,7 +67,7 @@ namespace :worker do
       retry
     end
 
-    @log.debug "Task worker:start complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
+    @log.debug "Task worker:start complete: #{DateString.now} duration: #{Time.now.to_i - tasktimer} seconds"
   end
 end
 
@@ -78,20 +75,52 @@ end
 def parse(message)
   begin
     data = message.delete("\a").split(/\s+/)
-    data.delete_at(0)
-    data.delete_at(0)
-    puts data.inspect
-
+    data.delete_at(0) # Delete "DX"
+    data.delete_at(0) # delete "de"
+    #puts data.inspect
+    
+    spotter = data[0].downcase.delete(":")
     dx_freq = data[1]
+    dx = data[2].downcase
 
-    if (data[data.size-1] =~ /\d+Z/) == 0
+    if(data[data.size-1] =~ /\d+Z/) == 0
       time = data[data.size-1]
+
+      if(data.size > 4)
+        msg = ""
+        data[3..data.size-2].each {|i| msg<< i + " "}
+      else
+        msg = ""
+      end
     else
       time = data[data.size-2]
+
+      if(data.size > 4)
+        msg = ""
+        data[3..data.size-3].each {|i| msg<< i + " "}
+      else
+        msg = ""
+      end
     end
+
+
   rescue ArgumentError => e
-    return {:freq=>nil, :time=>nil, :error=>e}
+    return {:spotter=>nil, :freq=>nil, :dx=>nil, :msg=>nil, :time=>nil, :error=>e, :cc=>nil}
   end
 
-  {:freq=>dx_freq, :time=>time}
+  {:spotter=>spotter, :freq=>dx_freq, :dx=>dx, :msg=>msg.strip, :time=>time, :cc=>parse_cc(dx)}
 end
+
+
+def parse_cc(dx)
+  tag = dx[0..2]
+  
+  @data["dxcc"].each do |k,v|
+    v.each do |i|
+      next if tag[0] != i[0][0]
+      return k
+    end
+  end
+
+  ""
+end  

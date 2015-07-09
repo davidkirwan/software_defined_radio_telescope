@@ -1,0 +1,877 @@
+range:
+  low: 24000.0
+  high: 28000.0
+location: ireland
+dxcc:
+  united_states:
+  - - aaa
+    - alz
+  - - kaa
+    - kzz
+  - - naa
+    - nzz
+  - - waa
+    - wzz
+  spain:
+  - - ama
+    - aoz
+  - - eaa
+    - ehz
+  pakistan:
+  - - apa
+    - asz
+  - - 6pa
+    - 6sz
+  india:
+  - - ata
+    - awz
+  - - vta
+    - vwz
+  - - 8ta
+    - 8yz
+  australia:
+  - - axa
+    - axz
+  - - vha
+    - vnz
+  - - vza
+    - vzz
+  argentina:
+  - - aya
+    - azz
+  - - loa
+    - lwz
+  - - l2a
+    - l9z
+  botswana:
+  - - a2a
+    - a2z
+  - - 8oa
+    - 8oz
+  tonga:
+  - - a3a
+    - a3z
+  oman:
+  - - a4a
+    - a4z
+  bhutan:
+  - - a5a
+    - a5z
+  united_arab_emirates:
+  - - a6a
+    - a6z
+  qatar:
+  - - a7a
+    - a7z
+  liberia:
+  - - a8a
+    - a8z
+  - - d5a
+    - d5z
+  - - ela
+    - elz
+  - - 5la
+    - 5mz
+  - - 6za
+    - 6zz
+  bahrain:
+  - - a9a
+    - a9z
+  china:
+  - - baa
+    - bzz
+  - - vra
+    - vrz
+  - - xsa
+    - xsz
+  - - 3ha
+    - 3uz
+  used_by_taiwan:
+  - - bva
+    - bvz
+  chile:
+  - - caa
+    - cez
+  - - xqa
+    - xrz
+  - - 3ga
+    - 3gz
+  canada:
+  - - cfa
+    - ckz
+  - - cya
+    - czz
+  - - vaa
+    - vgz
+  - - voa
+    - voz
+  - - vxa
+    - vyz
+  - - xja
+    - xoz
+  cuba:
+  - - cla
+    - cmz
+  - - coa
+    - coz
+  - - t4a
+    - t4z
+  morocco:
+  - - cna
+    - cnz
+  - - 5ca
+    - 5gz
+  bolivia:
+  - - cpa
+    - cpz
+  portugal:
+  - - cqa
+    - cuz
+  - - xxa
+    - xxz
+  uruguay:
+  - - cva
+    - cxa
+  nauru:
+  - - c2a
+    - c2z
+  andorra:
+  - - c3a
+    - c3z
+  cyprus:
+  - - c4a
+    - c4z
+  - - h2a
+    - h2z
+  - - p3a
+    - p3z
+  - - 5ba
+    - 5bz
+  the_gambia:
+  - - c5a
+    - c5z
+  bahamas:
+  - - c6a
+    - c6z
+  world_meteor_l_org:
+  - - c7a
+    - c7z
+  mozambique:
+  - - c8a
+    - c9z
+  germany:
+  - - daa
+    - drz
+  - - y2a
+    - y9z
+  south_korea:
+  - - dsa
+    - dtz
+  - - d7a
+    - d9z
+  - - hla
+    - hlz
+  - - 6ka
+    - 6nz
+  philippines:
+  - - dua
+    - dzz
+  - - 4da
+    - 4iz
+  angola:
+  - - d2a
+    - d3z
+  cape_verde_islands:
+  - - d4a
+    - d4z
+  comoros:
+  - - d6a
+    - d6z
+  ireland:
+  - - eia
+    - ejz
+  armenia:
+  - - eka
+    - ekz
+  ukraine:
+  - - ema
+    - eoz
+  - - ura
+    - uzz
+  iran:
+  - - epa
+    - eqz
+  - - 9ba
+    - 9dz
+  moldova:
+  - - era
+    - erz
+  estonia:
+  - - esa
+    - esz
+  ethiopia:
+  - - eta
+    - etz
+  - - 9ea
+    - 9fz
+  belarus:
+  - - eua
+    - ewz
+  kyrgyzstan:
+  - - exa
+    - exz
+  tajikistan:
+  - - eya
+    - eyz
+  turkmenistan:
+  - - eza
+    - ezz
+  thailand:
+  - - e2a
+    - e2z
+  - - hsa
+    - hsz
+  eritrea:
+  - - e3a
+    - e3z
+  palestine:
+  - - e4a
+    - e4z
+  not_allocated:
+  - - e5a
+    - e9z
+  - - j9a
+    - j9z
+  - - o2a
+    - o9z
+  - - v9a
+    - v9z
+  - - x2a
+    - x9z
+  - - z4a
+    - z9z
+  france:
+  - - faa
+    - fzz
+  - - hwa
+    - hwz
+  - - tha
+    - thz
+  - - tka
+    - tkz
+  - - tma
+    - tmz
+  - - toa
+    - tqz
+  - - tva
+    - txz
+  great_britain:
+  - - gaa
+    - gzz
+  - - maa
+    - mzz
+  - - vpa
+    - vqz
+  - - vsa
+    - vsz
+  - - zba
+    - zjz
+  - - zna
+    - zoz
+  - - zqa
+    - zqz
+  - - 2aa
+    - 2zz
+  hungary:
+  - - haa
+    - haz
+  - - hga
+    - hgz
+  switzerland:
+  - - hba
+    - hbz
+  - - hea
+    - hez
+  ecuador:
+  - - hca
+    - hdz
+  poland:
+  - - hfa
+    - hfz
+  - - sna
+    - srz
+  - - 3za
+    - 3zz
+  haiti:
+  - - hha
+    - hhz
+  - - 4va
+    - 4vz
+  dom_republic:
+  - - hia
+    - hiz
+  colombia:
+  - - hja
+    - hkz
+  - - 5ja
+    - 5kz
+  north_korea:
+  - - hma
+    - hmz
+  - - p5a
+    - p9z
+  iraq:
+  - - hna
+    - hnz
+  - - yia
+    - yiz
+  panama:
+  - - hoa
+    - hpz
+  - - h3a
+    - h3z
+  - - h8a
+    - h9z
+  - - 3ea
+    - 3fz
+  honduras:
+  - - hqa
+    - hrz
+  nicaragua:
+  - - hta
+    - htz
+  - - h6a
+    - h7z
+  - - yna
+    - ynz
+  el_salvador:
+  - - hua
+    - huz
+  - - ysa
+    - ysz
+  vatican_city:
+  - - hva
+    - hvz
+  saudi_arabia:
+  - - hza
+    - hzz
+  - - 7za
+    - 7zz
+  - - 8za
+    - 8zz
+  solomon_islands:
+  - - h4a
+    - h4z
+  italy:
+  - - iaa
+    - izz
+  japan:
+  - - jaa
+    - jsz
+  - - 7ja
+    - 7nz
+  - - 8ja
+    - 8nz
+  mongolia:
+  - - jta
+    - jvz
+  norway:
+  - - jwa
+    - jxz
+  - - laa
+    - lnz
+  - - 3ya
+    - 3yz
+  jordan:
+  - - jya
+    - jyz
+  indonesia:
+  - - jza
+    - jzz
+  - - pka
+    - poz
+  - - yba
+    - yhz
+  - - 7aa
+    - 7iz
+  - - 8aa
+    - 8iz
+  djibouti:
+  - - j2a
+    - j2z
+  grenada:
+  - - j3a
+    - j3z
+  greece:
+  - - j4a
+    - j4z
+  - - sva
+    - szz
+  guinea_bissau:
+  - - j5a
+    - j5z
+  st_lucia:
+  - - j6a
+    - j6z
+  dominica:
+  - - j7a
+    - j7z
+  st_vincent:
+  - - j8a
+    - j8z
+  luxembourg:
+  - - lxa
+    - lxz
+  lithuania:
+  - - lya
+    - lyz
+  bulgaria:
+  - - lza
+    - lzz
+  peru:
+  - - oaa
+    - ocz
+  - - 4ta
+    - 4tz
+  lebanon:
+  - - oda
+    - odz
+  austria:
+  - - oea
+    - oez
+  finland:
+  - - ofa
+    - ojz
+  czech_republic:
+  - - oka
+    - olz
+  slovak_republic:
+  - - oma
+    - omz
+  belgium:
+  - - ona
+    - otz
+  denmark:
+  - - oua
+    - ozz
+  - - xpa
+    - xpz
+  - - 5pa
+    - 5qz
+  netherlands:
+  - - paa
+    - piz
+  netherlands_antilles:
+  - - pja
+    - pjz
+  brazil:
+  - - ppa
+    - pyz
+  - - zva
+    - zvz
+  surinam:
+  - - pza
+    - pzz
+  papua_new_guinea:
+  - - p2a
+    - p2z
+  aruba:
+  - - p4a
+    - p4z
+  service_abbreviations:
+  - - qaa
+    - qzz
+  russia:
+  - - raa
+    - rzz
+  - - uaa
+    - uiz
+  sweden:
+  - - saa
+    - smz
+  - - 7sa
+    - 7sz
+  - - 8sa
+    - 8sz
+  egypt:
+  - - ssa
+    - ssm
+  - - sua
+    - suz
+  - - 6aa
+    - 6bz
+  sudan:
+  - - ssn
+    - stz
+  - - 6ta
+    - 6uz
+  bangladesh:
+  - - s2a
+    - s3z
+  slovenia:
+  - - s5a
+    - s5z
+  singapore:
+  - - s6a
+    - s6z
+  - - 9va
+    - 9vz
+  seychelles:
+  - - s7a
+    - s7z
+  south_africa:
+  - - s8a
+    - s8z
+  - - zra
+    - zuz
+  sao_tome_e_principe:
+  - - s9a
+    - s9z
+  turkey:
+  - - taa
+    - tcz
+  - - yma
+    - ymz
+  guatemala:
+  - - tda
+    - tdz
+  - - tga
+    - tgz
+  costa_rica:
+  - - tea
+    - tez
+  - - tia
+    - tiz
+  iceland:
+  - - tfa
+    - tfz
+  cameroon:
+  - - tja
+    - tjz
+  cntrl_african_republic:
+  - - tla
+    - tlz
+  congo:
+  - - tna
+    - tnz
+  gabon:
+  - - tra
+    - trz
+  tunisia:
+  - - tsa
+    - tsz
+  - - 3va
+    - 3vz
+  chad:
+  - - tta
+    - ttz
+  cote_d_ivoire:
+  - - tua
+    - tuz
+  benin:
+  - - tya
+    - tyz
+  mali:
+  - - tza
+    - tzz
+  tuvalu:
+  - - t2a
+    - t2z
+  kiribati:
+  - - t3a
+    - t3z
+  somalia:
+  - - t5a
+    - t5z
+  - - 6oa
+    - 6oz
+  afghanistan:
+  - - t6a
+    - t6z
+  - - yaa
+    - yaz
+  san_marino:
+  - - t7a
+    - t7z
+  palau:
+  - - t8a
+    - t8z
+  bosnia_herzegovina:
+  - - t9a
+    - t9z
+  uzbekistan:
+  - - uja
+    - umz
+  kazakhstan:
+  - - una
+    - uqz
+  terr_of_nunavut_canada:
+  - - vy0
+  antigua_barbuda:
+  - - v2a
+    - v2z
+  belize:
+  - - v3a
+    - v3z
+  st_kitts_nevis:
+  - - v4a
+    - v4z
+  namibia:
+  - - v5a
+    - v5z
+  micronesia:
+  - - v6a
+    - v6z
+  marshall_islands:
+  - - v7a
+    - v7z
+  brunei:
+  - - v8a
+    - v8z
+  mexico:
+  - - xaa
+    - xiz
+  - - 4aa
+    - 4cz
+  - - 6da
+    - 6jz
+  burkina_faso:
+  - - xta
+    - xtz
+  cambodia:
+  - - xua
+    - xuz
+  vietnam:
+  - - xva
+    - xvz
+  - - 3wa
+    - 3wz
+  laos:
+  - - xwa
+    - xwz
+  myanmar:
+  - - xya
+    - xzz
+  vanuatu:
+  - - yja
+    - yjz
+  syria:
+  - - yka
+    - ykz
+  - - 6ca
+    - 6cz
+  latvia:
+  - - yla
+    - ylz
+  romania:
+  - - yoa
+    - yrz
+  yugoslavia:
+  - - yta
+    - yuz
+  - - yza
+    - yzz
+  - - 4na
+    - 4oz
+  venezuela:
+  - - yva
+    - yvz
+  - - 4ma
+    - 4mz
+  aves_island_venezuela:
+  - - yv0
+  albania:
+  - - zaa
+    - zaz
+  new_zealand:
+  - - zka
+    - zmz
+  paraguay:
+  - - zpa
+    - zpz
+  zimbabwe:
+  - - z2a
+    - z2z
+  macedonia:
+  - - z3a
+    - z3z
+  unofficial_disputed:
+  - - 1aa
+    - 1zz
+  monaco:
+  - - 3aa
+    - 3az
+  mauritius:
+  - - 3ba
+    - 3bz
+  equatorial_guinea:
+  - - 3ca
+    - 3cz
+  swaziland:
+  - - 3da
+    - 3dm
+  fiji:
+  - - 3dn
+    - 3dz
+  guinea:
+  - - 3xa
+    - 3xz
+  azerbaijan:
+  - - 4ja
+    - 4kz
+  georgia:
+  - - 4la
+    - 4lz
+  sri_lanka:
+  - - 4pa
+    - 4sz
+  united_nations:
+  - - 4ua
+    - 4uz
+  east_timor:
+  - - 4wa
+    - 4wz
+  int_l_cvl_aviat_n_org:
+  - - 4ya
+    - 4yz
+  israel:
+  - - 4xa
+    - 4xz
+  - - 4za
+    - 4zz
+  libya:
+  - - 5aa
+    - 5az
+  tanzania:
+  - - 5ha
+    - 5iz
+  nigeria:
+  - - 5na
+    - 5oz
+  madagascar:
+  - - 5ra
+    - 5sz
+  - - 6xa
+    - 6xz
+  mauritania:
+  - - 5ta
+    - 5tz
+  niger:
+  - - 5ua
+    - 5uz
+  togo:
+  - - 5va
+    - 5vz
+  western_samoa:
+  - - 5wa
+    - 5wz
+  uganda:
+  - - 5xa
+    - 5xz
+  kenya:
+  - - 5ya
+    - 5zz
+  senegal:
+  - - 6va
+    - 6wz
+  jamaica:
+  - - 6ya
+    - 6yz
+  yemen:
+  - - 7oa
+    - 7oz
+  lesotho:
+  - - 7pa
+    - 7pz
+  malawi:
+  - - 7qa
+    - 7qz
+  algeria:
+  - - 7ra
+    - 7rz
+  - - 7ta
+    - 7yz
+  barbados:
+  - - 8pa
+    - 8pz
+  maldives:
+  - - 8qa
+    - 8qz
+  guyana:
+  - - 8ra
+    - 8rz
+  croatia:
+  - - 9aa
+    - 9az
+  ghana:
+  - - 9ga
+    - 9gz
+  malta:
+  - - 9ha
+    - 9hz
+  zambia:
+  - - 9ia
+    - 9jz
+  kuwait:
+  - - 9ka
+    - 9kz
+  sierra_leone:
+  - - 9la
+    - 9lz
+  malaysia:
+  - - 9ma
+    - 9mz
+  - - 9wa
+    - 9wz
+  nepal:
+  - - 9na
+    - 9nz
+  zaire:
+  - - 9oa
+    - 9tz
+  burundi:
+  - - 9ua
+    - 9uz
+  rwanda:
+  - - 9xa
+    - 9xz
+  trinidad_and_tobago:
+  - - 9ya
+    - 9zz
+alphabet:
+  - a
+  - b
+  - c
+  - d
+  - e
+  - f
+  - g
+  - h
+  - i
+  - j
+  - k
+  - l
+  - m
+  - n
+  - o
+  - p
+  - q
+  - r
+  - s
+  - t
+  - u
+  - v
+  - w
+  - x
+  - y
+  - z
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9   
