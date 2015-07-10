@@ -979,8 +979,6 @@ There are many open source software tools such as rtl\_power, simple\_ra and hea
   	\item How feasible are wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
 \end{itemize}
 
-While the work required to answer this research question is ongoing, it is expected it can be answered by performing a state of the art in this area and compare performance and cost analysis of the existing networking and storage technologies. The original proposal contained the desire to create a self sustaining listening site, renewable sources of energy and energy storage will also be considered.
-
 
 \section*{Determine SDRT Power Requirements}
 \addcontentsline{toc}{section}{Determine SDRT Power Requirements}
@@ -1142,7 +1140,7 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 \newpage
 \section*{Determine SDRT Computational Power Requirements}
 \addcontentsline{toc}{section}{Determine SDRT Computational Power Requirements}
-The aim of this experiment was to determine the minimal hardware which was computationally capable enough to collect data, while also performing any data analytical or processing tasks required by the system.
+The aim of this experiment was to determine the minimal hardware which was computationally capable of collecting data, while  performing any data analytical or processing tasks required by the system.
 
 
 \subsection*{Methodology}
@@ -1155,7 +1153,7 @@ The following platforms were chosen for testing purposes as they initially appea
 	\item Intel i5-3340M 2.7GHz
 \end{enumerate}
 
-Each platform would be measured under a single metric, namely the length of time it takes to produce a spectrogram from 24 hours worth of collected data. Table: \ref{tab:system_cpu_power_requirements} shows the results gathered on each platform. As the time taken to process the spectrogram was longer than 24 hours for both Raspberry Pi models tested, they could not be considered capable of hosting the SDRT system. The test was aborted when the time exceeded 24 hours for both models. 
+Each platform would be measured under a single metric, namely the length of time it takes to produce a spectrogram from data collected over a 24 hour period. Table: \ref{tab:system_cpu_power_requirements} shows the results gathered on each platform. As the time taken to process the spectrogram was longer than 24 hours for both Raspberry Pi models tested, they could not be considered capable of hosting the SDRT system and so this particular test was aborted when the time exceeded 24 hours for both Pi models. 
 
 The Intel Atom powered Netbook performed considerably better with a result of 4.12 hours. This would allow the collection of data, while also the sustainable processing of the previous days data without becoming overloaded.
 
@@ -1178,8 +1176,8 @@ The Intel Atom powered Netbook performed considerably better with a result of 4.
 
 
 \newpage
-\section*{Experiment 3}
-\addcontentsline{toc}{section}{Experiment 3}
+\section*{Determine SDRT Network Connectivity Requirements}
+\addcontentsline{toc}{section}{Determine SDRT Network Connectivity Requirements}
 The aim of this experiment was to determine the optimal networking technology to transfer collected and or processed data from the SDRT to another system.
 
 
