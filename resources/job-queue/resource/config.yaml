@@ -1,7 +1,60 @@
 range:
   low: 24000.0
   high: 28000.0
-location: ireland
+location: 
+  country: ireland
+  continent: europe
+continent: 
+  europe:
+    - russia
+    - france
+    - ukraine
+    - spain
+    - sweeden
+    - norway
+    - germany
+    - finland
+    - poland
+    - italy
+    - great_britain
+    - romania
+    - belarus
+    - kazakhstan
+    - greece
+    - bulgaria
+    - iceland
+    - hungary
+    - portugal
+    - serbia
+    - austria
+    - czech_republic
+    - ireland
+    - georgia
+    - lithuania
+    - latvia
+    - croatia
+    - bosnia_herzegovina
+    - slovakia
+    - estonia
+    - denmark
+    - netherlands
+    - switzerland
+    - moldova
+    - belgium
+    - albania
+    - turkey
+    - macedonia
+    - slovenia
+    - montenegro
+    - cyprus
+    - azerbaijan
+    - luxembourg
+    - andora
+    - malta
+    - liechtenstein
+    - san_marino
+    - monaco
+    - vatican_city
 dxcc:
   united_states:
   - - aaa
