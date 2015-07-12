@@ -9,10 +9,23 @@
 
 # Imports
 library("rjson")
+library("hash")
 
-# Read in the json to dataframe
-json_file = "2015-07-11_processed.json"
-json_data <- suppressWarnings(fromJSON(file=json_file, unexpected.escape="keep"))
+json_file_name <- "2015-07-11_processed.json"
+json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
 
 len <- length(json_data$dxdata)
 print(paste(c("Length of data: ", len), collapse = " "))
+
+dxhash = hash()
+
+for(i in json_data$dxdata){
+  if(dxhash[i$dx] == NULL){
+    dxhash[i$dx] <- i
+  }
+  else{
+    dxhash[i$dx] <- c(dxhash[i$dx], i)
+  }
+}
+
+print(dxhash)
