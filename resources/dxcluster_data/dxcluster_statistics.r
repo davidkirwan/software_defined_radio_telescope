@@ -14,5 +14,5 @@ library("rjson")
 json_file = "2015-07-11_processed.json"
 json_data <- suppressWarnings(fromJSON(file=json_file, unexpected.escape="keep"))
 
-print("Elements in the dxdata array: " + length(json_data$dxdata))
-
+len <- length(json_data$dxdata)
+print(paste(c("Length of data: ", len), collapse = " "))
