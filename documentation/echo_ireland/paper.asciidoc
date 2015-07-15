@@ -1,33 +1,39 @@
 ## RSGB Public Radio Propagation Experiment
-The propagation studies committee of the Radio Society of Great Britain [1] \cite{RSGB-15-b} announced a public MW experiment to cooincide with the March 20th partial solar eclipse. The UK and Ireland would witness more than 90% totality during the eclipse. This was an opportunity to perform simple experiments to demonstrate the Sun's effect on Earth's ionosphere, and how this ionisation affects the propagation of radio signals.
+David Kirwan and John Ronan, EI7IG.
 
-    \includegraphics {images/1.png}
-    \caption {Partial Solar Eclipse 20th March 2015 [5]}
+= Introduction
+Earlier this year (2015) David was in the early stages of a M.Sc. project which required building an automated SDR reciever for the purposes of receiving signals from Jupiter. John, EI7IG, though this was a perfect oppertunity to test what components had been assembled so far to verify that everythign was working as it should.
 
-Steve Nichols [2], MW radio stations which are located more than 500 km away are unlikely to be propagated during daylight hours due to their signals being absorbed by the D layer as shown in Figure: \ref{fig:atmosphere_ionisation_effects_mw}. However this D layer does not exist during night time hours, as a result these radio signals are free to reflect from the E and F layers. \cite{RSGB-15-b} states that this is also true during a solar eclipse with a high totality percentage as would occur on the 20th March 2015.
+In February 2015, Steve Nichols, G0KYA put up an note on the RSGB forums and also on his own weblog with an announcement from the RSGB Propagation Studies Committee. The propagation studies committee of the Radio Society of Great Britain [1] announced a public MW experiment to cooincide with the March 20th partial solar eclipse. The UK and Ireland would witness more than 90% totality during the eclipse. This was an opportunity to perform simple experiments to demonstrate the Sun's effect on Earth's ionosphere, and how this ionisation affects the propagation of radio signals.  
 
-\cite{RSGB-15-b} provided some a number of radio stations which transmit signals in the \gls{MW} range at various locations in the United Kingdom, Europe and also a number in Iceland. The experiment called for choosing a station which is transmitting in the \gls{MW} range and is also capable of being heard at the listeners location during the night time. This station should not be capable of being heard during the day time, the experiment called for a station which is further away than 500 km. The chosen radio station should then be tuned in to coincide with the beginning of the solar eclipse. The station receive power should be plotted against time. It was expected that the signal strength of the radio station should rise to a maximum which coincided with the solar eclipse maximum.
+---
+Insert images/1.png here, with a caption of Partial Solar Eclipse 20th March 2015 [5]
+---
 
-It was immediately apparent that the RadioJove antenna design would not be suitable for this experiment, and a suitable alternative was examined. During the initial research into potential designs a paper by \cite{litva-76} mentioned the use of a Beverage antenna for use in highly directional receivers such as early transatlantic radio communication experiments. Due to the simple nature of the Beverage antenna design, this was considered for use in this experiment.
+In short, MW radio stations which are located more than 500 km away are unlikely to be propagated during daylight hours due to their signals being absorbed by the D layer. However as we all have learned, the D layer does not exist during night time hours, as a result these radio signals are free to reflect from the E and F layers. This effect should be possible to observe during a solar eclipse with a high totality percentage as would occur on the 20th March 2015.
 
-\subsection*{Methodology}
+G0KYA listed a number of radio stations which transmit signals in the MW range at various locations in the United Kingdom, Europe and also a number in Iceland. The experiment called for choosing a station which is transmitting in the MW range and is also capable of being heard at the listeners location during the night time. This station should not be capable of being heard during the day time, the experiment called for a station which is further away than 500 km. The chosen radio station should then be tuned in to coincide with the beginning of the solar eclipse. The station receive power should be plotted against time. It was expected that the signal strength of the radio station should rise to a maximum which coincided with the solar eclipse maximum.
+
+It was immediately apparent to David that the antenna he had already constructed (15m dipole) would not be suitable for this experiment, and a suitable alternative was examined. Given the restrictions of the reception site, and time available, he elected to just run a long wire in the direction of the desired station. 
+
+= Methodology
 The following methodology was followed during this experiment:
+* A Beverage antenna was picked as it was easily aimed and had a simple design. The antenna very simply consisted of a copper wire 80 m long attached to a long wire antenna terminator which had an SO239 connector [3].
+* The listening site was longest in the East-West axis, and having the receiver positioned at the far west end of the site was most convenient. For this reason a radio station situation in an Easterly direction was picked.
+* The antenna was aimed in the general direction of the radio station chosen, and simply placed on the ground.
+* The HackRF reciever was tuned to the chosen radio station
+* 2 MHz bandwidth of the spectrum was recorded during the entire length of the solar eclipse, the signal strength of the radio station can be plotted against time at a later date using this recorded data.
+* The AGC was deliberately switched off in order to get accurate power results.
 
-\begin{enumerate}
-	\item A Beverage antenna was picked as it was easily aimed and had a simple design. The antenna very simply consisted of a copper wire 80 m long attached to a long wire antenna terminator which had an SO239 connector [3].
-	\item The listening site was longest in the East-West axis, and having the receiver positioned at the far west end of the site was most convenient. For this reason a radio station situation in an Easterly direction was picked.
-	\item The antenna was aimed in the general direction of the radio station chosen, and simply placed on the ground.
-	\item HackRF was tuned to the chosen radio station.
-	\item 2 MHz bandwidth of the spectrum was recorded during the entire length of the solar eclipse, the signal strength of the radio station can be plotted against time at a later date using this recorded data.
-	\item The \gls{SDR} receiver should have the automatic gain control switch off in order to get accurate power results.
-\end{enumerate}
+---
+Insert images/2 here
+Caption:
+Comparison of MW radio signal propagation during day and during solar eclipse 
+---
 
-    \includegraphics {images/2}
-    \caption {Comparison of MW radio signal propagation during day and during solar eclipse [2]}}
+The chosen radio station was Radio China International (1440 kHz) which was a powerful signal during the night time despite it being transmitted from Marnach in Luxembourg which is 950 km away from the listening site. The HackRF SDR receiver was tuned to 1440 kHz and IQ samples were recorded once the solar eclipse began. As the eclipse neared 10% totality, the radio station began to emerge from the background noise which was -70 dBm. The signal rose steadily until the eclipse maximum point which was -25 dBm, and then slowly fell in signal strength once more as the totality value dropped. The results were submitted to the RSGB Propagation Studies Committee [1] for inclusion in the overall experiment.
 
-The chosen radio station was \textit{Radio China International} (1440 MHz) which was a powerful signal during the night time despite it being transmitted from Marnach in Luxembourg which is 950 km away from the listening site. The HackRF \gls{SDR} receiver was tuned to 1440 MHz and \gls{IQ} samples were recorded once the solar eclipse began. As the eclipse neared 10\% totality, the radio station began to emerge from the background noise which was -70 dB. The signal rose steadily until the eclipse maximum point which was -25 dB, and then slowly fell in signal strength once more as the totality value dropped. The results were submitted to \citet{RSGB-15-b} [1] for inclusion in the overall experiment.
-
-A number of issues with the HackRF \gls{SDR} transceiver became apparent during this experiment. The technical specifications show the operating range of the HackRF to be 10 MHz - 6 GHz [4]. In practice it is unreliable when tuning to frequencies below 4 MHz. This proved a problem as the frequency being monitored were at 1440 MHz. The HackRF appears to be quite deaf without maxing the IF and \gls{RF} amplifiers. This could be solved by adding a \gls{preamp} at the antenna.
+At the time of the experiment. The specifications of the HackRF were not guaranteed below 10Mhz.  In practice, it does work, with care.
 
 
 [1] http://forums.thersgb.org/index.php?threads/partial-solar-eclipse-propagation-experiment-march-20th-2015.125
