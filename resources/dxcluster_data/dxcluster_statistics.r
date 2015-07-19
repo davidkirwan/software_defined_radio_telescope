@@ -20,11 +20,11 @@ print(paste(c("Length of data: ", len), collapse = " "))
 dxhash = hash()
 
 for(i in json_data$dxdata){
-  if(dxhash[i$dx] == NULL){
-    dxhash[i$dx] <- i
+  if( !has.key(i$dx, dxhash) ){
+    dxhash[[i$dx]] <- i
   }
   else{
-    dxhash[i$dx] <- c(dxhash[i$dx], i)
+    dxhash[[i$dx]] <- c(dxhash[[i$dx]], i)
   }
 }
 
