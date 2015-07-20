@@ -4,7 +4,7 @@ David Kirwan and John Ronan, EI7IG.
 = Introduction
 Earlier this year (2015) David was in the early stages of a M.Sc. project which required building an automated SDR receiver for the purposes of receiving signals from Jupiter [7]. John, EI7IG, though this was a perfect opportunity to test what components had been assembled so far to verify that everything was working as it should.
 
-In February 2015, Steve Nichols, G0KYA put up an note on the RSGB forums and also on his own weblog with an announcement from the RSGB Propagation Studies Committee [2]. The public MW experiment to coincide with the March 20th partial solar eclipse. The UK and Ireland would witness more than 90% totality during the eclipse and this was an opportunity to perform simple experiments to demonstrate the Sun's effect on Earth's ionosphere, and how this ionisation affects the propagation of radio signals.  
+In February 2015, Steve Nichols, G0KYA put up an note on the RSGB forums and also on his own weblog with an announcement from the RSGB Propagation Studies Committee [2]. The public MW experiment to coincide with the March 20th partial solar eclipse. The UK and Ireland would witness more than 90% totality during the eclipse and this was an opportunity to perform simple experiments to demonstrate the Sun's effect on Earth's ionosphere, and how this ionisation affects the propagation of radio signals.
 
 ---
 Insert: images/1.png here
@@ -19,7 +19,7 @@ It was immediately apparent to David that the antenna he had already constructed
 
 ---
 Insert: images/2.png here
-Caption: Comparison of MW radio signal propagation during day and during solar eclipse 
+Caption: Comparison of MW radio signal propagation during day and during solar eclipse
 ---
 
 = Methodology
@@ -34,14 +34,14 @@ The following methodology was followed during this experiment:
 
 ---
 Insert: images/3.png here
-Caption: Location of listening site and radio station 
+Caption: Location of listening site and radio station
 ---
 
-The chosen radio station was Radio China International (1440 kHz) which was a powerful signal during the night time despite it being transmitted from Marnach in Luxembourg which is 950 km away from the listening site. The HackRF SDR receiver was tuned to 1440 kHz and IQ samples were recorded once the solar eclipse began. As the eclipse neared 10% totality, the radio station began to emerge from the background noise which was -70 dBm. The signal rose steadily until the eclipse maximum point which was -25 dBm, and then slowly fell in signal strength once more as the totality value dropped. The results were submitted to the RSGB Propagation Studies Committee [1] for inclusion in the overall experiment.
+The chosen radio station was Radio China International (1440 kHz) which was a powerful signal during the night time despite it being transmitted from Marnach in Luxembourg which is 950 km away from the listening site. The HackRF SDR receiver was tuned to 1440 kHz and IQ samples were recorded once the solar eclipse began. As the eclipse neared 20% totality the radio station slowly began to emerge from the background noise which was -70 dBm. The signal strength rose steadily until the eclipse maximum point which was at -28 dBm. It then fell in strength once more to average at -45db for the remainder of the eclise before finally returning to pre-eclipse levels. The station could no longer be heard once the signal strength went below -55dB. The results were submitted to the RSGB Propagation Studies Committee [1] for inclusion in the overall experiment.
 
 ---
 Insert: images/4.png here
-Caption: Station signal strength during the eclipse 
+Caption: Station signal strength during the eclipse
 ---
 
 At the time of the experiment, the specifications of the HackRF were not guaranteed below 10Mhz this has since been revised down to 1MHz.  In practice, it does work as low as 500kHz, with care.
