@@ -7,7 +7,7 @@ Earlier this year (2015) David was in the early stages of a M.Sc. project which 
 In February 2015, Steve Nichols, G0KYA put up an note on the RSGB forums and also on his own weblog with an announcement from the RSGB Propagation Studies Committee [2]. The public MW experiment to coincide with the March 20th partial solar eclipse. The UK and Ireland would witness more than 90% totality during the eclipse and this was an opportunity to perform simple experiments to demonstrate the Sun's effect on Earth's ionosphere, and how this ionisation affects the propagation of radio signals.
 
 image:images/1.png[]
-Partial Solar Eclipse 20th March 2015 [6]
+.Partial Solar Eclipse 20th March 2015 [6]
 
 In short, MW radio stations which are located more than 500 km away are unlikely to be propagated during daylight hours due to their signals being absorbed by the D layer. However as we all have learned, the D layer does not exist during night time hours, as a result these radio signals are free to reflect from the higher E and F layers. This effect should also be possible to observe during a solar eclipse with a high totality percentage, as would occur on the 20th March 2015.
 
@@ -16,7 +16,7 @@ G0KYA listed a number of radio stations which transmit signals in the MW range a
 It was immediately apparent to David that the antenna he had already constructed (15m dipole) would not be suitable for this experiment, and a suitable alternative was examined. Given the restrictions of the reception site, and time available, he elected to just run a long wire in the direction of the desired station. The existing HackRF [5] receiver was used despite being advertised as having an operating range between 10MHz and 6GHz. In practice, it was possible to receive signals down to about 500kHz by ignoring the limits imposed by the firmware.
 
 image:images/2.png[]
-Comparison of MW radio signal propagation during day and during solar eclipse
+.Comparison of MW radio signal propagation during day and during solar eclipse
 
 
 === Methodology
@@ -32,13 +32,13 @@ The following methodology was followed during this experiment:
 
 
 image:images/3.png[]
-Location of listening site and radio station
+.Location of listening site and radio station
 
 
 The chosen radio station was Radio China International (1440 kHz) which was a powerful signal during the night time despite it being transmitted from Marnach in Luxembourg which is 950 km away from the listening site. The HackRF SDR receiver was tuned to 1440 kHz and IQ samples were recorded once the solar eclipse began. As the eclipse neared 20% totality the radio station slowly began to emerge from the background noise which was -70 dBm. The signal strength rose steadily until the eclipse maximum point which was at -28 dBm. It then fell in strength once more to average at -45db for the remainder of the eclise before finally returning to pre-eclipse levels. The station could no longer be heard once the signal strength went below -55dB. 
 
 image:images/4.png[]
-Station signal strength during the eclipse
+.Station signal strength during the eclipse
 
 At the time of the experiment, the specifications of the HackRF were not guaranteed below 10Mhz this has since been revised down to 1MHz.  In practice, it does work as low as 500kHz, as long as care is taken in its use. Finally, the results of the experiment were submitted to the RSGB Propagation Studies Committee [1] for inclusion in the overall experiment results.  
 
