@@ -66,4 +66,7 @@ polygon(c(time_index, rev(time_index)), c(ylow, rev(yhigh)),
 
 lines(ymean~time_index, col='red', lwd=2)
 
+legend('topright', c("mean","max","min"), 
+       lty=2, col=c('red', 'chartreuse1', 'dodgerblue'), bty='n', cex=1)
+
 dev.off()
