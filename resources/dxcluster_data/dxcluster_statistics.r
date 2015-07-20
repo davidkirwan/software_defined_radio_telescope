@@ -11,16 +11,15 @@
 library("rjson")
 library("hash")
 
-json_file_name <- "2015-07-13_processed.json_tmp"
+json_file_name <- "2015-07-13_processed.json"
 json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
 dxdata <- json_data$dxdata
 
 len <- length(dxdata)
 print(paste(c("Length of data: ", len), collapse = " "))
 
-dxhash = hash()
+dxhash <- hash()
 
-time_vector = unique(dxdata$time)
 
 for(i in dxdata){
   index <- toString(i$time)
@@ -34,15 +33,18 @@ for(i in dxdata){
   }
 }
 
+time_vector <- keys(dxhash)
+country_vector = c()
 
-print(dxhash)
+for(i in time_vector){
+  country_vector <- c(country_vector, length(dxhash[[i]]))
+}
 
 
-
-#png(filename="63.png")
-#par(mar=c(5.1,4.1,4.1,2.1))
-#plot(dxhash$time, dxhash$cc, 
-#     main='Power vs Current at 12V',
-#     xlab='Current(A)',
-#     ylab='Power(W)')
-#dev.off()
+png(filename="68.png")
+par(mar=c(5.1,4.1,4.1,2.1))
+plot(table(country_vector), 
+     main='Power vs Current at 12V',
+     xlab='Current(A)',
+     ylab='Power(W)')
+dev.off()
