@@ -11,6 +11,8 @@
 library("rjson")
 library("hash")
 
+# "dxdata":[{"spotter":"w3lpl","freq":"50107.0","dx":"yv4nn","msg":"Heard in NH","time":"23:03","cc":"germany"}]
+
 json_file_name <- "2015-07-13_processed.json"
 json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
 dxdata <- json_data$dxdata
@@ -19,7 +21,6 @@ len <- length(dxdata)
 print(paste(c("Length of data: ", len), collapse = " "))
 
 dxhash <- hash()
-
 
 for(i in dxdata){
   index <- toString(i$time)
@@ -34,17 +35,31 @@ for(i in dxdata){
 }
 
 time_vector <- keys(dxhash)
-country_vector = c()
+country_hash = hash()
 
 for(i in time_vector){
-  country_vector <- c(country_vector, length(dxhash[[i]]))
+  country <- dxhash[[i]]$cc
+
+  if( has.key(country, country_hash) ){
+    country_hash[[country]]<- country_hash[[country]] + 1
+  }
+  else {
+    country_hash[[country]] <- 1
+  }
 }
 
+for(i in country_hash){
+  country_vector <- c(country_vector, )
+  country_counts <- c(country_counts, country_hash[[i]])
+}
+print(country_counts)
 
+# Create the plot for country data
 png(filename="68.png")
 par(mar=c(5.1,4.1,4.1,2.1))
-plot(table(country_vector), 
-     main='Power vs Current at 12V',
-     xlab='Current(A)',
-     ylab='Power(W)')
+plot(country_counts,
+     main='',
+     xlab='',
+     ylab='',
+     labels=country_vector)
 dev.off()
