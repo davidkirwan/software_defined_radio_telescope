@@ -48,18 +48,21 @@ for(i in time_vector){
   }
 }
 
-for(i in country_hash){
-  country_vector <- c(country_vector, )
-  country_counts <- c(country_counts, country_hash[[i]])
+for(k in time_vector){
+  print(k)
+  country_vector <- c(country_vector, names(country_hash[[k]]))
+  country_counts <- c(country_counts, country_hash[[k]])
 }
+
 print(country_counts)
 
 # Create the plot for country data
 png(filename="68.png")
 par(mar=c(5.1,4.1,4.1,2.1))
-plot(country_counts,
+plot(y=country_counts, x=country_vector,
      main='',
      xlab='',
-     ylab='',
-     labels=country_vector)
+     ylab=''
+     )
 dev.off()
+
