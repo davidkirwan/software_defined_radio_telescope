@@ -9,9 +9,14 @@
 
 # Imports
 library("rjson")
-library("hash")
 
 # "dxdata":[{"spotter":"w3lpl","freq":"50107.0","dx":"yv4nn","msg":"Heard in NH","time":"23:03","cc":"germany"}]
+# spotter
+# freq
+# dx
+# msg
+# time
+# cc
 
 json_file_name <- "2015-07-13_processed.json"
 json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
@@ -20,49 +25,51 @@ dxdata <- json_data$dxdata
 len <- length(dxdata)
 print(paste(c("Length of data: ", len), collapse = " "))
 
-dxhash <- hash()
+spotterlist <- c()
+freqlist <- c()
+dxlist <- c()
+msglist <- c()
+timelist <- c()
+cclist <- c()
 
-for(i in dxdata){
-  index <- toString(i$time)
-  element <- i
 
-  if(!has.key(index, dxhash)){
-    dxhash[[index]] <- element
-  }
-  else{
-    dxhash[[index]] <- c(dxhash[[index]], element)
-  }
+for( i in 1:length(dxdata) ){
+  spotter <- dxdata[[i]]$spotter
+  freq <- dxdata[[i]]$freq
+  dx <- dxdata[[i]]$dx
+  msg <- dxdata[[i]]$msg
+  time <- dxdata[[i]]$time
+  cc <- dxdata[[i]]$cc
+
+  spotterlist <- c(spotterlist, spotter)
+  freqlist <- c(freqlist, freq)
+  dxlist <- c(dxlist, dx)
+  msglist <- c(msglist, msg)
+  timelist <- c(timelist, time)
+  cclist <- c(cclist, cc)
 }
 
-time_vector <- keys(dxhash)
-country_hash = hash()
 
-for(i in time_vector){
-  country <- dxhash[[i]]$cc
+# Create element dataframe
+dxframe <- data.frame(
+  spotter=spotterlist,
+  freq=freqlist,
+  dx=dxlist,
+  msg=msglist,
+  time=timelist,
+  cc=cclist
+)
 
-  if( has.key(country, country_hash) ){
-    country_hash[[country]]<- country_hash[[country]] + 1
-  }
-  else {
-    country_hash[[country]] <- 1
-  }
-}
 
-for(k in time_vector){
-  print(k)
-  country_vector <- c(country_vector, names(country_hash[[k]]))
-  country_counts <- c(country_counts, country_hash[[k]])
-}
+print(summary(dxframe))
 
-print(country_counts)
-
-# Create the plot for country data
 png(filename="68.png")
-par(mar=c(5.1,4.1,4.1,2.1))
-plot(y=country_counts, x=country_vector,
-     main='',
+par(mar=c(10.1,4.1,4.1,2.1))
+plot(dxframe$cc,
+     main='DXCluster Signals Europe',
      xlab='',
-     ylab=''
+     ylab='Signal Occurances',
+     las=2
      )
 dev.off()
 
