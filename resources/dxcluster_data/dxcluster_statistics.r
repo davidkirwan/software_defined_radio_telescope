@@ -22,6 +22,10 @@ json_file_name <- "2015-07-13_processed.json"
 json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
 dxdata <- json_data$dxdata
 
+# Range being monitored
+high <- 40000.0
+low <- 18000.0
+
 len <- length(dxdata)
 print(paste(c("Length of data: ", len), collapse = " "))
 
@@ -41,14 +45,17 @@ for( i in 1:length(dxdata) ){
   time <- dxdata[[i]]$time
   cc <- dxdata[[i]]$cc
 
-  spotterlist <- c(spotterlist, spotter)
-  freqlist <- c(freqlist, freq)
-  dxlist <- c(dxlist, dx)
-  msglist <- c(msglist, msg)
-  timelist <- c(timelist, time)
-  cclist <- c(cclist, cc)
+  # Filter out the signals outside the range being monitored
+  val <- as.numeric(freq)
+  if(val > low && val <= high){
+    spotterlist <- c(spotterlist, spotter)
+    freqlist <- c(freqlist, freq)
+    dxlist <- c(dxlist, dx)
+    msglist <- c(msglist, msg)
+    timelist <- c(timelist, time)
+    cclist <- c(cclist, cc)
+  }
 }
-
 
 # Create element dataframe
 dxframe <- data.frame(
@@ -64,7 +71,7 @@ dxframe <- data.frame(
 print(summary(dxframe))
 
 png(filename="68.png")
-#par(mar=c(10.1,4.1,4.1,2.1))
+par(mar=c(10.1,4.1,4.1,2.1))
 plot(dxframe$cc,
      main='DXCluster Signals Europe',
      xlab='',
@@ -73,12 +80,12 @@ plot(dxframe$cc,
      )
 dev.off()
 
-tick <- 120
+tick <- 12
 at <- seq(1, length(dxframe$time), by=tick)
 png(filename="69.png")
 par(mar=c(10.1,4.1,4.1,2.1))
 plot(dxframe$time, 
-     main='DXCluster Signals Europe',
+     main='Time Range',
      xlab='',
      ylab='Signal Occurances',
      las=2,
@@ -88,14 +95,17 @@ plot(dxframe$time,
 axis(1, at=at, labels=dxframe$time[at], las=2)
 dev.off()
 
-print(dxframe$freq)
-high <- 40000.0
-low <- 18000.0
-
-filtered_freq <- c()
-
-for(i in dxframe$freq){
-  if(){
-    print(i)
-  }
-}
+tick <- 12
+at <- seq(1, length(dxframe$freq), by=tick)
+png(filename="70.png")
+par(mar=c(10.1,4.1,4.1,2.1))
+plot(dxframe$freq, 
+     main='Frequency Range',
+     xlab='',
+     ylab='Signal Occurances',
+     las=2,
+     pch=19,
+     xaxt="n"
+     )
+axis(1, at=at, labels=dxframe$freq[at], las=2)
+dev.off()
