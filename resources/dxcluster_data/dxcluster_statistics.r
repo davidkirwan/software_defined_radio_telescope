@@ -64,7 +64,7 @@ dxframe <- data.frame(
 print(summary(dxframe))
 
 png(filename="68.png")
-par(mar=c(10.1,4.1,4.1,2.1))
+#par(mar=c(10.1,4.1,4.1,2.1))
 plot(dxframe$cc,
      main='DXCluster Signals Europe',
      xlab='',
@@ -73,13 +73,29 @@ plot(dxframe$cc,
      )
 dev.off()
 
+tick <- 120
+at <- seq(1, length(dxframe$time), by=tick)
 png(filename="69.png")
 par(mar=c(10.1,4.1,4.1,2.1))
-plot(dxframe$cc,dxframe$time, 
+plot(dxframe$time, 
      main='DXCluster Signals Europe',
      xlab='',
      ylab='Signal Occurances',
      las=2,
-     pch=19
+     pch=19,
+     xaxt="n"
      )
+axis(1, at=at, labels=dxframe$time[at], las=2)
 dev.off()
+
+print(dxframe$freq)
+high <- 40000.0
+low <- 18000.0
+
+filtered_freq <- c()
+
+for(i in dxframe$freq){
+  if(){
+    print(i)
+  }
+}
