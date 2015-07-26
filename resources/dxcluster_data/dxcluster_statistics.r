@@ -95,11 +95,11 @@ plot(dxframe$time,
 axis(1, at=at, labels=dxframe$time[at], las=2)
 dev.off()
 
-tick <- 12
+tick <- 4
 at <- seq(1, length(dxframe$freq), by=tick)
 png(filename="70.png")
 par(mar=c(10.1,4.1,4.1,2.1))
-plot(dxframe$freq, 
+plot(sort(dxframe$freq), 
      main='Frequency Range',
      xlab='',
      ylab='Signal Occurances',
@@ -107,5 +107,5 @@ plot(dxframe$freq,
      pch=19,
      xaxt="n"
      )
-axis(1, at=at, labels=dxframe$freq[at], las=2)
+axis(1, at=at, labels=sort(dxframe$freq)[at], las=2)
 dev.off()
