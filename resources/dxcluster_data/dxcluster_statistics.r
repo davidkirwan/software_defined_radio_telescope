@@ -73,3 +73,13 @@ plot(dxframe$cc,
      )
 dev.off()
 
+png(filename="69.png")
+par(mar=c(10.1,4.1,4.1,2.1))
+plot(dxframe$cc,dxframe$time, 
+     main='DXCluster Signals Europe',
+     xlab='',
+     ylab='Signal Occurances',
+     las=2,
+     pch=19
+     )
+dev.off()
