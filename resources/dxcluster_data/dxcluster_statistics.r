@@ -68,6 +68,8 @@ dxframe <- data.frame(
 )
 
 
+len <- length(dxframe$time)
+print(paste(c("Length of data: ", len), collapse = " "))
 print(summary(dxframe))
 
 png(filename="68.png")

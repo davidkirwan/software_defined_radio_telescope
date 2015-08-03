@@ -1246,30 +1246,28 @@ One example is the underlying hardware which handles both the USB and the Fast E
   	\item Flag instances of natural radio interference such as lightning from the Blitzortung server in recorded data.
 \end{itemize}
 
+\section*{Flag Amateur Radio Enthusiast Transmissions}
+\addcontentsline{toc}{section}{Flag Amateur Radio Enthusiast Transmissions}
+
+\newglossaryentry{DXCluster}
+{
+	name={DXCluster},
+	description={DXCluster - Number of DXServers connected together into a cluster, where amateur radio enthusiasts can share spotted instances of radio contact between each other},
+	sort=DXCluster
+}
+
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=8cm]{images/72}
+	\caption{DXCluster Client Architecture}
+	\label{fig:dxcluster_client_architecture}
+\end{figure}
+%
+
 A DX server is a system which Amateur (Ham) Radio operators may use in order to inform one another in real time, about instances of radio signal transmissions from DX stations and other amateur radio stations. These DX Servers are often connected together to form a cluster. This allows many users from all over the world to communicate and share this information by connecting to the cluster. It is a rich source of identified human transmissions which often have the time, location and signal frequencies which were recorded. The data being shared is also often rigidly structured which greatly simplifies the task of implementing a software parsing solution \citep{koopman-07}. 
 
-A software client was developed in order to connect to a local server within the DX Cluster. It was designed to gather all data from the cluster while filtering transmissions outside the frequency range currently being monitored by the telescope. All signals which have been identified as being within the range being monitored, would be flagged and all related meta data for each transmission would be stored for processing at a later stage.
-
-The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can then share the information back to a central server in real time \citep{blitzortung-14}. A software client could be developed which might connect to this Blitzortung server and retrieve occurrences of lightning strikes within a certain range such as 500 km centred on the listening site.
-
-%TODO research question 2
-It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
-
-
-\section*{Experiment 1}
-\addcontentsline{toc}{section}{Experiment 1}
-
-
-
-\subsection*{Methodology}
-The following methodology was followed during this experiment:
-
-\begin{enumerate}
-	\item Collect 24 hours worth of data
-	\item Filter all signals not originating in Europe
-	\item Filter all signals outside the target range
-\end{enumerate}
-
+A software client was developed in order to connect to a local server within the \gls{DXCluster}. The architecture diagram is shown in Figure: \ref{fig:dxcluster_client_architecture}. It was designed to gather all data from the cluster while filtering transmissions outside the frequency range currently being monitored by the telescope, and also filtering transmissions outside Europe. All signals which have been identified as being within the range being monitored, would be flagged and all related meta data for each transmission would be stored for processing at a later stage.
 
 %
 \begin{figure}[!htb]
@@ -1279,6 +1277,17 @@ The following methodology was followed during this experiment:
 	\label{fig:dxcluster_country_barplot}
 \end{figure}
 %
+
+\subsection*{Methodology}
+The aim of this experiment was to record 24 hours worth of data on the \gls{DXCluster} for signals originating in Europe within the frequency range being monitored by the SDRT system. The following methodology was followed during this experiment:
+
+\begin{enumerate}
+	\item Collect 24 hours worth of data using the \gls{DXCluster} Client developed
+	\item Filter out all signals not originating in Europe
+	\item Filter out all signals outside the target range of 18 MHz - 40 MHz
+\end{enumerate}
+
+The experiment was run for 24 hours, and during this time, 1984 transmissions were recorded on the \gls{DXCluster}. The data was filtered to only save transmissions originating from European countries, and also filtered further to only contain transmissions within the range being monitored by the SDRT namely 18 MHz - 40 MHz. This reduced the number of transmissions recorded to 209. The Figure: \ref{fig:dxcluster_country_barplot} shows a high level breakdown of the most popular countries for which transmissions originated from during the 24 hour period of monitoring.
 
 %
 \begin{figure}[!htb]
@@ -1298,12 +1307,13 @@ The following methodology was followed during this experiment:
 \end{figure}
 %
 
-%TODO RQ2 Exp 1
 
+\section*{Flag Natural Emission Sources}
+\addcontentsline{toc}{section}{Flag Natural Emission Sources}
+The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can then share the information back to a central server in real time \citep{blitzortung-14}. A software client could be developed which might connect to this Blitzortung server and retrieve occurrences of lightning strikes within a certain range such as 500 km centred on the listening site.
 
-\section*{Experiment 2}
-\addcontentsline{toc}{section}{Experiment 2}
-asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+%TODO research question 2
+It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
 
 
 \subsection*{Methodology}
@@ -1314,20 +1324,6 @@ The following methodology was followed during this experiment:
 \end{enumerate}
 
 %TODO RQ2 Exp 2
-
-\section*{Experiment 3}
-\addcontentsline{toc}{section}{Experiment 3}
-asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
-
-
-\subsection*{Methodology}
-The following methodology was followed during this experiment:
-
-\begin{enumerate}
-	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
-\end{enumerate}
-
-%TODO RQ2 Exp 3
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
