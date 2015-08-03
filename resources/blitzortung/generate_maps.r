@@ -11,10 +11,29 @@
 # loading the required packages
 require(ggplot2)
 require(ggmap)
+library("rjson")
+
+json_file_name <- "2015-08-03-21-40.json"
+json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
+blitzortung_data <- json_data$blitzortung
+
+len <- length(blitzortung_data)
+print(paste(c("Length of data: ", len), collapse = " "))
+
+lat <- c()
+lon <- c()
+
+for(i in blitzortung_data){
+  print(i$latitude)
+  print(i$longitude)
+  lat <- c(lat, as.numeric(i$latitude))
+  lon <- c(lon, as.numeric(i$longitude))
+}
+
 
 # creating a sample data.frame with your lat/lon points
-lat <- c(52.253811)
-lon <- c(-7.115605)
+#lat <- c(52.253811)
+#lon <- c(-7.115605)
 df <- as.data.frame(cbind(lon,lat))
 
 # getting the map
