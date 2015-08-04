@@ -1311,7 +1311,18 @@ The experiment was run for 24 hours, and during this time, 1984 transmissions we
 
 \section*{Flag Natural Emission Sources}
 \addcontentsline{toc}{section}{Flag Natural Emission Sources}
-The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can then share the information back to a central server in real time \citep{blitzortung-14}. A software client could be developed which might connect to this Blitzortung server and retrieve occurrences of lightning strikes within a certain range such as 500 km centred on the listening site.
+The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can share information collected on local instances of lightning with the central server in real time \citep{blitzortung-14}. A software client was developed which connects to this Blitzortung server and retrieve data on lightning strike occurrences within Europe in 10 minute blocks.
+
+ within a certain range such as 500 km centred on the listening site.
+
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=8cm]{images/73}
+	\caption{European Blitzortung Lightning Data}
+	\label{fig:blitzortung_europe_plot}
+\end{figure}
+%
 
 %TODO research question 2
 It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.

@@ -27,22 +27,23 @@ def minuteband(minute)
 end
 
 
-def generate_url(time)
+def generate_url(region, time)
   year = time.year
   month = "%02d" % time.month
   day = "%02d" % time.day
   hour = "%02d" % time.hour
   min = "%02d" % minuteband(time.min)
 
-  lightning_url = "http://data.blitzortung.org/Data_1/Protected/Strokes/#{year}/#{month}/#{day}/#{hour}/#{min}.log"
+  lightning_url = "http://data.blitzortung.org/Data_#{region}/Protected/Strokes/#{year}/#{month}/#{day}/#{hour}/#{min}.log"
 end
 
+europe = 1
 time = Time.now.utc
 end_time = time + 3600
 
 while time < end_time
   puts time
-  puts generate_url(time)
+  puts generate_url(europe, time)
   time += 600
 end
 
