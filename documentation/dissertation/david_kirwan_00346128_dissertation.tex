@@ -1203,18 +1203,29 @@ One example is the underlying hardware which handles both the USB and the Fast E
 \end{figure}
 %
 
-A DX server is a system which Amateur (Ham) Radio operators may use in order to inform one another in real time, about instances of radio signal transmissions from DX stations and other amateur radio stations. These DX Servers are often connected together to form a cluster. This allows many users from all over the world to communicate and share this information by connecting to the cluster. It is a rich source of identified human transmissions which often have the time, location and signal frequencies which were recorded. The data being shared is also often rigidly structured which greatly simplifies the task of implementing a software parsing solution \citep{koopman-07}. 
+A DX server is a system which Amateur (Ham) Radio operators may use in order to inform one another in real time, about instances of radio signal transmissions from DX stations and other amateur radio stations. These DX Servers are often connected together to form a cluster. This allows many users from all over the world to communicate and share this information by connecting to the cluster. It is a rich source of identified human transmissions which often have the time, location and signal frequencies which were recorded. The data being shared is also often rigidly structured which greatly simplifies the task of implementing a software parsing solution \citep{koopman-07}. Table: \ref{tab:dxspider_data_packet} details the format of each packet of information shared on the DXCluster. 
+
+%
+\begin{table}
+	\centering
+	\begin{tabular}{p{4cm} l}
+		\toprule
+		Key & Sample Value\\ \midrule
+		Call Sign of Spotter & DX de EA1MX: \\
+		Frequency & 144364.0 \\
+		DX Call Sign & TM64TDF \\
+		Comment & IN73XK\textless TR\textgreater IN93OA tnx qso \\
+		Time & 1623Z \\
+		\bottomrule
+	\end{tabular}
+	\caption{Sample DXSpider Data Packet}
+	\label{tab:dxspider_data_packet}
+\end{table}
+%
+                   
 
 A software client was developed in order to connect to a local server within the \gls{DXCluster}. The architecture diagram is shown in Figure: \ref{fig:dxcluster_client_architecture}. It was designed to gather all data from the cluster while filtering transmissions outside the frequency range currently being monitored by the telescope, and also filtering transmissions outside Europe. All signals which have been identified as being within the range being monitored, would be flagged and all related meta data for each transmission would be stored for processing at a later stage.
 
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=8cm]{images/68}
-	\caption{Top European countries represented in 24 hours}
-	\label{fig:dxcluster_country_barplot}
-\end{figure}
-%
 
 \subsection*{Methodology}
 The aim of this experiment was to record 24 hours worth of data on the \gls{DXCluster} for signals originating in Europe within the frequency range being monitored by the SDRT system. The following methodology was followed during this experiment:
@@ -1228,23 +1239,28 @@ The aim of this experiment was to record 24 hours worth of data on the \gls{DXCl
 The experiment was run for 24 hours, and during this time, 1984 transmissions were recorded on the \gls{DXCluster}. The data was filtered to only save transmissions originating from European countries, and also filtered further to only contain transmissions within the range being monitored by the SDRT namely 18 MHz - 40 MHz. This reduced the number of transmissions recorded to 209. The Figure: \ref{fig:dxcluster_country_barplot} shows a high level breakdown of the most popular countries for which transmissions originated from during the 24 hour period of monitoring. Figure \ref{fig:dxcluster_time_plot} shows this same data broken down by the hour it was collected and finally Figure: \ref{fig:dxcluster_frequency_plot} shows this data broken down by the radio frequency on which the transmission originated. As Figure: \ref{fig:dxcluster_frequency_plot} demonstrates, the majority of signals appear within narrow bands.
 
 %
-\begin{figure}[!htb]
+\begin{figure}	
 	\centering
-	\includegraphics[width=8cm]{images/69}
-	\caption{Time European signals occurred}
-	\label{fig:dxcluster_time_plot}
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=5cm]{images/68}
+		\caption{Top European countries represented in 24 hours}\label{fig:dxcluster_country_barplot}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/69}
+		\caption{Time European signals occurred}\label{fig:dxcluster_time_plot}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/70}
+		\caption{European signals within monitored frequency range}\label{fig:dxcluster_frequency_plot}
+	\end{subfigure}
+	\caption{Blitzortung data}\label{dxcluster_data}
 \end{figure}
 %
-
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=8cm]{images/70}
-	\caption{European signals within monitored frequency range}
-	\label{fig:dxcluster_frequency_plot}
-\end{figure}
-%
-
 
 \section*{Flag Natural Emission Sources}
 \addcontentsline{toc}{section}{Flag Natural Emission Sources}
@@ -1264,7 +1280,7 @@ The Blitzortung project operates an online service which displays global informa
 		Confirming Stations &  sta;11;24;951,956,1313,1171,803 \\
 		\bottomrule
 	\end{tabular}
-	\caption{Blitzortung Data Packet}
+	\caption{Sample Blitzortung Data Packet}
 	\label{tab:blitzortung_data_packet}
 \end{table}
 %
@@ -1299,13 +1315,23 @@ The following methodology was followed during this experiment:
 
 
 %
-\begin{figure}[!htb]
+\begin{figure}	
 	\centering
-	\includegraphics[width=8cm]{images/73}
-	\caption{European Blitzortung Lightning Data}
-	\label{fig:blitzortung_europe_plot}
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/73}
+		\caption{Lightning Strikes Above Europe}\label{fig:blitzortung_europe_plot}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/74}
+		\caption{Strikes \textgreater 1000km filtered}\label{fig:blitzortung_europe_plot_filtered}
+	\end{subfigure}
+	\caption{Blitzortung data}\label{blitzortung_europe_plot_both}
 \end{figure}
 %
+
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
