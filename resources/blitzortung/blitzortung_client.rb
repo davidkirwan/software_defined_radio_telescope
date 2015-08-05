@@ -58,7 +58,7 @@ Stations which were used to generate this datapoint
 
 data_array = Array.new
 
-rawdata = File.readlines("2015-08-03-21-40.log")
+rawdata = File.readlines("2015-08-05-00-10.log")
 
 rawdata.each do |i| 
   data = i.split(" ")
@@ -79,6 +79,6 @@ end
 puts data_array.size
 puts data_array.first
 
-f = File.open("2015-08-03-21-40.json", "w")
+f = File.open("2015-08-05-00-10.json", "w")
 f.write({:blitzortung=>data_array}.to_json)
 f.close

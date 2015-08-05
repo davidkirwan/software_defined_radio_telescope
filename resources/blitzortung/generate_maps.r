@@ -13,7 +13,7 @@ require(ggplot2)
 require(ggmap)
 library("rjson")
 
-json_file_name <- "2015-08-03-21-40.json"
+json_file_name <- "2015-08-05-00-10.json"
 json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
 blitzortung_data <- json_data$blitzortung
 
