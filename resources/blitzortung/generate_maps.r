@@ -41,18 +41,18 @@ print(paste(c("Length of data: ", len), collapse = " "))
 site_lat <- deg2rad(52.653264)
 site_lon <- deg2rad(-7.251160)
 
-lat <- c()
-lon <- c()
+lat <- c(52.653264)
+lon <- c(-7.251160)
 
 for(i in blitzortung_data){
   distance = haversine(site_lat, site_lon, deg2rad(as.numeric(i$latitude)), deg2rad(as.numeric(i$longitude)))
   
 #  if(distance <= 1000.0){
     cat(sprintf("Lat:%f Long:%f Distance:%fkm\n", as.numeric(i$latitude), as.numeric(i$longitude), distance))
-#  }
 
-  lat <- c(lat, as.numeric(i$latitude))
-  lon <- c(lon, as.numeric(i$longitude))
+    lat <- c(lat, as.numeric(i$latitude))
+    lon <- c(lon, as.numeric(i$longitude))
+#  }
 }
 
 

@@ -22,6 +22,8 @@
 %
 \usepackage{caption}
 \captionsetup[table]{skip=10pt}
+\captionsetup{compatibility=false}
+\usepackage{subcaption}
 %
 \usepackage[toc]{glossaries}
 \makeglossaries
@@ -109,6 +111,9 @@ To my four dogs Noah, Oscar, Rosie and Dora, you are the best mutts a man could 
 %
 \newpage
 \tableofcontents
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
 \newpage
 \listoftables
 \addcontentsline{toc}{chapter}{List of Tables}
@@ -573,73 +578,6 @@ Due to the cheap availability of computational resources, digital signal process
   \caption{Literature Review Synthesis Matrix}
   \label{tab:literature_review_synthesis_matrix}
 \end{table}
-%
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%\newpage
-%\section*{Description of the Experimental Design / Validation Methodology}
-%\addcontentsline{toc}{section}{Description of the Experimental Design / Validation Methodology}
-% A dissertation must employ rigorous scientific argument. The experimental design and the validation methodology must be specified in great detail in the proposal. At this proposal stage you should define clear evaluation criteria.
-
-
-%\begin{itemize}
-%  \item Identify data caused by lightning
-%  \item Identify data caused by human emissions
-%  \item Perform a site survey with the spectrum analyser
-%  \item Replicate the testbed at a second site
-%\end{itemize}
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Main Milestones Anticipated}
-\addcontentsline{toc}{section}{Main Milestones Anticipated}
-% Students should agree a number of milestones and their likely delivery dates with their supervisor at the start of the progress.
-
-The following Table. \ref{tab:milestones_anticipated} details the milestones which have been identified and agreed to date. It has been updated for the Interim Report to include completed milestones and those in progress:
-
-%
-\begin{table}
-  \centering
-  \begin{tabular}{ | p{2cm} | p{2cm} | p{2cm} | p{5cm} |}
-    \hline
-    Deadline & Start & End & Summary \\ \hline \hline
-    Antenna Build & October 14 & March 15 & Settle on a design for the telescope, source the parts for the build
-    and finally construct the prototype antenna which will act as a template for the second dipole. \\ \hline
-    Site Survey & March 15 & March 15 & Perform a site survey using a spectrum analyser connected to the prototype antenna. \\ \hline
-    Deploy Dual Dipole Antenna & March 15 & March 15 & Deploy the antenna array at a suitable location and begin to collect data for analysis. \\ \hline
-    Interim Report & January 15 & (Hard Deadline) 30th April 15 & Poster presentation to review panel and supervisor on 19th May \\ \hline
-    Data Collection & March 15 & July 15 & Once the antenna is deployed begin collecting data for analysis. \\ \hline
-    Data Analysis and System Development & March 15 & July 15 & Develop analytical SDR tools to filter or flag interference. Develop algorithms to detect the various DAM emission. \\ \hline
-    Evaluate IOT Technologies & January 15 & July 15 & Experiment with the various IOT technologies which could potentially be used to create a self sufficient listening array. \\ \hline
-    Final Report Submission & June 15 & (Hard Deadline) September 15 & First draft to supervisor due in early June 15. Complete draft due 24th August. Final submission 4th September \\
-    \hline
-  \end{tabular}
-  \caption{Milestones Anticipated}
-  \label{tab:milestones_anticipated}
-\end{table}
-%
-
-%
-\begin{figure}[here]
-	\centering
-	\includegraphics[width=9cm]{images/56}
-	\caption{SDRT Gantt Chart Details}
-	\label{fig:sdrt-gantt}
-\end{figure}
-%
-
-%
-\begin{figure}[here]
-	\centering
-	\includegraphics[width=9cm]{images/57}
-	\caption{SDRT Gantt Chart}
-	\label{fig:sdrt-gantt}
-\end{figure}
 %
 
 %
@@ -1310,9 +1248,28 @@ The experiment was run for 24 hours, and during this time, 1984 transmissions we
 
 \section*{Flag Natural Emission Sources}
 \addcontentsline{toc}{section}{Flag Natural Emission Sources}
-The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can share information collected on local instances of lightning with the central server in real time \citep{blitzortung-14}. A software client was developed which can retrieve data on lightning strike occurrences from within Europe in 10 minute blocks from the Blitzortung server. 
+The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can share information collected on local instances of lightning with the central server in real time \citep{blitzortung-14}. A software client was developed which can retrieve data on lightning strike occurrences from within Europe in 10 minute blocks from the Blitzortung server. Table: \ref{tab:blitzortung_data_packet} details the format of each Blitzortung data packet.
 
-The Haversine function shown in Figure: \ref{fig:haversine_formula} is used to determine the distance between two points on the Earth's surface \citet{pineda-krch-10}. This function is used to measure the distance between the location of the SDRT listening site and each individual lightning strike. This distance value can then be used to discard lightning strikes which occur further from the SDRT listening site than a chosen value such as 1000km.
+%
+\begin{table}
+	\centering
+	\begin{tabular}{p{4cm} l}
+		\toprule
+		Key & Sample Value\\ \midrule
+		Date & 2015-08-03 \\
+		Time & 21:40:03.600511018 \\
+		Longitude, Latitude, \\Elevation & pos;43.899106;20.438919;0 \\
+		Unknown & str;0 \\
+		Station ID & dev;14497 \\
+		Confirming Stations &  sta;11;24;951,956,1313,1171,803 \\
+		\bottomrule
+	\end{tabular}
+	\caption{Blitzortung Data Packet}
+	\label{tab:blitzortung_data_packet}
+\end{table}
+%
+
+The Haversine function shown in Figure: \ref{fig:haversine_formula} provides the means to determine the distance between two points on a spherical surface, which Earth approximately is \citep{pineda-krch-10}. In this function, $\varphi$ corresponds with latitude, $\lambda$ corresponds with longitude and $R$ is the radius of the Earth. This function is used to measure the distance between the location of the SDRT listening site and each individual lightning strike data point. With this distance value, it is then possible to discard data points which originate further from the SDRT listening site than a chosen value such as 1000km.
 
 %
 \begin{figure}[here]
@@ -1321,30 +1278,25 @@ The Haversine function shown in Figure: \ref{fig:haversine_formula} is used to d
 		a = sin^2\big(\frac{\Delta \varphi}{2}\big) + cos(\varphi_1) \times cos(\varphi_2) \times sin^2\big(\frac{\Delta \lambda}{2}\big)
 	\end{equation}
 	\begin{equation}
-		c = 2arcsin\big(min(1,\sqrt(a))\big)
+		c = 2arcsin\big(min(1,\sqrt{a})\big)
 	\end{equation}
 	\begin{equation}
 		distance = R \times c
 	\end{equation}
-	\caption{Haversine Formula to calculate the great-circle distance between two points \citet{pineda-krch-10}}
+	\caption{Haversine Formula}
 	\label{fig:haversine_formula}
 \end{figure}
 %
-
- 
-
-
-
-%TODO research question 2
-It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
-
 
 \subsection*{Methodology}
 The following methodology was followed during this experiment:
 
 \begin{enumerate}
-	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
+	\item Collect 10 minutes of data using the Blitzortung Client developed
+	\item Filter out all lightning strikes not originating in Europe
+	\item Filter out all lightning strikes outside the target range of 1000km
 \end{enumerate}
+
 
 %
 \begin{figure}[!htb]
@@ -1479,12 +1431,33 @@ The contributions to research knowledge which are anticipated are listed as foll
 \addcontentsline{toc}{section}{Future Work}
 A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
 
-Here is something which can be continued in future work 
+
+%TODO research question 2
+It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
+
 
 %
 \appendix
 \chapter*{Appendix}
 \addcontentsline{toc}{chapter}{Appendices}
+
+%
+%\begin{figure}	
+%	\centering
+%	\begin{subfigure}[t]{5cm}
+%		\centering
+%		\includegraphics[width=5cm]{images/12}
+%		\caption{A searchlight beam model of Jupiter's decametric radio emissions \citep{imai-08}}\label{fig:1a}		
+%	\end{subfigure}
+%	\quad
+%	\begin{subfigure}[t]{5cm}
+%		\centering
+%		\includegraphics[width=5cm]{images/13}
+%		\caption{Caption 2}\label{fig:1b}
+%	\end{subfigure}
+%	\caption{Main figure caption}\label{fig:1}
+%\end{figure}
+%
 
 %
 \begin{figure}[here]

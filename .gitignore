@@ -4,6 +4,7 @@
 *.ilg
 *.ind
 *.log
+*.lof
 *.synctex.gz
 *.toc
 Gemfile.lock
