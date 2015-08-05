@@ -13,6 +13,24 @@ require(ggplot2)
 require(ggmap)
 library("rjson")
 
+
+# Convert from degrees to radians
+deg2rad <- function(deg) return(deg*pi/180)
+
+# Calculates the geodesic distance between two points specified by radian latitude/longitude using the
+# Haversine formula (hf)
+# http://www.r-bloggers.com/great-circle-distance-calculations-in-r/
+haversine <- function(long1, lat1, long2, lat2) {
+  R <- 6371 # Earth mean radius [km]
+  delta.long <- (long2 - long1)
+  delta.lat <- (lat2 - lat1)
+  a <- sin(delta.lat/2)^2 + cos(lat1) * cos(lat2) * sin(delta.long/2)^2
+  c <- 2 * asin(min(1,sqrt(a)))
+  d = R * c
+  return(d) # Distance in km
+}
+
+
 json_file_name <- "2015-08-05-00-10.json"
 json_data <- suppressWarnings(fromJSON(file=json_file_name, unexpected.escape="keep"))
 blitzortung_data <- json_data$blitzortung
@@ -20,12 +38,19 @@ blitzortung_data <- json_data$blitzortung
 len <- length(blitzortung_data)
 print(paste(c("Length of data: ", len), collapse = " "))
 
+site_lat <- deg2rad(52.653264)
+site_lon <- deg2rad(-7.251160)
+
 lat <- c()
 lon <- c()
 
 for(i in blitzortung_data){
-  print(i$latitude)
-  print(i$longitude)
+  distance = haversine(site_lat, site_lon, deg2rad(as.numeric(i$latitude)), deg2rad(as.numeric(i$longitude)))
+  
+#  if(distance <= 1000.0){
+    cat(sprintf("Lat:%f Long:%f Distance:%fkm\n", as.numeric(i$latitude), as.numeric(i$longitude), distance))
+#  }
+
   lat <- c(lat, as.numeric(i$latitude))
   lon <- c(lon, as.numeric(i$longitude))
 }

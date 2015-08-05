@@ -1298,7 +1298,6 @@ The experiment was run for 24 hours, and during this time, 1984 transmissions we
 \end{figure}
 %
 
-
 %
 \begin{figure}[!htb]
 	\centering
@@ -1311,18 +1310,30 @@ The experiment was run for 24 hours, and during this time, 1984 transmissions we
 
 \section*{Flag Natural Emission Sources}
 \addcontentsline{toc}{section}{Flag Natural Emission Sources}
-The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can share information collected on local instances of lightning with the central server in real time \citep{blitzortung-14}. A software client was developed which connects to this Blitzortung server and retrieve data on lightning strike occurrences within Europe in 10 minute blocks.
+The Blitzortung project operates an online service which displays global information about instances of lightning strikes in real time. \cite{blitzortung-14} provide the designs for a listening station which amateur enthusiasts can then build and operate. Each site can share information collected on local instances of lightning with the central server in real time \citep{blitzortung-14}. A software client was developed which can retrieve data on lightning strike occurrences from within Europe in 10 minute blocks from the Blitzortung server. 
 
- within a certain range such as 500 km centred on the listening site.
+The Haversine function shown in Figure: \ref{fig:haversine_formula} is used to determine the distance between two points on the Earth's surface \citet{pineda-krch-10}. This function is used to measure the distance between the location of the SDRT listening site and each individual lightning strike. This distance value can then be used to discard lightning strikes which occur further from the SDRT listening site than a chosen value such as 1000km.
 
 %
-\begin{figure}[!htb]
+\begin{figure}[here]
 	\centering
-	\includegraphics[width=8cm]{images/73}
-	\caption{European Blitzortung Lightning Data}
-	\label{fig:blitzortung_europe_plot}
+	\begin{equation}
+		a = sin^2\big(\frac{\Delta \varphi}{2}\big) + cos(\varphi_1) \times cos(\varphi_2) \times sin^2\big(\frac{\Delta \lambda}{2}\big)
+	\end{equation}
+	\begin{equation}
+		c = 2arcsin\big(min(1,\sqrt(a))\big)
+	\end{equation}
+	\begin{equation}
+		distance = R \times c
+	\end{equation}
+	\caption{Haversine Formula to calculate the great-circle distance between two points \citet{pineda-krch-10}}
+	\label{fig:haversine_formula}
 \end{figure}
 %
+
+ 
+
+
 
 %TODO research question 2
 It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
@@ -1335,7 +1346,14 @@ The following methodology was followed during this experiment:
 	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
 \end{enumerate}
 
-%TODO RQ2 Exp 2
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=8cm]{images/73}
+	\caption{European Blitzortung Lightning Data}
+	\label{fig:blitzortung_europe_plot}
+\end{figure}
+%
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
