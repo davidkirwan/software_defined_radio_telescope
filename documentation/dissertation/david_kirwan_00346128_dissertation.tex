@@ -879,40 +879,28 @@ Despite this, a number of emissions were recorded as can be seen in in the raw i
 There are many open source software tools such as rtl\_power, simple\_ra and heatmap which could capture averaged raw signal strength data from a RTL based receiver in order to build spectrogram diagrams. Unfortunately most of this software is not compatible with the HackRF. However the basic functionality from these tools can be replicated using basic processing blocks within GNURadio and the spectrograms can be built using tools like Octave or Mathlab.
 
 %
-\begin{figure}[here]
+\begin{figure}	
 	\centering
-	\includegraphics[width=10cm]{images/52}
-	\caption{Jupiter \gls{DAM} IO-A Storm Prediction}
-	\label{fig:dam_emissions_io_a_april_23_prediction}
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/52}
+		\caption{Jupiter \gls{DAM} IO-A Storm Prediction}\label{fig:dam_emissions_io_a_april_23_prediction}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/54}
+		\caption{\gls{DAM} emissions picked up during an IO-A storm}\label{fig:dam_emissions_io_a_april_23}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/55}
+		\caption{Radio Spectrogram Diagram \citep{superkuh-15}}\label{fig:wide_radio_spectrogram}
+	\end{subfigure}
+	\caption{DAM Emissions}\label{fig:jupiter_dam}
 \end{figure}
 %
-
-%
-\begin{figure}[here]
-	\centering
-	\includegraphics[width=9cm]{images/54}
-	\caption{\gls{DAM} emissions picked up during an IO-A storm}
-	\label{fig:dam_emissions_io_a_april_23}
-\end{figure}
-%
-
-%
-\begin{figure}[here]
-	\centering
-	\includegraphics[width=9cm]{images/55}
-	\caption{Radio Spectrogram Diagram \citep{superkuh-15}}
-	\label{fig:wide_radio_spectrogram}
-\end{figure}
-%
-
-% Background materials
-% state of the art
-% what I read up and needed to put it together
-% research questions restated
-
-
-% TODO Add some information about the data gathered to date.
-
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -977,32 +965,31 @@ Each platform would be tested on the following metrics:
 
 The power usage of each system was measured using a power meter and the results were plotted as shown in Figures: \ref{fig:sdrt_power_usage_pi_b}, \ref{fig:sdrt_power_usage_pi_b2}, and \ref{fig:sdrt_power_usage_atom_n55}.
 
+
 %
-\begin{figure}[!htb]
+\begin{figure}	
 	\centering
-	\includegraphics[width=8cm]{images/59}
-	\caption{SDRT Power Usage Raspberry Pi B+}
-	\label{fig:sdrt_power_usage_pi_b}
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/59}
+		\caption{SDRT Power Usage Raspberry Pi B+}\label{fig:sdrt_power_usage_pi_b}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/60}
+		\caption{SDRT Power Usage Raspberry Pi B2}\label{fig:sdrt_power_usage_pi_b2}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/61}
+		\caption{SDRT Power Usage Intel Atom N550}\label{fig:sdrt_power_usage_atom_n55}
+	\end{subfigure}
+	\caption{DAM Emissions}\label{fig:jupiter_dam}
 \end{figure}
 %
 
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=8cm]{images/60}
-	\caption{SDRT Power Usage Raspberry Pi B2}
-	\label{fig:sdrt_power_usage_pi_b2}
-\end{figure}
-%
-
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=8cm]{images/61}
-	\caption{SDRT Power Usage Intel Atom N550}
-	\label{fig:sdrt_power_usage_atom_n55}
-\end{figure}
-%
 
 \newpage
 Using solar data collected by the national weather service, MET Eireann \citep{MET-15} and \citep{ECAD-15}, a series of plots were produced to aid in the calculation of the battery array capacity required to power the system. As can be seen in the Figure: \ref{fig:barplot_hours_sunshine_waterford}, the mean number of hours of sunlight for the year was calculated to be $\mu = 4.446$, with a minimum of 1 hour and a maximum of 9.156 hours.
@@ -1043,33 +1030,31 @@ An initial estimate of 48 hours of power capacity was made to ensure the system 
 Figure: \ref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hours of sunshine over a 15 year period. This plot demonstrates that for half the year the sun shines for between 1 and 4 hours each day. This is a major limiting factor in creating a self sufficient solar powered system, as batteries may only be charged during periods of sunshine. During the times of the year with daily sunshine hours below the mean, a larger battery capacity is required in order to continue to power the system during days with little sunshine. Correspondingly, as the sunshine hours fall, a larger solar panel is required to ensure as much light as possible is converted to energy storage.
 
 %
-\begin{figure}[!htb]
+\begin{figure}	
 	\centering
-	\includegraphics[width=8cm]{images/64}
-	\caption{Load vs Battery Capacity Plot}
-	\label{fig:lineplot_load_battery_capacity}
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/64}
+		\caption{Load vs Battery Capacity Plot}\label{fig:lineplot_load_battery_capacity}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/66}
+		\caption{Average Hours of Sunshine per Day in Waterford}\label{fig:barplot_hours_sunshine_waterford}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/65}
+		\caption{Size of Solar Panel Required to Charge 100Ah Battery in Hours}\label{fig:lineplot_solar_panel_battery_capacity_hours}
+	\end{subfigure}
+	\caption{Solar Plots}\label{fig:solar_plots}
 \end{figure}
 %
+
 
 Next a plot of solar panel power output vs time taken to charge a 100Ah battery was generated as Figure: \ref{fig:lineplot_solar_panel_battery_capacity_hours}. This plot shows that in order to reliably charge a battery of size 100Ah in a single day which has the mean hours of sunshine the system will require a solar panel array of at least 350W.
-
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=8cm]{images/66}
-	\caption{Average Hours of Sunshine per Day in Waterford}
-	\label{fig:barplot_hours_sunshine_waterford}
-\end{figure}
-%
-
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=8cm]{images/65}
-	\caption{Size of Solar Panel Required to Charge 100Ah Battery in Hours}
-	\label{fig:lineplot_solar_panel_battery_capacity_hours}
-\end{figure}
-%
 
 The measurements were repeated for the Raspberry Pi systems. The power demands were rounded up to 5W which produced a battery capacity of 20Ah to power for 48 hours. The results were then tabulated as shown in Table: \ref{tab:system_power_requirements}. The components required to implement a solar powered system such as the panels, batteries, charge controller and AC/DC inverters were priced and the results were included in this table also. Price wise, having a Raspberry Pi system in the listening station would make for a cost effective solution. As both the B+ and the B2 versions operate with the very low power usage of 5W, the solar renewable solution would be cheapest also at an estimated \euro 150 for the solar power components.
 
@@ -1090,11 +1075,9 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 %
 
 
-\newpage
 \section*{Determine SDRT Computational Power Requirements}
 \addcontentsline{toc}{section}{Determine SDRT Computational Power Requirements}
 The aim of this experiment was to determine the minimal hardware which was computationally capable of collecting data, while  performing any data analytical or processing tasks required by the system.
-
 
 \subsection*{Methodology}
 The following platforms were chosen for testing purposes as they initially appear to meet or exceed the minimum requirements of operating \textit{rtl\_power} while also building spectrograms from the recorded data using \textit{heatmap.py}:
@@ -1468,24 +1451,6 @@ It is envisioned the time and frequency values associated with this data related
 \addcontentsline{toc}{chapter}{Appendices}
 
 %
-%\begin{figure}	
-%	\centering
-%	\begin{subfigure}[t]{5cm}
-%		\centering
-%		\includegraphics[width=5cm]{images/12}
-%		\caption{A searchlight beam model of Jupiter's decametric radio emissions \citep{imai-08}}\label{fig:1a}		
-%	\end{subfigure}
-%	\quad
-%	\begin{subfigure}[t]{5cm}
-%		\centering
-%		\includegraphics[width=5cm]{images/13}
-%		\caption{Caption 2}\label{fig:1b}
-%	\end{subfigure}
-%	\caption{Main figure caption}\label{fig:1}
-%\end{figure}
-%
-
-%
 \begin{figure}[here]
 \centering
 \includegraphics[width=8cm]{images/12}
@@ -1504,29 +1469,26 @@ It is envisioned the time and frequency values associated with this data related
 %
 
 %
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/14}
-\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}
-\label{fig:loop_antenna_design_a}
-\end{figure}
-%
-
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/16}
-\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}
-\label{fig:loop_antenna_design_b}
-\end{figure}
-%
-
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/15}
-\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}
-\label{fig:loop_antenna_design_c}
+\begin{figure}	
+	\centering
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/14}
+		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}\label{fig:loop_antenna_design_a}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/16}
+		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}\label{fig:loop_antenna_design_b}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/15}
+		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}\label{fig:loop_antenna_design_c}
+	\end{subfigure}
+	\caption{21MHz Shortwave Loop Design}\label{fig:loop_antenna_design}
 \end{figure}
 %
 
@@ -1548,30 +1510,28 @@ It is envisioned the time and frequency values associated with this data related
 \end{figure}
 %
 
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/46}
-\caption{Sampling an Analogue Amplitude Modulation Signal \citep{ossmann-15-c}}
-\label{fig:ossmann_am_demodulation}
-\end{figure}
-%
 
 %
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/49}
-\caption{I/Q Sample Polar Plot of an AM Modulated Signal \citep{kuisma-14}}
-\label{fig:kuisma-iq-am-helix}
-\end{figure}
-%
-
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/50}
-\caption{I/Q Sample Polar Plot of an FM Modulated Signal \citep{kuisma-14}}
-\label{fig:kuisma-iq-fm-helix}
+\begin{figure}	
+	\centering
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/46}
+		\caption{Sampling an Analogue Amplitude Modulation Signal \citep{ossmann-15-c}}\label{fig:ossmann_am_demodulation}		
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/49}
+		\caption{I/Q Sample Polar Plot of an AM Modulated Signal \citep{kuisma-14}}\label{fig:kuisma-iq-am-helix}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/50}
+		\caption{I/Q Sample Polar Plot of an FM Modulated Signal \citep{kuisma-14}}\label{fig:kuisma-iq-fm-helix}
+	\end{subfigure}
+	\caption{Signal Modulation}\label{fig:signal_modulation}
 \end{figure}
 %
 
@@ -1581,15 +1541,6 @@ It is envisioned the time and frequency values associated with this data related
 	\includegraphics[width=8cm]{images/41}
 	\caption{Partial Solar Eclipse 20th March 2015 \citep{eclipse-15}}
 	\label{fig:solar_eclipse_scale}
-\end{figure}
-%
-
-%
-\begin{figure}[here]
-	\centering
-	\includegraphics[width=8cm]{images/63}
-	\caption{Power vs Current at 12V Plot}
-	\label{fig:power_vs_current_12v}
 \end{figure}
 %
 
