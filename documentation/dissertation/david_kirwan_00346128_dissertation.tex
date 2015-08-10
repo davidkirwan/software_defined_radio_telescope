@@ -1167,8 +1167,6 @@ One example is the underlying hardware which handles both the USB and the Fast E
   	\item Flag instances of natural radio interference such as lightning from the Blitzortung server in recorded data.
 \end{itemize}
 
-%TODO RQ2 intro
-
 \section*{Flag Amateur Radio Enthusiast Transmissions}
 \addcontentsline{toc}{section}{Flag Amateur Radio Enthusiast Transmissions}
 
@@ -1329,34 +1327,123 @@ The following methodology was followed during this experiment:
 
 %TODO RQ3
 
-\textit{What \gls{SDR} processes and algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
+\textit{What \gls{SDR} tools, processes and or algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
 
 \begin{itemize}
-	\item Can existing signal demodulation techniques be employed to find \gls{DAM} emissions?
+	\item Can existing tools and signal processing techniques be employed to find \gls{DAM} emissions?
 	\item What is required from an algorithm which might identify \gls{DAM} emissions within an \gls{IQ} signal?
 \end{itemize}
 
-There is a large amount of complexity involved in digital signal processing and the various techniques used to manipulate collected signals. This became apparent early during the literature review. An automated system which can automatically identify instances of Jovian \gls{DAM} emissions would require some form of machine learning and this increases the complexity further.
+\section*{Capturing DAM Spectrograms with rtl\_power and heatmap.py and the RTL2832 DAB SDR}
+\addcontentsline{toc}{section}{Capturing DAM Spectrograms with rtl\_power and heatmap.py and the RTL2832 DAB SDR}
 
-Many websites dedicated to education and distance learning offer free 3rd level courses in topics related to those covered during this thesis. Coursera in particular offers a class on machine learning and a range of others in the fields of mathematics and even digital signal processing. It might prove beneficial to partake in one or more of these classes in the near future. A fully automated signal identification would seem to be far too complex to tackle during the scope of this dissertation, however some rudimentary machine learning techniques might yet prove useful in other areas of the system where decision making is required.
+Due to its recent release there is a distinct lack of tool support available which is capable of interfacing with the HackRF and generating a spectrogram plot from saved data. A system is available for the RTL DAB Digital TV Tuner however. The \textit{rtl\_power} utility is shipped with the firmware required to operate the \gls{SDR} receiver and is capable of this functionality. The RTL systems have a similar operating range to the HackRF and align somewhat closely with the requirements of the SDRT system in order to pick up \gls{DAM} emissions from Jupiter \citep{hamradioscience-12}. Table: \ref{tab:rtl_vs_hackrf} lists the operating ranges of both the HackRF and also the RTL DAB receiver.
 
-\cite{ossmann-15-a} the developer of the HackRF \gls{SDR}, offers a free course on the fundamentals of software defined radio, related mathematics such as complex number theory, trigonometry and digital signal processing. This has proved most useful in understanding how analogue signals are stored digitally, while also providing the necessary training in the basic principles of how frequency modulation and amplitude modulation for example is performed by a regular radio receiver. 
+%
+\begin{table}
+	\centering
+	\begin{tabular}{p{4cm} l}
+		\toprule
+		Device & Operating Range\\ \midrule
+		HackRf & 1MHz - 6GHz \\
+		RTL2832U/R820T & 24MHZ - 1850MHz \\
+		SDRT & 18MHz - 40MHz \\
+		\bottomrule
+	\end{tabular}
+	\caption{RTL vs HackRF and SDRT Requirements}
+	\label{tab:rtl_vs_hackrf}
+\end{table}
+%
 
-As a large amount of work on amplitude modulation has already been completed for instance, it might be possible to use techniques for spotting AM signals in order to identify \gls{DAM} emissions. More work is required to understand how this could be achieved, and might ultimately prove beyond the scope of what is achievable before the end of the dissertation.
+The RTL DAB receiver operates at 24MHz at the lower end of its operational range. This is still well within the 18MHz - 40MHz range of Jovian \gls{DAM} emissions, but it is just outside the ideal range recommended by NASA's Radio Jove documentation \cite{nasa12}.
 
-\section*{Experiment 1}
-\addcontentsline{toc}{section}{Experiment 1}
-asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
+
+%
+\begin{figure}	
+	\centering
+	\begin{subfigure}[t]{9cm}
+		\centering
+		\includegraphics[width=9cm]{images/51}
+		\caption{19MHz - 21MHz Spectrogram Built from GQRX 15th April 2015}
+		\label{fig:gqrx_spectrogram_01} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/80}
+		\caption{Spectrogram 1st August 2015}
+		\label{fig:rtl_power_spectrogram_01} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/77}
+		\caption{Spectrogram 28th July 2015}
+		\label{fig:rtl_power_spectrogram_02} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/78}
+		\caption{Spectrogram 17th July 2015}
+		\label{fig:rtl_power_spectrogram_03} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/79}
+		\caption{Spectrogram 14th July 2015}
+		\label{fig:rtl_power_spectrogram_04} 
+	\end{subfigure}
+	\quad
+
+	\caption{24MHz - 28MHz Spectrograms of rtl\_power data plotted using heatmap.py}\label{fig:rtl_power_spectrogram}
+\end{figure}
+%
+
+%
+\begin{figure}	
+	\centering
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/81}
+		\caption{Spectrogram 10th July 2015}
+		\label{fig:rtl_power_spectrogram_05} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/82}
+		\caption{Spectrogram 25th June 2015}
+		\label{fig:rtl_power_spectrogram_06} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/83}
+		\caption{Spectrogram 24th June 2015}
+		\label{fig:rtl_power_spectrogram_07} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/84}
+		\caption{Spectrogram 23rd June 2015}
+		\label{fig:rtl_power_spectrogram_08} 
+	\end{subfigure}
+	\quad
+	\caption{24MHz - 40MHz Spectrograms of rtl\_power data plotted using heatmap.py}\label{fig:rtl_power_spectrogram_dam}
+\end{figure}
+%
 
 
 \subsection*{Methodology}
 The following methodology was followed during this experiment:
 
 \begin{enumerate}
-	\item RTL Dongle
-	\item UH2 to SO259 
-	\item rtl\_power
-	\item spectrogram
+	\item RTL2832U/R820T Dongle connected to the 21MHz Dual Dipole Array
+	\item rtl\_power was left running for 24 hours
+	\item Spectrogram was generated using the heatmap.py utility
 \end{enumerate}
 
 
@@ -1376,6 +1463,25 @@ To calculate the power
 \end{figure}
 %
 
+%
+\begin{figure}	
+	\centering
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/17}
+		\caption{Total Power Meter Implemented in Gnuradio Companion \citep{nelson-15}}
+		\label{fig:sdr_square_law_detector} 
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/18}
+		\caption{Radio Skypipe Software Power Plot \citep{rsp-15}}
+		\label{fig:radio_skypipe_power_plot}
+	\end{subfigure}
+	\caption{Implementing a Total Power Meter in \gls{SDR}}\label{fig:sdr_power_plots}
+\end{figure}
+%
 
 \subsection*{Methodology}
 The following methodology was followed during this experiment:
@@ -1383,21 +1489,6 @@ The following methodology was followed during this experiment:
 \begin{enumerate}
 	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
 \end{enumerate}
-
-
-
-\section*{Experiment 3}
-\addcontentsline{toc}{section}{Experiment 3}
-asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf. asdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdfasdfasdf. asdfasdfasdfasdf asdfasdf asdfasdf asdfasdfasdfasdf asdfasdf. asdfasdfasdfasdf. asdfasdfasdfasdfasdfasdf asdfasdf.
-
-
-\subsection*{Methodology}
-The following methodology was followed during this experiment:
-
-\begin{enumerate}
-	\item Aasdfasdf asdfasdfasdfasdf adsfasdf asdf s asdf  asdfadsfasdf. 
-\end{enumerate}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1422,6 +1513,14 @@ Chapter for each software we produced how we validated it and proved it worked t
 %  \item where my work fits in the grander scheme
 %  \item further work
 %\end{itemize}
+
+There is a large amount of complexity involved in digital signal processing and the various techniques used to manipulate collected signals. This became apparent early during the literature review. An automated system which can automatically identify instances of Jovian \gls{DAM} emissions would require some form of machine learning and this increases the complexity further.
+
+Many websites dedicated to education and distance learning offer free 3rd level courses in topics related to those covered during this thesis. Coursera in particular offers a class on machine learning and a range of others in the fields of mathematics and even digital signal processing. It might prove beneficial to partake in one or more of these classes in the near future. A fully automated signal identification would seem to be far too complex to tackle during the scope of this dissertation, however some rudimentary machine learning techniques might yet prove useful in other areas of the system where decision making is required.
+
+\cite{ossmann-15-a} the developer of the HackRF \gls{SDR}, offers a free course on the fundamentals of software defined radio, related mathematics such as complex number theory, trigonometry and digital signal processing. This has proved most useful in understanding how analogue signals are stored digitally, while also providing the necessary training in the basic principles of how frequency modulation and amplitude modulation for example is performed by a regular radio receiver. 
+
+As a large amount of work on amplitude modulation has already been completed for instance, it might be possible to use techniques for spotting AM signals in order to identify \gls{DAM} emissions. More work is required to understand how this could be achieved, and might ultimately prove beyond the scope of what is achievable before the end of the dissertation.
 
 In this interim report, the initial proposal has been reviewed, and current progress has been documented. At several points corrective modifications have been made to the scope. This ensures it remains possible to make progress within the time available. 
 
@@ -1562,6 +1661,7 @@ It is envisioned the time and frequency values associated with this data related
 	\label{fig:solar_eclipse_scale}
 \end{figure}
 %
+
 
 %
 \bibliographystyle{plainnat}
