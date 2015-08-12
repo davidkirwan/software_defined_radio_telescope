@@ -82,7 +82,7 @@ Cork Rd, Waterford City, Ireland\\
 The abstract should summarize the contents of the paper and should
 contain at least 70 and at most 150 words. It should be written using the
 \emph{abstract} environment.
-\keywords{radio astronomy, software defined radio, digital signal processing}
+\keywords{radio astronomy, software defined radio, digital signal processing, gnuradio, hackrf}
 \end{abstract}
 %
 
@@ -467,20 +467,20 @@ The initial research questions which arise are as follows:
 \begin{enumerate}
   \item \textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a software defined radio signal listening station and how cheaply can it be created?}
   \begin{itemize}
-  	\item How feasible to use wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
-  	\item If wireless technologies prove too slow, is 10/100/1000 MBit Ethernet suitable instead? Or link aggregation technologies such as EtherChannel or LACP.
-  	\item Can a low powered computing platform such as the Raspberry Pi 2B or Beaglebone Black be used to host the system, or will a more powerful system be required?
+  	\item How expensive would a renewable power supply solution such as solar be?
+  	\item Can a low powered computing platform such as the Raspberry Pi B+ suitably host the system, or will a more powerful platform be required?
+  	\item How feasible are wireless technologies such as Zigbee, WIFI or Bluetooth to stream collected data to a central facility?
   \end{itemize}
   
-  \item \textit{What processes or algorithms need to be developed to filter or flag known instances of human radio interference from radio signal observations?}
+  \item \textit{What processes or algorithms need to be developed to filter or flag known instances of human interference from radio signal observations?}
   \begin{itemize}
   	\item Flag transmission signals identified by amateur radio enthusiasts from a local DXSpider server in recorded data.
   	\item Flag instances of natural radio interference such as lightning from the Blitzortung server in recorded data.
   \end{itemize}
   
-  \item \textit{What \gls{SDR} processes and algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
+  \item \textit{What \gls{SDR} tools, processes and or algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
   \begin{itemize}
-  	\item Can existing signal demodulation techniques be employed to find \gls{DAM} emissions?
+  	\item Can existing tools and signal processing techniques be employed to find \gls{DAM} emissions?
   	\item What is required from an algorithm which might identify \gls{DAM} emissions within an \gls{IQ} signal?
   \end{itemize}
   
@@ -726,7 +726,16 @@ Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated wi
 \end{table}
 %
 
+%
+\begin{figure}[here]
+	\centering
+	\includegraphics[width=8cm]{images/32}
+	\caption{Dual Dipole Antenna Deployment}
+	\label{fig:dual_dipole_deployed}
+\end{figure}
+%
 
+\newpage
 \section*{Listening Site Suitability}
 \addcontentsline{toc}{section}{Listening Site Suitability}
 A convenient location for the antenna deployment was selected and the antenna was deployed. It was necessary to determine if this site was in fact a suitable location to host a radio telescope antenna. In order measure the ambient noise at the site, a Tektronics SA2600 spectrum analyser was connected to the antenna and left for 2 hours at midday to gather data. The spectrum is likely to be full of radio interference from human and natural sources at this time. The results can be seen in Figure: \ref{fig:site_survey_spec_analyser}. The ambient \gls{RF} noise at the site was quite high, ranging between -80dB and -70dB on average. 
@@ -1219,7 +1228,7 @@ The aim of this experiment was to record 24 hours worth of data on the \gls{DXCl
 	\item Filter out all signals outside the target range of 18 MHz - 40 MHz
 \end{enumerate}
 
-The experiment was run for 24 hours, and during this time, 1984 transmissions were recorded on the \gls{DXCluster}. The data was filtered to only save transmissions originating from European countries, and also filtered further to only contain transmissions within the range being monitored by the SDRT namely 18 MHz - 40 MHz. This reduced the number of transmissions recorded to 209. The Figure: \ref{fig:dxcluster_country_barplot} shows a high level breakdown of the most popular countries for which transmissions originated from during the 24 hour period of monitoring. Figure \ref{fig:dxcluster_time_plot} shows this same data broken down by the hour it was collected and finally Figure: \ref{fig:dxcluster_frequency_plot} shows this data broken down by the radio frequency on which the transmission originated. As Figure: \ref{fig:dxcluster_frequency_plot} demonstrates, the majority of signals appear within narrow bands.
+The experiment was run for 24 hours, and during this time, 1984 transmissions were recorded on the \gls{DXCluster}. The data was filtered to only save transmissions originating from European countries, and also filtered further to only contain transmissions within the range being monitored by the SDRT namely 18 MHz - 40 MHz. This reduced the number of transmissions recorded to 209. The Figure: \ref{fig:dxcluster_country_barplot} shows a high level breakdown of the most popular countries for which transmissions originated from during the 24 hour period of monitoring. Figure \ref{fig:dxcluster_time_plot} shows this same data broken down by the hour it was collected and finally Figure: \ref{fig:dxcluster_frequency_plot} shows this data broken down by the radio frequency on which the transmission originated. As Figure: \ref{fig:dxcluster_frequency_plot} demonstrates, the majority of signals appear within narrow bands as is to be expected, as amateur radio enthusiasts operate in bands such as the 10M band for instance which corresponds with a frequency range of 28.000 MHz - 29.700 MHz, and then within channels inside this range.
 
 %
 \begin{figure}	
@@ -1241,7 +1250,7 @@ The experiment was run for 24 hours, and during this time, 1984 transmissions we
 		\includegraphics[width=5cm]{images/70}
 		\caption{European signals within monitored frequency range}\label{fig:dxcluster_frequency_plot}
 	\end{subfigure}
-	\caption{Blitzortung data}\label{dxcluster_data}
+	\caption{DXCluster data}\label{dxcluster_data}
 \end{figure}
 %
 
@@ -1337,11 +1346,11 @@ The following methodology was followed during this experiment:
 \section*{Capturing DAM Emissions with the RTL2832 DAB SDR}
 \addcontentsline{toc}{section}{Capturing DAM Emissions with the RTL2832 DAB SDR}
 
-The Radio Jupiter Pro tool was used to choose a date which was optimal for capturing \gls{DAM} emissions. The Figure: \ref{fig:gqrx_spectrogram_01}, was generated by taking a screen capture of the GQRX tool while connected to the HackRF \gls{SDR} transceiver. The data was recorded at a bandwidth of 3MHz for an estimated 2 minutes. The multiple short wide bandwidth bursts are possibly instances of Jovian storm L-Bursts. This spectrogram is a very narrow window considering the capabilities of the HackRF device which has a maximum bandwidth of 20MHz. Unfortunately the HackRF is limited by the USB transfer speeds of the host computer, and the observations were recorded on a machine with USB 2.0, which prevented data being collected at larger bandwidths. Being limited to 2 minutes per screen capture is potentially of little value in hunting for \gls{DAM} emissions. Ideally a spectrogram plot of several hours is required.
+The Radio Jupiter Pro tool was used to choose a date which was optimal for capturing \gls{DAM} emissions. The Figure: \ref{fig:gqrx_spectrogram_01}, was generated by taking a screen capture of the GQRX tool while connected to the HackRF \gls{SDR} transceiver. The data was recorded at a bandwidth of 3MHz for an estimated 2 minutes. The multiple short wide bandwidth bursts are possibly instances of Jovian storm L-Bursts. This spectrogram is a very narrow window considering the capabilities of the HackRF device which has a maximum bandwidth of 20MHz. Unfortunately the HackRF is limited by the USB transfer speeds of the host computer, and the observations were recorded on a machine with USB 2.0, which prevented data being collected at larger bandwidths. Being limited to 2 minutes per screen capture is potentially of little value in hunting for \gls{DAM} emissions, as Jovian storms may occur over several hours. Ideally a spectrogram plot generated from 24 hours worth of data is required.
 
 Due to its recent release there is currently no tools available which are capable of interfacing with the HackRF \gls{SDR} transceiver in order to generate a spectrogram plot from saved data. This speed limitation along with the lack of tooling, raised the possibility of using other devices. The first option being the RTL line of DAB TV receivers which are known to make reasonable \gls{SDR} receivers, and have a wide selection of tooling already developed. The \textit{rtl\_power} utility is shipped with the firmware required to operate the \gls{SDR} receiver and is capable of collecting power data over long periods of time with the view to generate spectrogram plots at a later point. One such tool is the \textit{heatmap.py} utility which is designed to take the output from rtl\_power and produce large bandwidth long period spectrogram plots \citep{keen-15}. This was ideal for the purpose of hunting for \gls{DAM} emissions.
 
-The RTL based receivers have a similar operating range to the HackRF and align somewhat closely with the requirements to pick up \gls{DAM} emissions from Jupiter \citep{hamradioscience-12}. Table: \ref{tab:rtl_vs_hackrf} lists the operating ranges of both the HackRF and also the RTL DAB receiver. The RTL DAB receiver operates at 24MHz at the lower end of its operational range. This is still well within the 7MHz - 40MHz range of Jovian \gls{DAM} emissions, but it is just outside the ideal range recommended by NASA's Radio Jove documentation of 20.1 MHz \citep{nasa12}. The RTL device has a narrow maximum bandwidth of 2MHz, however this is potentially not such an issue, as rtl\_power is designed to quickly retune the receiver and take a power reading to enable the sampling of large bandwidths.
+The RTL based receivers have a similar operating range to the HackRF and align somewhat closely with the requirements to pick up \gls{DAM} emissions from Jupiter \citep{hamradioscience-12}. Table: \ref{tab:rtl_vs_hackrf} lists the operating ranges of both the HackRF and also the RTL DAB receiver. The RTL DAB receiver operates at 24MHz at the lower end of its operational range. This is still well within the 7MHz - 40MHz range of Jovian \gls{DAM} emissions, but it is just outside the ideal range recommended by NASA's Radio Jove documentation of 20.1 MHz \citep{nasa12}. The RTL device has a narrow maximum bandwidth of 2MHz, however this is potentially not such an issue, as rtl\_power is designed to quickly retune the receiver and take a power reading to enable the sampling of large bandwidths. The retuning of the RTL receiver in order to take a power sample is not instant. It can take several seconds to take a single reading for a large bandwidth so this should be taken into account \citep{keen-15}.
 
 %
 \begin{table}
@@ -1368,7 +1377,7 @@ The following methodology was followed during this experiment:
 	\item A spectrogram was generated using the heatmap.py utility from data collected in the previous 24 hours
 \end{enumerate}
 
-
+The plots shown in Figures: \ref{fig:rtl_power_spectrogram} and Figures: \ref{fig:rtl_power_spectrogram_dam} show possible instances of \gls{DAM} emissions captured using the RTL receiver over extended recording sessions of 24 hours. In Figures: \ref{fig:rtl_power_spectrogram_02} and  \ref{fig:rtl_power_spectrogram_03}, it is possible to see the interference from amateur radio signals while Figures: \ref{fig:rtl_power_spectrogram_dam} also show the extra noise and interference generated by the Sun when it is above the horizon and crosses into the antenna beam.
 
 
 
@@ -1606,7 +1615,7 @@ The contributions to research knowledge which are anticipated are listed as foll
 A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
 
 
-%TODO Future Work re RQ2
+%TODO Future Work
 It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
 
 
@@ -1654,15 +1663,6 @@ It is envisioned the time and frequency values associated with this data related
 		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}\label{fig:loop_antenna_design_c}
 	\end{subfigure}
 	\caption{21MHz Shortwave Loop Design}\label{fig:loop_antenna_design}
-\end{figure}
-%
-
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/32}
-\caption{Dual Dipole Antenna Deployment}
-\label{fig:dual_dipole_deployed}
 \end{figure}
 %
 
