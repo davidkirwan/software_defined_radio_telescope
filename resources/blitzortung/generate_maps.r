@@ -3,7 +3,7 @@
 # @description R script to generate lightning strike plots from data collected on the blitzortung
 #              cluster.
 #
-# @usage ruby generate_maps.r
+# @usage Rscript generate_maps.r
 #
 # @date 2015-08-03
 ####################################################################################################
