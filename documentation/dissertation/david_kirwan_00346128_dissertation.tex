@@ -1480,7 +1480,7 @@ Figures: \ref{fig:kuisma-iq-helix} and \ref{fig:signal_modulation} shows how a s
 \end{figure}
 %
 
-\citet{nelson-15} implemented a total power radiometer within software as part of a M.Sc thesis. The equation listed in Figure: \ref{fig:power_formula} has been implemented in a GNURadio flow-graph. The functionality of the total power meter provides the means to measure a chunk of bandwidth from a sample and produce a total noise power value which can then be plotted or used elsewhere within a larger GNURadio flow-graph.
+\citet{nelson-15} implemented a total power radiometer within software as part of a M.Sc thesis. The equation listed in Figure: \ref{fig:power_formula} has been implemented in a GNURadio flow-graph. The functionality of a radiometer or total power meter provides the means to measure a chunk of bandwidth from a sample and produce a total noise power value which can then be plotted or used elsewhere within a larger GNURadio flow-graph.
 
 %
 \begin{figure}[!htb]
@@ -1513,7 +1513,7 @@ The Figure: \ref{fig:radio_skypipe_power_plot} shows a voltage power graph gener
 
 This flow-graph provided the means to isolate and measure the power for individual bands of frequency while ignoring frequencies outside this range. This flow-graph (Figure: \ref{fig:gnuradio_companion_flowgraph_05}) was then upgraded to incorporate the total power meter as seen in Figure: \ref{fig:gnuradio_companion_flowgraph_04}. It is possible to capture live power data within a frequency band directly from a osmocom source such as the HackRF, or alternatively from previously recorded data. 
 
-A power graph was generated from I/Q data collected during the 20th March 2015 for the solar eclipse radio propagation experiment. The plot shows the power rise as the eclipse reaches max totality and can be seen in Figure: \ref{fig:gnuradio_companion_flowgraph_06}.
+A power graph was generated from I/Q data collected during the 20th March 2015 for the solar eclipse radio propagation experiment. The plot shows the signal power (V) rise as the eclipse reaches max totality and can be seen in Figure: \ref{fig:gnuradio_companion_flowgraph_06}, which compliments the previously generated signal power (dB) plot shown in Figure: \ref{fig:signal_power_v_time_radio_propagation}.
 
 
 %
@@ -1522,28 +1522,28 @@ A power graph was generated from I/Q data collected during the 20th March 2015 f
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/21}
-		\caption{Spectrogram 10th July 2015}
+		\caption{Prototype flow-graph to generate test signals and filter frequencies}
 		\label{fig:gnuradio_companion_flowgraph_01} 
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/22}
-		\caption{Spectrogram 25th June 2015}
+		\caption{Test signal FFT plot}
 		\label{fig:gnuradio_companion_flowgraph_02} 
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/23}
-		\caption{Spectrogram 24th June 2015}
+		\caption{Filtered test signal FFT plot}
 		\label{fig:gnuradio_companion_flowgraph_03} 
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/76}
-		\caption{Spectrogram 23rd June 2015}
+		\caption{Solar eclipse signal filtered to isolate radio station}
 		\label{fig:gnuradio_companion_flowgraph_04} 
 	\end{subfigure}
 	\quad
@@ -1551,7 +1551,7 @@ A power graph was generated from I/Q data collected during the 20th March 2015 f
 	\begin{subfigure}[t]{8cm}
 		\centering
 		\includegraphics[width=8cm]{images/85}
-		\caption{GNURadio flow-graph to plot total power for a band of frequency}
+		\caption{Flow-graph incorporating filtering and total power meter capability}
 		\label{fig:gnuradio_companion_flowgraph_05}
 	\end{subfigure}
 	%
@@ -1559,10 +1559,11 @@ A power graph was generated from I/Q data collected during the 20th March 2015 f
 	\begin{subfigure}[t]{8cm}
 		\centering
 		\includegraphics[width=8cm]{images/75}
-		\caption{Spectrogram 23rd June 2015}
+		\caption{Total power (V) plotted against time for radio station recorded during solar eclipse}
 		\label{fig:gnuradio_companion_flowgraph_06} 
 	\end{subfigure}
-	\caption{GNURadio flow-graphs to generate power total power plots from saved data}\label{fig:gnuradio_companion_flowgraph}
+	\caption{GNURadio flow-graphs to generate total power plots from saved data}
+	\label{fig:gnuradio_companion_flowgraph}
 \end{figure}
 %
 
@@ -1637,6 +1638,8 @@ It is envisioned the time and frequency values associated with this data related
 
 
 To produce a system as complex as rtl\_power is not feasible within the scope of this dissertation, however it
+
+In order to use the radiometer for radio astronomical applications it would first need to be calibrated against known sources to convert power readings to signal intensity measured in Kelvins \citep{nrao-10}.
 
 %
 \appendix
@@ -1725,6 +1728,15 @@ To produce a system as complex as rtl\_power is not feasible within the scope of
 	\includegraphics[width=8cm]{images/41}
 	\caption{Partial Solar Eclipse 20th March 2015 \citep{eclipse-15}}
 	\label{fig:solar_eclipse_scale}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+	\centering
+	\includegraphics[width=8cm]{images/86}
+	\caption{SDRT Dual Dipole Antenna Design based on NASA RadioJove}
+	\label{fig:sdrt_antenna_design}
 \end{figure}
 %
 

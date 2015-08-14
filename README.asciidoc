@@ -1,4 +1,5 @@
 == Software Defined Radio Telescope ==
 A software defined radio telescope developed as part of my dissertation during a MSc in Computing degree at the link:http://www.wit.ie[Waterford Institute of Technology], Ireland.
 
+image::http://davidkirwan.github.io/software_defined_radio_telescope/images/antenna_design.png[SDRT Antenna Design]
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/poster.png[SDRT Poster]
