@@ -1088,6 +1088,8 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 \addcontentsline{toc}{section}{Determine SDRT Computational Power Requirements}
 The aim of this experiment was to determine the minimal hardware which was computationally capable of collecting data, while  performing any data analytical or processing tasks required by the system.
 
+%TODO RQ2,2 power edit
+
 \subsection*{Methodology}
 The following platforms were chosen for testing purposes as they initially appear to meet or exceed the minimum requirements of operating \textit{rtl\_power} while also building spectrograms from the recorded data using \textit{heatmap.py}:
 
@@ -1334,8 +1336,6 @@ The following methodology was followed during this experiment:
 % Chapter for each research question
 % how we validated it and proved it worked
 
-%TODO RQ3
-
 \textit{What \gls{SDR} tools, processes and or algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
 
 \begin{itemize}
@@ -1465,7 +1465,7 @@ The plots shown in Figures: \ref{fig:rtl_power_spectrogram} and Figures: \ref{fi
 \section*{Implementing a HackRF Compatible Flow-Graph in GNURadio}
 \addcontentsline{toc}{section}{Implementing a HackRF Compatible Flow-Graph in GNURadio}
 
-As mentioned previously there is currently no existing tool which is capable of generating spectrogram plots using a HackRF transceiver from previously saved data. In order to rectify this, the method of generating spectrograms was investigated. To generate a spectrogram the digital signal is broken up into chunks of the original bandwidth, and measured using a total power meter. It is not possible to measure the power at an individual frequency, a band of frequencies must be measured instead \citep{keen-15}.
+As mentioned previously there is currently no existing tool which is capable of generating spectrogram plots using a HackRF transceiver from previously saved data. In order to rectify this, the methods of generating spectrograms was investigated. One method requires that the digital signal is broken up into chunks of the original bandwidth, and measured using a total power meter. It is not possible to measure the power at an individual frequency, a band of frequencies must be measured instead \citep{keen-15}.
 
 Figures: \ref{fig:kuisma-iq-helix} and \ref{fig:signal_modulation} shows how a signal is stored digitally once sampled as an I/Q plot. Each data point stored contains the in phase component and the quadrature phase component. The equation shown in Figure: \ref{fig:power_formula} can be used in order to calculate the total noise power from such a I/Q digital sample \citep{nelson-15}.
 
@@ -1473,7 +1473,7 @@ Figures: \ref{fig:kuisma-iq-helix} and \ref{fig:signal_modulation} shows how a s
 \begin{figure}[here]
 	\centering
 	\begin{equation}
-	power = I^2 + Q^2
+	Power = I^2 + Q^2
 	\end{equation}
 	\caption{Converting in-phase and quadrature-phase to power values}
 	\label{fig:power_formula}
@@ -1486,8 +1486,17 @@ Figures: \ref{fig:kuisma-iq-helix} and \ref{fig:signal_modulation} shows how a s
 \begin{figure}[!htb]
 	\centering
 	\includegraphics[width=8cm]{images/17}
-	\caption{Total Power Meter Implemented in Gnuradio \citep{nelson-15}}
-	\label{fig:sdr_square_law_detector} 
+	\caption{Total Power Meter Implemented in GNURadio \citep{nelson-15}}
+	\label{fig:sdr_total_power_meter} 
+\end{figure}
+%
+
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=8cm]{images/18}
+	\caption{Radio Skypipe Software Power Plot \citep{rsp-15}}
+	\label{fig:radio_skypipe_power_plot}
 \end{figure}
 %
 
@@ -1500,21 +1509,11 @@ The following methodology was followed during this experiment:
 	\item Design a GNURadio flow-graph which incorporates the total power meter in order to produce a power plot
 \end{enumerate}
 
-Traditional hardware radiometers, split the input signal into smaller parts using filter banks
+The Figure: \ref{fig:radio_skypipe_power_plot} shows a voltage power graph generated using the Radio Skypipe software \cite{rsp-15}. Such a graph can be produced by measuring the power from a band of frequency and plotting the values against time. A prototype GNURadio flow-graph (Figure: \ref{fig:gnuradio_companion_flowgraph_01}) was designed which generates a test signal as seen in Figure: \ref{fig:gnuradio_companion_flowgraph_02}. This signal was then passed through a bandpass filter, which removes signals outside the permitted frequency range, the result of which can be seen in Figure: {\ref{fig:gnuradio_companion_flowgraph_03}}.
 
- the signal being measured can be split up into small chunks using bandpass filters
+This flow-graph provided the means to isolate and measure the power for individual bands of frequency while ignoring frequencies outside this range. This flow-graph (Figure: \ref{fig:gnuradio_companion_flowgraph_05}) was then upgraded to incorporate the total power meter as seen in Figure: \ref{fig:gnuradio_companion_flowgraph_04}. It is possible to capture live power data within a frequency band directly from a osmocom source such as the HackRF, or alternatively from previously recorded data. 
 
-
-%
-\begin{figure}[!htb]
-	\centering
-	\includegraphics[width=8cm]{images/18}
-	\caption{Radio Skypipe Software Power Plot \citep{rsp-15}}
-	\label{fig:radio_skypipe_power_plot}
-\end{figure}
-%
-
-
+A power graph was generated from I/Q data collected during the 20th March 2015 for the solar eclipse radio propagation experiment. The plot shows the power rise as the eclipse reaches max totality and can be seen in Figure: \ref{fig:gnuradio_companion_flowgraph_06}.
 
 
 %
@@ -1548,24 +1547,33 @@ Traditional hardware radiometers, split the input signal into smaller parts usin
 		\label{fig:gnuradio_companion_flowgraph_04} 
 	\end{subfigure}
 	\quad
+	%
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/85}
+		\caption{GNURadio flow-graph to plot total power for a band of frequency}
+		\label{fig:gnuradio_companion_flowgraph_05}
+	\end{subfigure}
+	%
+	\quad
 	\begin{subfigure}[t]{8cm}
 		\centering
 		\includegraphics[width=8cm]{images/75}
 		\caption{Spectrogram 23rd June 2015}
-		\label{fig:gnuradio_companion_flowgraph_05} 
+		\label{fig:gnuradio_companion_flowgraph_06} 
 	\end{subfigure}
-	\caption{24MHz - 40MHz Spectrograms of rtl\_power data plotted using heatmap.py}\label{fig:gnuradio_companion_flowgraph}
+	\caption{GNURadio flow-graphs to generate power total power plots from saved data}\label{fig:gnuradio_companion_flowgraph}
 \end{figure}
 %
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-\newpage
-\chapter*{Software 1}
-\addcontentsline{toc}{chapter}{Software 1}
+%\newpage
+%\chapter*{Software 1}
+%\addcontentsline{toc}{chapter}{Software 1}
 
-Chapter for each software we produced how we validated it and proved it worked tools and methodologies we used
+%Chapter for each software we produced how we validated it and proved it worked tools and methodologies we used
 
 
 %
@@ -1582,15 +1590,10 @@ Chapter for each software we produced how we validated it and proved it worked t
 %  \item further work
 %\end{itemize}
 
-There is a large amount of complexity involved in digital signal processing and the various techniques used to manipulate collected signals. This became apparent early during the literature review. An automated system which can automatically identify instances of Jovian \gls{DAM} emissions would require some form of machine learning and this increases the complexity further.
+%TODO Conclusions
 
-Many websites dedicated to education and distance learning offer free 3rd level courses in topics related to those covered during this thesis. Coursera in particular offers a class on machine learning and a range of others in the fields of mathematics and even digital signal processing. It might prove beneficial to partake in one or more of these classes in the near future. A fully automated signal identification would seem to be far too complex to tackle during the scope of this dissertation, however some rudimentary machine learning techniques might yet prove useful in other areas of the system where decision making is required.
+This thesis presented a contribution to the area of software defined radio
 
-\cite{ossmann-15-a} the developer of the HackRF \gls{SDR}, offers a free course on the fundamentals of software defined radio, related mathematics such as complex number theory, trigonometry and digital signal processing. This has proved most useful in understanding how analogue signals are stored digitally, while also providing the necessary training in the basic principles of how frequency modulation and amplitude modulation for example is performed by a regular radio receiver. 
-
-As a large amount of work on amplitude modulation has already been completed for instance, it might be possible to use techniques for spotting AM signals in order to identify \gls{DAM} emissions. More work is required to understand how this could be achieved, and might ultimately prove beyond the scope of what is achievable before the end of the dissertation.
-
-In this interim report, the initial proposal has been reviewed, and current progress has been documented. At several points corrective modifications have been made to the scope. This ensures it remains possible to make progress within the time available. 
 
 In the initial proposal I conjectured at the potential pitfalls which would befall the project and hinder progress. I was not prepared for the inane problems which have so far caused the most trouble. Examples include the laptop USB ports being too slow to operate the HackRF at higher bandwidths. This forces me to sample at much narrower bandwidths which makes it very difficult to spot \gls{DAM} emissions as they often are bigger than my window of the radio spectrum. Another issue I have encountered so far is the antenna mounting poles are too large to fit in the car. To address this I had to reduce size by 25\%. This has reduced the potential configurations of the telescope to 10 ft, and 15 ft. This results in wasted observation opportunities as Jupiter can be at a point in the sky I cannot aim the telescope at.
 
@@ -1603,9 +1606,11 @@ I am delighted to say I have lost no enthusiasm for the topic, after my experien
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 \newpage
-\section*{Contribution to Research Knowledge Anticipated}
-\addcontentsline{toc}{section}{Contribution to Research Knowledge Anticipated}
+\section*{Contribution to Research Knowledge}
+\addcontentsline{toc}{section}{Contribution to Research Knowledge}
 %A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
+
+%TODO Contributions to Research Knowledge
 
 The contributions to research knowledge which are anticipated are listed as follows:
 
