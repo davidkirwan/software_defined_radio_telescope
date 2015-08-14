@@ -1,5 +1,10 @@
 == Software Defined Radio Telescope ==
 A software defined radio telescope developed as part of my dissertation during a MSc in Computing degree at the link:http://www.wit.ie[Waterford Institute of Technology], Ireland.
 
+=== Antenna Design ===
+The antenna design is a dual dipole antenna which offers 10, 15 or 20ft configurations which offers the means to
+aim the antenna at multiple points in the sky. The system is aided further with the use of phasing cables. For
+more information see the http://radiojove.gsfc.nasa.gov/telescope/ant_manual.pdf[NASA Radio Jove Antenna Manual].
+
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/antenna_design.png[SDRT Antenna Design]
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/poster.png[SDRT Poster]
