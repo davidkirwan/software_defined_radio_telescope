@@ -717,9 +717,12 @@ Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated wi
     Patch Lead & 5.00 \\
     2 $\times$ 4m 5cm Pipe & 15.00 \\
     2 $\times$ 4m 4cm Pipe & 15.00 \\
+    HackRF Transceiver & 315.00 \\
+    RTL DAB Receiver & 25.00 \\
+    MCX-SO239 Adapter & 6.50 \\
     \bottomrule
     \\
-    Total & 134.00
+    Total & 480.00
   \end{tabular}
   \caption{Antenna Build Cost}
   \label{tab:antenna_build_cost}
@@ -729,7 +732,7 @@ Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated wi
 %
 \begin{figure}[here]
 	\centering
-	\includegraphics[width=8cm]{images/32}
+	\includegraphics[width=6cm]{images/32}
 	\caption{Dual Dipole Antenna Deployment}
 	\label{fig:dual_dipole_deployed}
 \end{figure}
@@ -1480,7 +1483,7 @@ Figures: \ref{fig:kuisma-iq-helix} and \ref{fig:signal_modulation} shows how a s
 \end{figure}
 %
 
-\citet{nelson-15} implemented a total power radiometer within software as part of a M.Sc thesis. The equation listed in Figure: \ref{fig:power_formula} has been implemented in a GNURadio flow-graph. The functionality of a radiometer or total power meter provides the means to measure a chunk of bandwidth from a sample and produce a total noise power value which can then be plotted or used elsewhere within a larger GNURadio flow-graph.
+The equation listed in Figure: \ref{fig:power_formula} has been implemented in within a GNURadio flow-graph and contains a software implementation of a total power radiometer \citep{nelson-15}. The functionality of a radiometer or total power meter provides the means to measure a chunk of bandwidth from a sample and produce a total noise power value which can then be plotted or used elsewhere within a larger GNURadio flow-graph.
 
 %
 \begin{figure}[!htb]
@@ -1515,6 +1518,32 @@ This flow-graph provided the means to isolate and measure the power for individu
 
 A power graph was generated from I/Q data collected during the 20th March 2015 for the solar eclipse radio propagation experiment. The plot shows the signal power (V) rise as the eclipse reaches max totality and can be seen in Figure: \ref{fig:gnuradio_companion_flowgraph_06}, which compliments the previously generated signal power (dB) plot shown in Figure: \ref{fig:signal_power_v_time_radio_propagation}.
 
+Radiometers can be used to produce signal intensity plots and thereby detect natural radio emissions such as the Jovian \gls{DAM} emissions, cosmic microwave background and other discrete astronomical sources such as galaxies \citep{nrao-10}. In order to make use of a radiometer attached to the telescope for radio astronomical applications it must first be calibrated. \cite{nelson-15} suggested the use of 3 sources with known temperatures such as liquid nitrogen, ice water and hot water as demonstrated in Figure: \ref{fig:calibrated_radiometer} in order to calibrate the radiometer.
+
+%
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=8cm]{images/87}
+	\caption{Graph of calibrated noise temperature \citep{nelson-15}}
+	\label{fig:calibrated_radiometer}
+\end{figure}
+%
+
+%
+\begin{figure}[here]
+	\centering
+	\begin{equation}
+	k \approx 1.38 \times 10^{-23} Joule K^{-1}
+	\end{equation}
+	\begin{equation}
+	T_N \equiv \frac{P_v}{k}
+	\end{equation}
+	\caption{Converting Power(V) to Temperature(K)}
+	\label{fig:power_to_kelvin_formula}
+\end{figure}
+%
+
+In the formula contained in Figure: \ref{fig:power_to_kelvin_formula}, $k$ is the Boltzmann constant and $T_N$ is the noise temperature. Using this formula it is possible to calculate the noise temperature value (K) for a noise source power value (V) \citep{nrao-10}.
 
 %
 \begin{figure}	
@@ -1638,9 +1667,10 @@ It is envisioned the time and frequency values associated with this data related
 
 Blitzortung client needs to be fleshed out further, however 
 
-To produce a system as complex as rtl\_power is not feasible within the scope of this dissertation, however it
+It was not feasible to produce a system as complex as rtl\_power within the scope of this dissertation, however it might be possible to replicate 
 
-In order to use the radiometer for radio astronomical applications it would first need to be calibrated against known sources to convert power readings to signal intensity measured in Kelvins \citep{nrao-10}.
+Once calibration is complete it would then be possible to take accurate readings for signal intensity using the SDRT system \citep{nrao-10}.
+
 
 %
 \appendix
