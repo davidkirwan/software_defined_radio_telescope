@@ -1622,35 +1622,24 @@ In the formula contained in Figure: \ref{fig:power_to_kelvin_formula}, $k$ is th
 
 %TODO Conclusions
 
-This thesis presented a contribution to the area of software defined radio
+This thesis presented a contribution to the areas of software defined radio and amateur radio astronomy. The hypothesis of this thesis is that it is possible to design and construct a low cost radio telescope which is capable of capturing Jovian storm emissions in the \gls{DAM} range. The chosen antenna design is based on the NASA Radio Jove project while a software defined radio receiver such as the HackRF or RTL DAB system is used in place of the custom hardware offered in the Radio Jove kit. This hypothesis lead to the development of a suite of open source tools and resources which an amateur radio astronomer on a budget might utilise.
 
+Chapter 2 discussed the radio antenna build and the special resources required in order to perform a site suitability survey. An opportunity to be involved in a public radio propagation experiment during the March 2015 solar eclipse aided in the verification of the software defined radio receiver, while the antenna was verified by capturing potential instances of \gls{DAM} emissions were recorded during an optimal observation period.
 
-In the initial proposal I conjectured at the potential pitfalls which would befall the project and hinder progress. I was not prepared for the inane problems which have so far caused the most trouble. Examples include the laptop USB ports being too slow to operate the HackRF at higher bandwidths. This forces me to sample at much narrower bandwidths which makes it very difficult to spot \gls{DAM} emissions as they often are bigger than my window of the radio spectrum. Another issue I have encountered so far is the antenna mounting poles are too large to fit in the car. To address this I had to reduce size by 25\%. This has reduced the potential configurations of the telescope to 10 ft, and 15 ft. This results in wasted observation opportunities as Jupiter can be at a point in the sky I cannot aim the telescope at.
+A process for determining the electrical power requirements of an off grid listening site was discussed in Chapter 3. Appropriate capacity sizing to provide adequate power to run the listening site for extended periods using solar renewable solution to charge batteries was also discussed. The computational and networking requirements were also determined for a system capable of performing the necessary functions of a radio telescope listening station. 
+
+In Chapter 4, the system for flagging occurrences of amateur radio transmissions was developed, it made use of the global DXCluster systems which the amateur radio enthusiast community use to share information regarding transmissions which were observed. A system for flagging occurrences of natural interference from lightning strikes was also developed. The system makes use of data gathered from the Blitzortung global lightning detection system.
+
+Chapter 5 presented the process of generating spectrograms from data recorded using the RTL DAB receiver. Spectrograms provide the means to visualise large portions of the radio spectrum over long periods, in the hope of identifying periods of Jovian storm activity in the \gls{DAM} range. A GNURadio flow-graph was developed in order to generate power plots using a radiometer implemented in \gls{SDR}. Radiometers are used to measure the signal intensity of radio emissions and are a standard tool in the radio astronomer toolbox. 
+
+\section*{Thesis Appraisal}
+\addcontentsline{toc}{section}{Thesis Appraisal}
+
+In the initial proposal I conjectured at the potential pitfalls which would befall the thesis and hinder progress. I was not prepared however for the inane problems which ultimately caused the most trouble. Examples include the laptop USB ports being too slow to operate the HackRF at higher bandwidths. This forced the sampling of much narrower bandwidths which made it very difficult to spot \gls{DAM} emissions as they often are bigger than the window of the radio spectrum. A second troublesome issue encountered was the antenna mounting poles being too large to transport by car. To address this it was necessary to reduce size of the poles by 25\%. This reduced the potential configurations for which the telescope could be set to 10 ft, and 15 ft. This resulted in wasted observation opportunities as Jupiter was at a point in the sky where it was not possible to aim the telescope at.
 
 Nor was I prepared for the complexity of digital signal processing and machine learning. I have taken mathematics refresher courses in order to understand the fundamentals of working with these signals. Several times, I made presumptions that I understood a concept only to discover it was far more complex which then added almost unbounded risk to the project. Due to issues encountered such as these, the scope has been changed drastically. I no longer expect to produce an automated identification algorithm to spot \gls{DAM} emissions in recorded data. I expect an implementation might instead be completed in future work. 
 
 I am delighted to say I have lost no enthusiasm for the topic, after my experiences I am in fact encouraged to continue working on the topic further. I am considering applying to a doctoral program and hope pursue a research career in Astronomy.
-
-
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-\newpage
-\section*{Contribution to Research Knowledge}
-\addcontentsline{toc}{section}{Contribution to Research Knowledge}
-%A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
-
-%TODO Contributions to Research Knowledge
-
-The contributions to research knowledge which are anticipated are listed as follows:
-
-\begin{enumerate}
-  \item A low cost radio telescope listening platform design which Amateur astronomers can use to collaborate on radio astronomical research.
-  \item A rudimentary \gls{SDR} solution to filter or flag human and natural radio interference from observations.
-  \item An \gls{SDR} solution to produce waterfall spectrogram diagrams with interference sources flagged in an overlay.
-  \item Jovian and or Solar radio emissions such as those listed in Table: \ref{tab:dam_emissions} may become apparent when a large bandwidth and long period spectrogram is created.
-\end{enumerate} 
-
 
 
 %
