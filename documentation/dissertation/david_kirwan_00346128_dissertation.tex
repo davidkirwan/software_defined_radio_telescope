@@ -342,11 +342,23 @@ During daylight hours, the ionosphere becomes opaque to signals in the \gls{DAM}
 
 
 %
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/09}
-\caption{Dual Dipole Antenna Array Beam\citep{nasa12}}
-\label{fig:dual_dipole_antenna_array_beam}
+\begin{figure}	
+	\centering
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/09}
+		\caption{Dual Dipole Antenna Array Beam \citep{nasa12}}
+		\label{fig:dual_dipole_antenna_array_beam}	
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{5cm}
+		\centering
+		\includegraphics[width=5cm]{images/11}
+		\caption{Radio Jove graph showing Jupiter's max altitude 2014 \citep{rjp-14}}
+		\label{fig:jupiter_max_altitude_2014}
+	\end{subfigure}
+	\caption{Dipole antenna characteristics and Jupiter's altitude}
+	\label{fig:dipole_beam_jupiter_altitude}
 \end{figure}
 %
 
@@ -416,28 +428,9 @@ The section aims to provide a summary of the methodologies which will be followe
     \end{itemize}
 \end{description}
 
+%TODO tidy up hypothesis
+
 The \gls{SDR} hardware transceiver used is likely to be the \textit{HackRF} system while the \gls{SDR} software components will be developed in either \textit{C++} or \textit{Python} as both languages have bindings for the \textit{GNURadio} development tool-kit \citep{gnuradio-14}. The backend aggregation system with API will most likely be developed in the \textit{Ruby} language as this language is highly expressive and suitable for rapid prototype development. Execution of the Ruby application on the Java VM is capable using the \textit{JRuby} system, which will also allow the incorporation of any required Java libraries.
-
-
-\subsection*{Potential Pitfalls}
-%Predecisions on how I want to collect data, creating the research questions
-
-It is difficult to determine at this early stage what will ultimately prove to be the most troublesome element to implement, however there are a number of potential pitfalls which have already been identified.
-
-%
-\begin{figure}[here]
-\centering
-\includegraphics[width=8cm]{images/11}
-\caption{Radio Jove graph showing Jupiter's max altitude 2014 \citep{rjp-14}}
-\label{fig:jupiter_max_altitude_2014}
-\end{figure}
-%
-
-The latitude of Ireland is 53.3$^{\circ}$ degrees N. In Ireland Jupiter reaches a maximum altitude of 52$^{\circ}$ degrees in 2014 see Figure. \ref{fig:jupiter_max_altitude_2014}. The telescope configuration which will be documented will apply only to locations at this or a similar latitude. It will be universally applicable at this latitude without modification throughout the world, and with relatively minor modifications to the configuration of the antenna it can be used at all locations. \cite{nasa12}
-
-The \gls{SDR} complexity of the solution required in order to correctly filter interference might ultimately prove too resource intensive to work with a low power system such as the \textit{Raspberry Pi} or \textit{Beaglebone Black}. It might become apparent that the minimum system requirements may need to be increased to an \textit{Intel Atom} powered Netbook for example, or potentially something a lot more powerful such as an \textit{i3} or \textit{i5} system. If this was the case, it will drastically increase the power and cost requirements of the system should it be self sufficient, requiring bigger batteries, more capable/expensive photovoltaic and or wind turbines to keep the system topped up.
-
-
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -738,6 +731,8 @@ Table: \ref{tab:antenna_build_cost} gives a breakdown of the costs associated wi
 \end{figure}
 %
 
+%TODO Compare costs
+
 \newpage
 \section*{Listening Site Suitability}
 \addcontentsline{toc}{section}{Listening Site Suitability}
@@ -870,12 +865,25 @@ Reliable tuning proved a problem below 10MHz, when the HackRF was was power cycl
 
 The HackRF also appears to be quite deaf without maxing the IF and \gls{RF} amplifiers. While this could be solved by adding a \gls{preamp} at the antenna, such a step would also increase the level of background noise which might defeat the purpose.
 
+
 %
-\begin{figure}[here]
+\begin{figure}	
 	\centering
-	\includegraphics[width=8cm]{images/67}
-	\caption{Plot of signal power vs time during 20th March 2015 solar eclipse}
-	\label{fig:signal_power_v_time_radio_propagation}
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/67}
+		\caption{Plot of signal power vs time}
+		\label{fig:signal_power_v_time_radio_propagation}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{8cm}
+		\centering
+		\includegraphics[width=8cm]{images/88}
+		\caption{Solar eclipse totality progress}
+		\label{fig:solar_eclipse_totality_plot}
+	\end{subfigure}
+	\caption{20th March 2015 solar eclipse}
+	\label{fig:solar_eclipse_20_march_2015}
 \end{figure}
 %
 
@@ -902,15 +910,18 @@ There are many open source software tools such as rtl\_power, simple\_ra and hea
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/54}
-		\caption{\gls{DAM} emissions picked up during an IO-A storm}\label{fig:dam_emissions_io_a_april_23}
+		\caption{\gls{DAM} emissions picked up during an IO-A storm}
+		\label{fig:dam_emissions_io_a_april_23}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/55}
-		\caption{Radio Spectrogram Diagram \citep{superkuh-15}}\label{fig:wide_radio_spectrogram}
+		\caption{Radio Spectrogram Diagram \citep{superkuh-15}}
+		\label{fig:wide_radio_spectrogram}
 	\end{subfigure}
-	\caption{DAM Emissions}\label{fig:jupiter_dam}
+	\caption{DAM Emissions}
+	\label{fig:jupiter_dam_emissions}
 \end{figure}
 %
 
@@ -984,21 +995,25 @@ The power usage of each system was measured using a power meter and the results 
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/59}
-		\caption{SDRT Power Usage Raspberry Pi B+}\label{fig:sdrt_power_usage_pi_b}		
+		\caption{SDRT Power Usage Raspberry Pi B+}
+		\label{fig:sdrt_power_usage_pi_b}		
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/60}
-		\caption{SDRT Power Usage Raspberry Pi B2}\label{fig:sdrt_power_usage_pi_b2}
+		\caption{SDRT Power Usage Raspberry Pi B2}
+		\label{fig:sdrt_power_usage_pi_b2}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/61}
-		\caption{SDRT Power Usage Intel Atom N550}\label{fig:sdrt_power_usage_atom_n55}
+		\caption{SDRT Power Usage Intel Atom N550}
+		\label{fig:sdrt_power_usage_atom_n55}
 	\end{subfigure}
-	\caption{DAM Emissions}\label{fig:jupiter_dam}
+	\caption{DAM Emissions}
+	\label{fig:jupiter_dam}
 \end{figure}
 %
 
@@ -1047,21 +1062,25 @@ Figure: \ref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hour
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/64}
-		\caption{Load vs Battery Capacity Plot}\label{fig:lineplot_load_battery_capacity}		
+		\caption{Load vs Battery Capacity Plot}
+		\label{fig:lineplot_load_battery_capacity}		
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/66}
-		\caption{Average Hours of Sunshine per Day in Waterford}\label{fig:barplot_hours_sunshine_waterford}
+		\caption{Average Hours of Sunshine per Day in Waterford}
+		\label{fig:barplot_hours_sunshine_waterford}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/65}
-		\caption{Size of Solar Panel Required to Charge 100Ah Battery in Hours}\label{fig:lineplot_solar_panel_battery_capacity_hours}
+		\caption{Size of Solar Panel Required to Charge 100Ah Battery in Hours}
+		\label{fig:lineplot_solar_panel_battery_capacity_hours}
 	\end{subfigure}
-	\caption{Solar Plots}\label{fig:solar_plots}
+	\caption{Solar Plots}
+	\label{fig:solar_plots}
 \end{figure}
 %
 
@@ -1241,21 +1260,25 @@ The experiment was run for 24 hours, and during this time, 1984 transmissions we
 	\begin{subfigure}[t]{8cm}
 		\centering
 		\includegraphics[width=5cm]{images/68}
-		\caption{Top European countries represented in 24 hours}\label{fig:dxcluster_country_barplot}		
+		\caption{Top European countries represented in 24 hours}
+		\label{fig:dxcluster_country_barplot}		
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/69}
-		\caption{Time European signals occurred}\label{fig:dxcluster_time_plot}		
+		\caption{Time European signals occurred}
+		\label{fig:dxcluster_time_plot}		
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/70}
-		\caption{European signals within monitored frequency range}\label{fig:dxcluster_frequency_plot}
+		\caption{European signals within monitored frequency range}
+		\label{fig:dxcluster_frequency_plot}
 	\end{subfigure}
-	\caption{DXCluster data}\label{dxcluster_data}
+	\caption{DXCluster data}
+	\label{fig:dxcluster_data}
 \end{figure}
 %
 
@@ -1317,15 +1340,18 @@ The following methodology was followed during this experiment:
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/73}
-		\caption{Lightning Strikes Above Europe}\label{fig:blitzortung_europe_plot}		
+		\caption{Lightning Strikes Above Europe}
+		\label{fig:blitzortung_europe_plot}		
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/74}
-		\caption{Strikes \textgreater 1000km filtered}\label{fig:blitzortung_europe_plot_filtered}
+		\caption{Strikes \textgreater 1000km filtered}
+		\label{fig:blitzortung_europe_plot_filtered}
 	\end{subfigure}
-	\caption{Blitzortung data}\label{blitzortung_europe_plot_both}
+	\caption{Blitzortung data}
+	\label{fig:blitzortung_europe_plot_both}
 \end{figure}
 %
 
@@ -1382,9 +1408,6 @@ The following methodology was followed during this experiment:
 
 The plots shown in Figures: \ref{fig:rtl_power_spectrogram} and Figures: \ref{fig:rtl_power_spectrogram_dam} show possible instances of \gls{DAM} emissions captured using the RTL receiver over extended recording sessions of 24 hours. In Figures: \ref{fig:rtl_power_spectrogram_02} and  \ref{fig:rtl_power_spectrogram_03}, it is possible to see the interference from amateur radio signals while Figures: \ref{fig:rtl_power_spectrogram_dam} also show the extra noise and interference generated by the Sun when it is above the horizon and crosses into the antenna beam. Using both the rtl\_power and heatmap.py utilities, it seems feasible to capture \gls{DAM} emissions on a spectrogram.
 
-%TODO RQ3,1
-% could write another paragraph maybe
-
 %
 \begin{figure}
 	\centering
@@ -1424,7 +1447,8 @@ The plots shown in Figures: \ref{fig:rtl_power_spectrogram} and Figures: \ref{fi
 	\end{subfigure}
 	\quad
 
-	\caption{24MHz - 28MHz Spectrograms of rtl\_power data plotted using heatmap.py}\label{fig:rtl_power_spectrogram}
+	\caption{24MHz - 28MHz Spectrograms of rtl\_power data plotted using heatmap.py}
+	\label{fig:rtl_power_spectrogram}
 \end{figure}
 %
 
@@ -1459,7 +1483,8 @@ The plots shown in Figures: \ref{fig:rtl_power_spectrogram} and Figures: \ref{fi
 		\label{fig:rtl_power_spectrogram_08} 
 	\end{subfigure}
 	\quad
-	\caption{24MHz - 40MHz Spectrograms of rtl\_power data plotted using heatmap.py}\label{fig:rtl_power_spectrogram_dam}
+	\caption{24MHz - 40MHz Spectrograms of rtl\_power data plotted using heatmap.py}
+	\label{fig:rtl_power_spectrogram_dam}
 \end{figure}
 %
 
@@ -1512,7 +1537,7 @@ The following methodology was followed during this experiment:
 	\item Design a GNURadio flow-graph which incorporates the total power meter in order to produce a power plot
 \end{enumerate}
 
-The Figure: \ref{fig:radio_skypipe_power_plot} shows a voltage power graph generated using the Radio Skypipe software \cite{rsp-15}. Such a graph can be produced by measuring the power from a band of frequency and plotting the values against time. A prototype GNURadio flow-graph (Figure: \ref{fig:gnuradio_companion_flowgraph_01}) was designed which generates a test signal as seen in Figure: \ref{fig:gnuradio_companion_flowgraph_02}. This signal was then passed through a bandpass filter, which removes signals outside the permitted frequency range, the result of which can be seen in Figure: {\ref{fig:gnuradio_companion_flowgraph_03}}.
+The Figure: \ref{fig:radio_skypipe_power_plot} shows a voltage power graph generated using the Radio Skypipe software \citep{rsp-15}. Such a graph can be produced by measuring the power from a band of frequency and plotting the values against time. A prototype GNURadio flow-graph (Figure: \ref{fig:gnuradio_companion_flowgraph_01}) was designed which generates a test signal as seen in Figure: \ref{fig:gnuradio_companion_flowgraph_02}. This signal was then passed through a bandpass filter, which removes signals outside the permitted frequency range, the result of which can be seen in Figure: {\ref{fig:gnuradio_companion_flowgraph_03}}.
 
 This flow-graph provided the means to isolate and measure the power for individual bands of frequency while ignoring frequencies outside this range. This flow-graph (Figure: \ref{fig:gnuradio_companion_flowgraph_05}) was then upgraded to incorporate the total power meter as seen in Figure: \ref{fig:gnuradio_companion_flowgraph_04}. It is possible to capture live power data within a frequency band directly from a osmocom source such as the HackRF, or alternatively from previously recorded data. 
 
@@ -1529,21 +1554,6 @@ Radiometers can be used to produce signal intensity plots and thereby detect nat
 \end{figure}
 %
 
-%
-\begin{figure}[here]
-	\centering
-	\begin{equation}
-	k \approx 1.38 \times 10^{-23} Joule K^{-1}
-	\end{equation}
-	\begin{equation}
-	T_N \equiv \frac{P_v}{k}
-	\end{equation}
-	\caption{Converting Power(V) to Temperature(K)}
-	\label{fig:power_to_kelvin_formula}
-\end{figure}
-%
-
-In the formula contained in Figure: \ref{fig:power_to_kelvin_formula}, $k$ is the Boltzmann constant and $T_N$ is the noise temperature. Using this formula it is possible to calculate the noise temperature value (K) for a noise source power value (V) \citep{nrao-10}.
 
 %
 \begin{figure}	
@@ -1620,46 +1630,87 @@ In the formula contained in Figure: \ref{fig:power_to_kelvin_formula}, $k$ is th
 %  \item further work
 %\end{itemize}
 
-%TODO Conclusions
 
-This thesis presented a contribution to the areas of software defined radio and amateur radio astronomy. The hypothesis of this thesis is that it is possible to design and construct a low cost radio telescope which is capable of capturing Jovian storm emissions in the \gls{DAM} range. The chosen antenna design is based on the NASA Radio Jove project while a software defined radio receiver such as the HackRF or RTL DAB system is used in place of the custom hardware offered in the Radio Jove kit. This hypothesis lead to the development of a suite of open source tools and resources which an amateur radio astronomer on a budget might utilise.
+This thesis presented a contribution to the use of software defined radio within amateur radio astronomy. The hypothesis of this thesis is that it is possible to design and construct a low cost radio telescope which is capable of capturing Jovian storm emissions in the \gls{DAM} frequency range. The chosen antenna design is based on the NASA Radio Jove project while a software defined radio receiver such as the HackRF or RTL DAB system is used in place of the custom hardware offered in the Radio Jove kit. This hypothesis lead to the development of a suite of open source tools and resources which an amateur radio astronomer on a budget might utilise.
 
-Chapter 2 discussed the radio antenna build and the special resources required in order to perform a site suitability survey. An opportunity to be involved in a public radio propagation experiment during the March 2015 solar eclipse aided in the verification of the software defined radio receiver, while the antenna was verified by capturing potential instances of \gls{DAM} emissions were recorded during an optimal observation period.
+The research questions presented in Chapter 1 and how they were answered in the thesis are now reviewed.
 
-A process for determining the electrical power requirements of an off grid listening site was discussed in Chapter 3. Appropriate capacity sizing to provide adequate power to run the listening site for extended periods using solar renewable solution to charge batteries was also discussed. The computational and networking requirements were also determined for a system capable of performing the necessary functions of a radio telescope listening station. 
+\textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a software defined radio signal listening station and how cheaply can it be created?}
 
-In Chapter 4, the system for flagging occurrences of amateur radio transmissions was developed, it made use of the global DXCluster systems which the amateur radio enthusiast community use to share information regarding transmissions which were observed. A system for flagging occurrences of natural interference from lightning strikes was also developed. The system makes use of data gathered from the Blitzortung global lightning detection system.
+This question was partly answered in Chapter 2 the radio antenna build and the special resources required in order to perform a site suitability survey was discussed. An opportunity to be involved in a public radio propagation experiment during the March 2015 solar eclipse aided in the verification of the software defined radio receiver, while the antenna was verified by capturing potential instances of \gls{DAM} emissions were recorded during an optimal observation period.
 
-Chapter 5 presented the process of generating spectrograms from data recorded using the RTL DAB receiver. Spectrograms provide the means to visualise large portions of the radio spectrum over long periods, in the hope of identifying periods of Jovian storm activity in the \gls{DAM} range. A GNURadio flow-graph was developed in order to generate power plots using a radiometer implemented in \gls{SDR}. Radiometers are used to measure the signal intensity of radio emissions and are a standard tool in the radio astronomer toolbox. 
+Other aspects of this question was answered in Chapter 3. A process for determining the electrical power requirements of an off grid listening site was discussed in Chapter 3. Appropriate capacity sizing to provide adequate power to run the listening site for extended periods using solar renewable solution to charge batteries was also discussed. The computational and networking requirements were also determined for a system capable of performing the necessary functions of a radio telescope listening station. 
 
-\section*{Thesis Appraisal}
-\addcontentsline{toc}{section}{Thesis Appraisal}
+\textit{What processes or algorithms need to be developed to filter or flag known instances of human interference from radio signal observations?}
 
-In the initial proposal I conjectured at the potential pitfalls which would befall the thesis and hinder progress. I was not prepared however for the inane problems which ultimately caused the most trouble. Examples include the laptop USB ports being too slow to operate the HackRF at higher bandwidths. This forced the sampling of much narrower bandwidths which made it very difficult to spot \gls{DAM} emissions as they often are bigger than the window of the radio spectrum. A second troublesome issue encountered was the antenna mounting poles being too large to transport by car. To address this it was necessary to reduce size of the poles by 25\%. This reduced the potential configurations for which the telescope could be set to 10 ft, and 15 ft. This resulted in wasted observation opportunities as Jupiter was at a point in the sky where it was not possible to aim the telescope at.
+In Chapter 4, the system for flagging occurrences of amateur radio transmissions was developed, it made use of the global DXCluster systems which the amateur radio enthusiast community use to share information regarding transmissions which were observed. A system for flagging occurrences of natural interference from lightning strikes was also developed. The system makes use of data gathered from the Blitzortung global lightning detection system to identify lightning strikes which occur within a certain range of the listening site.
 
-Nor was I prepared for the complexity of digital signal processing and machine learning. I have taken mathematics refresher courses in order to understand the fundamentals of working with these signals. Several times, I made presumptions that I understood a concept only to discover it was far more complex which then added almost unbounded risk to the project. Due to issues encountered such as these, the scope has been changed drastically. I no longer expect to produce an automated identification algorithm to spot \gls{DAM} emissions in recorded data. I expect an implementation might instead be completed in future work. 
+\textit{What \gls{SDR} tools, processes and or algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
 
-I am delighted to say I have lost no enthusiasm for the topic, after my experiences I am in fact encouraged to continue working on the topic further. I am considering applying to a doctoral program and hope pursue a research career in Astronomy.
-
+Chapter 5 demonstrated the process of generating spectrograms from data recorded using the RTL DAB receiver. Spectrograms provide the means to visualise large portions of the radio spectrum over long periods, in the hope of identifying periods of Jovian storm activity in the \gls{DAM} range. A GNURadio flow-graph was developed in order to generate power plots using a radiometer implemented in \gls{SDR}. Radiometers are used to measure the signal intensity of radio emissions and are a standard tool in the radio astronomer toolbox. A radiometer could be used to find evidence of the \gls{DAM} emissions in data which they might otherwise be invisible.
 
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\newpage
 \section*{Future Work}
 \addcontentsline{toc}{section}{Future Work}
-A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
-
+% A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
 
 %TODO Future Work
-It is envisioned the time and frequency values associated with this data related to human signals, along with the data gathered regarding lightning strikes could be used to generate an overlay for a waterfall spectrogram diagram of the previous 24 hours worth of data collected by the telescope.
+I am delighted to say I have lost no enthusiasm for the topic, after my experience working on this thesis. I am in fact encouraged to continue working on the topic. With development of large radio telescope arrays ongoing and planned for the near future such as the LOFAR and SKA, I am considering applying to a doctoral program with the hopes of pursuing a research career in Astronomy.
 
-Blitzortung client needs to be fleshed out further, however 
+The future work section is broken up into the following research areas:
 
-It was not feasible to produce a system as complex as rtl\_power within the scope of this dissertation, however it might be possible to replicate 
+\subsection*{Filtering Human Signal Interference}
+\addcontentsline{toc}{subsection}{Filtering Human Signal Interference}
 
-Once calibration is complete it would then be possible to take accurate readings for signal intensity using the SDRT system \citep{nrao-10}.
+It is envisioned the time and frequency values associated with this data related to amateur radio enthusiast signals, could be overlaid the spectrogram diagram generated by heatmap.py of the previous 24 hours worth of data collected by the telescope, or potentially in real time as information is collected and processed.
 
+\subsection*{Filtering Natural Interference}
+\addcontentsline{toc}{subsection}{Filtering Natural Interference}
+
+A similar overlay could be generated using data collected from the Blitzortung server, which may aid in the identification of wide spectrum interference related to lightning strikes. The existing Blitzortung client is an initial skeleton implementation and requires further development. It currently design needs human intervention at several points in order to ensure the processing of data. The development of a full client for interacting with the Blitzortung server would also need approval from the Blitzortung system administrators, as it could potentially add damaging load to the system. It was for this reason the client was not fully automated, manual control ensured excessive load was not put on the server.
+
+\subsection*{Creating Spectrograms with HackRF}
+\addcontentsline{toc}{subsection}{Creating Spectrograms with HackRF}
+
+It was infeasible to reproduce a system as complex as rtl\_power in order to make it compatible with the HackRF transceiver within the scope of this dissertation. It was possible however, to initiate this process by replicating a number of discrete functions which rtl\_power performs in order to produce spectrograms. In Chapter 5 the ability to filter a band of the radio spectrum in GNURadio to exclude unwanted frequencies using \gls{SDR} band pass filters to take power measurements. The rtl\_power utility automates this functionality across a spectrum. 
+
+The GNURadio flow-graph could be further developed to replicate the functionality of rtl\_power by automating the filtering of each subsection, measure the power the \gls{SDR} radiometer before shifting focus to the next section of the frequency band. Power data could then be outputted in a format which would be compatible with the heatmap.py utility for generating spectrograms.
+
+\subsection*{Calibrating the SDRT for Accurate Power Measurements}
+\addcontentsline{toc}{subsection}{Calibrating the SDRT for Accurate Power Measurements}
+
+Until such time as the SDRT is calibrated, the signal intensity measurements are meaningless as they are not in a quantitative data form. The formula shown in Figure: \ref{fig:telescope_calibration} provides the means to calibrate the radio telescope. The cosmic microwave background value $T_{cmb}$  approximates to 2.73K, $T_{source}$ is the radio source, $T_{atm}$ is the added interference from the atmosphere $T_{spillover}$ relates to the emissions entering the receiver from outside the antenna beam while the $T_{rcvr}$ accounts for the noise generated within the receiver itself.
+
+%
+\begin{figure}[here]
+	\centering
+	\begin{equation}
+	k \approx 1.38 \times 10^{-23} Joule K^{-1}
+	\end{equation}
+	\begin{equation}
+	T_N \equiv \frac{P_v}{k}
+	\end{equation}
+	\caption{Converting Power(V) to Temperature(K)}
+	\label{fig:power_to_kelvin_formula}
+\end{figure}
+%
+
+In the formula contained in Figure: \ref{fig:power_to_kelvin_formula}, $k$ is the Boltzmann constant and $T_N$ is the noise temperature while $P_v$ is the power value measured by the radiometer. Using this formula it is possible to calculate the noise temperature value (K) for a noise source power value (V) \citep{nrao-10}. Once calibration is complete it would then be possible to take accurate readings using the SDRT system \citep{nrao-10}. Alternatively the Radio Skypipe software to calibrate the SDRT system with the help of a calibration hardware tool offered by the Radio Jove association \citep{rsp-15} \citep{nasa10}.
+
+
+
+%
+\begin{figure}[here]
+	\centering
+	\begin{equation}
+	T_{sys} = T_{cmb} + \Delta{T_{source}} + T_{atm} + T_{spillover} + T_{rcvr}
+	\end{equation}
+	\caption{Calibration of Telescope Total Noise Power}
+	\label{fig:telescope_calibration}
+\end{figure}
+%
 
 %
 \appendix
@@ -1690,21 +1741,25 @@ Once calibration is complete it would then be possible to take accurate readings
 	\begin{subfigure}[t]{8cm}
 		\centering
 		\includegraphics[width=8cm]{images/14}
-		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}\label{fig:loop_antenna_design_a}		
+		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}
+		\label{fig:loop_antenna_design_a}		
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/16}
-		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}\label{fig:loop_antenna_design_b}
+		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}
+		\label{fig:loop_antenna_design_b}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/15}
-		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}\label{fig:loop_antenna_design_c}
+		\caption{21 MHz Shortwave Loop Antenna Radio Telescope Design \citep{greef-12}}
+		\label{fig:loop_antenna_design_c}
 	\end{subfigure}
-	\caption{21MHz Shortwave Loop Design}\label{fig:loop_antenna_design}
+	\caption{21MHz Shortwave Loop Design}
+	\label{fig:loop_antenna_design}
 \end{figure}
 %
 
@@ -1724,21 +1779,25 @@ Once calibration is complete it would then be possible to take accurate readings
 	\begin{subfigure}[t]{8cm}
 		\centering
 		\includegraphics[width=8cm]{images/46}
-		\caption{Sampling an Analogue Amplitude Modulation Signal \citep{ossmann-15-c}}\label{fig:ossmann_am_demodulation}		
+		\caption{Sampling an Analogue Amplitude Modulation Signal \citep{ossmann-15-c}}
+		\label{fig:ossmann_am_demodulation}		
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/49}
-		\caption{I/Q Sample Polar Plot of an AM Modulated Signal \citep{kuisma-14}}\label{fig:kuisma-iq-am-helix}
+		\caption{I/Q Sample Polar Plot of an AM Modulated Signal \citep{kuisma-14}}
+		\label{fig:kuisma-iq-am-helix}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/50}
-		\caption{I/Q Sample Polar Plot of an FM Modulated Signal \citep{kuisma-14}}\label{fig:kuisma-iq-fm-helix}
+		\caption{I/Q Sample Polar Plot of an FM Modulated Signal \citep{kuisma-14}}
+		\label{fig:kuisma-iq-fm-helix}
 	\end{subfigure}
-	\caption{Signal Modulation}\label{fig:signal_modulation}
+	\caption{Signal Modulation}
+	\label{fig:signal_modulation}
 \end{figure}
 %
 
