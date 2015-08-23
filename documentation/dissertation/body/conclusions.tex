@@ -1,0 +1,94 @@
+\newpage
+\chapter*{Conclusions}
+\addcontentsline{toc}{chapter}{Conclusions}
+
+%\begin{itemize}
+%  \item sum up the answers to all the questions
+%  \item state contributions again
+%  \item where my work fits in the grander scheme
+%  \item further work
+%\end{itemize}
+
+
+This thesis presented a contribution to the use of software defined radio within amateur radio astronomy. The hypothesis of this thesis is that it is possible to design and construct a low cost radio telescope which is capable of capturing Jovian storm emissions in the \gls{DAM} frequency range. The chosen antenna design is based on the NASA Radio Jove project while a software defined radio receiver such as the HackRF or RTL DAB system is used in place of the custom hardware offered in the Radio Jove kit. This hypothesis lead to the development of a suite of open source tools and resources which an amateur radio astronomer on a budget might utilise. All software developed is released under the GNU General Public Licence 2.0 and released on Github at: \textbf{https://github.com/davidkirwan/software\_defined\_radio\_telescope}
+
+The research questions presented in Chapter 1 and how they were answered in the thesis are now reviewed.
+
+\textit{What current Internet of Things (\gls{IOT}) technologies would best suit the development of a software defined radio signal listening station and how cheaply can it be created?}
+
+This question was partly answered in Chapter 2 the radio antenna build and the special resources required in order to perform a site suitability survey was discussed. An opportunity to be involved in a public radio propagation experiment during the March 2015 solar eclipse aided in the verification of the software defined radio receiver, while the antenna was verified by capturing potential instances of \gls{DAM} emissions were recorded during an optimal observation period.
+
+Other aspects of this question was answered in Chapter 3. A process for determining the electrical power requirements of an off grid listening site was discussed in Chapter 3. Appropriate capacity sizing to provide adequate power to run the listening site for extended periods using solar renewable solution to charge batteries was also discussed. The computational and networking requirements were also determined for a system capable of performing the necessary functions of a radio telescope listening station. 
+
+\textit{What processes or algorithms need to be developed to filter or flag known instances of human interference from radio signal observations?}
+
+In Chapter 4, the system for flagging occurrences of amateur radio transmissions was developed, it made use of the global DXCluster systems which the amateur radio enthusiast community use to share information regarding transmissions which were observed. A system for flagging occurrences of natural interference from lightning strikes was also developed. The system makes use of data gathered from the Blitzortung global lightning detection system to identify lightning strikes which occur within a certain range of the listening site.
+
+\textit{What \gls{SDR} tools, processes and or algorithms need to be developed to identify instances of the three main \gls{DAM} emission types detailed in Table. \ref{tab:dam_emissions}?}
+
+Chapter 5 demonstrated the process of generating spectrograms from data recorded using the RTL DAB receiver. Spectrograms provide the means to visualise large portions of the radio spectrum over long periods, in the hope of identifying periods of Jovian storm activity in the \gls{DAM} range. A GNURadio flow-graph was developed in order to generate power plots using a radiometer implemented in \gls{SDR}. Radiometers are used to measure the signal intensity of radio emissions and are a standard tool in the radio astronomer toolbox. A radiometer could be used to find evidence of the \gls{DAM} emissions in data which they might otherwise be invisible.
+
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\section*{Future Work}
+\addcontentsline{toc}{section}{Future Work}
+% A dissertation is a work of scholarly investigation that is grounded in the research literature and differs from a report or a book. It is judged on a prescribed set of academic criteria. Although the likely outcomes are tentative at the start of the program, it is useful to incorporate them into the research proposal to help focus the work program.
+
+I am delighted to say I have lost no enthusiasm for the topic, after my experience working on this thesis. I am in fact encouraged to continue working on the topic. With development of large radio telescope arrays ongoing and planned for the near future such as the LOFAR and SKA, I am considering applying to a doctoral program with the hopes of pursuing a research career in Astronomy.
+
+The future work section is broken up into the following research areas:
+
+\subsection*{Filtering Human Signal Interference}
+\addcontentsline{toc}{subsection}{Filtering Human Signal Interference}
+
+It is envisioned the time and frequency values associated with this data related to amateur radio enthusiast signals, could be overlaid the spectrogram diagram generated by heatmap.py of the previous 24 hours worth of data collected by the telescope, or potentially in real time as information is collected and processed.
+
+\subsection*{Filtering Natural Interference}
+\addcontentsline{toc}{subsection}{Filtering Natural Interference}
+
+An overlay similar to that for the natural signals could be generated using data collected from the Blitzortung server, which may aid in the identification of wide spectrum interference related to lightning strikes. The existing Blitzortung client is an initial skeleton implementation and requires further development. The current design needs human intervention at several points in order to ensure the processing of data. The development of a full client for interacting with the Blitzortung server would also need approval from the Blitzortung system administrators, as it could potentially add damaging load to the system. It was for this reason the client was not fully automated, manual control ensured excessive load was not put on the server.
+
+\subsection*{Creating Spectrograms with HackRF}
+\addcontentsline{toc}{subsection}{Creating Spectrograms with HackRF}
+
+It was infeasible to reproduce a system as complex as rtl\_power in order to make it compatible with the HackRF transceiver within the scope of this dissertation. It was possible however, to initiate this process by replicating a number of discrete functions which rtl\_power performs in order to produce spectrograms. In Chapter 5 the ability to filter a band of the radio spectrum in GNURadio to exclude unwanted frequencies using \gls{SDR} band pass filters to take power measurements. The rtl\_power utility automates this functionality across a spectrum. 
+
+The GNURadio flow-graph could be further developed to replicate the functionality of rtl\_power by automating the filtering of each subsection, measure the power the \gls{SDR} radiometer before shifting focus to the next section of the frequency band. Power data could then be outputted in a format which would be compatible with the heatmap.py utility for generating spectrograms.
+
+\subsection*{Calibrating the SDRT for Accurate Power Measurements}
+\addcontentsline{toc}{subsection}{Calibrating the SDRT for Accurate Power Measurements}
+
+Until such time as the SDRT is calibrated, the signal intensity measurements are meaningless as they are not in a quantitative data form. The formula shown in Figure: \ref{fig:telescope_calibration} provides the means to calibrate the radio telescope. The cosmic microwave background value $T_{cmb}$  approximates to 2.73K, $T_{source}$ is the radio source, $T_{atm}$ is the added interference from the atmosphere $T_{spillover}$ relates to the emissions entering the receiver from outside the antenna beam while the $T_{rcvr}$ accounts for the noise generated within the receiver itself.
+
+%
+\begin{figure}[here]
+	\centering
+	\begin{equation}
+	k \approx 1.38 \times 10^{-23} Joule K^{-1}
+	\end{equation}
+	\begin{equation}
+	T_N \equiv \frac{P_v}{k}
+	\end{equation}
+	\caption{Converting Power(V) to Temperature(K)}
+	\label{fig:power_to_kelvin_formula}
+\end{figure}
+%
+
+In the formula contained in Figure: \ref{fig:power_to_kelvin_formula}, $k$ is the Boltzmann constant and $T_N$ is the noise temperature while $P_v$ is the power value measured by the radiometer. Using this formula it is possible to calculate the noise temperature value (K) for a noise source power value (V) \citep{nrao-10}. Once calibration is complete it would then be possible to take accurate readings using the SDRT system \citep{nrao-10}. Alternatively the telescope could be calibrated using the Radio Skypipe software with the help of a hardware calibration tool offered by the Radio Jove organisation \citep{rsp-15} \citep{nasa10}.
+
+%
+\begin{figure}[here]
+	\centering
+	\begin{equation}
+	T_{sys} = T_{cmb} + \Delta{T_{source}} + T_{atm} + T_{spillover} + T_{rcvr}
+	\end{equation}
+	\caption{Calibration of Telescope Total Noise Power}
+	\label{fig:telescope_calibration}
+\end{figure}
+%
+
+\subsection*{Automated Detection of DAM Emissions}
+\addcontentsline{toc}{subsection}{Automated Detection of DAM Emissions}
+
+It is feasible a machine learning neural network could be developed which could be used to automatically identify \gls{DAM} emissions from signal intensity plots, or perhaps from spectrograms. Interference emission data collected by the utilities developed in Chapter 4 might feed into and help train such a neural network.
