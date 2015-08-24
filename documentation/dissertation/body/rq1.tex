@@ -56,7 +56,7 @@ Each platform would be tested on the following metrics:
 \end{description}
 
 
-The power usage of each system was measured using a power meter and the results were plotted as shown in Figures: \ref{fig:sdrt_power_usage_pi_b}, \ref{fig:sdrt_power_usage_pi_b2}, and \ref{fig:sdrt_power_usage_atom_n55}.
+The power usage of each system was measured using a power meter and the results were plotted as shown in Figures.~\ref{fig:sdrt_power_usage_pi_b}, \ref{fig:sdrt_power_usage_pi_b2}, and \ref{fig:sdrt_power_usage_atom_n55} on page~\pageref{fig:sdrt_power_usage_pi_b}.
 
 
 %
@@ -89,7 +89,7 @@ The power usage of each system was measured using a power meter and the results 
 
 
 \newpage
-Using solar data collected by the national weather service, MET Eireann \citep{MET-15} and \citep{ECAD-15}, a series of plots were produced to aid in the calculation of the battery array capacity required to power the system. As can be seen in the Figure: \ref{fig:barplot_hours_sunshine_waterford}, the mean number of hours of sunlight for the year was calculated to be $\mu = 4.446$, with a minimum of 1 hour and a maximum of 9.156 hours.
+Using solar data collected by the national weather service, MET Eireann \citep{MET-15} and \citep{ECAD-15}, a series of plots were produced to aid in the calculation of the battery array capacity required to power the system. As can be seen in the Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_hours_sunshine_waterford}, the mean number of hours of sunlight for the year was calculated to be $\mu = 4.446$, with a minimum of 1 hour and a maximum of 9.156 hours.
 
 %
 \begin{figure}[here]
@@ -113,7 +113,7 @@ Using solar data collected by the national weather service, MET Eireann \citep{M
 
 Solar Panels generally operate at either 12 or 24V, and when coupled with a battery charge controller, can be used to safely recharge batteries using generated power. The load power value measured previously for the Intel N550 Netbook operating at 100\% was 25W. Taking the load and the assumed voltage value of 12V, the load current was generated using the power equation shown in Equation: \ref{fig:power_equation}. The current required to generate 25W at 12V is 2.08333333A.
 
-An initial estimate of 48 hours of power capacity was made to ensure the system can be powered for an extended period during periods of low solar activity. A plot of load vs battery capacity was generated as shown in Figure: \ref{fig:lineplot_load_battery_capacity}. This plot shows the capacity value required to satisfy a 25W load at 12V for a 48 hour period is about 100Ah.
+An initial estimate of 48 hours of power capacity was made to ensure the system can be powered for an extended period during periods of low solar activity. A plot of load vs battery capacity was generated as shown in Figure.~\ref{fig:lineplot_load_battery_capacity} on page~\pageref{fig:lineplot_load_battery_capacity}. This plot shows the capacity value required to satisfy a 25W load at 12V for a 48 hour period is about 100Ah.
 
 %
 \begin{figure}[!htb]
@@ -127,7 +127,7 @@ An initial estimate of 48 hours of power capacity was made to ensure the system 
 %TODO RQ2 power edit
 
 
-Figure: \ref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hours of sunshine over a 15 year period. This plot demonstrates that for half the year the sun shines for between 1 and 4 hours each day. This is a major limiting factor in creating a self sufficient solar powered system, as batteries may only be charged during periods of sunshine. During the times of the year with daily sunshine hours below the mean, a larger battery capacity is required in order to continue to power the system during days with little sunshine. Correspondingly, as the sunshine hours fall, a larger solar panel is required to ensure as much light as possible is converted to energy storage.
+Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hours of sunshine over a 15 year period. This plot demonstrates that for half the year the sun shines for between 1 and 4 hours each day. This is a major limiting factor in creating a self sufficient solar powered system, as batteries may only be charged during periods of sunshine. During the times of the year with daily sunshine hours below the mean, a larger battery capacity is required in order to continue to power the system during days with little sunshine. Correspondingly, as the sunshine hours fall, a larger solar panel is required to ensure as much light as possible is converted to energy storage.
 
 %
 \begin{figure}	
@@ -158,7 +158,7 @@ Figure: \ref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hour
 %
 
 
-Next a plot of solar panel power output vs time taken to charge a 100Ah battery was generated as Figure: \ref{fig:lineplot_solar_panel_battery_capacity_hours}. This plot shows that in order to reliably charge a battery of size 100Ah in a single day which has the mean hours of sunshine the system will require a solar panel array of at least 350W.
+Next a plot of solar panel power output vs time taken to charge a 100Ah battery was generated as Figure.~\ref{fig:lineplot_solar_panel_battery_capacity_hours} on page~\pageref{fig:lineplot_solar_panel_battery_capacity_hours}. This plot shows that in order to reliably charge a battery of size 100Ah in a single day which has the mean hours of sunshine the system will require a solar panel array of at least 350W.
 
 The measurements were repeated for the Raspberry Pi systems. The power demands were rounded up to 5W which produced a battery capacity of 20Ah to power for 48 hours. The results were then tabulated as shown in Table: \ref{tab:system_power_requirements}. The components required to implement a solar powered system such as the panels, batteries, charge controller and AC/DC inverters were priced and the results were included in this table also. Price wise, having a Raspberry Pi system in the listening station would make for a cost effective solution. As both the B+ and the B2 versions operate with the very low power usage of 5W, the solar renewable solution would be cheapest also at an estimated \euro 150 for the solar power components.
 
