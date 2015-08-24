@@ -10,7 +10,7 @@
 %\end{itemize}
 
 
-This thesis presented a contribution to the use of software defined radio within amateur radio astronomy. The hypothesis of this thesis is that it is possible to design and construct a low cost radio telescope which is capable of capturing Jovian storm emissions in the \gls{DAM} frequency range. The chosen antenna design is based on the NASA Radio Jove project while a software defined radio receiver such as the HackRF or RTL DAB system is used in place of the custom hardware offered in the Radio Jove kit. This hypothesis lead to the development of a suite of open source tools and resources which an amateur radio astronomer on a budget might utilise. All software developed is released under the GNU General Public Licence 2.0 and released on Github at: \textbf{https://github.com/davidkirwan/software\_defined\_radio\_telescope}
+This thesis presented a contribution to the use of software defined radio within amateur radio astronomy. The hypothesis of this thesis is that it is possible to design and construct a low cost radio telescope which is capable of capturing Jovian storm emissions in the \gls{DAM} frequency range. The chosen antenna design is based on the NASA Radio Jove project while a software defined radio receiver such as the HackRF or RTL DAB system is used in place of the custom hardware offered in the Radio Jove kit. This hypothesis lead to the development of a suite of open source tools and resources which an amateur radio astronomer on a budget might utilise. All software developed is released under the GNU General Public Licence 2.0 and released on Github at: \url{https://github.com/davidkirwan/software\_defined\_radio\_telescope}
 
 The research questions presented in Chapter 1 and how they were answered in the thesis are now reviewed.
 
@@ -59,7 +59,7 @@ The GNURadio flow-graph could be further developed to replicate the functionalit
 \subsection*{Calibrating the SDRT for Accurate Power Measurements}
 \addcontentsline{toc}{subsection}{Calibrating the SDRT for Accurate Power Measurements}
 
-Until such time as the SDRT is calibrated, the signal intensity measurements are meaningless as they are not in a quantitative data form. The formula shown in Figure: \ref{fig:telescope_calibration} provides the means to calibrate the radio telescope. The cosmic microwave background value $T_{cmb}$  approximates to 2.73K, $T_{source}$ is the radio source, $T_{atm}$ is the added interference from the atmosphere $T_{spillover}$ relates to the emissions entering the receiver from outside the antenna beam while the $T_{rcvr}$ accounts for the noise generated within the receiver itself.
+Until such time as the SDRT is calibrated, the signal intensity measurements are meaningless as they are not in a quantitative data form. The formula shown in Figure.~\ref{fig:telescope_calibration} on page~\pageref{fig:telescope_calibration} provides the means to calibrate the radio telescope. The cosmic microwave background value $T_{cmb}$  approximates to 2.73 K, $T_{source}$ is the radio source, $T_{atm}$ is the added interference from the atmosphere $T_{spillover}$ relates to the emissions entering the receiver from outside the antenna beam while the $T_{rcvr}$ accounts for the noise generated within the receiver itself.
 
 %
 \begin{figure}[here]
@@ -75,7 +75,7 @@ Until such time as the SDRT is calibrated, the signal intensity measurements are
 \end{figure}
 %
 
-In the formula contained in Figure: \ref{fig:power_to_kelvin_formula}, $k$ is the Boltzmann constant and $T_N$ is the noise temperature while $P_v$ is the power value measured by the radiometer. Using this formula it is possible to calculate the noise temperature value (K) for a noise source power value (V) \citep{nrao-10}. Once calibration is complete it would then be possible to take accurate readings using the SDRT system \citep{nrao-10}. Alternatively the telescope could be calibrated using the Radio Skypipe software with the help of a hardware calibration tool offered by the Radio Jove organisation \citep{rsp-15} \citep{nasa10}.
+In the formula contained in Figure.~\ref{fig:power_to_kelvin_formula} on page~\pageref{fig:power_to_kelvin_formula}, $k$ is the Boltzmann constant and $T_N$ is the noise temperature while $P_v$ is the power value measured by the radiometer. Using this formula it is possible to calculate the noise temperature value (K) for a noise source power value (V) \citep{nrao-10}. Once calibration is complete it would then be possible to take accurate readings using the SDRT system \citep{nrao-10}. Alternatively the telescope could be calibrated using the Radio Skypipe software with the help of a hardware calibration tool offered by the Radio Jove organisation \citep{rsp-15} \citep{nasa10}.
 
 %
 \begin{figure}[here]

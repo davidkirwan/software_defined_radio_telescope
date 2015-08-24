@@ -23,13 +23,11 @@
 	sort=SOC
 }
 
-A major component of designing a self sufficient system is choosing the power supply. One solution is the use of renewable sources such as wind or solar to create energy and the use of a batteries to act as a buffer and storage of this energy. When a suitably large battery array is deployed, power to the system can be provided during periods when there is no sunshine or wind available.
+A major component of designing a self sufficient system is choosing the power supply. One solution is the use of renewable sources such as wind or solar to generate power and the use of a batteries to act as a buffer and storage of this energy. When a suitably large battery array is deployed, power to the system can be provided during periods when there is no sunshine or wind available.
 
 In order to design a self sufficient listening site it was necessary to firstly determine the power requirements of the hardware essential to the functioning of the system. If there are high computational requirements the system will generally also have high power needs, which can have a drastic effect on the cost of implementing a sustainable power supply using renewables. It is prudent therefore to implement the system as cheaply as possible, and using low powered devices.
 
 The SDR RTL and HackRF receivers require a minimum of a USB 2.0 interface and computational requirements for processing data which immediately reduced the potential platforms to devices such as the Raspberry Pi B+, Raspberry Pi B2 and the Intel Atom or better.
-
-\cite{bryce-11}
 
 \subsection*{Methodology}
 The following platforms were chosen for testing purposes as they initially appear to meet or exceed the minimum requirements of operating \textit{rtl\_power} while also building spectrograms from the recorded data using \textit{heatmap.py}:
@@ -89,7 +87,7 @@ The power usage of each system was measured using a power meter and the results 
 
 
 \newpage
-Using solar data collected by the national weather service, MET Eireann \citep{MET-15} and \citep{ECAD-15}, a series of plots were produced to aid in the calculation of the battery array capacity required to power the system. As can be seen in the Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_hours_sunshine_waterford}, the mean number of hours of sunlight for the year was calculated to be $\mu = 4.446$, with a minimum of 1 hour and a maximum of 9.156 hours.
+Using solar data collected by the national weather service, MET Eireann \citep{MET-15} and \citep{ECAD-15}, a period between 1961 and 1977 of solar data was averaged in order to create a series of plots to aid in the calculation of the battery array capacity required to power the system. As can be seen in the Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_hours_sunshine_waterford}, the mean number of hours of sunlight for this period of time was calculated to be $\mu = 4.446$, with a minimum of 1 hour and a maximum of 9.156 hours.
 
 %
 \begin{figure}[here]
@@ -111,9 +109,9 @@ Using solar data collected by the national weather service, MET Eireann \citep{M
 \end{figure}
 %
 
-Solar Panels generally operate at either 12 or 24V, and when coupled with a battery charge controller, can be used to safely recharge batteries using generated power. The load power value measured previously for the Intel N550 Netbook operating at 100\% was 25W. Taking the load and the assumed voltage value of 12V, the load current was generated using the power equation shown in Equation: \ref{fig:power_equation}. The current required to generate 25W at 12V is 2.08333333A.
+Consumer solar panels generally operate at voltages between 12 - 48 V, and when coupled with a battery charge controller, to ensure a battery bank, which may be operating on a lower voltage, can be safely recharged using generated power. The load power value measured previously for the Intel N550 Netbook operating at 100\% was 25 W. Taking the load and the assumed voltage value of 12 V, the load current was generated using the power equation shown in Equation: \ref{fig:power_equation}. The current required to generate 25 W at 12 V is 2.08333333 A.
 
-An initial estimate of 48 hours of power capacity was made to ensure the system can be powered for an extended period during periods of low solar activity. A plot of load vs battery capacity was generated as shown in Figure.~\ref{fig:lineplot_load_battery_capacity} on page~\pageref{fig:lineplot_load_battery_capacity}. This plot shows the capacity value required to satisfy a 25W load at 12V for a 48 hour period is about 100Ah.
+An initial estimate of 48 hours of power capacity was made to ensure the system can be powered for an extended period during periods of low solar activity. A plot of load vs battery capacity was generated as shown in Figure.~\ref{fig:lineplot_load_battery_capacity} on page~\pageref{fig:lineplot_load_battery_capacity}. This plot shows the capacity value required to satisfy a 25 W load at 12 V for a 48 hour period is about 100 Ah.
 
 %
 \begin{figure}[!htb]
@@ -125,7 +123,7 @@ An initial estimate of 48 hours of power capacity was made to ensure the system 
 %
 
 %TODO RQ2 power edit
-
+\cite{bryce-11}
 
 Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hours of sunshine over a 15 year period. This plot demonstrates that for half the year the sun shines for between 1 and 4 hours each day. This is a major limiting factor in creating a self sufficient solar powered system, as batteries may only be charged during periods of sunshine. During the times of the year with daily sunshine hours below the mean, a larger battery capacity is required in order to continue to power the system during days with little sunshine. Correspondingly, as the sunshine hours fall, a larger solar panel is required to ensure as much light as possible is converted to energy storage.
 
@@ -183,7 +181,6 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 \addcontentsline{toc}{section}{Determine SDRT Computational Power Requirements}
 The aim of this experiment was to determine the minimal hardware which was computationally capable of collecting data, while  performing any data analytical or processing tasks required by the system.
 
-%TODO RQ2,2 power edit
 
 \subsection*{Methodology}
 The following platforms were chosen for testing purposes as they initially appear to meet or exceed the minimum requirements of operating \textit{rtl\_power} while also building spectrograms from the recorded data using \textit{heatmap.py}:
