@@ -103,7 +103,7 @@ battery_calculator <- function(watts, voltage, time){
   # Returns capacity of the battery in Ah to power system load watts at 
   # voltage for time hours
   amps <- watts / voltage
-  result <- amps * time
+  result <- (amps * time)* 5
   return(result)
 }
 
@@ -128,7 +128,7 @@ for(i in 0:51){
 }
 
 for(i in 0:51){
-  watts_vector = c(watts_vector, solar_panel_calculator(12, 100, i))
+  watts_vector = c(watts_vector, solar_panel_calculator(12, 500, i))
 }
 
 solar_battery_data <- data.frame(
@@ -154,7 +154,7 @@ y <- solar_battery_data$watts[1:11]
 plot(x, y,
      yaxs="i", 
      xaxs="i",
-     main='Time to charge 100Ah 12V Battery',
+     main='Time to charge 500Ah 12V Battery',
      xlab='Charge Time(h)',
      ylab='Solar Panel Power(W)')
 
