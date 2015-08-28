@@ -109,9 +109,9 @@ Using solar data collected by the national weather service, MET Eireann \citep{M
 \end{figure}
 %
 
-Consumer solar panels generally operate at voltages between 12 - 48 V, and should coupled with a battery charge controller, to ensure a battery bank, which may be operating on a lower voltage, can be safely recharged using generated power \citep{bryce-11}. The load power value measured previously for the Intel N550 Netbook operating at 100\% was 25 W. Taking the load and the assumed voltage value of 12 V, the load current was generated using the power equation shown in Equation: \ref{fig:power_equation}. The current required to generate 25 W at 12 V is 2.08333333 A.
+Consumer solar panels generally operate at voltages between 12 - 48 V, and should when coupled with a battery charge controller, ensure a battery bank which may be operating on a lower voltage, can be safely recharged using generated power \citep{bryce-11}. The load power value measured previously for the Intel N550 Netbook operating at 100\% was 25 W. Taking the load and the assumed voltage value of 12 V, the load current was generated using the power equation shown in Equation: \ref{fig:power_equation}. The current required to generate 25 W at 12 V is 2.08333333 A.
 
-An initial estimate of 48 hours of power capacity was made to ensure the system can be powered for an extended period during periods of low solar activity. A plot of load vs battery capacity was generated as shown in Figure.~\ref{fig:lineplot_load_battery_capacity} on page~\pageref{fig:lineplot_load_battery_capacity}. This plot shows the capacity value required to satisfy a 25 W load at 12 V for a 48 hour period is about 100 Ah.
+An initial estimate of 48 hours of power capacity was made to ensure the system can be powered for an extended period during periods of low solar activity. A plot of load vs battery capacity was generated as shown in Figure.~\ref{fig:lineplot_load_battery_capacity} on page~\pageref{fig:lineplot_load_battery_capacity}. This plot shows the capacity value required to satisfy a 25 W load at 12 V for a 48 hour period is about 100 Ah. When using lead-acid batteries, it is wise to only ever consume about 20\% of capacity, otherwise it will cause unnecessary degradation \citep{bryce-11}. For this reason to safely consume 100 Ah, the battery bank total capacity should be closer to 500 Ah.
 
 %
 \begin{figure}[!htb]
@@ -121,8 +121,6 @@ An initial estimate of 48 hours of power capacity was made to ensure the system 
 	\label{fig:boxplot_hours_sunshine_waterford}
 \end{figure}
 %
-
-%TODO RQ1 power edit
 
 Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_hours_sunshine_waterford} shows the averaged daily hours of sunshine over a 15 year period. This plot demonstrates that for half the year the sun shines for between 1 and 4 hours each day. This is a major limiting factor in creating a self sufficient solar powered system, as batteries may only be charged during periods of sunshine. During the times of the year with daily sunshine hours below the mean, a larger battery capacity is required in order to continue to power the system during days with little sunshine. Correspondingly, as the sunshine hours fall, a larger solar panel is required to ensure as much light as possible is converted to energy storage.
 
@@ -146,7 +144,7 @@ Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/65}
-		\caption{Size of Solar Panel Required to Charge 100Ah Battery in Hours}
+		\caption{Size of Solar Panel Required to Charge 100 Ah Battery in Hours}
 		\label{fig:lineplot_solar_panel_battery_capacity_hours}
 	\end{subfigure}
 	\caption{Solar Plots}
@@ -155,9 +153,9 @@ Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_
 %
 
 
-Next a plot of solar panel power output vs time taken to charge a 100Ah battery was generated as Figure.~\ref{fig:lineplot_solar_panel_battery_capacity_hours} on page~\pageref{fig:lineplot_solar_panel_battery_capacity_hours}. This plot shows that in order to reliably charge a battery of size 100Ah in a single day which has the mean hours of sunshine the system will require a solar panel array of at least 350W.
+Next a plot of solar panel power output vs time taken to charge a 500 Ah battery was generated as Figure.~\ref{fig:lineplot_solar_panel_battery_capacity_hours} on page~\pageref{fig:lineplot_solar_panel_battery_capacity_hours}. This plot shows that in order to reliably charge a battery of size 500 Ah in a single day which has the mean hours of sunshine the system will require a solar panel array of at least 2 kW.
 
-The measurements were repeated for the Raspberry Pi systems. The power demands were rounded up to 5W which produced a battery capacity of 20Ah to power for 48 hours. The results were then tabulated as shown in Table: \ref{tab:system_power_requirements}. The components required to implement a solar powered system such as the panels, batteries, charge controller and AC/DC inverters were priced and the results were included in this table also. Price wise, having a Raspberry Pi system in the listening station would make for a cost effective solution. As both the B+ and the B2 versions operate with the very low power usage of 5W, the solar renewable solution would be cheapest also at an estimated \euro 150 for the solar power components.
+The measurements were repeated for the Raspberry Pi systems. The power demands were rounded up to 5 W which produced a battery capacity of 80 Ah to power for 48 hours. The results were then tabulated as shown in Table: \ref{tab:system_power_requirements}. The components required to implement a solar powered system such as the panels, batteries, charge controller and AC/DC inverters were priced and the results were included in this table also. Price wise, having a Raspberry Pi system in the listening station would make for a cost effective solution. As both the B+ and the B2 versions operate with the very low power usage of 5 W, the solar renewable solution would be cheapest also at an estimated \euro 300 for the solar power components.
 
 %
 \begin{table}
@@ -165,9 +163,9 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 	\begin{tabular}{l r r r}
 		\toprule
 		Equipment & Solar Panel Power(W) & Battery Capacity(Ah) & Estimated Cost(\euro)\\ \midrule
-		Raspberry Pi B+ & 75 & 20 & 150 \\
-		Raspberry Pi B2 & 75 & 20 & 150 \\
-		Intel Atom N550 & 350 & 100 & 500 \\
+		Raspberry Pi B+ & 250 & 80 & 300 \\
+		Raspberry Pi B2 & 250 & 80 & 300 \\
+		Intel Atom N550 & 2000 & 500 & 1500+ \\
 		\bottomrule
 	\end{tabular}
 	\caption{System Power Requirements}
@@ -213,7 +211,6 @@ The Intel Atom powered Netbook performed considerably better with a result of 4.
 %
 
 
-\newpage
 \section*{Determine SDRT Network Connectivity Requirements}
 \addcontentsline{toc}{section}{Determine SDRT Network Connectivity Requirements}
 The aim of this experiment was to determine the optimal networking technology to transfer collected and or processed data from the SDRT to another system.
