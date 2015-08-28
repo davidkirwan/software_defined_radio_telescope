@@ -113,7 +113,7 @@ solar_panel_calculator <- function(voltage, amps, time){
   # battery of voltage(V) and amps(Ah) capacity in time(h)
   amps_per_1_hour = as.double(amps / time)
   watts = voltage * amps_per_1_hour
-  result = watts
+  result = watts * 1.33
   return(result)
 }
 
