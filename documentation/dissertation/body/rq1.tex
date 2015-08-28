@@ -144,7 +144,7 @@ Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_
 	\begin{subfigure}[t]{5cm}
 		\centering
 		\includegraphics[width=5cm]{images/65}
-		\caption{Size of Solar Panel Required to Charge 100 Ah Battery in Hours}
+		\caption{Size of Solar Panel Required to Charge 500 Ah Battery in Hours}
 		\label{fig:lineplot_solar_panel_battery_capacity_hours}
 	\end{subfigure}
 	\caption{Solar Plots}
@@ -153,7 +153,7 @@ Figure.~\ref{fig:barplot_hours_sunshine_waterford} on page~\pageref{fig:barplot_
 %
 
 
-Next a plot of solar panel power output vs time taken to charge a 500 Ah battery was generated as Figure.~\ref{fig:lineplot_solar_panel_battery_capacity_hours} on page~\pageref{fig:lineplot_solar_panel_battery_capacity_hours}. This plot shows that in order to reliably charge a battery of size 500 Ah in a single day which has the mean hours of sunshine the system will require a solar panel array of at least 2 kW.
+Next a plot of solar panel power output vs time taken to charge a 500 Ah battery was generated as Figure.~\ref{fig:lineplot_solar_panel_battery_capacity_hours} on page~\pageref{fig:lineplot_solar_panel_battery_capacity_hours}. This plot shows that in order to reliably charge a battery of size 500 Ah in a single day which has the mean hours of sunshine the system will require a solar panel array of at least 2.5 kW.
 
 The measurements were repeated for the Raspberry Pi systems. The power demands were rounded up to 5 W which produced a battery capacity of 80 Ah to power for 48 hours. The results were then tabulated as shown in Table: \ref{tab:system_power_requirements}. The components required to implement a solar powered system such as the panels, batteries, charge controller and AC/DC inverters were priced and the results were included in this table also. Price wise, having a Raspberry Pi system in the listening station would make for a cost effective solution. As both the B+ and the B2 versions operate with the very low power usage of 5 W, the solar renewable solution would be cheapest also at an estimated \euro 300 for the solar power components.
 
@@ -163,9 +163,9 @@ The measurements were repeated for the Raspberry Pi systems. The power demands w
 	\begin{tabular}{l r r r}
 		\toprule
 		Equipment & Solar Panel Power(W) & Battery Capacity(Ah) & Estimated Cost(\euro)\\ \midrule
-		Raspberry Pi B+ & 250 & 80 & 300 \\
-		Raspberry Pi B2 & 250 & 80 & 300 \\
-		Intel Atom N550 & 2000 & 500 & 1500+ \\
+		Raspberry Pi B+ & 330 & 80 & 300 \\
+		Raspberry Pi B2 & 330 & 80 & 300 \\
+		Intel Atom N550 & 2500 & 500 & 1500+ \\
 		\bottomrule
 	\end{tabular}
 	\caption{System Power Requirements}
