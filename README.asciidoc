@@ -11,4 +11,3 @@ aim the antenna at multiple points in the sky. The system is aided further with 
 more information see the http://radiojove.gsfc.nasa.gov/telescope/ant_manual.pdf[NASA Radio Jove Antenna Manual].
 
 image::http://davidkirwan.github.io/software_defined_radio_telescope/images/antenna_design.png[SDRT Antenna Design]
-image::http://davidkirwan.github.io/software_defined_radio_telescope/images/poster.png[SDRT Poster]
