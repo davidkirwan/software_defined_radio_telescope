@@ -11,10 +11,8 @@ require 'fileutils'
 require 'logger'
 require 'redis'
 require 'json'
-require File.dirname(__FILE__) + "/lib/common.rb"
-
-# Include lib/common/tasks
-include Common::Tasks
+require File.dirname(__FILE__) + "/lib/config_reader.rb"
+require File.dirname(__FILE__) + "/lib/date_string.rb"
 
 # Setup variables
 begin
