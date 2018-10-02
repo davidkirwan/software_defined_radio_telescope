@@ -11,16 +11,16 @@ require 'fileutils'
 require 'logger'
 require 'redis'
 require 'net/telnet'
-require File.dirname(__FILE__) + "/lib/common.rb"
-
-# Include lib/common/tasks
-include Common::Tasks
+require 'date'
+require 'time'
 
 # Setup variables
 begin
   @log = Logger.new(STDOUT)
   @log.level = Logger::DEBUG
-  @date = DateString.now # Common::Tasks::DateString#now
+  now = DateTime.now
+  @date = now.year.to_s + "-" + "%02d" % now.month + "-" + "%02d" % now.day + " " + "%02d" % now.hour + ":" + "%02d" % now.min + ":" + "%02d" % now.sec
+
 rescue Exception => e
   raise e
 end
@@ -35,7 +35,7 @@ namespace :telnet do
 
   desc "Start the job worker"
   task :start do
-    @log.debug "Task telnet:start starting: #{DateString.now}"
+    @log.debug "Task telnet:start starting: #{@date}"
     tasktimer = Time.now
 
     client = Net::Telnet::new("Host" => "ei7mre.ath.cx",
@@ -56,6 +56,6 @@ namespace :telnet do
       end
     end
 
-    @log.debug "Task telnet:start complete: #{DateString.now} duration: #{Time.now - tasktimer} seconds"
+    @log.debug "Task telnet:start complete: #{@date} duration: #{Time.now - tasktimer} seconds"
   end
 end
